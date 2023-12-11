@@ -1,0 +1,18 @@
+.title{
+    color:blue !important
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.left-section{
+    background-color:yellowgreen;
+    width: 1000px;
+    border-right: 1px solid black;
+     
+}
+
+.right-section{
+    padding: 10px;
+}

@@ -1,0 +1,21 @@
+
+
+{
+    "name":"Nom du projet",
+    "type":"INPROGRESS",
+    "invoiceNumber":"1",
+    "invoiceDate":"2023-08-04 23:21:20",
+    "invoiceType":"0",
+    "modalite":"50",
+   "remarque":"remarque",
+    "createdAt":"2023-08-02 13:17:10",
+    "table":[
+        {"id":"ef4ac7ed-fd3f-44e3-a872-208673cf625b","designation":"Element 1","quantity":20,"rate":"1000000","amount":20000000},
+        {"id":"ef4ac7ed-fd3f-44e3-a872-208673cf6x5b","designation":"Element 2","quantity":10,"rate":"100000","amount":1000000},
+        {"id":"ef4ac7ed-fd3f-44e3-a872-2d8673cf6x5b","designation":"Element 3","quantity":5,"rate":"100000","amount":500000},
+        {"id":"ef4ac7ed-fd3f-44e3-a872-2d8673cf6x5b","designation":"Element 4","quantity":1,"rate":"100000","amount":100000}
+    ],
+    "amountTotal":"23600000",
+    "discount":"10",
+    "tva":"18"
+ }

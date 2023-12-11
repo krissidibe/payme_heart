@@ -1,0 +1,292 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialActions"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  authorId          String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  userId            String
+  user              User    @relation(fields: [userId], references: [id])
+
+  @@unique([provider, providerAccountId])
+  @@index([authorId], map: "Account_authorId_fkey")
+  @@index([userId], map: "Account_userId_fkey")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  authorId     String
+  author       User     @relation(fields: [authorId], references: [id])
+
+  @@index([authorId], map: "Session_authorId_fkey")
+}
+
+model User {
+  id               String        @id @default(cuid())
+  email            String        @unique
+  image            String?       @default("")
+  name             String
+  address          String?       @default("")
+  country          String?       @default("")
+  countryPhoneCode String?       @default("")
+  lockCode         Boolean
+  code             String?
+  number           String
+  password         String
+  normalSignUp     Boolean
+  createdAt        DateTime?     @db.Timestamp(0)
+  updatedAt        DateTime?     @default(now()) @db.Timestamp(0)
+  deletedAt        DateTime?     @db.Timestamp(0)
+  emailVerified    Boolean       @default(false)
+  role             UserRole      @default(USER)
+  inTrash          Boolean?      @default(false)
+  accounts         Account[]
+  customers        Customers[]
+  enterprise       Enterprise?
+  folders          Folder[]
+  planning         Planning[]
+  project          Project[]
+  sessions         Session[]
+  planningItems PlanningItem[]
+  transactions     Transaction[]
+  payments     Payment[]
+
+  subscribeId      String?
+  subscribe        Subscribe?         @relation(fields: [subscribeId], references: [id] , onDelete: SetNull)
+}
+
+model Enterprise {
+  id              String    @id @default(cuid())
+  email           String
+  activity        String
+  address         String
+  numbers         String 
+  currency       String
+  name            String
+  nif             String?   @default("")
+  statut          String
+  bankNumber      String?   @default("")
+  website         String?   @default("")
+  factureNumber   Int
+  codeFinance     String?   
+  lockFinance     Boolean?   
+  userId          String    @unique
+  createdAt       DateTime? @db.Timestamp(0)
+  deletedAt       DateTime? @db.Timestamp(0)
+  inTrash         Boolean?  @default(false)
+  updatedAt       DateTime? @default(now()) @db.Timestamp(0)
+  rccm            String?   @default("")
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Customers {
+  id              String       @id @default(cuid())
+  externalContact String
+  externalEmail   String
+  externalName    String
+  activity        String
+  address         String
+  country         String
+  email           String?      @default("")
+  image           String?      @default("")
+  name            String
+  type            CustomerType
+  inTrash         Boolean?     @default(false)
+  createdAt       DateTime?    @db.Timestamp(0)
+  updatedAt       DateTime?    @default(now()) @db.Timestamp(0)
+  deletedAt       DateTime?    @db.Timestamp(0)
+  userId          String
+  poste           String
+  user            User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project         Project[]
+
+  @@index([userId], map: "Customers_userId_fkey")
+}
+
+model Project {
+  id                String      @id @default(cuid())
+  name              String
+  type              ProjectType
+  invoiceNumber     Int
+  proformaDate       DateTime?   @db.Timestamp(0)
+  invoiceDate       DateTime?   @db.Timestamp(0)
+  discountItemTable String?     @db.LongText
+  table             String?     @db.LongText
+  amountTotal       String?     @default("0")
+  tva               String?     @default("")
+  inTrash           Boolean?    @default(false)
+  createdAt         DateTime?   @db.Timestamp(0)
+  updatedAt         DateTime?   @default(now()) @db.Timestamp(0)
+  deletedAt         DateTime?   @db.Timestamp(0)
+  customerId        String
+  userId            String
+  discount          String?     @default("")
+  invoiceType       Int         @default(0)
+  modalite          String?     @default("")
+  remarque          String?     @db.LongText
+  customer          Customers   @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([customerId], map: "Project_customerId_fkey")
+  @@index([userId], map: "Project_userId_fkey")
+}
+
+model Transaction {
+  id          String    @id @default(cuid())
+  client      String
+  projectName String
+  type        String
+  amountTotal String
+  inTrash     Boolean?  @default(false)
+  createdAt   DateTime? @db.Timestamp(0)
+  updatedAt   DateTime? @default(now()) @db.Timestamp(0)
+  deletedAt   DateTime? @db.Timestamp(0)
+  userId      String
+  taxe        String?
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId], map: "Transaction_userId_fkey")
+}
+
+model Folder {
+  id          String       @id @default(cuid())
+  name        String
+  type        FolderType
+  createdAt   DateTime?    @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+  deletedAt   DateTime?    @db.Timestamp(0)
+  userId      String
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  folderUsers FolderUser[]
+
+  @@index([userId], map: "Folder_userId_fkey")
+}
+
+model FolderUser {
+  id        String    @id @default(cuid())
+  contact   String
+  country   String
+  name      String
+  email     String?
+  function  String?
+  indicatif String
+  rate      String
+  sexe      String
+  createdAt DateTime? @db.Timestamp(0)
+  updatedAt DateTime? @default(now()) @db.Timestamp(0)
+  deletedAt DateTime? @db.Timestamp(0)
+  folderId  String
+  birthDate DateTime? @db.Timestamp(0)
+  contrat   String?
+  poste     String?
+  folder    Folder    @relation(fields: [folderId], references: [id], onDelete: Cascade)
+
+  @@index([folderId], map: "FolderUser_folderId_fkey")
+}
+
+model Planning {
+  id            String         @id @default(cuid())
+  name          String
+  createdAt     DateTime?      @db.Timestamp(0)
+  updatedAt     DateTime?      @default(now()) @db.Timestamp(0)
+  deletedAt     DateTime?      @db.Timestamp(0)
+  color         String?
+ 
+  userId        String
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  PlanningItems PlanningItem[]
+
+  @@index([userId], map: "Planning_userId_fkey")
+}
+
+model PlanningItem {
+  id          String    @id @default(cuid())
+  name        String
+  content     String    @db.LongText
+  date        DateTime? @db.Timestamp(0)
+  createdAt   DateTime? @db.Timestamp(0)
+  updatedAt   DateTime? @default(now()) @db.Timestamp(0)
+  deletedAt   DateTime? @db.Timestamp(0)
+  planningId  String
+  color       String?
+  isCompleted Boolean   @default(false)
+  archive       Boolean?      @default(false)
+  planning    Planning  @relation(fields: [planningId], references: [id], onDelete: Cascade)
+
+  userId        String
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([planningId], map: "PlanningItem_planningId_fkey")
+}
+
+
+
+model Payment {
+  id          String       @id @default(cuid())
+  reference        String  @default(cuid())
+  type        String
+  month        Int
+  amount        Int
+  currency        String
+  createdAt   DateTime     @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+  deletedAt   DateTime?    @db.Timestamp(0)
+  subscribe    Subscribe?
+  userId      String
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade )
+}
+
+model Subscribe {
+  id          String       @id @default(cuid())
+  startAt   DateTime?    @db.Timestamp(0)
+  endAt   DateTime?    @db.Timestamp(0)
+  createdAt   DateTime     @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+  deletedAt   DateTime?    @db.Timestamp(0)
+  users        User[]
+   paymentId      String @unique
+  payment        Payment         @relation(fields: [paymentId], references: [id], onDelete: Cascade )
+}
+
+
+
+
+
+enum CustomerType {
+  ENTERPRISE
+  PERSONAL
+}
+
+enum ProjectType {
+  INPROGRESS
+  ISVALIDATE
+  ISFINISH
+}
+
+enum FolderType {
+  PROVIDER
+  SUPPLIER
+  PERSONAL
+}
+
+enum UserRole {
+  USER
+}

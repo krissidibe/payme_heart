@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `Folder` MODIFY `type` ENUM('PROVIDER', 'SUPPLIER', 'PERSONAL') NOT NULL;

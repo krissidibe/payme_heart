@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+
+
+
+@layer components {
+.gestion{
+  /* Ellipse_Body */
+
+position: absolute;
+width: 1300px;
+height: 322px;
+left: calc(50% - 1300px/2 - 12px);
+top: 0px;
+
+background: linear-gradient(90deg, rgba(251, 252, 225, 0.5) 22%, rgba(154, 154, 92, 0.5) 65.97%);
+opacity: 0.6;
+filter: blur(161px);
+
+}
+.heroEclipse{
+  /* Ellipse_Hero */
+
+position: absolute;
+width: 1300px;
+height: 322px;
+left: calc(50% - 1300px/2 + 20px);
+top: 577px;
+
+background: linear-gradient(90deg, rgba(251, 252, 225, 0.5) 20.59%, rgba(154, 154, 92, 0.5) 62.69%);
+opacity: 0.6;
+filter: blur(161px);
+
+}
+  .downloadApp {
+    
+ /* Group 225 */
+
+position: absolute;
+width: 222px;
+height: 52px;
+left: calc(50% - 222px/2 - 6px);
+top: 488px;
+
+opacity: 0.7;
+filter: blur(32px);
+
+
+/* Rectangle 7 */
+
+position: absolute;
+width: 222px;
+height: 52px;
+left: 0px;
+top: 33px;
+opacity: 0.5;
+
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(89.94deg, #999A5B -59.84%, #FFFFEA 152.29%);
+border-radius: 8px;
+
+  }
+  .eclipse {
+    
+position: absolute;
+width: 1375.39px;
+height: 78.4px;
+left: calc(50% - 1375.39px/2 - 448.12px);
+top: 0px;
+ z-index: 1;
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(88.8deg, #9A9A5C 29.89%, rgba(251, 252, 225, 0.62) 51.37%);
+filter: blur(161px);
+transform: rotate(15deg);
+  }
+  /* 
+    .card {
+      background-color: #9a976870;
+      background-position: center;
+      transition: background 0.8s;
+    }
+    .card:active {
+      background-color: #9a976870;
+      background-size: 100%;
+      transition: background 0s;
+  }
+  .card:hover {
+    background: #9a976870 radial-gradient(circle, transparent 1%, #9a976870 1%) center/15000%;
+  } */
+    .primary{
+      @apply bg-[#9a9768]
+    }
+    .text-primary{
+      @apply text-[#9a9768]
+    }
+    .btn-blue {
+      @apply px-4 py-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-500;
+    }
+  
+    
+  }
+
+
+
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}

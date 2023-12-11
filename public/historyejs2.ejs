@@ -1,0 +1,232 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+  <style>
+    .page-header,
+    .page-header-space {
+      height: 100px;
+    }
+
+    .page-footer,
+    .page-footer-space {
+      height: 110px;
+      padding-top: 20px;
+    }
+
+    .page-footer {
+      position: fixed;
+      bottom: 80px;
+
+      width: 100%;
+      /* for demo */
+      /* for demo */
+    }
+
+    .page-header {
+      position: fixed;
+      top: 0mm;
+      width: 100%;
+      border-bottom: 1px solid black; /* for demo */
+      background: yellow; /* for demo */
+    }
+
+    .page {
+      page-break-after: always;
+      padding-bottom: 0px;
+    }
+
+    @page {
+      margin: 0mm;
+    }
+
+    @media print {
+      thead {
+        display: table-header-group;
+      }
+      tfoot {
+        display: table-footer-group;
+      }
+
+      button {
+        display: none;
+      }
+
+      body {
+        margin: 0;
+      }
+    }
+  </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import
+      url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap");
+    </style>
+    <script src="history.js"></script>
+  </head>
+  <body id="template" class="">
+    <div class="pt-10 page-footer">
+      <div class="w-1/2 h-[4px] mt-10 mb-3 bg-black"></div>
+      <div class="text-[11px] px-[57px] line-clamp-3">
+        <p>
+          Ces informations retraçant l'historique financier sont strictement confidentielles et destinées à un usage interne uniquement. Toute responsabilité quant à l'utilisation ou à la divulgation non autorisée de ces données incombe à l'utilisateur, et nous nous exonérons de toute responsabilité à cet égard.  </p>
+      </div>
+    </div>
+    <table>
+      <tbody>
+        <tr>
+          <td class="pages">
+   
+    <!-- info -->
+    <div
+      class="h-[135px] w-full flex justify-between items-end p-7 bg-[#23201F] text-white"
+    >
+    <img src="<%=data.logo%>"   class="w-[170px] ml-5 mb-[12px]" alt="" srcset="">
+      <div class="">
+        <p class="text-[12px] mr-8">www.paymefinance.com</p>
+      </div>
+      
+
+    </div>
+
+    <div
+      class="flex justify-end w-full mt-12 mb-5 text-2xl font-bold px-14"
+    >RELEVÉS D'OPÉRATIONS</div>
+
+    <div class="px-14 mt-[0px]">
+      <div
+        class="flex justify-between w-full mb-3 text-[11px]  text-white py-3 font-bold bg-[#23201F] px-7"
+      >
+        <p>HISTORIQUE DES FINANCES </p>
+        <p><%= data.startAt %> AU <%= data.endAt %></p>
+
+      </div>
+      <div
+        class="flex text-[13px] mb-3 font-bold text-black bg-white border-b-[1px] border-t-[1px] border-black"
+      >
+        <div
+          class="py-3 text-[11px] border-white min-w-[104px] text-center uppercase"
+        >
+          DATE
+        </div>
+        <div
+          class="py-3 text-[11px] border-white min-w-[110px] text-center uppercase"
+        >
+          CLIENT
+        </div>
+        <div
+          class="py-3 text-[11px] border-white min-w-[130px] text-center uppercase"
+        >
+          PROJET
+        </div>
+        <div
+          class="w-full px-6 py-3 text-[11px] text-center uppercase max-w-[100px]"
+        >TAXE</div>
+        <div
+          class="w-full px-6 py-3 text-[11px] text-left uppercase"
+        >MONTANT</div>
+        <div
+          class="w-full px-6 py-3 text-[11px] text-left min-w-[180px] uppercase"
+        >TYPE DE VERSEMENT</div>
+      </div>
+      <!-- text-black bg-gray-100 -->
+      
+      <% data.dataTable.forEach(function(item,index) { %>
+      
+
+        <% if(index % 2 == 0){ %>
+          <div
+          class="flex text-[13px]  text-black bg-white"
+        >
+        <% } else{ %>  
+          <div
+          class="flex text-[13px]  text-black bg-gray-100"
+        >
+       <% } %>
+   
+        <div
+          class="py-3 text-[11px] border-white min-w-[104px] text-center uppercase"
+        >
+        <%=item.createdAt.split("-")[2].substring(0,2) %>/<%=item.createdAt.split("-")[1] %>/<%=item.createdAt.split("-")[0] %>
+        </div>
+        <div
+          class="my-3 text-[11px] border-white min-w-[110px]    line-clamp-2  text-center "
+        >
+        <%=item.client%>
+        </div>
+        <div
+          class="my-3 text-[11px] border-white min-w-[130px]   line-clamp-2  text-center "
+        >
+        <%=item.projectName%>
+        </div>
+        <div
+          class="w-full px-6 py-3 text-[11px] text-center uppercase max-w-[100px]"
+        > <%=item.taxe%></div>
+        <div
+          class="w-full px-2 py-3 text-[11px] text-center uppercase"
+        > <%=parseInt(item.amountTotal).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")%></div>
+        <div
+          class="w-full  px-2 py-3 text-[11px] text-center min-w-[180px] "
+        >  
+      
+
+        <% if(item.type == 0){ %>
+          Virement bancaire
+      
+       <% } %>
+
+        <% if(item.type == 1){ %>
+          Paiement en espèce
+      
+       <% } %>
+
+        <% if(item.type == 2){ %>
+          Paiement par chèque
+      
+       <% } %>
+      
+      
+      
+      </div>
+      </div>
+      
+    
+     
+     <% }) %>
+
+
+      
+      
+
+    </div>
+
+    <div class="flex justify-end mt-10 px-14">
+      <p class="mt-4 text-[13px] font-bold bg-black text-white p-2 px-3 flex">
+        TOTAL : <%=parseInt(data.totalTTC).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")%> <%= data.currency %>
+      </p>
+    </div>
+
+  
+
+  </td>
+</tr>
+</tbody>
+<tfoot>
+  <tr>
+    <td>
+      <!--place holder for the fixed-position footer-->
+      <div class="page-footer-space"></div>
+    </td>
+  </tr>
+</tfoot>
+</table>
+  </body>
+  <script   type="text/x-handlebars-template">
+  Handlebars.registerHelper('isDivisor', function (num1) {
+    return "kris";
+});
+</script>
+</html>

@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE `Project` MODIFY `tva` VARCHAR(191) NULL DEFAULT '',
+    MODIFY `discount` VARCHAR(191) NULL DEFAULT '',
+    MODIFY `modalite` VARCHAR(191) NULL DEFAULT '';

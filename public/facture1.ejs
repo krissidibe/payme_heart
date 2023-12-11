@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <style>
+    .page-header,
+    .page-header-space {
+      height: 100px;
+    }
+
+    .page-footer,
+    .page-footer-space {
+      height: 100px;
+    }
+
+    .page-footer {
+      position: fixed;
+      bottom: 80px;
+
+      width: 100%;
+      /* for demo */
+      /* for demo */
+    }
+
+    .page-header {
+      position: fixed;
+      top: 0mm;
+      width: 100%;
+      border-bottom: 1px solid black; /* for demo */
+      background: yellow; /* for demo */
+    }
+
+    .page {
+      page-break-after: always;
+      padding-bottom: 0px;
+    }
+
+    @page {
+      margin: 0mm;
+    }
+
+    @media print {
+      thead {
+        display: table-header-group;
+      }
+      tfoot {
+        display: table-footer-group;
+      }
+
+      button {
+        display: none;
+      }
+
+      body {
+        margin: 0;
+      }
+    }
+  </style>
+
+  <body>
+    <div class="pt-10 page-footer">
+      <div class="w-1/2 h-2 mt-8 mb-3 bg-[#0aba25]"></div>
+      <div class="text-[11px] px-[57px] line-clamp-3">
+        <p>
+          <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+        </p>
+      </div>
+    </div>
+    <table>
+      <tbody>
+        <tr>
+          <td class="pages">
+            <header class="h-[152px] pt-14 px-[57px] relative flex justify-between">
+           <!--    <svg
+                width="134"
+                height="86"
+                viewBox="0 0 104 66"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M49.6299 65.72C67.7337 65.72 82.4099 51.0439 82.4099 32.94C82.4099 14.8361 67.7337 0.160004 49.6299 0.160004C31.526 0.160004 16.8499 14.8361 16.8499 32.94C16.8499 51.0439 31.526 65.72 49.6299 65.72Z"
+                  fill="#0aba25"
+                />
+                <path
+                  d="M103.48 19.28H0.459961V47.38H103.48V19.28Z"
+                  fill="white"
+                /> 
+                sds
+                <path
+                  d="M6.61106 42.3874V20.8574H9.21821V40.0746H19.2263V42.3874H6.61106ZM40.5908 31.6224C40.5908 33.8931 40.1808 35.8555 39.3608 37.5095C38.5408 39.1635 37.4159 40.439 35.9862 41.3361C34.5565 42.2332 32.9235 42.6817 31.0873 42.6817C29.2511 42.6817 27.6181 42.2332 26.1884 41.3361C24.7586 40.439 23.6338 39.1635 22.8138 37.5095C21.9938 35.8555 21.5838 33.8931 21.5838 31.6224C21.5838 29.3516 21.9938 27.3893 22.8138 25.7353C23.6338 24.0813 24.7586 22.8057 26.1884 21.9086C27.6181 21.0115 29.2511 20.563 31.0873 20.563C32.9235 20.563 34.5565 21.0115 35.9862 21.9086C37.4159 22.8057 38.5408 24.0813 39.3608 25.7353C40.1808 27.3893 40.5908 29.3516 40.5908 31.6224ZM38.0677 31.6224C38.0677 29.7581 37.7558 28.1847 37.1321 26.9022C36.5153 25.6196 35.6778 24.6489 34.6196 23.9901C33.5683 23.3313 32.3909 23.0019 31.0873 23.0019C29.7837 23.0019 28.6028 23.3313 27.5445 23.9901C26.4932 24.6489 25.6557 25.6196 25.032 26.9022C24.4152 28.1847 24.1068 29.7581 24.1068 31.6224C24.1068 33.4866 24.4152 35.06 25.032 36.3426C25.6557 37.6251 26.4932 38.5958 27.5445 39.2546C28.6028 39.9134 29.7837 40.2428 31.0873 40.2428C32.3909 40.2428 33.5683 39.9134 34.6196 39.2546C35.6778 38.5958 36.5153 37.6251 37.1321 36.3426C37.7558 35.06 38.0677 33.4866 38.0677 31.6224ZM59.6924 27.5855C59.4611 26.8776 59.1562 26.2434 58.7778 25.6827C58.4063 25.115 57.9613 24.6314 57.4427 24.2319C56.931 23.8325 56.3493 23.5276 55.6975 23.3173C55.0458 23.1071 54.3309 23.0019 53.553 23.0019C52.2774 23.0019 51.1175 23.3313 50.0732 23.9901C49.029 24.6489 48.1985 25.6196 47.5817 26.9022C46.965 28.1847 46.6566 29.7581 46.6566 31.6224C46.6566 33.4866 46.9685 35.06 47.5922 36.3426C48.216 37.6251 49.0605 38.5958 50.1258 39.2546C51.1911 39.9134 52.3895 40.2428 53.7212 40.2428C54.9546 40.2428 56.041 39.98 56.9801 39.4543C57.9262 38.9217 58.6621 38.1718 59.1878 37.2046C59.7204 36.2304 59.9867 35.0846 59.9867 33.767L60.7857 33.9352H54.3099V31.6224H62.5098V33.9352C62.5098 35.7083 62.1313 37.2502 61.3744 38.5608C60.6245 39.8713 59.5872 40.8876 58.2626 41.6094C56.9451 42.3243 55.4312 42.6817 53.7212 42.6817C51.8148 42.6817 50.1398 42.2332 48.6961 41.3361C47.2593 40.439 46.138 39.1635 45.332 37.5095C44.533 35.8555 44.1336 33.8931 44.1336 31.6224C44.1336 29.9193 44.3613 28.388 44.8169 27.0283C45.2794 25.6617 45.9312 24.4983 46.7723 23.5381C47.6133 22.5779 48.6085 21.842 49.7579 21.3304C50.9073 20.8188 52.1723 20.563 53.553 20.563C54.6883 20.563 55.7466 20.7347 56.7278 21.0781C57.716 21.4145 58.5955 21.8946 59.3665 22.5184C60.1444 23.1351 60.7927 23.8745 61.3113 24.7365C61.83 25.5916 62.1874 26.5412 62.3836 27.5855H59.6924ZM85.141 31.6224C85.141 33.8931 84.731 35.8555 83.911 37.5095C83.091 39.1635 81.9662 40.439 80.5365 41.3361C79.1067 42.2332 77.4738 42.6817 75.6375 42.6817C73.8013 42.6817 72.1683 42.2332 70.7386 41.3361C69.3089 40.439 68.184 39.1635 67.364 37.5095C66.544 35.8555 66.134 33.8931 66.134 31.6224C66.134 29.3516 66.544 27.3893 67.364 25.7353C68.184 24.0813 69.3089 22.8057 70.7386 21.9086C72.1683 21.0115 73.8013 20.563 75.6375 20.563C77.4738 20.563 79.1067 21.0115 80.5365 21.9086C81.9662 22.8057 83.091 24.0813 83.911 25.7353C84.731 27.3893 85.141 29.3516 85.141 31.6224ZM82.618 31.6224C82.618 29.7581 82.3061 28.1847 81.6823 26.9022C81.0656 25.6196 80.2281 24.6489 79.1698 23.9901C78.1185 23.3313 76.9411 23.0019 75.6375 23.0019C74.334 23.0019 73.153 23.3313 72.0947 23.9901C71.0435 24.6489 70.206 25.6196 69.5822 26.9022C68.9655 28.1847 68.6571 29.7581 68.6571 31.6224C68.6571 33.4866 68.9655 35.06 69.5822 36.3426C70.206 37.6251 71.0435 38.5958 72.0947 39.2546C73.153 39.9134 74.334 40.2428 75.6375 40.2428C76.9411 40.2428 78.1185 39.9134 79.1698 39.2546C80.2281 38.5958 81.0656 37.6251 81.6823 36.3426C82.3061 35.06 82.618 33.4866 82.618 31.6224Z"
+                  fill="black"
+                />
+              </svg> -->
+
+              <div class="w-[200px] h-[200px]">
+              
+<img src="<%=logo%>" alt="" srcset="">
+              </div>
+
+              <div
+                class="h-[19.08px] border-t-[19px] border-[#0aba25] w-[117px] flex gap-1 flex-col text-[22px] leading-6 right-0"
+              >
+                <p><%=invoiceTypeName%></p>
+                <p>N°:  <%= project.invoiceNumber %> </p>
+                <div class="w-full text-[14px] border-t border-black">
+                  
+                  <p>Date: <%= date %></p>
+                </div>
+              </div>
+            </header>
+       <main class="px-[57px]   pt-14 pb-4">
+              <!-- Info -->
+              <div
+                class="w-full text-[14px]  mt-[60px] flex justify-between flex-wrap gap-1 items-start"
+              >
+                <div class="border-l-2 pl-[10px] w-[242px] max-w-[242px]">
+                  <p>Object</p>
+                  <p><%= project.name %> </p>   
+                </div>
+                <div class="border-l-2 pl-[10px] w-[242px] max-w-[242px]">
+                  <p>Client</p>
+                  <p><%= customer.name %> </p> 
+                </div>
+                <div class="border-l-2 pl-[10px] w-[242px] max-w-[242px]">
+                  <p>Adresse</p>
+                  <p><%= customer.address %> </p> 
+                </div>
+              </div>
+              <!-- EndInfo -->
+              <!-- Tabs -->
+              <!-- header -->
+              <div
+                class="w-full  border-t-[10px] border-b border-b-black border-t-[#0aba25]   h-[48px] gap-3 py-2 px-4 text-[14px] mt-[60px] flex items-center"
+              > <% if(invoiceType !=2){ %>
+                <p class="flex items-center h-full w-[535px] max-w-[335px]">
+                  Description
+                </p>
+                <p class="flex items-center h-full w-[181px] max-w-[181px]">
+                  PRIX
+                </p>
+                <p class="flex items-center h-full w-[135px] max-w-[135px]">
+                  QTE
+                </p>
+                <p class="flex items-center h-full w-[205px] max-w-[205px]">
+                  MONTANT
+                </p>
+              </div>
+              <% } else{ %>  
+                <p class="flex items-center h-full w-[535px] max-w-[335px]">
+                  Description
+                </p>
+                
+                <p class="flex items-center h-full w-[135px] max-w-[135px]">
+                  QTE
+                </p>
+                <p class="flex items-center h-full w-[205px] max-w-[205px]">
+                  Observation
+                </p>
+
+                <p class="flex items-center h-full w-[181px] max-w-[181px]">
+                   
+                </p>
+              </div>
+                <% } %>  
+                <!-- EndHeader -->
+              <!-- content -->
+
+            
+              
+
+              <div class="pb-2 border-b border-black">
+
+                <% if(invoiceType !=2){ %>
+                   
+               <!-- 1 -->
+                  <% table.forEach(function(item,index) { %>
+               
+
+                
+
+                <% if(index % 2 == 0){ %>
+                  <div
+                  class="w-full flex gap-3 text-[14px] mt-[10px] flex  bg-gray-100  py-2 px-4 items-center"
+                >
+                <% } else{ %>  
+                  <div
+                  class="w-full flex gap-3 text-[14px] mt-[10px] flex  bg-white  py-2 px-4 items-center"
+                >
+               <% } %>
+                
+              
+                  <p class="flex items-center h-full w-[535px] max-w-[335px]">
+                   
+                    <%=item.designation%>
+                  </p>
+                  <p class="flex items-center h-full w-[181px] max-w-[181px]">
+                    <%=item.rate%>
+                  
+                  </p>
+                  <p class="flex items-center h-full w-[135px] max-w-[135px]">
+                    <%=item.quantity%>
+                  </p>
+                  <p class="flex items-center h-full w-[205px] max-w-[205px]">
+                    <%=item.amount%>
+                  </p>
+                </div>
+                <% }) %>
+                <!-- 2   <% table.forEach(function(item,index) { %>
+               
+
+                
+
+                <% if(index % 2 == 0){ %>
+                  <div
+                  class="w-full flex gap-3 text-[14px] mt-[10px] flex  bg-gray-100  py-2 px-4 items-center"
+                >
+                <% } else{ %>  
+                  <div
+                  class="w-full flex gap-3 text-[14px] mt-[10px] flex  bg-white  py-2 px-4 items-center"
+                >
+               <% } %>
+                
+              
+                  <p class="flex items-center h-full w-[535px] max-w-[335px]">
+                   
+                    <%=item.designation%>
+                  </p>
+                  <p class="flex items-center h-full w-[181px] max-w-[181px]">
+                    <%=item.rate%>
+                  
+                  </p>
+                  <p class="flex items-center h-full w-[135px] max-w-[135px]">
+                    <%=item.quantity%>
+                  </p>
+                  <p class="flex items-center h-full w-[205px] max-w-[205px]">
+                    <%=item.amount%>
+                  </p>
+                </div>
+                <% }) %> -->
+                <% } else{ %>  
+   <% table.forEach(function(item,index) { %>
+               
+
+                
+
+                <% if(index % 2 == 0){ %>
+                  <div
+                  class="w-full flex gap-3 text-[14px] mt-[10px] flex  bg-gray-100  py-2 px-4 items-center"
+                >
+                <% } else{ %>  
+                  <div
+                  class="w-full flex gap-3 text-[14px] mt-[10px] flex  bg-white  py-2 px-4 items-center"
+                >
+               <% } %>
+                
+              
+                  <p class="flex items-center h-full w-[535px] max-w-[335px]">
+                   
+                    <%=item.designation%>
+                  </p>
+                  
+                  <p class="flex items-center h-full w-[135px] max-w-[135px]">
+                    <%=item.quantity%>
+                  </p>
+                  <p class="flex items-center h-full w-[205px] max-w-[205px]">
+                    
+                  </p>
+
+                  <p class="flex items-center h-full w-[181px] max-w-[181px]">
+                   
+                  </p>
+                </div>
+                <% }) %>
+                  <% } %>  
+                
+              </div>
+              <!-- Endtabs -->
+              <% if(invoiceType !=2){ %>
+         <div class="flex w-full mt-[34px] gap-3">
+                <div class="flex flex-col flex-1 gap-1">
+                  <p class="text-[15px] font-bold">
+                    Arrêtée la présente Facture à la somme de :
+                  </p>
+                  <p class="text-[14px]">
+                    <%=totalLetter%>  <%= currency %>
+                    
+                  </p>
+
+                  <% if(project.modalite != 0 && invoiceType ==1){ %>
+                  <p class="text-[14px]">
+                    Modalité de paiment : <%= project.modalite %>% à la commande
+                  </p>
+
+                  <% if(project.invoiceType == 0){ %>
+                  <p class="text-[14px]">
+                    Accompte à payer :  <%= totalAccount %> <%= currency %>
+                  </p>
+                  <p class="text-[14px]">
+                    Reliquat a la livraison :  <%= totalReliquat %> <%= currency %>
+                  </p>
+                  <% } else{ %>  
+                    <p class="text-[14px]">
+                      Acompte déjà payé :  <%= totalAccount %> <%= currency %>
+                    </p>
+                    <p class="text-[14px]">
+                      Reliquat à payer :  <%= totalReliquat %> <%= currency %>
+                    </p>
+                  <% }%>
+
+                  <% }%>
+                </div>
+                <div class="w-2/5 flex flex-col gap-1 text-[14px]">
+                  <% if(project.tva != 0 || project.tva != ''){ %>
+                  <p class="">Montant Total HT: <%=totalHT%> <%= currency %></p>
+
+                   
+                    <p class="">TVA <%= project.tva %>% :  <%=totalTva%> <%= currency %></p>
+                    <% }%>
+                  <% if(project.discount != 0 || project.discount != ''){ %>
+                   
+                    <p class="">Remise commerciale(<%= project.discount %>%) : - <%=totalDiscount%> <%= currency %></p>
+                    <% }%>
+
+
+
+
+                 
+                  <p class="p-2 bg-[#0aba25]">
+                    Montant Total TTC : <%= total %>  <%= currency %>
+                  </p>
+                </div>
+              </div>  
+              <% }%>
+
+              <% if(project.remarque.length > 0){ %>
+                   
+               
+                <p class="py-10 text-[14px]"> <span class="pr-1 underline">Remarque :</span> <%= project.remarque %></p>
+                <% }%>
+
+
+                   <!-- Signature -->
+            <div class="flex justify-between text-[14px] pt-10 px-20">
+              <div class="w-[180px] h-[180px] text-center uppercase">
+                <p class="pb-2 border-b border-black">Pour accord</p>
+
+                <% if(signed){ %>
+                  <img src="<%=signature%>" class="pt-3 bg-white" alt="" srcset="">
+                  <% } %>
+              </div>
+              <div class="w-[180px] h-[180px] text-center uppercase">
+                <p class="pb-2 border-b border-black">Le prestataire</p>
+              </div>
+            </div>
+            </main>
+          </td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td>
+            <!--place holder for the fixed-position footer-->
+            <div class="page-footer-space"></div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

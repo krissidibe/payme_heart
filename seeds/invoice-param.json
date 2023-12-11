@@ -1,0 +1,11 @@
+
+
+{
+    "invoiceHtml":"template1.html",
+    "hGrid":true,
+    "vGrid":true,
+    "primaryColor":"blue",
+    "secondaryColor":"red"
+   
+    
+ }
