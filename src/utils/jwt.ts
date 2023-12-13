@@ -4,9 +4,11 @@ interface SignOption {
   expiresIn?: string | number;
 }
 
+/* expiresIn: "9999999999 years", */
+
 const DEFAULT_SIGN_OPTION: SignOption = {
-  expiresIn: "9999999999 years",
-};
+  expiresIn:'1d',
+}; 
 
 export function signJwtAccessToken(payload: JwtPayload, options: SignOption = DEFAULT_SIGN_OPTION) {
   const secretKey = process.env.SECRET_KEY;

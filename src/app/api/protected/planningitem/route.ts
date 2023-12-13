@@ -18,6 +18,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
 
     const dataChild = await prisma.planningItem.findMany({
       where: {
+        userId: searchParams.get("userId")!,
         date: {
           gte: new Date(searchParams.get("startAt")!).toISOString().substring(0,10) +"T00:00:00.026Z"  ,
           lte: new Date(searchParams.get("endAt")!).toISOString().substring(0,10) +"T23:59:00.026Z"  ,
@@ -69,6 +70,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
     });
 
     const dataChild = await prisma.planningItem.findMany({
+      userId: searchParams.get("userId")!,
       where: {
         date: {
           gte: new Date(searchParams.get("startAt")!).toISOString().substring(0,10) +"T00:00:00.026Z"  ,

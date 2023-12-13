@@ -69,9 +69,12 @@ model User {
   planningItems PlanningItem[]
   transactions     Transaction[]
   payments     Payment[]
-
   subscribeId      String?
   subscribe        Subscribe?         @relation(fields: [subscribeId], references: [id] , onDelete: SetNull)
+  invoice    Invoice?
+
+  codePasswordInit        String?
+  datePasswordInit        DateTime?     @default(now()) @db.Timestamp(0)
 }
 
 model Enterprise {
@@ -95,7 +98,7 @@ model Enterprise {
   inTrash         Boolean?  @default(false)
   updatedAt       DateTime? @default(now()) @db.Timestamp(0)
   rccm            String?   @default("")
-  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user            User      @relation(fields: [userId], references: [id])
 }
 
 model Customers {
@@ -116,7 +119,7 @@ model Customers {
   deletedAt       DateTime?    @db.Timestamp(0)
   userId          String
   poste           String
-  user            User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user            User         @relation(fields: [userId], references: [id])
   project         Project[]
 
   @@index([userId], map: "Customers_userId_fkey")
@@ -143,8 +146,8 @@ model Project {
   invoiceType       Int         @default(0)
   modalite          String?     @default("")
   remarque          String?     @db.LongText
-  customer          Customers   @relation(fields: [customerId], references: [id], onDelete: Cascade)
-  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  customer          Customers   @relation(fields: [customerId], references: [id])
+  user              User        @relation(fields: [userId], references: [id])
 
   @@index([customerId], map: "Project_customerId_fkey")
   @@index([userId], map: "Project_userId_fkey")
@@ -162,7 +165,7 @@ model Transaction {
   deletedAt   DateTime? @db.Timestamp(0)
   userId      String
   taxe        String?
-  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id])
 
   @@index([userId], map: "Transaction_userId_fkey")
 }
@@ -175,7 +178,7 @@ model Folder {
   updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
   deletedAt   DateTime?    @db.Timestamp(0)
   userId      String
-  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User         @relation(fields: [userId], references: [id])
   folderUsers FolderUser[]
 
   @@index([userId], map: "Folder_userId_fkey")
@@ -198,7 +201,7 @@ model FolderUser {
   birthDate DateTime? @db.Timestamp(0)
   contrat   String?
   poste     String?
-  folder    Folder    @relation(fields: [folderId], references: [id], onDelete: Cascade)
+  folder    Folder    @relation(fields: [folderId], references: [id])
 
   @@index([folderId], map: "FolderUser_folderId_fkey")
 }
@@ -212,7 +215,7 @@ model Planning {
   color         String?
  
   userId        String
-  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user          User           @relation(fields: [userId], references: [id])
   PlanningItems PlanningItem[]
 
   @@index([userId], map: "Planning_userId_fkey")
@@ -230,10 +233,10 @@ model PlanningItem {
   color       String?
   isCompleted Boolean   @default(false)
   archive       Boolean?      @default(false)
-  planning    Planning  @relation(fields: [planningId], references: [id], onDelete: Cascade)
+  planning    Planning  @relation(fields: [planningId], references: [id])
 
   userId        String
-  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user          User           @relation(fields: [userId], references: [id])
   @@index([planningId], map: "PlanningItem_planningId_fkey")
 }
 
@@ -250,8 +253,9 @@ model Payment {
   updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
   deletedAt   DateTime?    @db.Timestamp(0)
   subscribe    Subscribe?
+  
   userId      String
-  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade )
+  user        User         @relation(fields: [userId], references: [id] )
 }
 
 model Subscribe {
@@ -263,8 +267,44 @@ model Subscribe {
   deletedAt   DateTime?    @db.Timestamp(0)
   users        User[]
    paymentId      String @unique
-  payment        Payment         @relation(fields: [paymentId], references: [id], onDelete: Cascade )
+  payment        Payment         @relation(fields: [paymentId], references: [id] )
 }
+
+model Invoice {
+  id          String       @id @default(cuid())
+  invoiceFileName   String?   @default("")
+  invoiceType   String?   @default("")
+  primaryColor   String?   @default("")
+  saturationColor   String?   @default("")
+  secondaryColor   String?   @default("") 
+  hGrid   Boolean?   @default(false)
+  vGrid   Boolean?   @default(false)
+  
+  createdAt   DateTime     @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+  deletedAt   DateTime?    @db.Timestamp(0)
+
+  userId      String       @unique
+  user        User         @relation(fields: [userId], references: [id] )
+   
+ }
+model InvoiceList {
+  id          String       @id @default(cuid())
+  invoiceFileName   String?   @default("")
+  invoicePreview   String?   @default("")
+  invoiceType   String?   @default("")
+  primaryColor   String?   @default("")
+  saturationColor   String?   @default("")
+  secondaryColor   String?   @default("")
+
+  hGrid   Boolean?   @default(false)
+  vGrid   Boolean?   @default(false)
+  
+  createdAt   DateTime     @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+  deletedAt   DateTime?    @db.Timestamp(0)
+   
+ }
 
 
 
