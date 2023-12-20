@@ -3,6 +3,7 @@ import { prisma } from "@/utils/prisma";
 import nodemailer from 'nodemailer';   
 import { render } from "@react-email/components";
 import Welcome from "@/emails/Welcome";
+import CodeOTP from "@/emails/CodeOTP";
 
 
 
@@ -21,16 +22,16 @@ export async function POST(req:NextRequest,res:NextResponse) {
       });    
      
        
-  const emailHtml = render(Welcome({username:"Aly boubacar gatta"}));
- 
-  const numbers = '0123456789';
- 
-  let numbersPart = '';
-    
-    for (let i = 0; i < 4; i++) {
-      numbersPart += numbers.charAt(Math.floor(Math.random() * numbers.length));
-    }
-
+      
+      const numbers = '0123456789';
+      
+      let numbersPart = '';
+      
+      for (let i = 0; i < 4; i++) {
+        numbersPart += numbers.charAt(Math.floor(Math.random() * numbers.length));
+      }
+      
+      const emailHtml = render(CodeOTP({username:"Aly boubacar gatta",code:numbersPart}));
 
     //manager@paymefinance.com
       

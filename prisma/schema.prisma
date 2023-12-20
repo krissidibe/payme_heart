@@ -72,6 +72,7 @@ model User {
   subscribeId      String?
   subscribe        Subscribe?         @relation(fields: [subscribeId], references: [id] , onDelete: SetNull)
   invoice    Invoice?
+  codeOTP    CodeOTP?
 
   codePasswordInit        String?
   datePasswordInit        DateTime?     @default(now()) @db.Timestamp(0)
@@ -305,6 +306,18 @@ model InvoiceList {
   deletedAt   DateTime?    @db.Timestamp(0)
    
  }
+
+ model CodeOTP {
+  id          String       @id @default(cuid())
+  code        String
+  isValid     Boolean      @default(true)
+  createdAt   DateTime?    @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+  user   User  @relation(fields: [userId], references: [id],onDelete: Cascade)
+  userId String  @unique  
+}
+
+
 
 
 
