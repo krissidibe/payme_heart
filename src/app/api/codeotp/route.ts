@@ -124,7 +124,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
       
       const options = {
         from: 'contact@paymefinance.com',
-        to: 'assowlove@gmail.com',
+        to:dataInfo.email!.toString(),
         subject: `${dataInfo.type == "finance" ? "Votre Code de Finance" : "Votre Code de Réinitialisation de Mot de Passe"} - ${numbersPart}`,
         html: emailHtml,
       };
