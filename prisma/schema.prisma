@@ -22,7 +22,7 @@ model Account {
   id_token          String? @db.Text
   session_state     String?
   userId            String
-  user              User    @relation(fields: [userId], references: [id])
+  user              User    @relation(fields: [userId], references: [id],onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
   @@index([authorId], map: "Account_authorId_fkey")
@@ -35,7 +35,7 @@ model Session {
   userId       String
   expires      DateTime
   authorId     String
-  author       User     @relation(fields: [authorId], references: [id])
+  author       User     @relation(fields: [authorId], references: [id],onDelete: Cascade)
 
   @@index([authorId], map: "Session_authorId_fkey")
 }
@@ -98,7 +98,7 @@ model Enterprise {
   inTrash         Boolean?  @default(false)
   updatedAt       DateTime? @default(now()) @db.Timestamp(0)
   rccm            String?   @default("")
-  user            User      @relation(fields: [userId], references: [id])
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Customers {
@@ -119,7 +119,7 @@ model Customers {
   deletedAt       DateTime?    @db.Timestamp(0)
   userId          String
   poste           String
-  user            User         @relation(fields: [userId], references: [id])
+  user            User         @relation(fields: [userId], references: [id],onDelete: Cascade)
   project         Project[]
 
   @@index([userId], map: "Customers_userId_fkey")
@@ -146,8 +146,8 @@ model Project {
   invoiceType       Int         @default(0)
   modalite          String?     @default("")
   remarque          String?     @db.LongText
-  customer          Customers   @relation(fields: [customerId], references: [id])
-  user              User        @relation(fields: [userId], references: [id])
+  customer          Customers   @relation(fields: [customerId], references: [id],onDelete: Cascade)
+  user              User        @relation(fields: [userId], references: [id],onDelete: Cascade)
 
   @@index([customerId], map: "Project_customerId_fkey")
   @@index([userId], map: "Project_userId_fkey")
@@ -165,7 +165,7 @@ model Transaction {
   deletedAt   DateTime? @db.Timestamp(0)
   userId      String
   taxe        String?
-  user        User      @relation(fields: [userId], references: [id])
+  user        User      @relation(fields: [userId], references: [id],onDelete: Cascade)
 
   @@index([userId], map: "Transaction_userId_fkey")
 }
@@ -178,7 +178,7 @@ model Folder {
   updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
   deletedAt   DateTime?    @db.Timestamp(0)
   userId      String
-  user        User         @relation(fields: [userId], references: [id])
+  user        User         @relation(fields: [userId], references: [id],onDelete: Cascade)
   folderUsers FolderUser[]
 
   @@index([userId], map: "Folder_userId_fkey")
@@ -201,7 +201,7 @@ model FolderUser {
   birthDate DateTime? @db.Timestamp(0)
   contrat   String?
   poste     String?
-  folder    Folder    @relation(fields: [folderId], references: [id])
+  folder    Folder    @relation(fields: [folderId], references: [id],onDelete: Cascade)
 
   @@index([folderId], map: "FolderUser_folderId_fkey")
 }
@@ -215,7 +215,7 @@ model Planning {
   color         String?
  
   userId        String
-  user          User           @relation(fields: [userId], references: [id])
+  user          User           @relation(fields: [userId], references: [id],onDelete: Cascade)
   PlanningItems PlanningItem[]
 
   @@index([userId], map: "Planning_userId_fkey")
@@ -233,10 +233,10 @@ model PlanningItem {
   color       String?
   isCompleted Boolean   @default(false)
   archive       Boolean?      @default(false)
-  planning    Planning  @relation(fields: [planningId], references: [id])
+  planning    Planning  @relation(fields: [planningId], references: [id],onDelete: Cascade)
 
   userId        String
-  user          User           @relation(fields: [userId], references: [id])
+  user          User           @relation(fields: [userId], references: [id],onDelete: Cascade)
   @@index([planningId], map: "PlanningItem_planningId_fkey")
 }
 
@@ -255,7 +255,7 @@ model Payment {
   subscribe    Subscribe?
   
   userId      String
-  user        User         @relation(fields: [userId], references: [id] )
+  user        User         @relation(fields: [userId], references: [id] ,onDelete: Cascade )
 }
 
 model Subscribe {
@@ -267,7 +267,7 @@ model Subscribe {
   deletedAt   DateTime?    @db.Timestamp(0)
   users        User[]
    paymentId      String @unique
-  payment        Payment         @relation(fields: [paymentId], references: [id] )
+  payment        Payment         @relation(fields: [paymentId], references: [id] ,onDelete: Cascade )
 }
 
 model Invoice {
@@ -285,7 +285,7 @@ model Invoice {
   deletedAt   DateTime?    @db.Timestamp(0)
 
   userId      String       @unique
-  user        User         @relation(fields: [userId], references: [id] )
+  user        User         @relation(fields: [userId], references: [id] ,onDelete: Cascade )
    
  }
 model InvoiceList {

@@ -105,3 +105,17 @@ export async function PATCH(req:NextRequest,res:NextResponse) {
 }
 
 
+export async function DELETE(req: NextRequest, res: NextResponse) {
+  const { searchParams } = new URL(req.url);
+
+  if (searchParams.get("userId") != null) {
+    const project = await prisma.user.delete({
+      where: {
+        id: searchParams.get("userId")!,
+      },
+    });
+
+    return new Response(JSON.stringify(project));
+  }
+}
+
