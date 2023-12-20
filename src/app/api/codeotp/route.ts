@@ -5,6 +5,7 @@ import { render } from "@react-email/components";
 import Welcome from "@/emails/Welcome";
 import CodeOTP from "@/emails/CodeOTP";
 import transporter from "@/lib/emailSend";
+import CodeOTPFinance from "@/emails/CodeOTPFinance";
 
 
 export async function GET(req: NextRequest, res: NextResponse) {
@@ -114,11 +115,9 @@ export async function POST(req:NextRequest,res:NextResponse) {
      }
 
 
-     
+ 
     
-      
-    
-     const emailHtml = render(CodeOTP({username:user!.name,code:numbersPart}));
+     const emailHtml = render(  dataInfo.type == "finance" ? CodeOTPFinance({username:user!.name,code:numbersPart})  : CodeOTP({username:user!.name,code:numbersPart}));
 
     //manager@paymefinance.com
 
@@ -126,7 +125,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
       const options = {
         from: 'contact@paymefinance.com',
         to: 'assowlove@gmail.com',
-        subject: `Votre Code de Réinitialisation de Mot de Passe - ${numbersPart}`,
+        subject: `${dataInfo.type == "finance" ? "Votre Code de Finance" : "Votre Code de Réinitialisation de Mot de Passe"} - ${numbersPart}`,
         html: emailHtml,
       };
 
