@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma"; 
 import nodemailer from 'nodemailer';   
-import { render } from "@react-email/components";
 import Welcome from "@/emails/Welcome";
 import CodeOTP from "@/emails/CodeOTP";
 import transporter from "@/lib/emailSend";
+import { render } from "@react-email/components";
 import CodeOTPFinance from "@/emails/CodeOTPFinance";
 
 
@@ -116,10 +116,10 @@ export async function POST(req:NextRequest,res:NextResponse) {
 
 
  
+     //manager@paymefinance.com
     
      const emailHtml = render(  dataInfo.type == "finance" ? CodeOTPFinance({username:user!.name,code:numbersPart})  : CodeOTP({username:user!.name,code:numbersPart}));
 
-    //manager@paymefinance.com
 
       
       const options = {

@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
-
+import CodeOTPFinance from "@/emails/CodeOTPFinance";
+import transporter from "@/lib/emailSend";
+import { render } from "@react-email/components";
 
 
 export async function GET(req: NextRequest, res: NextResponse) {
@@ -83,6 +85,66 @@ export async function PATCH(req:NextRequest,res:NextResponse) {
 
  return new Response(JSON.stringify(enterprise));
    }
+
+   if (searchParams.get("lockCode") != null) {
+    const  userData:any = await req.json();
+
+   
+
+   const enterprise = await prisma.user.update({
+     where: {
+       id: searchParams.get("userId")!,
+     },
+      data: { 
+       lockCode : userData.lockCode as boolean, 
+        },
+   })
+
+ 
+
+return new Response(JSON.stringify(enterprise));
+  }
+
+
+   if (searchParams.get("codeOTP") != null) {
+     const  userData:any = await req.json();
+
+    const user = await prisma.user.findFirst({
+      where: {
+        id: searchParams.get("userId")!,
+        },
+   })
+
+
+    const enterprise = await prisma.user.update({
+      where: {
+        id: searchParams.get("userId")!,
+      },
+       data: {
+        code : userData.codeOTP!.toString(), 
+      //  lockCode : userData.lockCode as boolean, 
+         },
+    })
+
+    const emailHtml = render(  CodeOTPFinance({username:user!.name,code:userData.codeOTP!.toString()}));
+
+
+      
+    const options = {
+      from: 'contact@paymefinance.com',
+      to:user!.email!.toString(),
+      subject: `${"Votre Code de Finance"} - ${userData.codeOTP!.toString()}`,
+      html: emailHtml,
+    };
+
+
+  const data =  await transporter.sendMail(options);
+    
+
+ return new Response(JSON.stringify(enterprise));
+   }
+
+
   const  userData:User = await req.json();
   
     const enterprise = await prisma.user.update({

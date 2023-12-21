@@ -65,7 +65,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
             address: userData.address ,
             country: userData.country ,
             countryPhoneCode: userData.countryPhoneCode ,
-            lockCode : userData.lockCode.toString() == "true" ? true : false ,
+            lockCode : false ,
             code : userData.code ,
             number : userData.number ,
             password : userData.password ,
