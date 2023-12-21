@@ -15,16 +15,14 @@ import * as React from "react";
 
 interface TwitchResetPasswordEmailProps {
   username: string;
-  code: string;
-  updatedDate?: Date;
+   
 }
 
 const baseUrl = `https://paymefinance.com`;
 
-export const CodeOTP = ({
+export const ConfirmPassword = ({
   username = "zenorocha",
-  code ="1234",
-  updatedDate = new Date("June 23, 2022 4:06:00 pm UTC"),
+  
 }: TwitchResetPasswordEmailProps) => {
 /*   const formattedDate = new Intl.DateTimeFormat("en", {
     dateStyle: "medium",
@@ -53,30 +51,21 @@ export const CodeOTP = ({
 
           <Section style={content}>
             <br />
-            <Text style={paragraph}>Cher(e) {username},</Text>
+            <Text style={paragraph}>Bonjour {username},</Text> 
+            
             <Text style={paragraph}>
-            Vous avez récemment demandé à réinitialiser votre mot de passe pour votre compte Payme. Pour compléter cette procédure, veuillez utiliser le code de validation suivant :
+            Nous vous confirmons que votre mot de passe pour le compte Payme a été réinitialisé avec succès.
             </Text>
             <Text style={paragraph}>
-              <span  style={{fontWeight:"bold"}}>
-
-            Code OTP : {code}
-              </span>
+            Si vous n'avez pas effectué cette réinitialisation, nous vous conseillons de sécuriser immédiatement votre compte en contactant notre équipe d'assistance.
             </Text>
             <Text style={paragraph}>
-            Ce code est valide pour une durée limitée. Veuillez l'utiliser dans les  15 minutes pour réinitialiser votre mot de passe.
+            Pour toute question ou préoccupation supplémentaire, n'hésitez pas à nous contacter à support@paymefinance.com. Notre équipe est là pour vous aider.
             </Text>
             <Text style={paragraph}>
-              Si vous n'avez pas demandé à réinitialiser votre mot de passe, veuillez ignorer cet e-mail ou nous contacter immédiatement pour sécuriser votre compte
-              <br />
-              Pour des raisons de sécurité, ne partagez ce code avec personne
+            Nous nous engageons à assurer la sécurité de vos informations personnelles et nous vous remercions de continuer à faire confiance à Payme.
             </Text>
-            <Text style={paragraph}>
-            Si vous rencontrez des difficultés ou avez besoin d'assistance supplémentaire, n'hésitez pas à contacter notre équipe d'assistance à support@paymefinance.com.
-            </Text>
-            <Text style={paragraph}>
-            Merci d'utiliser Payme.
-            </Text>
+            
             <Text style={paragraph}>Cordialement,</Text>
             <Text style={paragraph}>L'équipe Payme</Text>
           </Section> 
@@ -94,7 +83,7 @@ export const CodeOTP = ({
   );
 };
 
-export default CodeOTP;
+export default ConfirmPassword;
 
 const fontFamily = "HelveticaNeue,Helvetica,Arial,sans-serif";
 

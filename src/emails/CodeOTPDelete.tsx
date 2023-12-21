@@ -21,7 +21,7 @@ interface TwitchResetPasswordEmailProps {
 
 const baseUrl = `https://paymefinance.com`;
 
-export const CodeOTP = ({
+export const CodeOTPDelete = ({
   username = "zenorocha",
   code ="1234",
   updatedDate = new Date("June 23, 2022 4:06:00 pm UTC"),
@@ -55,27 +55,39 @@ export const CodeOTP = ({
             <br />
             <Text style={paragraph}>Cher(e) {username},</Text>
             <Text style={paragraph}>
-            Vous avez récemment demandé à réinitialiser votre mot de passe pour votre compte Payme. Pour compléter cette procédure, veuillez utiliser le code de validation suivant :
+            Nous avons reçu une demande de suppression de votre compte associé à Payme. Pour assurer la sécurité de votre compte et confirmer cette action, veuillez utiliser le code de vérification suivant :
             </Text>
             <Text style={paragraph}>
               <span  style={{fontWeight:"bold"}}>
 
-            Code OTP : {code}
+              Code de Vérification pour Suppression : {code}
               </span>
             </Text>
             <Text style={paragraph}>
-            Ce code est valide pour une durée limitée. Veuillez l'utiliser dans les  15 minutes pour réinitialiser votre mot de passe.
+              <span  style={{fontWeight:"bold"}}>
+
+              Veuillez noter :
+              </span>
+            </Text>
+            <li style={paragraph}>
+            Ce code est valide pour une durée limitée de 15 minutes.
+            </li>
+            <li style={paragraph}>
+             
+
+            La suppression de votre compte est irréversible. Une fois confirmée, toutes vos données et préférences associées seront définitivement effacées.
+            
+              </li>
+            <li style={paragraph}>
+             
+             
+              Si vous n'avez pas demandé à supprimer votre compte, veuillez ignorer cet e-mail ou nous contacter immédiatement pour sécuriser votre compte.
+            </li>
+            <Text style={paragraph}>
+            Pour toute question ou si vous avez changé d'avis et souhaitez conserver votre compte, contactez notre support à support@paymefinance.com.
             </Text>
             <Text style={paragraph}>
-              Si vous n'avez pas demandé à réinitialiser votre mot de passe, veuillez ignorer cet e-mail ou nous contacter immédiatement pour sécuriser votre compte
-              <br />
-              Pour des raisons de sécurité, ne partagez ce code avec personne
-            </Text>
-            <Text style={paragraph}>
-            Si vous rencontrez des difficultés ou avez besoin d'assistance supplémentaire, n'hésitez pas à contacter notre équipe d'assistance à support@paymefinance.com.
-            </Text>
-            <Text style={paragraph}>
-            Merci d'utiliser Payme.
+            Nous sommes désolés de vous voir partir et vous remercions d'avoir utilisé Payme. Si vous souhaitez partager vos retours ou les raisons de votre départ, nous serions heureux de vous écouter.
             </Text>
             <Text style={paragraph}>Cordialement,</Text>
             <Text style={paragraph}>L'équipe Payme</Text>
@@ -94,7 +106,7 @@ export const CodeOTP = ({
   );
 };
 
-export default CodeOTP;
+export default CodeOTPDelete;
 
 const fontFamily = "HelveticaNeue,Helvetica,Arial,sans-serif";
 

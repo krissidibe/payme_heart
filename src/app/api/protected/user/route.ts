@@ -125,20 +125,30 @@ return new Response(JSON.stringify(enterprise));
       //  lockCode : userData.lockCode as boolean, 
          },
     })
+console.log("====ici=====");
 
-    const emailHtml = render(  CodeOTPFinance({username:user!.name,code:userData.codeOTP!.toString()}));
+if(userData.sendMail == true){
+      
+      const emailHtml = render(  CodeOTPFinance({username:user!.name,code:userData.codeOTP!.toString()}));
+
 
 
       
     const options = {
       from: 'contact@paymefinance.com',
       to:user!.email!.toString(),
-      subject: `${"Votre Code de Finance"} - ${userData.codeOTP!.toString()}`,
+      subject: `${"Attribution de Votre Nouveau Code d'Accès Financier"} - ${userData.codeOTP!.toString()}`,
       html: emailHtml,
     };
 
 
   const data =  await transporter.sendMail(options);
+
+  
+
+    }
+
+    
     
 
  return new Response(JSON.stringify(enterprise));

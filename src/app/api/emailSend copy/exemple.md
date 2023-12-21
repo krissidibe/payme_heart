@@ -87,7 +87,7 @@ Si vous n'avez pas demandé à réinitialiser votre mot de passe, veuillez ignor
 
 Pour des raisons de sécurité, ne partagez ce code avec personne.
 
-Si vous rencontrez des difficultés ou avez besoin d'assistance supplémentaire, n'hésitez pas à contacter notre support à [Adresse e-mail de l'assistance].
+Si vous rencontrez des difficultés ou avez besoin d'assistance supplémentaire, n'hésitez pas à contacter notre équipe à [Adresse e-mail de l'assistance].
 
 Merci d'utiliser [Nom du service ou de l'application].
 
@@ -103,11 +103,6 @@ Bonjour [Nom de l'utilisateur],
 
 Nous vous confirmons que votre mot de passe pour le compte [Nom du service ou de l'application] a été réinitialisé avec succès.
 
-Détails de la Réinitialisation :
-
-Date et Heure : [Date et heure de la réinitialisation]
-Adresse IP : [Adresse IP utilisée pour la réinitialisation]
-Appareil : [Type d'appareil utilisé, si disponible]
 Si vous n'avez pas effectué cette réinitialisation, nous vous conseillons de sécuriser immédiatement votre compte en contactant notre équipe d'assistance.
 
 Pour toute question ou préoccupation supplémentaire, n'hésitez pas à nous contacter à [Adresse e-mail de l'assistance]. Notre équipe est là pour vous aider.
@@ -122,3 +117,41 @@ Cordialement,
 ======
 
 support@paymefinance.com
+
+======
+Objet : Attribution de Votre Nouveau Code d'Accès Financier
+Bonjour [Nom de l'utilisateur],
+Suite à la récente réinitialisation de votre code d’accès à vos finances, un nouveau code d'accès a été généré pour renforcer la sécurité de vos informations financières.
+Nouveau Code d'Accès aux Finances : [Nouveau Code d'Accès]
+À Noter :
+•	Ce code est essentiel pour accéder à toutes les fonctionnalités financières de votre compte.
+•	Pour des raisons de sécurité, veillez à ne pas partager ce code avec quiconque.
+•	Ce code peut être modifié à tout moment dans les paramètres de votre compte pour une sécurité accrue.
+
+Nous recommandons de changer ce code périodiquement pour maintenir la sécurité de vos informations financières.
+Si vous n'avez pas demandé de réinitialisation ou si vous avez des questions concernant votre nouveau code d'accès financier, veuillez contacter immédiatement notre équipe d’assistance à support@paymefinance.com.
+Nous sommes dédiés à protéger vos informations et à vous offrir une expérience sécurisée avec Payme.
+Cordialement,
+L’équipe Payme
+
+=========
+Objet : Code de Vérification pour la Suppression de Votre Compte
+
+Bonjour [Nom de l'utilisateur],
+
+Nous avons reçu une demande de suppression de votre compte associé à [Nom du service ou de l'application]. Pour assurer la sécurité de votre compte et confirmer cette action, veuillez utiliser le code de vérification suivant :
+
+Code de Vérification pour Suppression : [Code OTP]
+
+Veuillez noter :
+
+Ce code est valide pour une durée limitée de [durée de validité du code, ex. : 15 minutes].
+La suppression de votre compte est irréversible. Une fois confirmée, toutes vos données et préférences associées seront définitivement effacées.
+Si vous n'avez pas demandé à supprimer votre compte, veuillez ignorer cet e-mail ou nous contacter immédiatement pour sécuriser votre compte.
+Pour toute question ou si vous avez changé d'avis et souhaitez conserver votre compte, contactez notre support à [Adresse e-mail de l'assistance].
+
+Nous sommes désolés de vous voir partir et vous remercions d'avoir utilisé [Nom du service ou de l'application]. Si vous souhaitez partager vos retours ou les raisons de votre départ, nous serions heureux de vous écouter.
+
+Cordialement,
+
+[L'Équipe de Support de Nom du Service ou de l'Application]

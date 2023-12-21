@@ -33,7 +33,7 @@ export const CodeOTPFinance = ({
 
   return (
     <Html>
-      <Head> <Preview>Cher(e) {username}</Preview> </Head>
+      <Head> <Preview>Bonjour {username}</Preview> </Head>
      
       <Body style={main}>
         <Container style={container}>
@@ -53,25 +53,45 @@ export const CodeOTPFinance = ({
 
           <Section style={content}>
             <br />
-            <Text style={paragraph}>Cher(e) {username},</Text>
-           
+            <Text style={paragraph}>Bonjour {username},</Text>
             <Text style={paragraph}>
-            Code OTP : {code}
+            Suite à la récente réinitialisation de votre code d’accès à vos finances, un nouveau code d'accès a été généré pour renforcer la sécurité de vos informations financières.
+<br />
+<br />
+
+<span style={{fontWeight:"bold"}}> Nouveau Code d'Accès aux Finances : {code}</span>
+ 
             </Text>
             <Text style={paragraph}>
-            Ce code est valide pour une durée limitée. Veuillez l'utiliser dans les  15 minutes pour réinitialiser votre mot de passe.
+            À Noter :
+            <ul>
+              <li style={{
+  lineHeight: 1.5,
+  fontSize: 14,
+}}>Ce code est essentiel pour accéder à toutes les fonctionnalités financières de votre compte.</li>
+              <li style={{
+  lineHeight: 1.5,
+  fontSize: 14,
+}}>Pour des raisons de sécurité, veillez à ne pas partager ce code avec quiconque.</li>
+              <li style={{
+  lineHeight: 1.5,
+  fontSize: 14,
+}}>Ce code peut être modifié à tout moment dans les paramètres de votre compte pour une sécurité accrue.</li>
+            </ul>
             </Text>
             <Text style={paragraph}>
-              Si vous n'avez pas demandé à réinitialiser votre mot de passe, veuillez ignorer cet e-mail ou nous contacter immédiatement pour sécuriser votre compte
-              <br />
-              Pour des raisons de sécurité, ne partagez ce code avec personne
+            Nous recommandons de changer ce code périodiquement pour maintenir la sécurité de vos informations financières.
+            </Text>
+            
+            
+            
+            <Text style={paragraph}>
+            Si vous n'avez pas demandé de réinitialisation ou si vous avez des questions concernant votre nouveau code d'accès financier, veuillez contacter immédiatement notre équipe d’assistance à support@paymefinance.com.
             </Text>
             <Text style={paragraph}>
-            Si vous rencontrez des difficultés ou avez besoin d'assistance supplémentaire, n'hésitez pas à contacter notre support à  support@paymefinance.com.
+            Nous sommes dédiés à protéger vos informations et à vous offrir une expérience sécurisée avec Payme.
             </Text>
-            <Text style={paragraph}>
-            Merci d'utiliser Payme.
-            </Text>
+            
             <Text style={paragraph}>Cordialement,</Text>
             <Text style={paragraph}>L'équipe Payme</Text>
           </Section> 
