@@ -125,7 +125,7 @@ return new Response(JSON.stringify(enterprise));
       //  lockCode : userData.lockCode as boolean, 
          },
     })
-console.log("====ici=====");
+
 
 if(userData.sendMail == true){
       

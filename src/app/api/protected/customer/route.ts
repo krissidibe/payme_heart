@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
 import { CustomerType } from "@prisma/client";
  
-
-
+ 
 
 
 export async function GET(req:NextRequest,res:NextResponse) {
