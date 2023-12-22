@@ -37,7 +37,14 @@ const myFont = localFont({
   ],
 });
 
+var cron = require('node-cron');
+
+
+
 export default async function Home() {
+  cron.schedule('10 * * * *', () => {
+    console.log('running a task every minute');
+  });
   /* 
  const res = await fetch("http://localhost:3000/api/facture",{cache:"no-store"})
 

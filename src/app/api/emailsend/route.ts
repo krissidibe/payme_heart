@@ -64,7 +64,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
 
       
       const options = {
-        from: 'contact@paymefinance.com',
+        from: 'support@paymefinance.com',
         to:dataInfo.email!.toString(),
         subject: `Confirmation de Réinitialisation de Votre Mot de Passe`,
         html: emailHtml,

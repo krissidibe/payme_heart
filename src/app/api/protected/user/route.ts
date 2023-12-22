@@ -135,7 +135,7 @@ if(userData.sendMail == true){
 
       
     const options = {
-      from: 'contact@paymefinance.com',
+      from: 'support@paymefinance.com',
       to:user!.email!.toString(),
       subject: `${"Attribution de Votre Nouveau Code d'Accès Financier"} - ${userData.codeOTP!.toString()}`,
       html: emailHtml,

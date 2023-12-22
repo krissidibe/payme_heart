@@ -4,8 +4,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-      user: 'contact@paymefinance.com',
-      pass: 'hE2@T14GUB4pqV*',
+      user: 'support@paymefinance.com',
+      pass: '@Paym3Help@',
     },
   });    
  
