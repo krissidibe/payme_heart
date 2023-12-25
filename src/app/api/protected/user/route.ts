@@ -143,6 +143,7 @@ if(userData.sendMail == true){
 
 
   const data =  await transporter.sendMail(options);
+console.log(`kris ${JSON.stringify(data)}}`);
 
   
 
