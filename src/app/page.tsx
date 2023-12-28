@@ -59,7 +59,7 @@ export default async function Home() {
 
          
       </div>
-      <div className="h-[52px] hidden md:flex   md:text-[14px]  xl:text-[16px] font-semibold max-w-7xl w-full    mt-0 items-center xl:px-0 md:px-14 justify-between ">
+      <div className="h-[52px] hidden md:flex   md:text-[14px]  xl:text-[16px] font-semibold max-w-7xl w-full    mt-0 items-center xl:px-14 md:px-14 justify-between ">
         <p className="text-[30px] text-white ">Payme.</p>
         <div className="flex gap-8 ">
           <p className="text-white">Acceuil</p>
@@ -78,7 +78,7 @@ export default async function Home() {
       </div>
       </div>
       {/* Info */}
-      <div className="w-[986px]     flex flex-col justify-center items-center px-10 mt-[100px] md:mt-[179px] ">
+      <div className="w-[986px]     flex flex-col justify-center items-center px-10 mt-[120px] md:mt-[189px] ">
         <p className="leading-9  md:leading-[55px] text-center xl:max-w-[970px] md:max-w-[800px] px-6 max-w-[390px] ">
           
           <span
@@ -99,7 +99,7 @@ export default async function Home() {
 <div>
   
 </div>
-       <div className="relative flex gap-4 mt-[36px]">
+       <div className="relative flex gap-4 mt-[25px]  md:mt-[36px]">
        <div className="relative flex md:hidden">
        <div className="absolute -top-1 downloadApp2 -left-4 md:flex"></div> 
          
@@ -127,8 +127,8 @@ export default async function Home() {
        </div>
       </div>
 
-      <div className=" px-6 mt-[40px] md:mt-[52px] xl:mt-[92px]   xl:w-[1308px] z-10 md:px-[70px] xl:px-0 ">
-        <div className="p-[6px] xl:p-3 bg-[#ffffff09] rounded-md">
+      <div className=" px-6 mt-[40px] md:mt-[52px] xl:mt-[92px]   xl:w-[1308px] z-10 md:px-[70px] xl:px-[80px] ">
+        <div className="p-[6px] xl:p-3 bg-[#ffffff09] border-t border-opacity-30 border-white rounded-md">
           <img src="/images/Rectangle 14.png" alt="" />
         </div>
       </div>
