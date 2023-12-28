@@ -91,7 +91,7 @@ export default async function Home() {
           </span> 
         </p>
 
-        <p className=" md:text-[22px] text-[13px] mt-4 xl:text-[24px] md:mt-[10px] xl:mt-[20px] text-center  xl:max-w-[670px] md:max-w-[600px] px-4 max-w-[300px]  ">
+        <p className=" md:text-[22px] text-[13px] mt-4 xl:text-[24px] md:mt-[10px] xl:mt-[20px] text-center  xl:max-w-[690px] md:max-w-[600px] px-4 max-w-[300px]  ">
           Avec Payme, simplifiez votre comptabilité. Suivi en temps réel des
           devis, gestion facilitée, tout est à portée de main.
         </p>
@@ -112,14 +112,14 @@ export default async function Home() {
        <div className="relative hidden md:flex">
         
          
-          <div className=" w-[160px]  bg-[#0E0E0E] relative  border-2   h-[45px] cursor-pointer hover:border-[#bbbc8b] hover:text-white flex justify-center  rounded-md items-center border-white/50 ">
+          <div className=" w-[160px]  bg-[#0E0E0E] relative  border-2   h-[45px] hover:brightness-110  cursor-pointer border-[#bbbc8b] hover:text-white flex justify-center  rounded-md items-center  ">
          <FaWindows className="mr-2" />
           Windows
           </div>
         </div>
        <div className="relative hidden md:flex">
          
-          <div className=" w-[160px] bg-[#0E0E0E] relative  border-2   h-[45px] cursor-pointer hover:border-[#bbbc8b] hover:text-white flex justify-center  rounded-md items-center border-white/50 ">
+          <div className=" w-[160px] bg-[#0E0E0E] relative  border-2   h-[45px] hover:brightness-110  cursor-pointer border-[#bbbc8b] hover:text-white flex justify-center  rounded-md items-center  ">
          <RiAppleFill className="mb-[2px] mr-2" />
             Mac
           </div>
@@ -127,7 +127,7 @@ export default async function Home() {
        </div>
       </div>
 
-      <div className=" px-6 mt-[40px] md:mt-[52px] xl:mt-[92px]   xl:w-[1308px] z-10 md:px-[70px] xl:px-[80px] ">
+      <div className=" px-6 mt-[40px] md:mt-[52px] xl:mt-[72px]   xl:w-[1308px] z-10 md:px-[70px] xl:px-[80px] ">
         <div className="p-[6px] xl:p-3 bg-[#ffffff09] border-t border-opacity-30 border-white rounded-md">
           <img src="/images/Rectangle 14.png" alt="" />
         </div>
