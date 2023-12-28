@@ -48,25 +48,46 @@ opacity: 0.6;
 filter: blur(161px);
 
 }
-  .downloadApp {
+  .downloadApp2 {
     
  /* Group 225 */
 
-position: absolute;
-width: 222px;
-height: 52px;
-left: calc(50% - 222px/2 - 6px);
-top: 488px;
+ 
+top: 388px;
 
 opacity: 0.7;
-filter: blur(32px);
+filter: blur(25px);
 
 
 /* Rectangle 7 */
 
 position: absolute;
-width: 222px;
-height: 52px;
+width: 212px;
+height: 62px;
+left: 0px;
+top: 33px;
+opacity: 0.5;
+
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(89.94deg, #999A5B -59.84%, #FFFFEA 152.29%);
+border-radius: 8px;
+
+  }
+  .downloadApp {
+    
+ /* Group 225 */
+
+ 
+top: 388px;
+
+opacity: 0.7;
+filter: blur(25px);
+
+
+/* Rectangle 7 */
+
+position: absolute;
+width: 362px;
+height: 62px;
 left: 0px;
 top: 33px;
 opacity: 0.5;

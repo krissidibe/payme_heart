@@ -1,10 +1,11 @@
 import Pdfrenderer from "@/components/pdfrenderer";
 import MyDocumentPDF from "@/components/PdfRend";
-
+import { FaWindows } from "react-icons/fa6";
 import Image from "next/image";
-
+import { IoMdMenu } from "react-icons/io";
+import { RiAppleFill } from "react-icons/ri";
 export const dynamic = "force-dynamic";
-
+import { IoIosMenu } from "react-icons/io";
 import localFont from "next/font/local";
 
 const titleFont = localFont({
@@ -51,7 +52,14 @@ export default async function Home() {
       <img className="absolute" src="images/Grille.png" alt="" />
       <div className="heroEclipse"></div>
       {/* Header */}
-      <div className="h-[52px] hid  text-[16px] font-semibold min-w-5xl min-w-[1440px]   mt-4 items-center flex justify-between ">
+      <div className="fixed z-50 h-[60px]  xl:h-[92px] flex items-center justify-center  w-screen bg-zinc-950/30 backdrop-blur-lg">
+      <div className="h-[52px] px-10 flex md:hidden   md:text-[14px]  xl:text-[16px] font-semibold max-w-7xl w-full    mt-0 items-center xl:px-0 md:px-14 justify-between ">
+        <p className="text-[22px] text-white ">Payme.</p>
+        <IoIosMenu className="w-9 h-9" />
+
+         
+      </div>
+      <div className="h-[52px] hidden md:flex   md:text-[14px]  xl:text-[16px] font-semibold max-w-7xl w-full    mt-0 items-center xl:px-0 md:px-14 justify-between ">
         <p className="text-[30px] text-white ">Payme.</p>
         <div className="flex gap-8 ">
           <p className="text-white">Acceuil</p>
@@ -61,39 +69,66 @@ export default async function Home() {
           <p className="cursor-pointer hover:text-white">Télécharger</p>
         </div>
 
-        <div className="w-[180px] border cursor-pointer hover:border-[#999A5B] hover:text-white flex justify-center h-full rounded-md items-center border-white/40 ">
-          Obtenez l’app ici
+        <div className="w-[180px] border cursor-pointer hover:border-[#999A5B] hover:text-white flex justify-center   h-[45px] rounded-md items-center border-white/40 ">
+        <p className="mr-2">  Obtenez l’app ici</p> <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 1C9 0.447715 8.55228 -2.41412e-08 8 0C7.44772 2.41412e-08 7 0.447715 7 1L9 1ZM7.29289 13.7071C7.68342 14.0976 8.31658 14.0976 8.70711 13.7071L15.0711 7.34315C15.4616 6.95262 15.4616 6.31946 15.0711 5.92893C14.6805 5.53841 14.0474 5.53841 13.6569 5.92893L8 11.5858L2.34315 5.92893C1.95262 5.53841 1.31946 5.53841 0.928932 5.92893C0.538408 6.31946 0.538408 6.95262 0.928932 7.34315L7.29289 13.7071ZM7 1L7 13L9 13L9 1L7 1Z" fill="white" fill-opacity="0.7"/>
+</svg>
+
         </div>
       </div>
+      </div>
       {/* Info */}
-      <div className="w-[986px]     flex flex-col justify-center items-center mr-20 mt-[129px] ">
-        <p className="leading-[55px] text-center ">
-          {" "}
+      <div className="w-[986px]     flex flex-col justify-center items-center px-10 mt-[100px] md:mt-[179px] ">
+        <p className="leading-9  md:leading-[55px] text-center xl:max-w-[970px] md:max-w-[800px] px-6 max-w-[390px] ">
+          
           <span
-            className={`${titleFont.className} text-[70.39px]  mr-2 bg-gradient-to-r from-[#999A5B] via-[#999A5B] to-[#FFFFEA] bg-clip-text text-transparent pr-2 `}
+            className={`${titleFont.className} text-[35px] md:text-[67px] xl:text-[70.39px]  mr-2 bg-gradient-to-r from-[#999A5B] via-[#999A5B] to-[#FFFFEA] bg-clip-text text-transparent pr-1 `}
           >
             Simplifier
-          </span>{" "}
-          <span className="text-[64.39px]  font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#948f8f] bg-clip-text text-transparent">
-            votre gestion financière avec Payme
-          </span>{" "}
+          </span> 
+          <span className=" text-[35px] md:text-[60px] xl:text-[64.39px]  md:leading-14  font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#948f8f] bg-clip-text text-transparent">
+            votre gestion    financière avec Payme
+          </span> 
         </p>
 
-        <p className="text-[24px]  mt-[20px] text-center max-w-[670px]  ">
+        <p className=" md:text-[22px] text-[13px] mt-4 xl:text-[24px] md:mt-[10px] xl:mt-[20px] text-center  xl:max-w-[670px] md:max-w-[600px] px-4 max-w-[300px]  ">
           Avec Payme, simplifiez votre comptabilité. Suivi en temps réel des
           devis, gestion facilitée, tout est à portée de main.
         </p>
 
-        <div className="relative">
-          <div className="downloadApp"></div>
-          <div className="w-[222px] bg-[#0E0E0E] relative  border  mt-[36px] h-[52px] cursor-pointer hover:border-[#999A5B] hover:text-white flex justify-center  rounded-md items-center border-white/40 ">
-            Téléchargez l’application
-          </div>
+<div>
+  
+</div>
+       <div className="relative flex gap-4 mt-[36px]">
+       <div className="relative flex md:hidden">
+       <div className="absolute -top-1 downloadApp2 -left-4 md:flex"></div> 
+         
+        <div className=" w-[180px] text-[13px]  bg-[#0E0E0E] relative  border-2   h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
+      
+        Télécharger l'application
         </div>
       </div>
+       <div className="absolute hidden -top-1 downloadApp -left-4 md:flex"></div> 
+       <div className="relative hidden md:flex">
+        
+         
+          <div className=" w-[160px]  bg-[#0E0E0E] relative  border-2   h-[45px] cursor-pointer hover:border-[#bbbc8b] hover:text-white flex justify-center  rounded-md items-center border-white/50 ">
+         <FaWindows className="mr-2" />
+          Windows
+          </div>
+        </div>
+       <div className="relative hidden md:flex">
+         
+          <div className=" w-[160px] bg-[#0E0E0E] relative  border-2   h-[45px] cursor-pointer hover:border-[#bbbc8b] hover:text-white flex justify-center  rounded-md items-center border-white/50 ">
+         <RiAppleFill className="mb-[2px] mr-2" />
+            Mac
+          </div>
+        </div>
+       </div>
+      </div>
 
-      <div className="w-[1308px] z-10 mr-20">
-        <div className="mt-[92px] p-3 bg-[#ffffff09] rounded-md">
+      <div className=" px-6 mt-[40px] md:mt-[52px] xl:mt-[92px]   xl:w-[1308px] z-10 md:px-[70px] xl:px-0 ">
+        <div className="p-[6px] xl:p-3 bg-[#ffffff09] rounded-md">
           <img src="/images/Rectangle 14.png" alt="" />
         </div>
       </div>

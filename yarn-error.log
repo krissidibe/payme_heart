@@ -1,5 +1,5 @@
 Arguments: 
-  /opt/homebrew/Cellar/node/21.3.0/bin/node /opt/homebrew/bin/yarn
+  /opt/homebrew/Cellar/node/21.3.0/bin/node /opt/homebrew/bin/yarn add lucide-react
 
 PATH: 
   /Users/aboubacar/.vscode-dotnet-sdk/.dotnet:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.11/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/VMware Fusion.app/Contents/Public:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/aboubacar/.vscode-dotnet-sdk/.dotnet:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.11/bin:/Users/aboubacar/.cargo/bin:/Users/aboubacar/flutter/bin:/Users/aboubacar/flutter/bin
@@ -14,7 +14,7 @@ Platform:
   darwin arm64
 
 Trace: 
-  Error: ENOENT: no such file or directory, copyfile '/Users/aboubacar/Library/Caches/Yarn/v6/npm-glob-parent-6.0.2-integrity/node_modules/glob-parent/README.md' -> '/Users/aboubacar/payme_heart/node_modules/tailwindcss/node_modules/glob-parent/README.md'
+  Error: ENOENT: no such file or directory, lstat '/Users/aboubacar/payme_heart/node_modules/tailwindcss/node_modules/postcss-load-config/node_modules'
 
 npm manifest: 
   {
