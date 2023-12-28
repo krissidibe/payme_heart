@@ -50,6 +50,7 @@ export default async function Home() {
       className={`flex flex-col items-center  relative text-[#B9B9B9] w-full   min-h-screen bg-[#0E0E0E] ${myFont.className}`}
     >
       <img className="absolute" src="images/Grille.png" alt="" />
+      
       <div className="heroEclipse"></div>
       {/* Header */}
       <div className="fixed z-50 h-[60px]  xl:h-[92px] flex items-center justify-center  w-screen bg-zinc-950/30 backdrop-blur-lg">
@@ -147,18 +148,18 @@ filter: blur(161px);
 transform: rotate(15deg);
 
     */}
-      <div className="w-[1280px] mr-20 relative">
+      <div className="relative w-full max-w-6xl xl:px-0 md:px-[50px] px-[40px]">
         <div className="eclipse "></div>
 
-        <div className="mt-[152px]   flex rounded-md">
-          <div className="w-1/2">
-            <p className="text-[18px] uppercase">Caractéristiques</p>
-            <p className="text-[48px] my-[20px] leading-[45px] bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#656565] bg-clip-text text-transparent">
+        <div className=" mt-10 md:mt-[122px]  flex-col md:flex-row flex rounded-md">
+          <div className="md:w-1/2">
+            <p className="text-[14px] md:text-[18px] text-[#3ED7C4] uppercase">Caractéristiques</p>
+            <p className="md:text-[38px] text-[24px] xl:text-[48px] my-[20px] leading-7 md:leading-[45px] bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#656565] bg-clip-text text-transparent">
               Gestion de comptabilité réinventée
             </p>
-            <p className="text-[16px] mb-[76px] ">
+            <p className="md:text-[14px] xl:text-[16px] mb-10 md:mb-[76px] ">
               Facilitez votre gestion quotidienne avec notre système intuitif
-              <br /> et automatisé.
+                et automatisé.
             </p>
 
             <div className="flex flex-col gap-[32px] pb-20">
@@ -231,22 +232,29 @@ transform: rotate(15deg);
               />
             </div>
           </div>
-          <div className="w-1/2 bg-[#999A5B] relative overflow-hidden">
-            <img
-              className="max-w-[510px] max-h-[694px] absolute right-0  top-[90px] "
-              src="images/pre.png"
+          <div className="flex ml-0 rounded-md md:hidden border-opacity-30">
+          <img
+              className=" max-h-[704px] md:absolute right-0  top-[0px] "
+              src="images/Group.png"
               alt=""
             />
-          </div>
+        </div>
+           <div className="relative hidden overflow-hidden md:flex md:w-1/2">
+            <img
+              className="max-w-[520px] max-h-[704px] md:absolute right-0  top-[0px] "
+              src="images/Group.png"
+              alt=""
+            />
+          </div>  
         </div>
       </div>
 
-      <div className="w-[1300px] mt-[152px] mr-20">
-        <p className="text-[48px] my-[20px] leading-[45px] font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#656565] bg-clip-text text-transparent">
-          Gestion de comptabilité réinventée
+      <div className="w-full max-w-6xl xl:px-0 md:px-[50px] px-[40px] mt-[102px] mr-0">
+        <p className="md:text-[38px] text-[24px] xl:text-[48px] my-[20px] leading-8 md:leading-[45px] font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#656565] bg-clip-text text-transparent">
+        Payme est le compagnon idéal pour
         </p>
 
-        <div className="relative grid grid-cols-3">
+        <div className="relative grid gap-4 md:gap-2 md:grid-cols-3">
           <div className="gestion"></div>
           <GestionInfo
             icon={
@@ -321,9 +329,9 @@ transform: rotate(15deg);
           />
         </div>
       </div>
-      <div className="w-[1060px] mt-[210px] mr-20">
-        <p className="text-[48px] pb-[100px] leading-[45px] font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#656565] bg-clip-text text-transparent">
-          Foire aux questions
+      <div className="w-full max-w-6xl xl:px-0 md:px-[50px] px-[40px] mt-[110px]  ">
+        <p className=" text-[30px] md:text-[48px] md:pb-[100px] pb-[40px] leading-[45px] font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#656565] bg-clip-text text-transparent">
+          Foire aux questions 
         </p>
 
         <div className="flex flex-col gap-7">
@@ -338,9 +346,15 @@ transform: rotate(15deg);
           <FaqItem content="Comment Payme sécurise-t-il mes données financières et celles de mon entreprise ?" />
         </div>
       </div>
-      <div className="relative">
+      <div className=" px-6 mt-[40px] md:mt-[52px] xl:mt-[72px]   xl:w-[1308px] z-10 md:px-[70px] xl:px-[80px] ">
+      
+          <img className="hidden md:flex" src="/images/Groupf.png" alt="" />
+          <img className="md:hidden" src="/images/Groupfm.png" alt="" />
+        
+      </div>
+    {/*   <div className="relative">
         <img className="absolute " src="images/Grille.png" alt="" />
-        <div className="w-[1280px] mt-[152px] h-[403px] p-8 py-4 rounded-3xl flex mr-20 bg-[#222222]">
+        <div className="w-full max-w-6xl xl:px-0 md:px-[50px] px-[40px] mt-[152px] h-[403px] p-8 py-4 rounded-3xl flex mr-20 bg-[#222222]">
           <div className="flex flex-col justify-center w-1/2">
             <p className="text-[48px]   leading-[45px] font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#656565] bg-clip-text text-transparent">
               Prêt à transformer <br /> votre gestion financière ?
@@ -356,12 +370,12 @@ transform: rotate(15deg);
 
           <img className="w-1/2" src="images/Rectangle 14.png" alt="" />
         </div>
-      </div>
+      </div> */}
 
-      <div className="w-[1280px] flex-col mt-[152px] h-[503px] p-8 py-4 rounded-3xl flex mr-20  relative ">
-      <div className="gestion opacity-40"></div>
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col">
+      <div className="w-full  max-w-6xl xl:px-14 md:px-[50px] px-[40px] flex-col mt-[52px] h-[503px] p-8 py-4 rounded-3xl flex   relative ">
+  <div className="gestion opacity-40"></div> 
+        <div className="flex flex-col items-center justify-between md:flex-row">
+          <div className="flex flex-col w-full">
             <p className="text-[30px] text-white ">Payme.</p>
             <p className="text-[14px] mt-[13px]">
               © 2023 Payme, Sarl. Tout droit réservé.
@@ -372,7 +386,7 @@ transform: rotate(15deg);
             </p>
           </div>
 
-          <div>
+          <div className="w-full  md:w-[280px]">
             <p className="text-[30px] text-white ">.</p>
             <p className="text-[16px] mt-[7px] text-[#ffffff]">
               Conditions d'utilisation <br /> Politique de confidentialité
@@ -385,7 +399,7 @@ transform: rotate(15deg);
 
   function FaqItem({ content = "" }) {
     return (
-      <div className="text-[24px] cursor-pointer hover:text-white  border-t flex justify-between items-center border-white/20 pt-6">
+      <div className="md:text-[24px] text-[14px] cursor-pointer hover:text-white  border-t flex justify-between items-center border-white/20 pt-6">
         <p>{content}</p>
         <div className="pl-[100px]">
           <svg
@@ -419,10 +433,10 @@ transform: rotate(15deg);
     isBr: boolean;
   }) {
     return (
-      <div className="text-[16px]  pt-[24px] border-t border-white/20 max-w-[510px] leading-[26px]  flex gap-[30px]  items-start justify-start ">
+      <div className="text-[16px] md:mr-[50px]  pt-[24px] border-t border-white/20 max-w-[510px] leading-[26px] md:max-w-[450px] xl:max-w-full  flex gap-[30px]  items-start justify-start ">
         <div>{icon}</div>
 
-        <p className="">
+        <p className="md:text-[14px] ">
           <span className="text-white">{titre}</span> {isBr && <br />}
           {content}
         </p>
@@ -441,7 +455,7 @@ transform: rotate(15deg);
     isBr: boolean;
   }) {
     return (
-      <div className="text-[16px]  pt-[10px] pb-4 border-l border-white/20 max-w-[510px] leading-[26px] flex-col  flex gap-[10px] px-[28px]  items-start justify-start ">
+      <div className="text-[16px]  pt-[10px] pb-4 md:border-b-transparent border-b md:border-l border-white/20 max-w-[510px] leading-[26px] flex-col  flex gap-[10px] md:px-[28px]  items-start justify-start ">
         <div>{icon}</div>
 
         <p className="">
