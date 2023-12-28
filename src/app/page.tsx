@@ -47,7 +47,7 @@ export default async function Home() {
 
   return (
     <main
-      className={`flex flex-col items-center  relative text-[#B9B9B9] w-full   min-h-screen bg-[#0E0E0E] ${myFont.className}`}
+      className={`flex flex-col items-center  relative text-[#B9B9B9] w-full   min-h-screen no-scrollbar bg-[#0E0E0E] ${myFont.className}`}
     >
       <img className="absolute" src="images/Grille.png" alt="" />
       
