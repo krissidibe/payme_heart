@@ -1,12 +1,16 @@
+ 
 import Pdfrenderer from "@/components/pdfrenderer";
 import MyDocumentPDF from "@/components/PdfRend";
 import { FaWindows } from "react-icons/fa6";
 import Image from "next/image";
-import { IoMdMenu } from "react-icons/io";
+import { IoIosClose, IoMdMenu } from "react-icons/io";
 import { RiAppleFill } from "react-icons/ri";
 export const dynamic = "force-dynamic";
 import { IoIosMenu } from "react-icons/io";
 import localFont from "next/font/local";
+import ToggleButton from "./ToggleButton";
+import MobileMenu from "./MobileMenu";
+ 
 
 const titleFont = localFont({
   src: [
@@ -43,23 +47,19 @@ export default async function Home() {
  const res = await fetch("http://localhost:3000/api/facture",{cache:"no-store"})
 
  const data:any[] = await res.json(); */
+
   const data: any[] = [];
 
   return (
     <main
-      className={`flex flex-col items-center  relative text-[#B9B9B9] w-full   min-h-screen no-scrollbar bg-[#0E0E0E] ${myFont.className}`}
+      className={`flex flex-col items-center  overflow-x-hidden relative text-[#B9B9B9] w-full   min-h-screen bg-[#0E0E0E] ${myFont.className}`}
     >
       <img className="absolute" src="images/Grille.png" alt="" />
       
       <div className="heroEclipse"></div>
       {/* Header */}
-      <div className="fixed z-50 h-[60px]  xl:h-[92px] flex items-center justify-center  w-screen bg-zinc-950/30 backdrop-blur-lg">
-      <div className="h-[52px] px-10 flex md:hidden   md:text-[14px]  xl:text-[16px] font-semibold max-w-7xl w-full    mt-0 items-center xl:px-0 md:px-14 justify-between ">
-        <p className="text-[22px] text-white ">Payme.</p>
-        <IoIosMenu className="w-9 h-9" />
-
-         
-      </div>
+     <MobileMenu/>
+     {/*  <div className="fixed z-50 h-[60px]  xl:h-[92px] flex items-center justify-center  w-screen bg-zinc-950/30 backdrop-blur-lg">
       <div className="h-[52px] hidden md:flex   md:text-[14px]  xl:text-[16px] font-semibold max-w-7xl w-full    mt-0 items-center xl:px-14 md:px-14 justify-between ">
         <p className="text-[30px] text-white ">Payme.</p>
         <div className="flex gap-8 ">
@@ -77,7 +77,7 @@ export default async function Home() {
 
         </div>
       </div>
-      </div>
+      </div> */}
       {/* Info */}
       <div className="w-[986px]     flex flex-col justify-center items-center px-10 mt-[120px] md:mt-[189px] ">
         <p className="leading-9  md:leading-[55px] text-center xl:max-w-[970px] md:max-w-[800px] px-6 max-w-[390px] ">
@@ -401,7 +401,7 @@ transform: rotate(15deg);
     return (
       <div className="md:text-[24px] text-[14px] cursor-pointer hover:text-white  border-t flex justify-between items-center border-white/20 pt-6">
         <p>{content}</p>
-        <div className="pl-[100px]">
+        <div className="pl-2 md:pl-[100px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
