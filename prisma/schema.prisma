@@ -273,8 +273,8 @@ model Subscribe {
 
 model Invoice {
   id          String       @id @default(cuid())
-  invoiceFileName   String?   @default("")
-  invoiceType   String?   @default("")
+   name   String   
+  invoiceFileName   String   
   primaryColor   String?   @default("")
   saturationColor   String?   @default("")
   secondaryColor   String?   @default("") 
@@ -291,9 +291,8 @@ model Invoice {
  }
 model InvoiceList {
   id          String       @id @default(cuid())
-  invoiceFileName   String?   @default("")
-  invoicePreview   String?   @default("")
-  invoiceType   String?   @default("")
+  name   String   @unique
+  invoiceFileName   String  @unique
   primaryColor   String?   @default("")
   saturationColor   String?   @default("")
   secondaryColor   String?   @default("")
@@ -304,7 +303,18 @@ model InvoiceList {
   createdAt   DateTime     @default(now()) @db.Timestamp(0)
   updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
   deletedAt   DateTime?    @db.Timestamp(0)
+
+  categoryId      String      
+  category        Category         @relation(fields: [categoryId], references: [id] ,onDelete: Cascade )
    
+ }
+model Category {
+  id          String       @id @default(cuid())
+  name   String    @unique
+  createdAt   DateTime     @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+  deletedAt   DateTime?    @db.Timestamp(0)
+  invoiceList    InvoiceList[]
  }
 
  model CodeOTP {

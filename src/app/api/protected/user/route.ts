@@ -14,7 +14,11 @@ export async function GET(req: NextRequest, res: NextResponse) {
         id: searchParams.get("userId")!,
          
       },
-   include:{customers:true, subscribe:{include:{ payment:true }},payments:{include:{subscribe:true}} }
+   include:{
+    customers:true, subscribe:{include:{ payment:true }},payments:{include:{subscribe:true}} ,
+    invoice:true
+  
+  }
     });
 
     return new Response(JSON.stringify(data));

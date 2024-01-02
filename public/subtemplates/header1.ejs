@@ -1,6 +1,27 @@
 <header class="heading flex justify-between mt-[88.95px] px-14">
-  <div class="logo rounded-full w-24 h-24">
-  </div>
-  <div class="facture-number">
-  </div>
+  <div class="w-[150px] h-[150px]">
+              
+    <img src="<%=logo%>" alt="" srcset="">
+                  </div>
+                  <div class="facture-number my-[15px] font-light text-[23px] inter">
+                    <div class="leading-[24px] mb-1">
+                      <% if(invoiceType == 0) { %>
+                        <p>PROFORMA</p>
+                      <% } %>
+                      <% if(invoiceType == 1) { %>
+                        <p>FACTURE</p>
+                      <% } %>
+                      <% if(invoiceType == 2) { %>
+                        <p>BORDEREAU</p>
+                      <% } %>
+                      <p>N°: <%=project.invoiceNumber%></p>
+                    </div>
+                    <p class="pt-1 border-t-[1px] border-[#4D4B4C] text-[12px]">Date:<%=date%></p>
+                  </div>
 </header>
+
+
+
+ 
+
+ 

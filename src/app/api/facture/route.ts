@@ -35,7 +35,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
  
     
     
-      const filePath = path.join(process.cwd(),"public","facture1.ejs")
+      const filePath = path.join(process.cwd(),"public",`invoices/${dataNew.invoiceFileName}.ejs`)
       const html = await fs.readFile(filePath,"utf-8");
       
       

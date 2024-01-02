@@ -1,4 +1,12 @@
-<div class="sign flex justify-between text-[9.73px] text-[#222428] pt-[143.16px] pb-[108.4px] inter px-14">
-  <p class="px-[33.36px] py-[12.51px] border-t-[1px] border-[#4D4B4C]">POURACQUIS</p>
-  <p class="px-[33.36px] py-[12.51px] border-t-[1px] border-[#4D4B4C]">LEPRESTATAIRE</p>
+<div class="flex justify-between text-[14px] pt-10 px-20">
+  <div class="w-[180px] h-[180px] text-center uppercase">
+    <p class="pb-2 border-b border-black">Pour accord</p>
+
+    <% if(signed){ %>
+      <img src="<%=signature%>" class="pt-3 bg-white" alt="" srcset="">
+      <% } %>
+  </div>
+  <div class="w-[180px] h-[180px] text-center uppercase">
+    <p class="pb-2 border-b border-black">Le prestataire</p>
+  </div>
 </div>
