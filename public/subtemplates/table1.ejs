@@ -1,8 +1,8 @@
 <main class="tabs flex flex-col mt-[51.43px] font-light">
  
   <!-- table heading -->
-  <div class="tabs-header tabs-item inter flex w-full  text-[14.8px] gap-[5px] px-14 py-[14px]">
-    <p class="flex-1 py-[8.34px] px-[15.29px]">DESCRIPTION</p>
+  <div class="tabs-header     tabs-item inter flex w-full  text-[14.8px] gap-[5px] px-14 py-[14px]">
+    <p class="flex-1 py-[8.34px] !bg-[<%=primaryColor%>] px-[15.29px]">DESCRIPTION</p>
     <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
     
 
@@ -16,7 +16,8 @@
   
   <!-- table item -->
   <div class="tabs-item text-[12px] flex w-full items-center gap-[5px] px-14 py-[18px]">
-    <p class="flex-1"> <%=item.designation%></p>
+    <p class="flex-1"> <%=item.designation%> </p>
+
     <p class="w-[115px] py-[8.34px] text-center"> <%=item.rate%></p>
 
     <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "": item.quantity %>   <span class="ml-1"> <%=   invoiceType === 2 ? "": "FCFA" %></span> </p>
@@ -24,7 +25,7 @@
     
     </div>
   
-  <div class="separator border-t-[1px] border-[#1D1D1D] mx-14"></div>
+  <div class="separator border-t-[0.1px] border-[#1D1D1D]/20 mx-14"></div>
   
   <% }) %>
  

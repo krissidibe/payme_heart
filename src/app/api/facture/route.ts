@@ -20,7 +20,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
   const { searchParams } = new URL(req.url);
    
   const dataNew:any = await req.json();
-    // console.log(dataNew);
+     console.log(dataNew);
      
      
  
@@ -70,9 +70,11 @@ export async function POST(req:NextRequest,res:NextResponse) {
       .convert(total)
       .replaceAll("Et", "")
       .replaceAll("-", " ")
-      
+     /*  
       const logo =`${process.env.BASE_API_URL}/files/logo-${dataNew.enterprise.id}.png`
-      const signature =`${process.env.BASE_API_URL}/files/signature-${dataNew.enterprise.id}.png`
+      const signature =`${process.env.BASE_API_URL}/files/signature-${dataNew.enterprise.id}.png` */
+      const logo =`https://paymefinance.com/files/logo-${dataNew.enterprise.id}.png`
+      const signature =`https://paymefinance.com/files/signature-${dataNew.enterprise.id}.png`
  
       let  invoiceTypeName = "";
       switch (dataNew.invoiceType) {
@@ -104,6 +106,8 @@ export async function POST(req:NextRequest,res:NextResponse) {
   const dataTextFinal = dataText == "Invalid Date" ? dayjs(`${dataNew.project.createdAt}`).format("DD/MM/YYYY") : dataText
    
       return ejs.renderFile(filePath,{
+        primaryColor:dataNew.primaryColor,
+        secondaryColor:dataNew.secondaryColor,
         logo:logo,
         signed:dataNew.signed,
         date: dataTextFinal ,
@@ -160,6 +164,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
  
   await browser.close();
   return buffer;
+  return base64;
   })();
  
    return new Response(dd,{
