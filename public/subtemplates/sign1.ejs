@@ -1,12 +1,19 @@
-<div class="flex justify-between text-[14px] pt-10 px-20">
-  <div class="w-[180px] h-[180px] text-center uppercase">
-    <p class="pb-2 border-b border-black">Pour accord</p>
+<div class="flex justify-between text-[10px] font-light pt-10 mt-2 px-[110px]">
+  <div class="w-[130px] h-[180px] text-center uppercase">
 
+    <p class="pb-2 border-b border-black/30"> <%=   invoiceType === 2 ? "Le réceptionnaire": "Pour accord" %> </p>
+
+  
+  </div>
+  <div class="w-[130px] h-[180px] text-center uppercase">
+    <p class="pb-2 border-b-[0.5px] border-black/30"> <%=   invoiceType === 2 ? "Le fournisseur": "Le prestataire" %> </p>
     <% if(signed){ %>
-      <img src="<%=signature%>" class="pt-3 bg-white" alt="" srcset="">
+      <img src="<%=signature%>" class="pt-3 bg-white w-[140px] h-[140px] " alt="" srcset="">
       <% } %>
   </div>
-  <div class="w-[180px] h-[180px] text-center uppercase">
-    <p class="pb-2 border-b border-black">Le prestataire</p>
-  </div>
 </div>
+
+
+
+
+

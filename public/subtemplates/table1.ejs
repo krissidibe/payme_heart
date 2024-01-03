@@ -1,4 +1,4 @@
-<main class="tabs flex flex-col mt-[51.43px] font-light">
+<main class="tabs flex flex-col mt-[31.43px] font-light">
  
   <!-- table heading -->
   <div class="tabs-header     tabs-item inter flex w-full  text-[14.8px] gap-[5px] px-14 py-[14px]">
@@ -6,7 +6,7 @@
     <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
     
 
-    <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+    <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "OBSERVATION": " Prix.U" %></p>
     <p class="w-[115px] py-[8.34px] text-center"><%=   invoiceType === 2 ? "": "Montant" %> </p>
     
   </div>
@@ -15,12 +15,12 @@
   <% table.forEach(function(item,index) { %>
   
   <!-- table item -->
-  <div class="tabs-item text-[12px] flex w-full items-center gap-[5px] px-14 py-[18px]">
+  <div class="tabs-item text-[12px] flex w-full items-center gap-[5px] px-14 py-[5px]">
     <p class="flex-1"> <%=item.designation%> </p>
 
-    <p class="w-[115px] py-[8.34px] text-center"> <%=item.rate%></p>
+    <p class="w-[115px] py-[8.34px] text-center"> <%=item.quantity%> </p>
 
-    <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "": item.quantity %>   <span class="ml-1"> <%=   invoiceType === 2 ? "": "FCFA" %></span> </p>
+    <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "": item.rate %>   <span class="ml-1"> <%=   invoiceType === 2 ? "": "FCFA" %></span> </p>
     <p class="w-[115px] py-[8.34px] text-center">  <%=   invoiceType === 2 ? "": item.amount %>     <span class="ml-1"> <%=   invoiceType === 2 ? "": "FCFA" %></span> </p>
     
     </div>

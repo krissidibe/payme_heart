@@ -1,7 +1,7 @@
 <div class="flex flex-col w-full" >
   <% if(invoiceType != 2) { %>
-  <div class="total flex justify-between mt-[23.63px] text-[12.51px] text-[#4D4B4C] px-14">
-    <div class="leading-4 left mt-[5.56px]">
+  <div class="total flex justify-between mt-[23.63px]  text-[12.51px] text-[#4D4B4C] px-14">
+    <div class="leading-4 left mt-[5.56px] max-w-[340px]">
       <p class="font-semibold">Arrêtée la présente Facture à la somme de :</p>
       <p>
         <%=totalLetter %> <%=currency %><br>
@@ -17,12 +17,20 @@
         <% } %>
         <% } %>
       </p>
+      <% if(project.remarque.length > 0){ %>
+                     
+        <div class="total flex justify-between  mt-3   text-[#4D4B4C]">
+    
+          <p class="text-[14px]"> <span class="pr-1 underline">Remarque :</span> <%= project.remarque %></p>
+        </div>             
+    
+        <% }%>
     </div>
     <% } %>
     <% if(invoiceType != 2) { %>
           
        
-      <div class="right flex flex-col text-[9.73px] gap-[11.12px] inter">
+      <div class="right flex flex-col text-[12px] min-w-[260px] gap-[11.12px] inter">
         <p class="flex justify-between">
           <span>MONTANT TOTAL HT:</span>
           <span> <%=totalHT%>  <%=currency %></span>
@@ -36,13 +44,13 @@
         <% } %>
   
         <% if(project.discount != 0 || project.discount != ''){ %>
-        <p class="flex justify-between text-[7.64px] px-[11.81px] py-[6.25px] text-[#222428] border border-[#4D4B4C]">
-          <span>REMISECOMMERCIALE(<%= project.discount %>%):</span>
+        <p class="flex justify-between w-full text-[10px] px-[11.81px] py-[6.25px] pr-2 text-[#222428] border border-[#4D4B4C]">
+          <span>REMISE COMMERCIALE (<%= project.discount %>%) : </span>
           <span>- <%=totalDiscount%>  <%=currency %></span>
         </p>
         <% }%>
     
-        <p class="total-amount !bg-[<%=primaryColor%>] !text-[#ffffff]  px-[11.12px] py-[9.73px]"   >
+        <p class="total-amount flex justify-between !bg-[<%=primaryColor%>] !text-[#ffffff]  px-[11.12px] py-[9.73px]"   >
           <span> MONTANT TOTAL TTC : </span>
           <span><%= total %>  <%=currency %></span>
         </p>
@@ -53,12 +61,5 @@
     </div>
     <% } %>
 
-  <% if(project.remarque.length > 0){ %>
-                     
-    <div class="total flex justify-between mt-[5px] text-[12.51px] text-[#4D4B4C] px-14">
-
-      <p class="py-10 text-[14px]"> <span class="pr-1 underline">Remarque :</span> <%= project.remarque %></p>
-    </div>             
-
-    <% }%>
+ 
 </div>

@@ -1,9 +1,9 @@
-<div class="bottom-0 items-center justify-center pt-4 text-center footer page-footer !bg-[<%=primaryColor%>] !text-[#ffffff] inter">
-  <div class="text-[11px] px-[57px] line-clamp-3">
-    <p>
+<div class="bottom-0 items-center pt-2 justify-center py-2 footer page-footer !bg-[<%=primaryColor%>]  inter">
+  <p class="text-[11px] px-[57px]  pt-2 text-center line-clamp-3">
+  
 
       <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
-    </p>
-  </div>
+  
+  </p>
 </div>
 

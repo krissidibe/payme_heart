@@ -1,11 +1,9 @@
 <header class="heading flex justify-between mt-[88.95px] px-14">
- 
-  <div class="max-h-[120px] flex object-left object-contain h-[120px] max-w-[400px] w-[400px] ">
-    <img class=" max-h-[120px] object-left object-contain h-[120px] max-w-[400px] w-[400px] " src="<%=logo%>" alt="" srcset="">
-    
+  <div class="w-[150px] h-[150px] bg-black">
+   
+    <img src="<%=logo%>" alt="" srcset="">
                   </div>
-               
-                  <div class="facture-number my-[15px] font-light text-[23px] inter pr-4">
+                  <div class="facture-number my-[15px] font-light text-[23px] inter">
                     <div class="leading-[24px] mb-1">
                       <% if(invoiceType == 0) { %>
                         <p>PROFORMA</p>
@@ -14,11 +12,11 @@
                         <p>FACTURE</p>
                       <% } %>
                       <% if(invoiceType == 2) { %>
-                        <p >BORDEREAU</p>
+                        <p>BORDEREAU</p>
                       <% } %>
                       <p>N°: <%=project.invoiceNumber%></p>
                     </div>
-                    <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[14px]">Date: <%=date%></p>
+                    <p class="pt-1 border-t-[1px] border-[#4D4B4C] text-[12px]">Date:<%=date%></p>
                   </div>
 </header>
 
