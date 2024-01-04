@@ -233,7 +233,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       userId: searchParams.get("userId")!,
       name: projectData.name,
       type: ProjectType.INPROGRESS,
-      invoiceNumber: 1,
+     
       createdAt: new Date(Date.now()),
     },
   });
@@ -369,9 +369,25 @@ return new Response(JSON.stringify(project));
 
 
 
+
+if (searchParams.get("save") != null) {
+
   const projectData: Project = await req.json();
+  console.log("projectData");
+  console.log("projectData1");
+  console.log("projectData2");
+  
   
 
+  
+
+  const projetFind = await prisma.project.findFirst({
+    where:{
+      id: searchParams.get("projectId")!,
+  },
+ 
+  });
+  
   const enterprise = await prisma.enterprise.findFirst({
     where: {
       userId: searchParams.get("userId")!,
@@ -380,15 +396,76 @@ return new Response(JSON.stringify(project));
  
   });
 
-  const invoicIncrement = enterprise!.factureNumber+1;
-  console.log(invoicIncrement);
+  const invoiceIncrement = enterprise!.factureNumber+1;
+ 
 
   const enterpriseUpdate = await prisma.enterprise.update({
     where: {
       id: enterprise!.id
     },
      data: {
-          factureNumber: invoicIncrement,
+          factureNumber: projetFind!.invoiceNumber == null ? invoiceIncrement : enterprise!.factureNumber ,
+          updatedAt: enterprise!.updatedAt,
+        
+       },
+  })
+
+  
+
+  console.log("enterpriseUpdate====");
+console.log(enterpriseUpdate);
+  console.log("projetFind====");
+console.log(projetFind);
+  
+   
+
+  const project = await prisma.project.update({
+    where:{
+        id: searchParams.get("projectId")!,
+    },
+    data: {
+     
+      table : projectData.table,
+      tva : projectData.tva?.toString(),
+      discount : projectData.discount?.toString(),
+      modalite : projectData.modalite?.toString(),
+      invoiceType : projectData.invoiceType,
+      remarque : projectData.remarque?.toString(),
+      amountTotal : projectData.amountTotal?.toString(),
+      invoiceNumber :  projetFind!.invoiceNumber == null ? enterpriseUpdate!.factureNumber : projetFind!.invoiceNumber
+      
+    },
+  });
+
+  return new Response(JSON.stringify(project));
+ 
+}
+
+
+
+
+  const projectData: Project = await req.json();
+  
+  console.log("projectDataxxx");
+  console.log("projectDataxxx1");
+  console.log("projectDataxxx2");
+  const enterprise = await prisma.enterprise.findFirst({
+    where: {
+      userId: searchParams.get("userId")!,
+       
+    },
+ 
+  });
+
+  const invoiceIncrement = enterprise!.factureNumber+1;
+  console.log(enterprise);
+
+  const enterpriseUpdate = await prisma.enterprise.update({
+    where: {
+      id: enterprise!.id
+    },
+     data: {
+          factureNumber: invoiceIncrement,
           updatedAt:enterprise!.updatedAt,
         
        },

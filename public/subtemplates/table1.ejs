@@ -15,13 +15,35 @@
   <% table.forEach(function(item,index) { %>
   
   <!-- table item -->
-  <div class="tabs-item text-[12px] flex w-full items-center gap-[5px] px-14 py-[5px]">
+  <div class="tabs-item text-[12px] flex w-full items-center gap-[5px] min-h-[50px] px-14 py-[5px]">
     <p class="flex-1"> <%=item.designation%> </p>
 
     <p class="w-[115px] py-[8.34px] text-center"> <%=item.quantity%> </p>
 
-    <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "": item.rate %>   <span class="ml-1"> <%=   invoiceType === 2 ? "": "FCFA" %></span> </p>
-    <p class="w-[115px] py-[8.34px] text-center">  <%=   invoiceType === 2 ? "": item.amount %>     <span class="ml-1"> <%=   invoiceType === 2 ? "": "FCFA" %></span> </p>
+    <p class="w-[115px] py-[8.34px] text-center"> 
+      <% if(item.rate != 0 && item.rate != null) { %>
+        <%= invoiceType === 2 ? "": item.rate %>
+      
+      
+        <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+        
+      <% } %> 
+
+     
+  
+
+    </p>
+    <p class="w-[115px] py-[8.34px] text-center">  
+      <% if(item.amount != 0 && item.amount != null) { %>
+      <%=   invoiceType === 2 ? "": item.amount %>
+    
+                    
+       
+        
+        <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span>
+        
+        <% } %> 
+      </p>
     
     </div>
   

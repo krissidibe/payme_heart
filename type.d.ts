@@ -78,7 +78,7 @@ enum ProjectTypeEnum{
   type Project = {
     name  :string
     type :ProjectTypeEnum
-    invoiceNumber  :int
+    invoiceNumber?  :int
     proformaDate?  :Date
     invoiceDate?  :Date
     discountItemTable?  :string

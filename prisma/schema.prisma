@@ -130,7 +130,7 @@ model Project {
   id                String      @id @default(cuid())
   name              String
   type              ProjectType
-  invoiceNumber     Int
+  invoiceNumber     Int?
   proformaDate       DateTime?   @db.Timestamp(0)
   invoiceDate       DateTime?   @db.Timestamp(0)
   discountItemTable String?     @db.LongText

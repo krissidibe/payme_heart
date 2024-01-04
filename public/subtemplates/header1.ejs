@@ -15,10 +15,24 @@
                       <% } %>
                       <% if(invoiceType == 2) { %>
                         <p >BORDEREAU</p>
-                      <% } %>
-                      <p>N°: <%=project.invoiceNumber%></p>
+                      <% } %> 
+                      <p >N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
                     </div>
-                    <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[14px]">Date: <%=date%></p>
+
+                    
+                    <% if(invoiceType == 0) { %>
+                    
+                      <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[17px] flex justify-between">Date: <%=date%></p>
+                    <% } %> 
+                    <% if(invoiceType == 1) { %>
+                    
+                      <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[14px] flex justify-between">Date: <%=date%></p>
+                    <% } %> 
+                    <% if(invoiceType == 2) { %>
+                    
+                      <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[19px] flex justify-between">Date: <%=date%></p>
+                    <% } %> 
+
                   </div>
 </header>
 

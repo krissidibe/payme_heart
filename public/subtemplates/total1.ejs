@@ -6,14 +6,17 @@
       <p>
         <%=totalLetter %> <%=currency %><br>
   
-        <% if(invoiceType == 1) { %>
+        <% if(invoiceType != 2) { %>
           
           <% if(project.modalite != 0){ %> 
        
         Modalité de paiment : <%=project.modalite%>% à la commande <br>
+
+        <% if(invoiceType == 1) { %>
          <%=   project.invoiceType == 0 ? "Accompte à payer ": "Acompte déjà payé" %>  : <%= totalAccount %> <%=currency %> <br>
          <%=   project.invoiceType == 0 ? " Réliquat à la livraison": "Reliquat à payer" %>  : <%= totalReliquat %> <%=currency %> <br>
   
+        <% } %>
         <% } %>
         <% } %>
       </p>
@@ -21,7 +24,7 @@
                      
         <div class="total flex justify-between  mt-3   text-[#4D4B4C]">
     
-          <p class="text-[14px]"> <span class="pr-1 underline">Remarque :</span> <%= project.remarque %></p>
+          <p class=""> <span class="pr-1 underline">Remarque :</span> <%= project.remarque %></p>
         </div>             
     
         <% }%>
@@ -31,10 +34,13 @@
           
        
       <div class="right flex flex-col text-[12px] min-w-[260px] gap-[11.12px] inter">
+        <% if(project.tva != 0 || project.tva != ''){ %>
         <p class="flex justify-between">
           <span>MONTANT TOTAL HT:</span>
           <span> <%=totalHT%>  <%=currency %></span>
         </p>
+        <% } %>
+  
         <% if(project.tva != 0 || project.tva != ''){ %>
         <p class="flex justify-between">
           <span>TVA <%=project.tva%>%:</span>
@@ -51,7 +57,7 @@
         <% }%>
     
         <p class="total-amount flex justify-between !bg-[<%=primaryColor%>] !text-[#ffffff]  px-[11.12px] py-[9.73px]"   >
-          <span> MONTANT TOTAL TTC : </span>
+          <span> MONTANT TOTAL    <%= (project.tva != 0 || project.tva != '') ? "TTC": "HT" %>  : </span>
           <span><%= total %>  <%=currency %></span>
         </p>
       </div>
