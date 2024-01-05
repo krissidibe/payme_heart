@@ -33,9 +33,18 @@ export async function GET(req: NextRequest, res: NextResponse) {
 
   if (searchParams.get("userId") != null && searchParams.get("date")  ) {
     
+
+    console.log(new Date(searchParams.get("date")!).toISOString().substring(0,10) +"T00:00:00.026Z" );
+    
+
     const transaction = await prisma.transaction.findMany({
       where: {
         userId: searchParams.get("userId")!,
+        createdAt: {
+          gte: new Date(searchParams.get("date")!).toISOString().substring(0,10) +"T00:00:00.026Z"  ,
+          lte: new Date(searchParams.get("dateEnd")!).toISOString().substring(0,10) +"T23:59:00.026Z"  ,
+          //lte: new Date(Date.now() + (3600 * 1000 * 24)) ,
+        },
        // userId: "clktbv4pl00116wg2uebnn1w6",
       },
       orderBy: {
