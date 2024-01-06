@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;;
-    }
+    } 
     .inter {
       font-family: 'Inter', sans-serif;
     }
@@ -28,7 +28,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -40,6 +40,7 @@
       /* for demo */
     }
 
+    
     .page-header {
       position: fixed;
       top: 0mm;
@@ -95,9 +96,9 @@
       font-weight: 400;
     }
 
-    .tabs {
+  .tabs {
       margin-top: 26px;
-      padding-top: 90px;
+      padding-top: 30px;
       padding-bottom: 30px;
       background: #F5F5F5;
     }
@@ -110,6 +111,11 @@
       color: #4D4B4C;
     }
 
+
+    .tabs-item > div {
+      
+      border: none;
+    }
     .pages .tabs .tabs-header {
       color: #242437;
       font-weight: 400;
@@ -146,7 +152,7 @@
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header2') %>
           

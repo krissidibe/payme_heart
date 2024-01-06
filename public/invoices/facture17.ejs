@@ -28,7 +28,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -119,22 +119,28 @@
       gap: 0;
       padding: 0;
       margin: 14px 56px;
+      margin-top: 0px;
       width: 698.6px;
       height: 39px;
       background: linear-gradient(90deg, #481945 0%, #19408B 100%);
     }
 
+    .tabs-item > div {
+      text-align: left;
+      border: none;
+    }
 
     .empty-item {
       margin-right: 56px;
       margin-left: 56px;
-      border-bottom: 1px solid #4D4B4C;
+      margin-top: 10px;
+      border-bottom: 1px solid #4d4b4c30;
     }
 
     .total {
       margin-top: 0 !important;
       padding-top: 23.6px;
-      padding-bottom: 49.6px;
+      padding-bottom: 30px;
       background: #F5F5F5;
     }
 
@@ -150,8 +156,10 @@
     .footer {
       bottom: 0;
       color: #383838;
-      margin-bottom: 32px;
+  
     }
+
+    
 
     /* End Facture Custom styling */
   </style>
@@ -164,7 +172,7 @@
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header2') %>
           

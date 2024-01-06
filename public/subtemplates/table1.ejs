@@ -2,12 +2,25 @@
  
   <!-- table heading -->
   <div class="tabs-header     tabs-item inter flex w-full  text-[14.8px] gap-[5px] px-14 py-[14px]">
-    <p class="flex-1 py-[8.34px] !bg-[<%=primaryColor%>] px-[15.29px]">DESCRIPTION</p>
-    <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
-    
+    <% if(invoiceType !== 2) { %>
+    <p class="flex-1 py-[8.34px]   px-[15.29px]">DESCRIPTION</p>
 
-    <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "OBSERVATION": " Prix.U" %></p>
-    <p class="w-[115px] py-[8.34px] text-center"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+      
+      
+      <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
+      <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+  
+      <p class="w-[115px] py-[8.34px] text-center"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+      
+    <% } %> 
+    <% if(invoiceType === 2) { %>
+      <p class="min-w-[325px] w-[275px] flex-1 py-[8.34px]   px-[15.29px]">DESCRIPTION</p>
+      <p class="w-[115px] py-[8.34px]  text-center">QTé.</p>
+      <p class="flex-1 py-[8.34px] mr-0 text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+  
+ 
+    <% } %> 
+
     
   </div>
 
@@ -15,7 +28,7 @@
     
     <div class="px-14 tabs-item ">
       <!-- table item -->
-      <div class="border-b-[0.1px]  border-[#1D1D1D]/20 text-[12px] flex w-full items-center gap-[5px] min-h-[50px]  py-[5px]">
+      <div class="border-b-[0.1px]  border-[#1D1D1D]/20 text-[12px] flex w-full items-center gap-[5px] min-h-[50px]  py-[14px]">
         <p class="flex-1"> <%=item.designation%> </p>
     
         <p class="w-[115px] py-[8.34px] text-center"> <%=item.quantity%> </p>

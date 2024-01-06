@@ -22,7 +22,7 @@
       </p>
       <% if(project.remarque.length > 0){ %>
                      
-        <div class="total flex justify-between  mt-3   text-[#4D4B4C]">
+        <div class=" flex justify-between  mt-3   text-[#4D4B4C]">
     
           <p class=""> <span class="pr-1 underline">Remarque :</span> <%= project.remarque %></p>
         </div>             
@@ -56,7 +56,7 @@
         </p>
         <% }%>
     
-        <p class="total-amount flex justify-between !bg-[<%=primaryColor%>] !text-[#ffffff]  px-[11.12px] py-[9.73px]"   >
+        <p class="total-amount flex justify-between  !text-[#ffffff]  px-[11.12px] py-[9.73px]"   >
           <span> MONTANT TOTAL    <%= (project.tva != 0 || project.tva != '') ? "TTC": "HT" %>  : </span>
           <span><%= total %>  <%=currency %></span>
         </p>

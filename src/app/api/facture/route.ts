@@ -20,7 +20,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
   const { searchParams } = new URL(req.url);
    
   const dataNew:any = await req.json();
-     console.log(dataNew);
+    
      
      
  
@@ -33,11 +33,17 @@ export async function POST(req:NextRequest,res:NextResponse) {
  
 
  
-    
+     
     
       const filePath = path.join(process.cwd(),"public",`invoices/${dataNew.invoiceFileName}.ejs`)
       const html = await fs.readFile(filePath,"utf-8");
       
+     
+      
+      //console.log(filePath.replace("#primaryColor","yellow"));
+     // console.log(html.replace("#primaryColor","yellow"));
+      
+   //   console.log(html.replace("#primaryColor;","yellow"));
       
       const initialValue = 0;
       const totalHtCalcule = JSON.parse(dataNew.project.table).reduce((accumulator:any, currentValue:any) => accumulator + currentValue.amount, initialValue);
@@ -98,12 +104,10 @@ export async function POST(req:NextRequest,res:NextResponse) {
 
 
 
-      console.log("datasFilter");
-      console.log(dataNew.signed);
-      console.log("datasFilter");
+     
            
   const datasFilter = country.filter((item) => item.Phone.toString().toLowerCase().includes(dataNew.enterprise.currency.toString().replaceAll('"','')))
-  console.log(dataNew.enterprise.currency.toString().replaceAll('"',''));
+ 
   
   const dataText = dayjs(`${dataNew.invoiceType == 0 ? dataNew.project.proformaDate : dataNew.project.invoiceDate}`).format("DD/MM/YYYY");
 
@@ -145,7 +149,15 @@ export async function POST(req:NextRequest,res:NextResponse) {
 
  
    
-    await page.setContent(await compile());
+   const dataHtml = await compile()
+/*    console.log("===>");
+   console.log(dataHtml.replace("#primaryColor",dataNew.primaryColor).replace("#secondaryColor",dataNew.secondaryColor));
+   
+       */
+  
+    await page.setContent(dataHtml.replace("#primaryColor",dataNew.primaryColor).replace("#secondaryColor",dataNew.secondaryColor));
+  
+   
     const buffer = await page.pdf({
     format:"A4",
 
