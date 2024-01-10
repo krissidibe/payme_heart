@@ -150,12 +150,25 @@ export async function POST(req:NextRequest,res:NextResponse) {
  
    
    const dataHtml = await compile()
-/*    console.log("===>");
-   console.log(dataHtml.replace("#primaryColor",dataNew.primaryColor).replace("#secondaryColor",dataNew.secondaryColor));
    
-       */
-  
-    await page.setContent(dataHtml.replace("#primaryColor",dataNew.primaryColor).replace("#secondaryColor",dataNew.secondaryColor));
+   
+   const rootHtml = `
+   :root {
+
+    ${dataNew.primaryColor != "" ? `--primary-color: ${dataNew.primaryColor};` : "" }
+    ${dataNew.secondaryColor != "" ? `--secondary-color: ${dataNew.secondaryColor};` : "" }
+
+    ${dataNew.primaryColor != "" ? `--primary-text-color: ${dataNew.primaryTextColor};` : "" }
+    ${dataNew.secondaryColor != "" ? `--secondary-text-color: ${dataNew.secondaryTextColor};` : "" }
+   
+  }
+   `
+
+   
+   
+/*    console.log("===>");
+   console.log(dataHtml.replace(":root",rootHtml)); */
+    await page.setContent(dataHtml.replace(":root",rootHtml));
   
     await page.setViewport({width: 825, height: 1170});
     const buffer = await page.screenshot({

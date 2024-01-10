@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +29,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -111,7 +112,10 @@
     }
 
     .tabs > .tabs-item:nth-child(even) {
-      background: linear-gradient(90deg, #AFDDE8 0%, #7EC5AC 100%);
+      
+      background: linear-gradient(90deg, var(--primary-color,#AFDDE8) 0%, var(--secondary-color,#7EC5AC) 99.99%);
+      color:  var(--primary-text-color,white);
+
     }
 
     .tabs > .tabs-item:nth-child(2){
@@ -128,17 +132,18 @@
       position: absolute;
       bottom: 0;
       height: 4px;
-      background: linear-gradient(90deg, #AFDDE8 3.82%, #7EC5AC 45.99%);
+      background: linear-gradient(90deg, var(--primary-color,#AFDDE8) 0%, var(--secondary-color,#7EC5AC) 99.99%);
+      
     }
 
     .total .total-amount {
-      background:   linear-gradient(90deg, #AFDDE8 0%, #7EC5AC 100%);
-      color: white;
+      background: linear-gradient(90deg, var(--primary-color,#AFDDE8) 0%, var(--secondary-color,#7EC5AC) 99.99%);
+      color:  var(--primary-text-color,white);
     }
     
     .footer {
       color: #4D4B4C;
-      margin-bottom: 32px;
+      
       bottom: 0;
     }
 

@@ -276,8 +276,10 @@ model Invoice {
    name   String   
   invoiceFileName   String   
   primaryColor   String?   @default("")
-  saturationColor   String?   @default("")
   secondaryColor   String?   @default("") 
+  primaryTextColor   String?   @default("")
+  secondaryTextColor   String?   @default("") 
+  saturationColor   String?   @default("")
   hGrid   Boolean?   @default(false)
   vGrid   Boolean?   @default(false)
   

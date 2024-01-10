@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -79,7 +80,8 @@
     }
 
     .facture-number p:first-child {
-      color: #00535D;
+      
+      color: var(--primary-color,#00535D);
     }
 
     .heading .logo {
@@ -126,13 +128,13 @@
     }
 
     .tabs .tabs-header p {
-      background: #00535D;
-      gap: 0;
+      background:  var(--primary-color,#00535D);
+      color: var(--primary-text-color,white);
     }
 
     .tabs .tabs-header p:first-child {
-      background: #00535D;
-      color: white;
+      background:  var(--primary-color,#00535D);
+      color: var(--primary-text-color,white);
       gap: 0;
       
     }
@@ -147,8 +149,9 @@
     }
 
     .total .total-amount {
-      background: #00535D;
-      color: white;
+    
+      background:  var(--primary-color,#00535D);
+      color: var(--primary-text-color,white);
     }
     
     .footer {

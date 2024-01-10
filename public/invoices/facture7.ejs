@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -117,12 +118,15 @@
     .tabs .empty-item {
       height: 63px;
       background-color: #F5F5F5;
-      border-bottom: 5px solid #66B32E;
+      border-bottom: 5px solid  var(--primary-color,#66B32E);
+      
     }
 
     .total .total-amount {
-      background: #66B32E;
-      color: white;
+     
+      background:  var(--primary-color,#66B32E);
+      color: var(--primary-text-color,white);
+     
     }
     
     .footer {

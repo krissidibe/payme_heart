@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +29,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -111,7 +112,7 @@
     }
 
     .tabs > .tabs-item:nth-child(even) {
-      background-color: #F5F5F5;
+      
     }
 
     .tabs .empty-item {
@@ -124,18 +125,20 @@
       position: absolute;
       bottom: 0;
       height: 4px;
-      background: linear-gradient(90deg, #481945 3.82%, #19408B 45.99%);
+      background: linear-gradient(90deg, var(--primary-color,#481945) 0%, var(--secondary-color,#19408B) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .total .total-amount {
-      background: linear-gradient(90deg, #481945 -32.93%, #19408B 67.07%);
-      color: white;
+    
+      background: linear-gradient(90deg, var(--primary-color,#481945) 0%, var(--secondary-color,#19408B) 99.99%);
+      color:  var(--primary-text-color,white);
     }
     
     .footer {
       bottom: 0;
       color: #4D4B4C;
-      margin-bottom: 32px;
+      
     }
 
     /* End Facture Custom styling */

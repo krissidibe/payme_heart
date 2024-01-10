@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +29,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -82,7 +83,8 @@
     }
 
     .facture-number p:first-child {
-      color: #44AC34;
+      
+      color: var(--primary-color,#44AC34);
     }
 
     .heading .logo {
@@ -135,20 +137,21 @@
     }
 
     .tabs .tabs-header p:first-child {
-      background: linear-gradient(90deg, #1A602B 0%, #28A238 100%);;
-      color: white;
+      background: linear-gradient(90deg, var(--primary-color,#1A602B) 0%, var(--secondary-color,#28A238) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .total .total-amount {
-      background: linear-gradient(90deg, #1A602B 0%, #28A238 100%);;
-      color: white;
+      background: linear-gradient(90deg, var(--primary-color,#1A602B) 0%, var(--secondary-color,#28A238) 99.99%);
+      color:  var(--primary-text-color,white);
     }
     
     .footer {
-      height: 70px;
-      color: white;
+      
+   
       bottom: 0;
-      background: linear-gradient(90deg, #1A602B 0%, #28A238 100%);;
+      background: linear-gradient(90deg, var(--primary-color,#1A602B) 0%, var(--secondary-color,#28A238) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     /* End Facture Custom styling */

@@ -155,7 +155,25 @@ export async function POST(req:NextRequest,res:NextResponse) {
    
        */
   
-    await page.setContent(dataHtml.replace("#primaryColor",dataNew.primaryColor).replace("#secondaryColor",dataNew.secondaryColor));
+      
+   const rootHtml = `
+   :root {
+
+    ${dataNew.primaryColor != "" ? `--primary-color: ${dataNew.primaryColor};` : "" }
+    ${dataNew.secondaryColor != "" ? `--secondary-color: ${dataNew.secondaryColor};` : "" }
+
+    ${dataNew.primaryColor != "" ? `--primary-text-color: ${dataNew.primaryTextColor};` : "" }
+    ${dataNew.secondaryColor != "" ? `--secondary-text-color: ${dataNew.secondaryTextColor};` : "" }
+   
+  }
+   `
+
+   
+   
+  /*  console.log("===>");
+   console.log(dataHtml.replace(":root",rootHtml)); */
+    await page.setContent(dataHtml.replace(":root",rootHtml));
+   
   
    
     const buffer = await page.pdf({

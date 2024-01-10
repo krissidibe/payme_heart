@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -92,13 +93,14 @@
     }
 
     .tabs .tabs-header p:first-child {
-      background: linear-gradient(90deg, #E51B41 0%, #95191B 99.99%);;
-      color: white;
+     
+      background: linear-gradient(90deg, var(--primary-color,#E51B41) 0%, var(--secondary-color,#95191B) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .total .total-amount {
-      background: linear-gradient(90deg, #E51B41 0%, #95191B 99.99%);;
-      color: white;
+      background: linear-gradient(90deg, var(--primary-color,#E51B41) 0%, var(--secondary-color,#95191B) 99.99%);
+      color:  var(--primary-text-color,white);
     }
     
     .footer { 

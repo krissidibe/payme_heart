@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -92,13 +93,14 @@
     }
 
     .tabs .tabs-header p:first-child {
-      background: #3E2256;
-      color: white;
+      background:  var(--primary-color,#3E2256);
+     color: var(--primary-text-color,white);
     }
 
     .total .total-amount {
-      background: #3E2256;
-      color: white;
+     
+      background:  var(--primary-color,#3E2256);
+     color: var(--primary-text-color,white);
     }
     
     .footer {
