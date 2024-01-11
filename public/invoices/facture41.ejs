@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,16 +29,16 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
-    }
+      height: 80px; 
+    
+    } 
 
     .page-footer {
       position: fixed;
       bottom: 80px;
+     
 
       width: 100%;
-      /* for demo */
-      /* for demo */
     }
 
     .page-header {
@@ -74,21 +75,37 @@
       }
     }
     /* Facture Custom styling */
-    @font-face {
-      font-family: 'Helvetica Neue';
-      src: url('path-to-your-fonts/HelveticaNeue-Bold.woff2') format('woff2'),
-          url('path-to-your-fonts/HelveticaNeue-Bold.woff') format('woff');
-      font-weight: bold;
-      font-style: normal;
-    }
-
     .heading {
-      margin-top: 110px;
-      margin-left: 15px;
+      margin-top: 0px !important;
+      padding-top: 0px !important;
+      
+      background-color: #010101;
     }
 
-    .facture-number div p:first-child {
-      color: #010101;
+    .heading > div {
+      
+      border-left:2px solid red ;
+      border-right:2px solid red ;
+    }
+    .headline {
+      
+      border-left:2px solid red ;
+      border-right:2px solid red ;
+      margin: 0px 56px !important;
+    }
+    .facture-number div p:nth-child(2) {
+     
+      color: var(--primary-color,#C6589C);
+    }
+
+    .heading .logo {
+      border-radius: 0 !important;
+      background-color: #C6589C;
+    }
+
+    .pages .headline {
+      margin-top: 50px !important;
+      line-height: 20px;
     }
 
     .facture-number {
@@ -97,22 +114,20 @@
 
     .facture-number .dividor {
       display: block !important;
-      width: 80px;
+      width: 40px;
       border-top: 1px solid #010101;
       margin-left: 11px;
       margin-right: 3px;
     }
-
-    .heading .logo {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #CA9E67;
-      color: #383838;
-    }
-
-    .headline {
-      margin-top: 30.5px !important;
-      padding-top: 24px;
-      margin-left: 15px;
+    .facture-number .dividor2 {
+    
+      display: block !important;
+      width: 63px;
+      border-top: 1px solid #010101;
+      margin-left: 11px;
+      margin-right: 3px;
+      
+     
     }
 
     .headline p {
@@ -120,130 +135,73 @@
       font-weight: 400;
     }
 
-    .pages .tabs {
-      border-top: 1px solid #ECE7DD;
-      border-bottom: 1px solid #D19B52;
-      margin-top: 24px;
+    .tabs {
+      margin-top: 10px;
     }
+    
 
     .tabs-item {
       color: #4D4B4C;
     }
 
-    .tabs-item:last-child {
-      border-bottom: none;
+    .tabs-header > p:first-child {
+       
+      border-left:2px solid red ;
+       border-right:2px solid red ;
+       margin: 0px;
     }
-
-    .tabs-item p:first-child {
-      padding-left: 18px;
-    }
-
-    .tabs-item p:last-child {
-      padding-right: 18px;
-    }
-
-    .tabs-item:first-child p {
-      padding-top: 36px;
-    }
-
-    .tabs-item:last-child p {
-      padding-bottom: 11px;
+    .tabs-item > div {
+      color: #4D4B4C;
+      border-left:2px solid red ;
+       border-right:2px solid red ;
     }
 
     .tabs .tabs-header {
-      gap: 0;
-      color: #3C3C3B;
-      font-weight: 700;
+      color: #242437;
+      font-weight: 400;
+      gap: 0px;
+
+     
     }
 
     .tabs .tabs-header p {
-      margin-top: 9.6px;
-      padding-top: 9.7px;
-      background: #B77935;
+     
+      background:  var(--primary-color,#D19B52);
+      color: var(--primary-text-color,black);
+      
     }
 
     .tabs .tabs-header p:first-child {
-      padding-left: 18px;
-      background: transparent;
-    }
-
-    .total {
-      margin-top: 14px;
-      margin-left: 34.7px;
-      margin-bottom: 14.9px;
-    }
-
-    .total .left {
-      padding-top: 12px;
-    }
-
-    .total .right {
-      position: relative;
-      bottom: -2px;
+     
+      color: black;
+      background-color: white;
     }
 
     .total .total-amount {
-      color: #383838;
-    }
-
-    .sign {
-      background: #ECE7DD;
-      font-weight: 700;
-    }
-
-    .line-left, .line-right {
-      background: #ECE7DD;
-      top: 0;
-      bottom: inherit;
-    }
-
-    .line-left {
-      left: 55px;
-    }
-    .line-right {
-      right: 55px;
+     
     }
     
+    
     .footer {
+      background:  var(--primary-color,#D19B52);
+      color: var(--primary-text-color,black);
+      margin-bottom: 0px;
       bottom: 0;
-      z-index: 1;
-      color: #383838;
-      background: #B77935;
     }
-
-    .footer-mark {
-      width: 325px;
-      height: 10px;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      background: #CA9E67;
-    }
-
-    .footer-img {
-      height: 278px;
-      width: 278px;
-      position: fixed;
-      bottom: 0 !important;
-      right: -16px;
-    }
-
+    
     /* End Facture Custom styling */
   </style>
 
   <body>
     <!-- footer -->
     <%- include('../subtemplates/footer1') %>
-    <div class="footer top-0 pt-4 page-footer bg-transparent z-0">
-      <div class="line-left w-[1px] h-[828px] fixed"></div>
-      <div class="line-right w-[1px] h-[828px] fixed"></div>
-    </div>
+   
     <table>
       <tbody>
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content ">
               <!-- logo + facture -->
               <%- include('../subtemplates/header4') %>
           
@@ -251,49 +209,7 @@
               <%- include('../subtemplates/headline1') %>
 
               <!-- table -->
-              <main class="tabs flex flex-col mt-[51.43px] font-light">
-                <!-- table heading -->
-                <div class="tabs-header tabs-item inter flex w-full  text-[14.8px] gap-[5px] px-14 py-[14px]">
-                  <p class="flex-1 py-[8.34px] px-[15.29px]">DESCRIPTION</p>
-                  <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
-                  <p class="w-[115px] py-[8.34px] text-center">Prix.U</p>
-                  <p class="w-[115px] py-[8.34px] text-center">Montant</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item text-[9.72px] flex w-full items-center gap-[5px] px-14 py-[18px]">
-                  <p class="flex-1">Adaptation, éxécution et mise en page, badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec plastique, <br>pochette cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <div></div>
-                <div class="separator border-t-[1px] border-[#1D1D1D] mx-14"></div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] px-14 py-[18px]">
-                  <p class="flex-1">item</p>
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <div></div>
-                <div class="separator border-t-[1px] border-[#1D1D1D] mx-14"></div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] px-14 py-[18px]">
-                  <p class="flex-1">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000.000 FCFA</p>
-                </div>
-                <div></div>
-                <div class="separator border-t-[1px] border-[#1D1D1D] mx-14"></div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] px-14 py-[18px]">
-                  <p class="flex-1">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">526.706 FCFA</p>
-                </div>
-              </main>
+              <%- include('../subtemplates/table1') %>
                 
               <!-- facture totals informations -->
               <%- include('../subtemplates/total2') %>

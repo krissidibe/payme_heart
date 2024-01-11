@@ -5,7 +5,6 @@
   </head>
 
   <style>
-    :root
     * {
       margin: 0;
       padding: 0;
@@ -29,7 +28,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 80px;
+      height: 50px;
     }
 
     .page-footer {
@@ -75,62 +74,120 @@
       }
     }
     /* Facture Custom styling */
+    @font-face {
+      font-family: 'Helvetica Neue';
+      src: url('path-to-your-fonts/HelveticaNeue-Bold.woff2') format('woff2'),
+          url('path-to-your-fonts/HelveticaNeue-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+    }
     .heading {
-      margin-top: 110px;
+      margin-top: 55.6px;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .facture-number div p:nth-child(2) {
-      color: #383838;
+    .facture-number div p:first-child {
+      color: #010101;
+    }
+
+    .facture-number {
+      padding: 0 !important;
+      border-color: #010101;
+    }
+
+    .facture-number .dividor {
+      display: block !important;
+      width: 80px;
+      border-top: 1px solid #010101;
+      margin-left: 11px;
+      margin-right: 3px;
     }
 
     .heading .logo {
-      border-radius: 0 !important;
-      background-color: #383838;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: transparent;
+      color: #383838;
     }
 
-    .pages .headline {
-      margin-top: 30px;
+    .heading .logo p {
+      margin-left: 0 !important;
+    }
+
+    .headline {
+      margin-top: 30px !important;
     }
 
     .headline p {
-      
+      font-size: 13.4px;
       font-weight: 400;
     }
 
-    .tabs {
-      margin-top: 10px;
+    .pages .tabs {
+      margin-top: 30px;
     }
 
     .tabs-item {
       color: #4D4B4C;
     }
 
+    .tabs-item:first-child p {
+      padding-top: 20px;
+    }
+
+    .tabs-item:last-child p{
+      padding-bottom: 36px;
+    }
+
     .tabs .tabs-header {
-      color: #242437;
-      font-weight: 400;
+      color: #3C3C3B;
+      font-weight: 700;
     }
 
     .tabs .tabs-header p {
-      background: #E8E7E7;
+      background: transparent;
     }
 
     .tabs .tabs-header p:first-child {
-      background: transparent;
-      color: #383838;
       padding-left: 0;
+      background: transparent;
+    }
+
+    .total {
+      margin-top: 14px;
+      border-bottom: 1px solid #010101;
+    }
+
+    .total .right {
+      position: relative;
+      bottom: -2px;
+    }
+
+    .total .right p:last-child {
+      border-bottom: 4px solid transparent;
     }
 
     .total .total-amount {
-     
-      background:  var(--primary-color,#383838);
-      color: var(--primary-text-color,white);
-      
+      color: #383838;
+    }
+
+    .sign {
+      font-weight: 700;
     }
     
     .footer {
       bottom: 0;
       color: #383838;
-     
+      margin-bottom: 32px;
+    }
+
+    .footer-mark {
+      width: 325px;
+      height: 10px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: #383838;
     }
 
     .footer-img {
@@ -146,24 +203,24 @@
 
   <body>
     <!-- footer -->
-    <%- include('../subtemplates/footer1') %>
+    <%- include('../subtemplates/footer2') %>
     <table>
       <tbody>
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="flex flex-col w-full page-content">
+            <div class="page-content flex flex-col w-full">
               <!-- logo + facture -->
-              <%- include('../subtemplates/header2') %>
+              <%- include('../subtemplates/header4') %>
           
               <!-- headline (object, address, client) -->
               <%- include('../subtemplates/headline1') %>
 
               <!-- table -->
-              <%- include('../subtemplates/table1') %>
+              <%- include('../subtemplates/table2') %>
                 
               <!-- facture totals informations -->
-              <%- include('../subtemplates/total1') %>
+              <%- include('../subtemplates/total2') %>
 
 
               <!-- signature -->

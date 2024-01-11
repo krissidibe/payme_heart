@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -14,10 +15,10 @@
 
     body {
       font-family: 'Poppins', sans-serif;;
-    } 
+    }
     .inter {
       font-family: 'Inter', sans-serif;
-    }
+    } 
     .poppin {
       font-family: 'Poppins', sans-serif;;
     }
@@ -40,7 +41,6 @@
       /* for demo */
     }
 
-    
     .page-header {
       position: fixed;
       top: 0mm;
@@ -75,19 +75,23 @@
       }
     }
     /* Facture Custom styling */
-    .pages .heading {
+    .heading {
       margin-top: 94px;
-      padding-left: 95px;
-      padding-right: 105px;
+      padding-left: 95px !important;
+      padding-right: 95px !important;
     }
 
-    .facture-number {
-      color: #383838;
+    .facture-number p:first-child {
+      color: #634E42;
     }
 
-    .pages .heading .logo {
+    .heading .logo {
       border-radius: 0 !important;
       background-color: #634E42;
+    }
+
+    .pages .headline {
+      line-height: 20px;
     }
 
     .headline p {
@@ -96,9 +100,9 @@
       font-weight: 400;
     }
 
-  .tabs {
+    .tabs {
       margin-top: 26px;
-      padding-top: 30px;
+      padding-top: 90px;
       padding-bottom: 30px;
       background: #F5F5F5;
     }
@@ -112,33 +116,46 @@
     }
 
 
+
+    .pages .tabs {
+      margin-top: 15px;
+      padding-top: 35px;
+      padding-bottom: 20px;
+      background: #F5F5F5;
+    }
     .tabs-item > div {
       
       border: none;
     }
-    .pages .tabs .tabs-header {
+   
+    
+    .tabs .tabs-header {
       color: #242437;
       font-weight: 400;
     }
-
+    
     .tabs .tabs-header p {
       background: #E8E7E7;
     }
 
     .tabs .tabs-header p:first-child {
-      background: #634E42;
-      color: white;
+      background:  var(--primary-color,#634E42);
+      color: var(--primary-text-color,white);
+    }
+
+    .total .right p span:last-child {
+      padding-right: 10px;
     }
 
     .total .total-amount {
-      background: #634E42;
-      color: white;
+      background:  var(--primary-color,#634E42);
+      color: var(--primary-text-color,white);
     }
     
     .footer {
       bottom: 0;
-      background: #634E42;
-      color: white;
+      background:  var(--primary-color,#634E42);
+      color: var(--primary-text-color,white);
     }
 
     /* End Facture Custom styling */

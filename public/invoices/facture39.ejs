@@ -1,3 +1,4 @@
+CA9E67
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,6 +6,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -95,31 +97,44 @@
 
     .facture-number .dividor {
       display: block !important;
-      width: 80px;
+      width: 40px;
       border-top: 1px solid #010101;
       margin-left: 11px;
       margin-right: 3px;
     }
+    .facture-number .dividor2 {
+    
+      display: block !important;
+      width: 63px;
+      border-top: 1px solid #010101;
+      margin-left: 11px;
+      margin-right: 3px;
+      
+     
+    }
 
     .heading .logo {
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #00A19A;
+      background-color: transparent;
       color: #383838;
+    }
+
+    .pages .heading .logo p {
+      margin-left: 30px;
+    }
+
+    .pages .headline {
+      margin-top: 40px !important;
     }
 
     .headline {
       margin-top: 30.5px !important;
-      padding-top: 24px;
+      padding-top: 35px;
       border-top: 1px solid #010101;
     }
 
-    .headline p {
-      font-size: 13.4px;
-      font-weight: 400;
-    }
-
     .pages .tabs {
-      margin-top: 24px;
+      margin-top: 35px;
     }
 
     .tabs-item {
@@ -127,7 +142,7 @@
     }
 
     .tabs-item:first-child p {
-      padding-top: 20px;
+      padding-top: 26px;
     }
 
     .tabs-item:last-child p{
@@ -141,6 +156,7 @@
 
     .tabs .tabs-header p {
       background: transparent;
+      padding-bottom: 0;
     }
 
     .tabs .tabs-header p:first-child {
@@ -148,18 +164,35 @@
       background: transparent;
     }
 
-    .total {
-      margin-top: 14px;
+    .pages .total {
       border-bottom: 1px solid #010101;
+      padding-bottom: 35px;
+      padding-left: 56px;
+    }
+
+     .totalborder {
+      
+   
+    width: 350px;
+     bottom: -2px;
+     position: absolute;
+     right: 45px;
+  
+     border-bottom: 4px solid var(--primary-color,#00A19A) ;
+    
     }
 
     .total .right {
       position: relative;
       bottom: -2px;
+      gap: 0px !important;
+    }
+    .total .right >p {
+     padding-top: 8px;
     }
 
     .total .right p:last-child {
-      border-bottom: 3px solid #00A19A;
+    
     }
 
     .total .total-amount {
@@ -182,7 +215,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      background: #00A19A;
+      background: var(--primary-color,#00A19A);
     }
 
     .footer-img {
@@ -204,7 +237,7 @@
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header4') %>
           

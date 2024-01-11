@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -40,6 +41,10 @@
       /* for demo */
     }
 
+    .tabs-item > div {
+      
+      border: none;
+    }
     .page-header {
       position: fixed;
       top: 0mm;
@@ -103,13 +108,13 @@
     }
 
     .headline p {
-      font-size: 13.4px;
+      
       font-weight: 400;
     }
 
     .tabs {
       margin-top: 26px;
-      padding-top: 60px;
+      padding-top: 20px;
       padding-bottom: 30px;
       background: #F5F5F5;
     }
@@ -137,14 +142,16 @@
     }
 
     .total .total-amount {
-      background: #383838;
-      color: white;
+      
+     
+      background:  var(--primary-color,#383838);
+      color: var(--primary-text-color,white);
     }
     
     .footer {
       bottom: 0;
-      background: #383838;
-      color: white;
+      background:  var(--primary-color,#383838);
+      color: var(--primary-text-color,white);
     }
 
     /* End Facture Custom styling */
@@ -161,23 +168,45 @@
             <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <header class="heading flex justify-center mt-[68px] px-[56px]">
-                <div class="logo rounded-full w-[78px] h-[78px] my-[21px]">
-                </div>
+                <div class="max-h-[120px] flex object-left object-contain h-[120px] max-w-[400px] w-[400px]  ">
+                  <img class=" max-h-[120px] object-left object-contain h-[120px] max-w-[400px] w-[400px] " src="<%=logo%>" alt="" srcset="">
+                  
+                                </div>
+                             
               </header>
           
               <!-- headline (object, address, client) -->
-              <div class="flex justify-between mt-[50px] px-14">
-                <div class="headline inter font-bold mt-[27.53px] text-[16.4px] ">
-                  <p>Objet:badgesprofessionnelspourlesnouveauxstaffs</p>
-                  <p>Client:internationalmedicalcorpsimc</p>
-                  <p>Adresse:hmdallaye</p>
+              <div class="flex justify-between mt-[20px] px-14 ">
+                <div class="headline leading-5 inter font-bold mt-[27.53px] text-[16.4px] ">
+                  <p>Objet: <%= project.name %></p>
+  <p>Client: <%=  customer.name %></p>
+  <p>Adresse: <%=  customer.address %></p> 
                 </div>
-                <div class="facture-number my-[15px] font-light text-[23px] inter">
+                <div class="facture-number my-[15px] font-light text-[23px] inter pr-8">
                   <div class="mb-1 leading-tight">
-                    <p>FACTURE</p>
-                    <p>N°: 05234</p>
+                    <% if(invoiceType == 0) { %>
+                      <p>PROFORMA</p>
+                    <% } %>
+                    <% if(invoiceType == 1) { %>
+                      <p>FACTURE</p>
+                    <% } %>
+                    <% if(invoiceType == 2) { %>
+                      <p >BORDEREAU</p>
+                    <% } %> 
+                    <p >N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
                   </div>
-                  <p class="pt-1 border-t-[1px] border-[#4D4B4C] text-[12px]">Date:03/10/2019</p>
+                  <% if(invoiceType == 0) { %>
+                    
+                    <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[17px] flex justify-between">Date: <%=date%></p>
+                  <% } %> 
+                  <% if(invoiceType == 1) { %>
+                  
+                    <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[14px] flex justify-between">Date: <%=date%></p>
+                  <% } %> 
+                  <% if(invoiceType == 2) { %>
+                  
+                    <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[19px] flex justify-between">Date: <%=date%></p>
+                  <% } %> 
                 </div>
               </div>
 

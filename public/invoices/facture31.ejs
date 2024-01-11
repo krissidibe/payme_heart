@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +29,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 100px;
     }
 
     .page-footer {
@@ -86,24 +87,24 @@
     }
 
     .facture-number div p:first-child {
-      color: #C93A8E;
+      color: var(--primary-color,#C93A8E);
     }
 
     .facture-number {
-      border-color: #C93A8E;
+      border-color: var(--primary-color,#C93A8E);
     }
 
     .heading .logo {
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #C93A8E;
+      background-color: var(--primary-color,#C93A8E);
     }
 
     .pages .headline {
-      margin-top: 80px;
+      margin-top: 60px;
     }
 
     .headline p {
-      font-size: 13.4px;
+     
       font-weight: 400;
     }
 
@@ -130,15 +131,18 @@
     }
 
     .total .left {
-      padding-top: 48px;
+      padding-top: 18px;
     }
 
+    
+
     .total .right p {
-      border-bottom: 1px solid #010101;
+      border-bottom: 1px solid #01010138;
     }
 
     .total .right p:last-child {
-      border-bottom: 4px solid #C93A8E;
+      border-bottom: 4px solid var(--primary-color,var(--primary-color,#C93A8E));
+    
     }
 
     .total .total-amount {
@@ -152,7 +156,7 @@
     .footer {
       bottom: 0;
       color: #383838;
-      margin-bottom: 32px;
+      
     }
 
     .footer-mark {
@@ -161,7 +165,7 @@
       position: relative;
       bottom: -4px;
       left: 0;
-      background: #C93A8E;
+      background: var(--primary-color,#C93A8E);
     }
 
     .footer-img {
@@ -183,7 +187,7 @@
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header3') %>
           

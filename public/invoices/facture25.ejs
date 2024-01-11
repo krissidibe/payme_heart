@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -75,7 +76,7 @@
     }
     /* Facture Custom styling */
     .pages .heading {
-      margin-top: 110px;
+      margin-top: 80px;
       padding-left: 95px;
       padding-right: 95px;
     }
@@ -86,7 +87,9 @@
 
     .heading .logo {
       border-radius: 0 !important;
-      background: linear-gradient(90deg, #2F8234 0%, #8BBE23 100%);
+     
+      background: linear-gradient(90deg, var(--primary-color,#2F8234) 0%, var(--secondary-color,#8BBE23) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .pages .headline {
@@ -95,7 +98,7 @@
     }
 
     .headline p {
-      font-size: 13.4px;
+     
       font-weight: 400;
     }
 
@@ -104,6 +107,10 @@
       padding-top: 39px;
     }
 
+    .tabs-item > div {
+      
+      border: none;
+    }
     .tabs .separator {
       border: none;
     }
@@ -114,14 +121,15 @@
     }
 
     .tabs .tabs-header {
-      color: white;
+     
       font-weight: 400;
       gap: 0;
       padding: 0;
       margin: 0px 56px 0 56px;
       width: 698.6px;
       height: 39px;
-      background: linear-gradient(90deg, #2F8234 0%, #8BBE23 100%);
+      background: linear-gradient(90deg, var(--primary-color,#2F8234) 0%, var(--secondary-color,#8BBE23) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .tabs .tabs-header p:first-child {
@@ -137,18 +145,18 @@
     .total {
       margin-top: 0 !important;
       padding-top: 23.6px;
-      padding-bottom: 49.6px;
+      padding-bottom: 10.6px;
     }
 
     .total .total-amount {
-      background: linear-gradient(90deg, #2F8234 0%, #8BBE23 100%);
-      color: white;
+      background: linear-gradient(90deg, var(--primary-color,#2F8234) 0%, var(--secondary-color,#8BBE23) 99.99%);
+      color:  var(--primary-text-color,white);
     }
     
     .footer {
       bottom: 0;
       color: #383838;
-      margin-bottom: 32px;
+      
     }
 
     /* End Facture Custom styling */

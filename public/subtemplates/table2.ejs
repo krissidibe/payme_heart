@@ -1,43 +1,73 @@
 <main class="tabs flex flex-col mt-[51.43px] font-light border-t-[1px] border-b-[1px] border-[#010101]">
   <!-- table heading -->
   <div class="tabs-header tabs-item inter flex w-full  text-[14.8px] gap-[5px] px-14">
-    <p class="w-[45%] pr-[66px] mr-[61px] py-[18px] border-[#010101] border-r-[1px]">DESCRIPTION</p>
-    <p class="w-[115px] text-center py-[18px]">QTé.</p>
-    <p class="w-[115px] text-center py-[18px]">Prix.U</p>
-    <p class="w-[115px] text-center py-[18px]">Montant</p>
+
+
+    <% if(invoiceType !== 2) { %>
+      <p class="flex-1 py-[8.34px] h-[62px]   px-[15.29px] border-[#010101] border-r-[1px]">DESCRIPTION</p>
+  
+        
+        
+        <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
+        <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+    
+        <p class="w-[115px] py-[8.34px] text-center"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+        
+      <% } %> 
+      <% if(invoiceType === 2) { %>
+        <p class="min-w-[321px] w-[270px] flex-1 py-[8.34px] border-[#010101] border-r-[1px]   h-[80px]  px-[15.29px]">DESCRIPTION</p>
+        <p class="w-[115px] py-[8.34px]  text-center">QTé.</p>
+        <p class="flex-1 py-[8.34px] mr-0 text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+    
+   
+      <% } %> 
+  
+    
   </div>
-  <!-- table item -->
-  <div class="tabs-item text-[12px] flex w-full items-center gap-[5px] px-14">
-    <p class="w-[45%] pr-[66px] mr-[61px] py-[18px] border-[#010101] border-r-[1px]">Adaptation, éxécution et mise en page, badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec plastique, pochette cordon- forfait</p>
-    <p class="w-[115px] text-center py-[18px]">20</p>
-    <p class="w-[115px] text-center py-[18px]">700.000 FCFA</p>
-    <p class="w-[115px] text-center py-[18px]">14.000.000 FCFA</p>
-  </div>
-  <div></div>
-  <div class="separator border-[#1D1D1D] mx-14"></div>
-  <!-- table item -->
-  <div class="tabs-item text-[12px] flex w-full items-center gap-[5px] px-14">
-    <p class="w-[45%] pr-[66px] mr-[61px] py-[18px] border-[#010101] border-r-[1px]">item</p>
-    <p class="w-[115px] text-center py-[18px]">20</p>
-    <p class="w-[115px] text-center py-[18px]">700.000 FCFA</p>
-    <p class="w-[115px] text-center py-[18px]">14.000.000 FCFA</p>
-  </div>
-  <div></div>
-  <div class="separator border-[#1D1D1D] mx-14"></div>
-  <!-- table item -->
-  <div class="tabs-item text-[12px] flex w-full items-center gap-[5px] px-14">
-    <p class="w-[45%] pr-[66px] mr-[61px] py-[18px] border-[#010101] border-r-[1px]">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec pochette plastique, cordon- forfait</p>
-    <p class="w-[115px] text-center py-[18px]">50</p>
-    <p class="w-[115px] text-center py-[18px]">80.000 FCFA</p>
-    <p class="w-[115px] text-center py-[18px]">14.000.000.000 FCFA</p>
-  </div>
-  <div></div>
-  <div class="separator border-[#1D1D1D] mx-14"></div>
-  <!-- table item -->
-  <div class="tabs-item text-[12px] flex w-full items-center gap-[5px] px-14">
-    <p class="w-[45%] pr-[66px] mr-[61px] py-[18px] border-[#010101] border-r-[1px]">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec pochette plastique, cordon- forfait</p>
-    <p class="w-[115px] text-center py-[18px]">50</p>
-    <p class="w-[115px] text-center py-[18px]">80.000 FCFA</p>
-    <p class="w-[115px] text-center py-[18px]">526.706 FCFA</p>
-  </div>
+ 
+ 
+ 
+
+
+  <% table.forEach(function(item,index) { %>
+    
+    <div class="px-14 tabs-item ">
+      <!-- table item -->
+      <div class="border-b-none  border-[#1D1D1D]/20 text-[12px] flex w-full items-center gap-[5px] min-h-[35px]  ">
+        <p class="flex-1 py-[8.34px] border-[#010101] pr-4 border-r-[1px]"> <%=item.designation%> </p>
+    
+        <p class="w-[115px] py-[8.34px] text-center"> <%=item.quantity%> </p>
+    
+        <p class="w-[115px] py-[8.34px] text-center"> 
+          <% if(item.rate != 0 && item.rate != null) { %>
+            <%= invoiceType === 2 ? "": item.rate %>
+          
+          
+            <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+            
+          <% } %> 
+    
+         
+      
+    
+        </p>
+        <p class="w-[115px] py-[8.34px] text-center">  
+          <% if(item.amount != 0 && item.amount != null) { %>
+          <%=   invoiceType === 2 ? "": item.amount %>
+        
+                        
+           
+            
+            <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span>
+            
+            <% } %> 
+          </p>
+        
+        </div>
+        
+        
+        
+      </div>
+      <% }) %>
+
 </main>

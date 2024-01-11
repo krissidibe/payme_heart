@@ -1,17 +1,26 @@
 <header class="heading flex justify-between mt-[68px] px-[56px]">
-  <div class="logo rounded-full w-[122px] h-[122px] flex items-center">
-    <p class="font-bold text-[43px] ml-[66.7px]">LOGO</p>
-  </div>
-  <div class="facture-number h-[80px] pr-[20px] flex flex-col justify-center my-[15px] leading-tight text-[14px] inter">
+  <div class="max-h-[120px] flex object-left object-contain h-[120px] max-w-[400px] w-[400px]  ">
+    <img class=" max-h-[120px] object-left object-contain h-[120px] max-w-[400px] w-[400px] " src="<%=logo%>" alt="" srcset="">
+    
+                  </div>
+  <div class="facture-number h-[80px] pr-[20px] flex flex-col justify-center my-[15px] leading-tight text-[15px] inter">
     <div class="flex items-center leading-6">
-      <p>FACTURE</p>
-      <div class="dividor hidden"></div>
-      <p>N°: 05234</p>
+      <% if(invoiceType == 0) { %>
+        <p>PROFORMA</p>
+      <% } %>
+      <% if(invoiceType == 1) { %>
+        <p>FACTURE</p>
+      <% } %>
+      <% if(invoiceType == 2) { %>
+        <p >BORDEREAU</p>
+      <% } %> 
+      <div class="hidden dividor "></div>
+      <p>N°:  <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
     </div>
     <div class="flex items-center">
-      <p>Date</p>
-      <div class="dividor hidden"></div>
-      <p>03/10/2019</p>
+      <p>DATE</p>
+      <div class="hidden dividor2"></div>
+      <p><%=date%></p>
     </div>
   </div>
-</header>
+</header> 

@@ -1,12 +1,32 @@
 <header class="heading flex justify-between mt-[68px] px-[56px] ">
-  <div class="logo rounded-full w-[122px] h-[122px] flex items-center">
-    <p class="font-bold text-[43px] ml-[66.7px]">LOGO</p>
-  </div>
-  <div class="facture-number h-[75px] my-[15px] font-semibold text-[23px] inter pr-[18px] border-r-4">
+  <div class="max-h-[120px] flex object-left object-contain h-[120px] max-w-[400px] w-[400px]  ">
+    <img class=" max-h-[120px] object-left object-contain h-[120px] max-w-[400px] w-[400px] " src="<%=logo%>" alt="" srcset="">
+    
+                  </div>
+  <div class="facture-number h-[75px] my-[15px] font-semibold text-[23px] inter pr-[18px] border-r-4 mr-4">
     <div class="mb-1 leading-6 ">
-      <p>FACTURE</p>
-      <p>N°: 05234</p>
+      <% if(invoiceType == 0) { %>
+        <p>PROFORMA</p>
+      <% } %>
+      <% if(invoiceType == 1) { %>
+        <p>FACTURE</p>
+      <% } %>
+      <% if(invoiceType == 2) { %>
+        <p >BORDEREAU</p>
+      <% } %> 
+      <p >N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
     </div>
-    <p class="pt-1 border-t-[1px] border-[#4D4B4C] text-[12px]">Date:03/10/2019</p>
+    <% if(invoiceType == 0) { %>
+                    
+      <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[17px] flex justify-between">Date: <%=date%></p>
+    <% } %> 
+    <% if(invoiceType == 1) { %>
+    
+      <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[14px] flex justify-between">Date: <%=date%></p>
+    <% } %> 
+    <% if(invoiceType == 2) { %>
+    
+      <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[19px] flex justify-between">Date: <%=date%></p>
+    <% } %> 
   </div>
 </header>

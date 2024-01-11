@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -83,7 +84,9 @@
       height: 72px;
       margin-left: 8px;
       border-radius: 0;
-      background: linear-gradient(90deg, #E84B1E 3.82%, #F28F1C 45.99%); ;
+    
+      background: linear-gradient(90deg, var(--primary-color,#E84B1E) 0%, var(--secondary-color,#F28F1C) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .headline p {
@@ -130,12 +133,13 @@
       position: absolute;
       bottom: 0;
       height: 4px;
-      background: linear-gradient(90deg, #E84B1E 3.82%, #F28F1C 45.99%);
+      background: linear-gradient(90deg, var(--primary-color,#E84B1E) 0%, var(--secondary-color,#F28F1C) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .total .total-amount {
-      background: linear-gradient(90deg, #E84B1E 3.82%, #F28F1C 45.99%);
-      color: white;
+      background: linear-gradient(90deg, var(--primary-color,#E84B1E) 0%, var(--secondary-color,#F28F1C) 99.99%);
+      color:  var(--primary-text-color,white);
     }
     
     .footer {

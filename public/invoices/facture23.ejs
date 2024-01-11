@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -120,7 +121,7 @@
 
     .tabs .empty-item {
       position: relative;
-      height: 83px;
+      height: 63px;
       background-color: #F5F5F5;
     }
 
@@ -128,18 +129,20 @@
       position: absolute;
       bottom: 0;
       height: 4px;
-      background: linear-gradient(90deg, #A7182D -32.93%, #49225B 67.07%);
+     
+      background: linear-gradient(90deg, var(--primary-color,#A7182D) 0%, var(--secondary-color,#49225B) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .total .total-amount {
-      background: linear-gradient(90deg, #A7182D -32.93%, #49225B 67.07%);
-      color: white;
+      background: linear-gradient(90deg, var(--primary-color,#A7182D) 0%, var(--secondary-color,#49225B) 99.99%);
+      color:  var(--primary-text-color,white);
     }
     
     .footer {
       bottom: 0;
       color: #4D4B4C;
-      margin-bottom: 32px;
+    
     }
 
     /* End Facture Custom styling */

@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +29,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -138,8 +139,8 @@
     }
 
     .tabs .tabs-header p:first-child {
-      background: #383838;
-      color: white;
+      background:  var(--primary-color,#383838);
+      color: var(--primary-text-color,white);
     }
 
     .total .right p span:last-child {
@@ -147,14 +148,14 @@
     }
 
     .total .total-amount {
-      background: #383838;
-      color: white;
+      background:  var(--primary-color,#383838);
+      color: var(--primary-text-color,white);
     }
     
     .footer {
       bottom: 0;
-      background: #383838;
-      color: white;
+      background:  var(--primary-color,#383838);
+      color: var(--primary-text-color,white);
     }
 
     /* End Facture Custom styling */

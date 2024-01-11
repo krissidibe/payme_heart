@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -84,13 +85,15 @@
 
     .heading .logo {
       border-radius: 0 !important;
-      background: linear-gradient(90deg, #FFCC07 0%, #F4991A 100%);
+   
+      background: linear-gradient(90deg, var(--primary-color,#FFCC07) 0%, var(--secondary-color,#F4991A) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .headline {
       background: #F5F5F5;
       margin-top: 53px;
-      padding-top: 37px !important;
+      padding-top: 27px !important;
     }
 
     .headline p {
@@ -101,32 +104,34 @@
     .tabs {
       background: #F5F5F5;
       margin-top: 0px !important;
-      padding-top: 19px;
+      padding-top: 39px;
     }
 
     .tabs .separator {
       border: none;
     }
 
-    .tabs-item {
+    .pages .tabs-item {
+      padding-left: 65px;
       color: #4D4B4C;
+    }
+
+    .tabs .tabs-header {
+     
+      font-weight: 400;
+      gap: 0;
+      padding: 0;
+      margin: 0px 56px;
+      margin-top: 0px;
+      width: 698.6px;
+      height: 39px;
+      background: linear-gradient(90deg, var(--primary-color,#FFCC07) 0%, var(--secondary-color,#F4991A) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .tabs-item > div {
       text-align: left;
       border: none;
-    }
-
-    
-    .pages .tabs .tabs-header {
-      color: white;
-      font-weight: 400;
-      gap: 0;
-      padding: 0;
-      margin: 14px 56px 0 56px;
-      width: 698.6px;
-      height: 39px;
-      background: linear-gradient(90deg, #FFCC07 0%, #F4991A 100%);
     }
 
     .empty-item {
@@ -143,16 +148,22 @@
       background: #F5F5F5;
     }
 
+    .total .right p span:last-child {
+      padding-right: 10px;
+    }
+
     .total .total-amount {
-      background: linear-gradient(90deg, #FFCC07 0%, #F4991A 100%);
-      color: white;
+      background: linear-gradient(90deg, var(--primary-color,#FFCC07) 0%, var(--secondary-color,#F4991A) 99.99%);
+      color:  var(--primary-text-color,white);
     }
     
     .footer {
       bottom: 0;
       color: #383838;
-      
+  
     }
+
+    
 
     /* End Facture Custom styling */
   </style>

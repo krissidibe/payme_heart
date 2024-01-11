@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +29,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -88,12 +89,12 @@
     }
 
     .pages .headline {
-      margin-top: 80px;
+      margin-top: 60px;
       line-height: 18px;
     }
 
     .headline p {
-      font-size: 13.4px;
+   
       font-weight: 400;
     }
 
@@ -103,6 +104,9 @@
 
     .tabs-item {
       color: #4D4B4C;
+    }
+    .tabs-item > div {
+      border: none;
     }
 
     .tabs .tabs-header {
@@ -130,7 +134,7 @@
     .footer {
       bottom: 0;
       color: #383838;
-      margin-bottom: 32px;
+      
     }
 
     .footer-img {
@@ -152,7 +156,7 @@
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header2') %>
           

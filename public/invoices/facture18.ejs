@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -79,7 +80,7 @@
     }
 
     .facture-number div p:nth-child(2) {
-      color: #8F6B3D;
+      color: var(--primary-color,#8F6B3D); ;
     }
 
     .heading .logo {
@@ -122,12 +123,13 @@
 
     .tabs .tabs-header p:first-child {
       background: transparent;
-      color: #8F6B3D;
+      color: var(--primary-color,#8F6B3D); ;
     }
 
     .total .total-amount {
-      background: #8F6B3D;
-      color: white;
+     
+      background:  var(--primary-color,#8F6B3D);
+      color: var(--primary-text-color,white);
     }
     
     .footer {

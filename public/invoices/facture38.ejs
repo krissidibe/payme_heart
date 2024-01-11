@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -81,51 +82,65 @@
       font-weight: bold;
       font-style: normal;
     }
-    .pages .heading {
-      margin-top: 40px;
+   
+    .heading {
+      margin-top: 55.6px;
       flex-direction: column;
+      align-items: center;
+      
     }
 
     .facture-number div p:first-child {
       color: #010101;
+    
     }
 
     .facture-number {
-      padding: 0 !important;
       border-color: #010101;
-      justify-self: flex-start !important;
+      font-size: 16px !important;
+    
+      width: 100%;
     }
 
     .facture-number .dividor {
       display: block !important;
-      width: 80px;
+      width: 90px;
       border-top: 1px solid #010101;
       margin-left: 11px;
       margin-right: 3px;
     }
+    .facture-number .dividor2 {
+    
+      display: block !important;
+      width: 113px;
+      border-top: 1px solid #010101;
+      margin-left: 11px;
+      margin-right: 3px;
+      
+     
+    }
 
     .heading .logo {
-      margin: auto;
       font-family: 'Helvetica Neue', sans-serif;
       background-color: transparent;
       color: #383838;
     }
 
-    .heading .logo p {
-      margin-left: 0 !important;
+    .pages .heading .logo p {
+      margin-left: 30px;
     }
 
-    .headline {
-      margin-top: 10px !important;
+    .pages .headline {
+      margin-top: -20px !important;
     }
 
     .headline p {
-      font-size: 13.4px;
+     
       font-weight: 400;
     }
 
-    .tabs {
-      margin-top: 10px;
+    .pages .tabs {
+      margin-top: 35px;
     }
 
     .tabs-item {
@@ -133,7 +148,7 @@
     }
 
     .tabs-item:first-child p {
-      padding-top: 20px;
+      padding-top: 26px;
     }
 
     .tabs-item:last-child p{
@@ -147,6 +162,7 @@
 
     .tabs .tabs-header p {
       background: transparent;
+      padding-bottom: 0;
     }
 
     .tabs .tabs-header p:first-child {
@@ -154,18 +170,35 @@
       background: transparent;
     }
 
-    .total {
-      margin-top: 14px;
+    .pages .total {
       border-bottom: 1px solid #010101;
+      padding-bottom: 25px;
+      padding-left: 56px;
+    }
+
+     .totalborder {
+      
+   
+    width: 0px;
+     bottom: -2px;
+     position: absolute;
+     right: 45px;
+  
+     border-bottom: 4px solid var(--primary-color,#000000) ;
+    
     }
 
     .total .right {
       position: relative;
       bottom: -2px;
+      gap: 0px !important;
+    }
+    .total .right >p {
+     padding-top: 8px;
     }
 
     .total .right p:last-child {
-      border-bottom: 4px solid transparent;
+    
     }
 
     .total .total-amount {
@@ -188,7 +221,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      background: #383838;
+      background: var(--primary-color,#000000);
     }
 
     .footer-img {
@@ -210,7 +243,7 @@
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header4') %>
           

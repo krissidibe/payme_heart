@@ -31,8 +31,8 @@ export async function PATCH(req: NextRequest, res: NextResponse) {
       invoiceFileName:dataNew.invoiceFileName,
       primaryColor:dataNew.primaryColor,
       secondaryColor:dataNew.secondaryColor,
-      primaryTextColor:dataNew.primaryTextColor,
-      secondaryTextColor:dataNew.secondaryTextColor,
+      primaryTextColor:dataNew.primaryTextColor ,
+      secondaryTextColor:dataNew.secondaryTextColor ,
        
     },
     create: {

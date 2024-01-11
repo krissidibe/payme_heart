@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +29,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -78,28 +79,35 @@
       margin-top: 110px;
     }
 
+    .facture-number   {
+     
+      padding-right: 30px !important;
+    }
+
     .facture-number div p:first-child {
       color: #383838;
     }
 
     .heading .logo {
       border-radius: 0 !important;
-      background: linear-gradient(90deg, #828221 0%, #EDBD08 97.24%);
+  
+      background: linear-gradient(90deg, var(--primary-color,#828221) 0%, var(--secondary-color,#EDBD08) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .headline {
       margin-top: 53px;
-      padding-top: 47px !important;
+      padding-top: 10px !important;
     }
 
     .headline p {
-      font-size: 13.4px;
+     
       font-weight: 400;
     }
 
     .tabs {
       margin-top: 0px !important;
-      padding-top: 39px;
+      padding-top: 29px;
     }
 
     .tabs .separator {
@@ -111,27 +119,33 @@
       color: #4D4B4C;
     }
 
+    .tabs-item > div{
+      border: none;
+    }
+
     .tabs .tabs-header {
-      color: white;
+  
       font-weight: 400;
       gap: 0;
       padding: 0;
       margin: 14px 56px;
       width: 698.6px;
       height: 39px;
-      background: linear-gradient(90deg, #828221 0%, #EDBD08 97.24%);
+      background: linear-gradient(90deg, var(--primary-color,#828221) 0%, var(--secondary-color,#EDBD08) 99.99%);
+      color:  var(--primary-text-color,white)
     }
 
     .empty-item {
+      padding-top: 15px;
       margin-right: 56px;
       margin-left: 56px;
-      border-bottom: 1px solid #4D4B4C;
+      border-bottom: 1px solid #4d4b4c9a;
     }
 
     .total {
       margin-top: 0 !important;
       padding-top: 23.6px;
-      padding-bottom: 49.6px;
+      padding-bottom: 9.6px;
     }
 
     .total .left {
@@ -139,14 +153,14 @@
     }
 
     .total .total-amount {
-      background: linear-gradient(90deg, #828221 0%, #EDBD08 97.24%);
-      color: white;
+      background: linear-gradient(90deg, var(--primary-color,#828221) 0%, var(--secondary-color,#EDBD08) 99.99%);
+      color:  var(--primary-text-color,white)
     }
     
     .footer {
       bottom: 0;
       color: #383838;
-      margin-bottom: 32px;
+    
     }
 
     /* End Facture Custom styling */
@@ -160,7 +174,7 @@
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header2') %>
           

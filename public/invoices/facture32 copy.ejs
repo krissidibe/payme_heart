@@ -5,7 +5,6 @@
   </head>
 
   <style>
-    :root
     * {
       margin: 0;
       padding: 0;
@@ -29,7 +28,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 80px;
+      height: 50px;
     }
 
     .page-footer {
@@ -75,29 +74,41 @@
       }
     }
     /* Facture Custom styling */
+    @font-face {
+      font-family: 'Helvetica Neue';
+      src: url('path-to-your-fonts/HelveticaNeue-Bold.woff2') format('woff2'),
+          url('path-to-your-fonts/HelveticaNeue-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+    }
     .heading {
       margin-top: 110px;
     }
 
-    .facture-number div p:nth-child(2) {
+    .facture-number div p:first-child {
       color: #383838;
     }
 
-    .heading .logo {
-      border-radius: 0 !important;
-      background-color: #383838;
+    .facture-number {
+      border-color: #383838;
     }
 
-    .pages .headline {
-      margin-top: 30px;
+    .heading .logo {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #383838;
+      color: #FCE257;
+    }
+
+    .headline {
+      margin-top: 80px !important;
     }
 
     .headline p {
-      
+      font-size: 13.4px;
       font-weight: 400;
     }
 
-    .tabs {
+    .pages .tabs {
       margin-top: 10px;
     }
 
@@ -106,31 +117,57 @@
     }
 
     .tabs .tabs-header {
-      color: #242437;
-      font-weight: 400;
+      color: #3C3C3B;
+      font-weight: 700;
+      border-top: 1px solid #FCE257;
+      border-bottom: 1px solid #FCE257;
+      padding: 0 !important;
+      margin: 14px 56px !important;
+      width: 709px;
     }
 
     .tabs .tabs-header p {
-      background: #E8E7E7;
+      background: transparent;
     }
 
     .tabs .tabs-header p:first-child {
-      background: transparent;
-      color: #383838;
       padding-left: 0;
+      background: transparent;
+    }
+
+    .total .left {
+      padding-top: 48px;
+    }
+
+    .total .right p {
+      border-bottom: 1px solid #010101;
+    }
+
+    .total .right p:last-child {
+      border-bottom: 4px solid #DBBB2B;
     }
 
     .total .total-amount {
-     
-      background:  var(--primary-color,#383838);
-      color: var(--primary-text-color,white);
-      
+      color: #383838;
+    }
+
+    .sign {
+      font-weight: 700;
     }
     
     .footer {
       bottom: 0;
       color: #383838;
-     
+      margin-bottom: 32px;
+    }
+
+    .footer-mark {
+      width: 234px;
+      height: 34px;
+      position: relative;
+      bottom: -4px;
+      left: 0;
+      background: #FCE257;
     }
 
     .footer-img {
@@ -146,15 +183,15 @@
 
   <body>
     <!-- footer -->
-    <%- include('../subtemplates/footer1') %>
+    <%- include('../subtemplates/footer2') %>
     <table>
       <tbody>
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="flex flex-col w-full page-content">
+            <div class="page-content flex flex-col w-full">
               <!-- logo + facture -->
-              <%- include('../subtemplates/header2') %>
+              <%- include('../subtemplates/header3') %>
           
               <!-- headline (object, address, client) -->
               <%- include('../subtemplates/headline1') %>
@@ -163,7 +200,7 @@
               <%- include('../subtemplates/table1') %>
                 
               <!-- facture totals informations -->
-              <%- include('../subtemplates/total1') %>
+              <%- include('../subtemplates/total2') %>
 
 
               <!-- signature -->

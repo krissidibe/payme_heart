@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +29,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -91,11 +92,16 @@
     }
 
     .tabs {
+      
       background-color: #F5F5F5;
     }
 
     .tabs-item {
       color: #4D4B4C; 
+    }
+    .tabs-item   {
+      padding-top: 10px;
+     
     }
 
     .tabs .tabs-header {
@@ -120,7 +126,7 @@
 
     .tabs .empty-item {
       position: relative;
-      height: 83px;
+      height: 73px;
       background-color: #F5F5F5;
     }
 
@@ -128,18 +134,21 @@
       position: absolute;
       bottom: 0;
       height: 4px;
-      background: linear-gradient(90deg, #2F8234 -32.93%, #8BBE23 67.07%);
+      background: linear-gradient(90deg, var(--primary-color,#2F8234) 0%, var(--secondary-color,#8BBE23) 99.99%);
+      color:  var(--primary-text-color,white);
     }
 
     .total .total-amount {
-      background: linear-gradient(90deg, #2F8234 -32.93%, #8BBE23 67.07%);
-      color: white;
+    
+      background: linear-gradient(90deg, var(--primary-color,#2F8234) 0%, var(--secondary-color,#8BBE23) 99.99%);
+      color:  var(--primary-text-color,white);
+      
     }
     
     .footer {
       bottom: 0;
       color: #4D4B4C;
-      margin-bottom: 32px;
+      
     }
 
     /* End Facture Custom styling */
@@ -153,7 +162,7 @@
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header1') %>
           
