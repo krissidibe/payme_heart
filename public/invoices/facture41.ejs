@@ -14,7 +14,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;600&display=swap');
 
     body {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Poppins', sans-serif;
+     
     }
     .inter {
       font-family: 'Inter', sans-serif;
@@ -30,6 +31,8 @@
     .page-footer,
     .page-footer-space {
       height: 80px; 
+
+      
     
     } 
 
@@ -39,6 +42,7 @@
      
 
       width: 100%;
+      
     }
 
     .page-header {
@@ -52,10 +56,12 @@
     .page {
       page-break-after: always;
       padding-bottom: 0px;
+      
     }
 
     @page {
       margin: 0mm;
+      
     }
 
     @media print {
@@ -64,6 +70,7 @@
       }
       tfoot {
         display: table-footer-group;
+        
       }
 
       button {
@@ -72,26 +79,52 @@
 
       body {
         margin: 0;
+        
       }
     }
     /* Facture Custom styling */
     .heading {
       margin-top: 0px !important;
       padding-top: 0px !important;
-      
-      background-color: #010101;
+      border-left:0.2px solid #d19a5240 ;
+      border-right:0.2px solid #d19a5240 ;
+      margin: 0px 50px !important;
+      padding-top: 70px !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
     }
 
     .heading > div {
       
-      border-left:2px solid red ;
-      border-right:2px solid red ;
+    
+      
     }
     .headline {
       
-      border-left:2px solid red ;
-      border-right:2px solid red ;
-      margin: 0px 56px !important;
+      border-left:0.2px solid #d19a5240 ;
+      border-right:0.2px solid #d19a5240 ;
+     
+      padding-bottom: 20px;
+      margin: 0px 50px !important;
+      margin-bottom: 0px !important;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+       
+    }
+    .headline-end {
+      
+     
+      border-bottom:0.2px solid #d19a5240 ;
+     
+       
+    }
+
+    .headline-end-2 {
+      
+     
+      border-bottom:2px solid var(--primary-color,#D19B52) ;
+     
+       
     }
     .facture-number div p:nth-child(2) {
      
@@ -104,7 +137,7 @@
     }
 
     .pages .headline {
-      margin-top: 50px !important;
+      padding-top: 50px !important;
       line-height: 20px;
     }
 
@@ -130,37 +163,51 @@
      
     }
 
-    .headline p {
-      font-size: 13.4px;
+    .headline p { 
       font-weight: 400;
     }
 
     .tabs {
-      margin-top: 10px;
+      margin-top: 0px !important;
     }
     
 
     .tabs-item {
       color: #4D4B4C;
+      border-left:0.2px solid #d19a5240 ;
+      border-right:0.2px solid #d19a5240 ;
+      margin: 0px 50px !important;
+padding-right: 0px !important;
+padding-left: 0px !important; 
+    }
+
+    .tabs-item > div {
+     
+      padding-left: 20px !important;
+      padding-right: 20px !important;
     }
 
     .tabs-header > p:first-child {
-       
-      border-left:2px solid red ;
-       border-right:2px solid red ;
+       font-weight: 600;
+      
        margin: 0px;
     }
     .tabs-item > div {
       color: #4D4B4C;
-      border-left:2px solid red ;
-       border-right:2px solid red ;
+     
     }
 
     .tabs .tabs-header {
+      padding-top: 25px !important;
+      width: auto !important;
       color: #242437;
       font-weight: 400;
       gap: 0px;
-
+    padding-right: 0px !important;
+    padding-left: 7px !important;
+    
+   
+ 
      
     }
 
@@ -169,18 +216,43 @@
       background:  var(--primary-color,#D19B52);
       color: var(--primary-text-color,black);
       
+      
     }
 
     .tabs .tabs-header p:first-child {
      
       color: black;
       background-color: white;
+      max-width: 47% !important;
+    }
+    .tabs .tabs-header p:last-child {
+     
+      color: var(--primary-text-color,black);
+      width: 20% !important;
+     
     }
 
+    .total  {
+     padding-top: 30px !important;
+     padding-bottom: 30px !important;
+     border-left:0.2px solid #d19a5240 ;
+     border-right:0.2px solid #d19a5240 ;
+     border-bottom:0.2px solid #d19a5240 ;
+     margin: 0px 50px !important;
+     padding-right: 10px !important;
+    }
+    .total .right {
+      position: relative;
+      bottom: -2px;
+      gap: 0px !important;
+    }
     .total .total-amount {
      
     }
-    
+    .signature{
+      flex:1;
+      
+    }
     
     .footer {
       background:  var(--primary-color,#D19B52);
@@ -207,15 +279,17 @@
           
               <!-- headline (object, address, client) -->
               <%- include('../subtemplates/headline1') %>
-
-              <!-- table -->
-              <%- include('../subtemplates/table1') %>
+<div class="headline-end"></div>
+<!-- table -->
+<%- include('../subtemplates/table1') %>
+<div class="headline-end-2"></div>
                 
               <!-- facture totals informations -->
               <%- include('../subtemplates/total2') %>
 
               <!-- signature -->
               <%- include('../subtemplates/sign1') %>
+              
 
               <!-- footer -->
             </div>

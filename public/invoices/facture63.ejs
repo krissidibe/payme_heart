@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -14,6 +15,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;;
+      background-color: #F9C4B7;
     }
     .inter {
       font-family: 'Inter', sans-serif;
@@ -28,7 +30,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -71,6 +73,7 @@
 
       body {
         margin: 0;
+       
       }
     }
     /* Facture Custom styling */
@@ -81,11 +84,6 @@
       font-weight: bold;
       font-style: normal;
     }
-
-    body {
-      background: #F9C4B7;
-    }
-    
     .heading {
       margin-top: 110px;
     }
@@ -100,30 +98,44 @@
 
     .facture-number .dividor {
       display: block !important;
-      width: 80px;
+      width: 40px;
       border-top: 1px solid #010101;
       margin-left: 11px;
       margin-right: 3px;
     }
+    .facture-number .dividor2 {
+    
+      display: block !important;
+      width: 63px;
+      border-top: 1px solid #010101;
+      margin-left: 11px;
+      margin-right: 3px;
+      
+     
+    }
 
     .heading .logo {
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #B77935;
+      background-color: transparent;
       color: #383838;
     }
 
-    .headline {
-      margin-top: 60px !important;
+    .pages .heading .logo p {
+      margin-left: 30px;
     }
 
-    .headline p {
-      font-size: 13.4px;
-      font-weight: 400;
+    .pages .headline {
+      margin-top: 40px !important;
+    }
+
+    .headline {
+      margin-top: 30.5px !important;
+      padding-top: 0px;
+  
     }
 
     .pages .tabs {
-      margin-top: 24px;
-      padding-bottom: 0;
+      margin-top: 35px;
     }
 
     .tabs-item {
@@ -131,7 +143,7 @@
     }
 
     .tabs-item:first-child p {
-      padding-top: 36px;
+      padding-top: 26px;
     }
 
     .tabs-item:last-child p{
@@ -145,7 +157,7 @@
 
     .tabs .tabs-header p {
       background: transparent;
-      padding-top: 20px;
+      padding-bottom: 0;
     }
 
     .tabs .tabs-header p:first-child {
@@ -153,22 +165,39 @@
       background: transparent;
     }
 
-    .total {
-      margin-top: 14px;
-      border-bottom: 1px solid #010101;
+    .pages .total {
+      border-bottom: 1px solid black;
+      padding-bottom: 35px;
+      padding-left: 56px;
     }
+  
 
-    .total .left {
-      padding-top: 12px;
+     .totalborder {
+      
+   
+    width: 350px;
+     bottom: -2px;
+     position: absolute;
+     right: 45px;
+     
+  
+     border-bottom: 4px solid var(--primary-color,#BE1622) ;
+    
     }
 
     .total .right {
       position: relative;
       bottom: -2px;
+      gap: 0px !important;
+    }
+    .total .right >p {
+     padding-top: 8px;
     }
 
     .total .right p:last-child {
-      border-bottom: 3px solid #B77935;
+
+      
+    
     }
 
     .total .total-amount {
@@ -181,8 +210,7 @@
     
     .footer {
       bottom: 0;
-      color: #383838;
-      margin-bottom: 32px;
+      color: #383838; 
     }
 
     .footer-mark {
@@ -191,7 +219,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      background: #1D71B8;
+      background: var(--primary-color,#CA9E67);
     }
 
     .footer-img {
@@ -213,7 +241,7 @@
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header4') %>
           

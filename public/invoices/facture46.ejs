@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -14,6 +15,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;;
+      background-color: #F9F5DC;
     }
     .inter {
       font-family: 'Inter', sans-serif;
@@ -28,7 +30,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -71,6 +73,7 @@
 
       body {
         margin: 0;
+       
       }
     }
     /* Facture Custom styling */
@@ -81,11 +84,6 @@
       font-weight: bold;
       font-style: normal;
     }
-
-    .pages {
-      background: #F9F5DC;
-    }
-
     .heading {
       margin-top: 110px;
     }
@@ -100,97 +98,112 @@
 
     .facture-number .dividor {
       display: block !important;
-      width: 80px;
+      width: 40px;
       border-top: 1px solid #010101;
       margin-left: 11px;
       margin-right: 3px;
     }
+    .facture-number .dividor2 {
+    
+      display: block !important;
+      width: 63px;
+      border-top: 1px solid #010101;
+      margin-left: 11px;
+      margin-right: 3px;
+      
+     
+    }
 
     .heading .logo {
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #009FE3;
+      background-color: transparent;
       color: #383838;
+    }
+
+    .pages .heading .logo p {
+      margin-left: 30px;
+    }
+
+    .pages .headline {
+      margin-top: 40px !important;
     }
 
     .headline {
       margin-top: 30.5px !important;
-      padding-top: 44px;
-    }
-
-    .headline p {
-      font-size: 13.4px;
-      font-weight: 400;
+      padding-top: 0px;
+  
     }
 
     .pages .tabs {
-      padding-bottom: 0;
+      margin-top: 35px;
     }
 
     .tabs-item {
       color: #4D4B4C;
     }
 
-    .tabs-item:last-child {
-      border-bottom: 1px solid #010101;
-    }
-
     .tabs-item:first-child p {
-      padding-top: 36px;
+      padding-top: 26px;
     }
 
-    .tabs-item:last-child p {
-      padding-bottom: 32px;
+    .tabs-item:last-child p{
+      padding-bottom: 36px;
     }
 
     .tabs .tabs-header {
-      gap: 0;
       color: #3C3C3B;
       font-weight: 700;
-      padding-top: 0 !important;
     }
 
     .tabs .tabs-header p {
-      border-top: 1px solid #010101;
-      padding-top: 9.7px;
+      background: transparent;
+      padding-bottom: 0;
     }
 
     .tabs .tabs-header p:first-child {
+      padding-left: 0;
       background: transparent;
     }
 
-    .total {
-      margin-top: 0 !important;
-      margin-bottom: 14.9px;
+    .pages .total {
+      border-bottom: none;
+      padding-bottom: 35px;
+      padding-left: 56px;
+    }
+    *{
+      border-right: none !important;
     }
 
-    .total .left {
-      padding-top: 12px;
+     .totalborder {
+      
+   
+    width: 350px;
+     bottom: -2px;
+     position: absolute;
+     right: 45px;
+     display: none;
+  
+     border-bottom: 4px solid var(--primary-color,#CA9E67) ;
+    
     }
 
     .total .right {
       position: relative;
       bottom: -2px;
-      padding-left: 0px;
-      padding-right: 0px;
+      gap: 0px !important;
+    }
+    .total .right >p {
+     padding-top: 8px;
     }
 
-    .total .total-amount span {
-      display: flex;
-      align-items: center;
-    }
+    .total .right p:last-child {
 
-    .total .total-amount span:last-child {
-      font-size: 12px;
-    }
-
-    .total .right p {
-      padding-left: 0px;
-      padding-right: 0px;
+      border-top: 1px solid #010101;
+    
     }
 
     .total .total-amount {
       color: #383838;
-      border-top: 1px solid #010101;
     }
 
     .sign {
@@ -199,13 +212,7 @@
     
     .footer {
       bottom: 0;
-      z-index: 1;
-      color: #383838;
-      margin-bottom: 42px;
-    }
-
-    .page-footer, .page-footer-space {
-      background: #F9F5DC;
+      color: #383838; 
     }
 
     .footer-mark {
@@ -214,7 +221,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      background: #CA9E67;
+      background: var(--primary-color,#CA9E67);
     }
 
     .footer-img {
@@ -236,7 +243,7 @@
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header4') %>
           
@@ -244,10 +251,11 @@
               <%- include('../subtemplates/headline1') %>
 
               <!-- table -->
-              <%- include('../subtemplates/table3') %>
+              <%- include('../subtemplates/table2') %>
                 
               <!-- facture totals informations -->
               <%- include('../subtemplates/total2') %>
+
 
               <!-- signature -->
               <%- include('../subtemplates/sign1') %>

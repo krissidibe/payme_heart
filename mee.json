@@ -1,0 +1,164 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-01-12T14:52:47.922Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_b15120063b4e4fc38375217db1e9d521",
+      "parentId": "wrk_31b50fbb97a24616a7883e7e645c4122",
+      "modified": 1705071150154,
+      "created": 1705070745826,
+      "url": "https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction/transaction_id?loginAgent=223733826&passwordAgent=xxx",
+      "name": "CHECKSTATUS",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "digest",
+        "disabled": false,
+        "username": "41e4ae1b44e4514168dadefe0046e01a755c73ac911ee96e3e08395fb006a404",
+        "password": "c24bee023a20bea3b525bab38ab90f6d7864d3c5060ae3ae672ff17567544895"
+      },
+      "metaSortKey": -1681486089438,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_31b50fbb97a24616a7883e7e645c4122",
+      "parentId": null,
+      "modified": 1705070745804,
+      "created": 1705070745804,
+      "name": "MEE ENTREPRISE GN",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_1ca6a5b7abeb4fef8fd5d75da8c5cb9d",
+      "parentId": "fld_a16851caff934506b73f4f9d400af45b",
+      "modified": 1705071151406,
+      "created": 1705070745819,
+      "url": "https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=XXX",
+      "name": "OM",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\t\"idFromClient\": \"15487171111111669723\",\n\t\"additionnalInfos\": {\n\t\t\"recipientEmail\": \"JUNIOR@hubsocial.org\",\n\t\t\"recipientFirstName\": \"Moustapha\",\n\t\t\"recipientLastName\": \"SECK\",\n\t\t\"destinataire\": \"54791752\"\n\t\t\n\t},\n\t\"amount\": 150,\n\t\"callback\": \"https://yourcallbacurl\",\n\t\"recipientNumber\": \"54791752\",\n\t\"serviceCode\": \"PAIEMENTMARCHANDOMPAYGNDIRECT\"\n}\n"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "digest",
+        "disabled": false,
+        "username": "41e4ae1b44e4514168dadefe0046e01a755c73ac911ee96e3e08395fb006a404",
+        "password": "c24bee023a20bea3b525bab38ab90f6d7864d3c5060ae3ae672ff17567544895"
+      },
+      "metaSortKey": -1682336808113,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_a16851caff934506b73f4f9d400af45b",
+      "parentId": "fld_2f207ae10b4941bb82fae3432375e90a",
+      "modified": 1705070745817,
+      "created": 1705070745817,
+      "name": "PAIEMENT",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1682336802646,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_2f207ae10b4941bb82fae3432375e90a",
+      "parentId": "wrk_31b50fbb97a24616a7883e7e645c4122",
+      "modified": 1705070745816,
+      "created": 1705070745816,
+      "name": "GN",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1678911414595,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_1c11bf12015b4dd39c3688d3673809be",
+      "parentId": "fld_a16851caff934506b73f4f9d400af45b",
+      "modified": 1705071152635,
+      "created": 1705070745821,
+      "url": "https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=XXXX",
+      "name": "MTN",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\t\"idFromClient\": \"15487171111111669723\",\n\t\"additionnalInfos\": {\n\t\t\"recipientEmail\": \"JUNIOR@hubsocial.org\",\n\t\t\"recipientFirstName\": \"Moustapha\",\n\t\t\"recipientLastName\": \"SECK\",\n\t\t\"destinataire\": \"54791752\"\n\t\t\n\t},\n\t\"amount\": 150,\n\t\"callback\": \"https://yourcallbacurl\",\n\t\"recipientNumber\": \"54791752\",\n\t\"serviceCode\": \"PAIEMENTMARCHAND_MTN_GN\"\n}\n"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "digest",
+        "disabled": false,
+        "username": "41e4ae1b44e4514168dadefe0046e01a755c73ac911ee96e3e08395fb006a404",
+        "password": "c24bee023a20bea3b525bab38ab90f6d7864d3c5060ae3ae672ff17567544895"
+      },
+      "metaSortKey": -1681911448775.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_b503c8dce5f547f499e53863ffbc22a1",
+      "parentId": "wrk_31b50fbb97a24616a7883e7e645c4122",
+      "modified": 1705070745806,
+      "created": 1705070745806,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1678651023718,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_5cb5c9c335d647aba8f42da8340e1459",
+      "parentId": "wrk_31b50fbb97a24616a7883e7e645c4122",
+      "modified": 1705070745810,
+      "created": 1705070745810,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_644194f2d92d4086869bd140c4d54036",
+      "parentId": "wrk_31b50fbb97a24616a7883e7e645c4122",
+      "modified": 1705070745829,
+      "created": 1705070745813,
+      "fileName": "MEE ENTREPRISE GN",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}

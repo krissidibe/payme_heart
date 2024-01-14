@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -13,13 +14,13 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;600&display=swap');
 
     body {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Poppins', sans-serif;
     }
     .inter {
       font-family: 'Inter', sans-serif;
     }
     .poppin {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Poppins', sans-serif;
     }
     .page-header,
     .page-header-space {
@@ -28,7 +29,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -82,15 +83,24 @@
       font-style: normal;
     }
     .heading {
-      margin-top: 110px;
+      margin-top: 100px !important;
+      margin-bottom: 30px !important;
     }
 
     .facture-number div p:first-child {
-      color: #007D56;
+  
+
+      
+      color: #BE1622;
+
+
+   
     }
 
     .facture-number {
-      border-color: #007D56;
+      border-color: var(--primary-color,#0B9439);
+
+      
     }
 
     .heading .logo {
@@ -107,23 +117,24 @@
     }
 
     .headline p {
-      font-size: 13.4px;
+   
       font-weight: 400;
     }
 
     .pages .tabs {
       margin-top: 10px;
-      padding-bottom: 0;
     }
 
     .tabs-item {
       color: #4D4B4C;
     }
 
-    .tabs .tabs-header {
-      color: #3C3C3B;
+    .pages .tabs .tabs-header {
+      color: #000000;
       font-weight: 700;
-      border-top: 4px solid #007D56;
+      border-top: 4px solid var(--primary-color,#0B9439);
+
+     
       padding: 0 !important;
       margin: 14px 56px 0 56px;
       width: 709px;
@@ -148,7 +159,7 @@
     }
 
     .total .right p:last-child {
-      border-bottom: 4px solid #007D56;
+      border-bottom: 4px solid var(--primary-color,#0B9439);
     }
 
     .total .total-amount {
@@ -162,7 +173,7 @@
     .footer {
       bottom: 0;
       color: #383838;
-      margin-bottom: 32px;
+      
     }
 
     .footer-mark {
@@ -171,7 +182,7 @@
       position: relative;
       bottom: -4px;
       left: 0;
-      background: #007D56;
+      background: var(--primary-color,#0B9439);
     }
 
     .footer-img {
@@ -193,7 +204,7 @@
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header3') %>
           

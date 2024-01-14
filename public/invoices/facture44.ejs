@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -13,7 +14,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;600&display=swap');
 
     body {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Poppins', sans-serif;
+     
     }
     .inter {
       font-family: 'Inter', sans-serif;
@@ -28,16 +30,19 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
-    }
+      height: 80px; 
+
+      
+    
+    } 
 
     .page-footer {
       position: fixed;
       bottom: 80px;
+     
 
       width: 100%;
-      /* for demo */
-      /* for demo */
+      
     }
 
     .page-header {
@@ -51,10 +56,12 @@
     .page {
       page-break-after: always;
       padding-bottom: 0px;
+      
     }
 
     @page {
       margin: 0mm;
+      
     }
 
     @media print {
@@ -63,6 +70,7 @@
       }
       tfoot {
         display: table-footer-group;
+        
       }
 
       button {
@@ -71,24 +79,66 @@
 
       body {
         margin: 0;
+        
       }
     }
     /* Facture Custom styling */
-    @font-face {
-      font-family: 'Helvetica Neue';
-      src: url('path-to-your-fonts/HelveticaNeue-Bold.woff2') format('woff2'),
-          url('path-to-your-fonts/HelveticaNeue-Bold.woff') format('woff');
-      font-weight: bold;
-      font-style: normal;
-    }
-
     .heading {
-      margin-top: 110px;
-      margin-left: 15px;
+      margin-top: 0px !important;
+      padding-top: 0px !important;
+      border-left:0.2px solid #d19a5240 ;
+      border-right:0.2px solid #d19a5240 ;
+      margin: 0px 50px !important;
+      padding-top: 70px !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
     }
 
-    .facture-number div p:first-child {
-      color: #010101;
+    .heading > div {
+      
+    
+      
+    }
+    .headline {
+      
+      border-left:0.2px solid #d19a5240 ;
+      border-right:0.2px solid #d19a5240 ;
+     
+      padding-bottom: 20px;
+      margin: 0px 50px !important;
+      margin-bottom: 0px !important;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+       
+    }
+    .headline-end {
+      
+     
+      border-bottom:0.2px solid #d19a5240 ;
+     
+       
+    }
+
+    .headline-end-2 {
+      
+     
+      border-bottom:2px solid var(--primary-color,#E6007E) ;
+     
+       
+    }
+    .facture-number div p:nth-child(2) {
+     
+      color: var(--primary-color,#C6589C);
+    }
+
+    .heading .logo {
+      border-radius: 0 !important;
+      background-color: #C6589C;
+    }
+
+    .pages .headline {
+      padding-top: 50px !important;
+      line-height: 20px;
     }
 
     .facture-number {
@@ -97,210 +147,149 @@
 
     .facture-number .dividor {
       display: block !important;
-      width: 80px;
+      width: 40px;
       border-top: 1px solid #010101;
       margin-left: 11px;
       margin-right: 3px;
     }
-
-    .heading .logo {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #E6007E;
-      color: #383838;
+    .facture-number .dividor2 {
+    
+      display: block !important;
+      width: 63px;
+      border-top: 1px solid #010101;
+      margin-left: 11px;
+      margin-right: 3px;
+      
+     
     }
 
-    .headline {
-      margin-top: 30.5px !important;
-      padding-top: 24px;
-      margin-left: 15px;
-    }
-
-    .headline p {
-      font-size: 13.4px;
+    .headline p { 
       font-weight: 400;
     }
 
-    .pages .tabs {
-      border-top: 1px solid #ECE7DD;
-      border-bottom: 1px solid #E6007E;
-      margin-top: 24px;
+    .tabs {
+      margin-top: 0px !important;
     }
+    
 
     .tabs-item {
       color: #4D4B4C;
+      border-left:0.2px solid #d19a5240 ;
+      border-right:0.2px solid #d19a5240 ;
+      margin: 0px 50px !important;
+padding-right: 0px !important;
+padding-left: 0px !important; 
     }
 
-    .tabs-item:last-child {
-      border-bottom: none;
+    .tabs-item > div {
+     
+      padding-left: 20px !important;
+      padding-right: 20px !important;
     }
 
-    .tabs-item p:first-child {
-      padding-left: 18px;
+    .tabs-header > p:first-child {
+       font-weight: 600;
+      
+       margin: 0px;
     }
-
-    .tabs-item p:last-child {
-      padding-right: 18px;
-    }
-
-    .tabs-item:first-child p {
-      padding-top: 36px;
-    }
-
-    .tabs-item:last-child p {
-      padding-bottom: 11px;
+    .tabs-item > div {
+      color: #4D4B4C;
+     
     }
 
     .tabs .tabs-header {
-      gap: 0;
-      color: #3C3C3B;
-      font-weight: 700;
-      padding-bottom: 0;
+      padding-top: 25px !important;
+      width: auto !important;
+      color: #242437;
+      font-weight: 400;
+      gap: 0px;
+    padding-right: 0px !important;
+    padding-left: 7px !important;
+    
+   
+ 
+     
     }
 
     .tabs .tabs-header p {
-      margin-top: 9.6px;
-      padding-top: 9.7px;
-      background: #E6007E;
+     
+      background:  var(--primary-color,#E6007E);
+      color: var(--primary-text-color,black);
+      
+      
     }
 
     .tabs .tabs-header p:first-child {
-      padding-left: 18px;
-      background: transparent;
+     
+      color: black;
+      background-color: white;
+      max-width: 47% !important;
+    }
+    .tabs .tabs-header p:last-child {
+     
+      color: var(--primary-text-color,black);
+      width: 20% !important;
+     
     }
 
-    .total {
-      margin-top: 14px;
-      margin-left: 34.7px;
-      margin-bottom: 14.9px;
+    .total  {
+     padding-top: 30px !important;
+     padding-bottom: 30px !important;
+     border-left:0.2px solid #d19a5240 ;
+     border-right:0.2px solid #d19a5240 ;
+     border-bottom:0.2px solid #d19a5240 ;
+     margin: 0px 50px !important;
+     padding-right: 10px !important;
     }
-
-    .total .left {
-      padding-top: 12px;
-    }
-
     .total .right {
       position: relative;
       bottom: -2px;
+      gap: 0px !important;
     }
-
     .total .total-amount {
-      color: #383838;
+     
     }
-
-    .sign {
-      background: #F6D2E5;
-      font-weight: 700;
-    }
-
-    .line-left, .line-right {
-      background: #ECE7DD;
-      top: 0;
-      bottom: inherit;
-    }
-
-    .line-left {
-      left: 55px;
-    }
-    .line-right {
-      right: 55px;
+    .signature{
+      flex:1;
+      
     }
     
     .footer {
+      background:  var(--primary-color,#E6007E);
+      color: var(--primary-text-color,black);
+      margin-bottom: 0px;
       bottom: 0;
-      z-index: 1;
-      color: #383838;
-      background: #E6007E;
     }
-
-    .footer-mark {
-      width: 325px;
-      height: 10px;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      background: #E6007E;
-    }
-
-    .footer-img {
-      height: 278px;
-      width: 278px;
-      position: fixed;
-      bottom: 0 !important;
-      right: -16px;
-    }
-
+    
     /* End Facture Custom styling */
   </style>
 
   <body>
     <!-- footer -->
     <%- include('../subtemplates/footer1') %>
-    <div class="footer top-0 pt-4 page-footer bg-transparent z-0">
-      <div class="line-left w-[1px] h-[828px] fixed"></div>
-      <div class="line-right w-[1px] h-[828px] fixed"></div>
-    </div>
+   
     <table>
       <tbody>
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content ">
               <!-- logo + facture -->
               <%- include('../subtemplates/header4') %>
           
               <!-- headline (object, address, client) -->
               <%- include('../subtemplates/headline1') %>
-
-              <!-- table -->
-              <main class="tabs flex flex-col mt-[51.43px] font-light">
-                <!-- table heading -->
-                <div class="tabs-header tabs-item inter flex w-full  text-[14.8px] gap-[5px] px-14 py-[14px]">
-                  <p class="flex-1 py-[8.34px] px-[15.29px]">DESCRIPTION</p>
-                  <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
-                  <p class="w-[115px] py-[8.34px] text-center">Prix.U</p>
-                  <p class="w-[115px] py-[8.34px] text-center">Montant</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item text-[9.72px] flex w-full items-center gap-[5px] px-14 py-[18px]">
-                  <p class="flex-1">Adaptation, éxécution et mise en page, badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec plastique, <br>pochette cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <div></div>
-                <div class="separator border-t-[1px] border-[#1D1D1D] mx-14"></div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] px-14 py-[18px]">
-                  <p class="flex-1">item</p>
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <div></div>
-                <div class="separator border-t-[1px] border-[#1D1D1D] mx-14"></div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] px-14 py-[18px]">
-                  <p class="flex-1">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000.000 FCFA</p>
-                </div>
-                <div></div>
-                <div class="separator border-t-[1px] border-[#1D1D1D] mx-14"></div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] px-14 py-[18px]">
-                  <p class="flex-1">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">526.706 FCFA</p>
-                </div>
-              </main>
+<div class="headline-end"></div>
+<!-- table -->
+<%- include('../subtemplates/table1') %>
+<div class="headline-end-2"></div>
                 
               <!-- facture totals informations -->
               <%- include('../subtemplates/total2') %>
 
               <!-- signature -->
               <%- include('../subtemplates/sign1') %>
+              
 
               <!-- footer -->
             </div>
