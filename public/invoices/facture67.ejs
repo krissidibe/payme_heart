@@ -122,7 +122,7 @@
     .headline-end-2 {
       
      
-      border-bottom:2px solid #d19a52 ;
+      border-bottom:2px solid var(--primary-color,#D19B52) ;
      
        
     }
@@ -206,39 +206,45 @@ padding-left: 0px !important;
     padding-right: 0px !important;
     padding-left: 7px !important;
     
-   
+
  
      
     }
 
-    .tabs .tabs-header p {
-     
-      background:  var(--primary-color,#383838);
-      color: var(--primary-text-color,white);
-      
-      
-    }
-
-    
-    
-    .tabs .tabs-header  p:last-child  {
-     
-      background:  var(--primary-color,#383838);
-      color: var(--primary-text-color,white);
-      width: 20% !important;
+ 
+ 
+.tabs .tabs-header {
+  padding-bottom: 0px !important;
+ 
+}
+.tabs .tabs-header p {
+ 
+padding-left: 10px !important;
+      background:  var(--primary-color,#383838) !important;
+      color: var(--primary-text-color,white) !important;
+      margin-bottom: 0px !important;
+      padding-bottom: 0px !important;
+      height: 40px !important;
       
     }
 
     .tabs .tabs-header p:first-child {
-     
-      color: var(--primary-text-color,white);
-      background:  var(--primary-color,#383838);
+      
       max-width: 47% !important;
     }
-   
+    .tabs .tabs-header p:last-child {
+     
+      
+      width: 20% !important;
+     
+    }
+
+    .tabs-item div {
+      
+    }
 
     .total  {
-     padding-top: 30px !important;
+     padding-top: 10px !important;
      padding-bottom: 30px !important;
      border-left:0.2px solid #d19a5240 ;
      border-right:0.2px solid #d19a5240 ;
@@ -251,21 +257,25 @@ padding-left: 0px !important;
       bottom: -2px;
       gap: 0px !important;
     }
+    .total .left  {
+       
+      padding-top: 18px;
+     }
     .total .total-amount {
      
     }
     .signature{
+      padding-top: 10px !important;
       flex:1;
       
     }
     
     .footer {
-      background:  var(--primary-color,#383838);
-      color: var(--primary-text-color,white);
+      background:  var(--primary-color,#383838) !important;
+      color: var(--primary-text-color,white) !important;
       margin-bottom: 0px;
       bottom: 0;
     }
-    
     /* End Facture Custom styling */
   </style>
 

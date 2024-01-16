@@ -1,5 +1,19 @@
 <div class="flex justify-between text-[10px] signature font-light pt-10 mt-2 px-[110px]">
-  <div class="w-[130px] h-[180px] text-center uppercase">
+
+
+
+  <% if(signed){ %>
+
+    <div class="w-[130px] h-[180px] text-center uppercase">
+    
+    <% } %>
+    <% if(!signed){ %>
+     
+      <div class="w-[130px] h-[10px] text-center uppercase">
+      <% } %>
+
+
+ 
 
     <% if( invoiceType != 1){ %>
     <p class="pb-2 border-b border-black/30"> <%=   invoiceType === 2 ? "Le réceptionnaire": "Pour accord" %> </p>
@@ -9,17 +23,32 @@
     <% } %>
   
   </div>
-  <div class=" h-[180px]  relative flex justify-center -mt-2 flex-col items-center text-center uppercase">
-     <div class="absolute  border-b border-black/30 top-[30px] w-[130px]"></div>
-    <% if(signed){ %>
-    <p class="pb-2  max-w-[130px]  "> <%=   invoiceType === 2 ? "Le fournisseur": "Le prestataire" %> </p>
-    <img src="<%=signature%>" class="pt-3   object-top w-[200px] object-contain h-[140px] " alt="" srcset="">
+
+  <% if(signed){ %>
+
+    <div class=" h-[180px]  relative flex justify-center -mt-2 flex-col   items-center text-center uppercase">
+    
     <% } %>
     <% if(!signed){ %>
-      <p class="pb-2  max-w-[130px] "> <%=   invoiceType === 2 ? "Le fournisseur": "Le prestataire" %> </p>
-      <div   class="pt-3  object-top w-[200px] object-contain h-[140px] " alt="" srcset=""></div>
+     
+      <div class=" h-[40px]  relative flex justify-center -mt-2 flex-col   items-center text-center uppercase">
       <% } %>
+
+
+
+      <% if(signed){ %>
+        <div class="absolute  border-b border-black/30 top-[30px] w-[130px]"></div>
+    <p class="pb-2  max-w-[130px]  "> <%=   invoiceType === 2 ? "Le fournisseur": "Le prestataire" %> </p>
+    <img src="<%=signature%>" class="pt-3   object-top w-[200px] object-contain h-[140px] " alt="" srcset="">
   </div>
+    <% } %>
+    <% if(!signed){ %>
+      <div class="absolute  border-b border-black/30 top-[30px] w-[130px]"></div>
+      <p class="pt-2  max-w-[130px] "> <%=   invoiceType === 2 ? "Le fournisseur": "Le prestataire" %> </p>
+      <div   class="pt-3  object-top w-[200px] object-contain h-[140px] " alt="" srcset=""></div>
+    </div>
+      <% } %>
+
 </div>
 
 
