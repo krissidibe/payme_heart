@@ -259,10 +259,12 @@ enterprise.nif, -->
         <div class="absolute right-0 top-0 w-full border-t-[1px] border-separator-footer"></div>
         
       </div>
-      <div class="text-center text-[11px] px-[98px] line-clamp-3 pt-1">
-        <p>NOTRE ADRESSE : QUARTIER BACO DJICORONI GOLF, RUE 849 IMMEUBLE ALY KOUMA, BAMAKO/ MALI</p>
-        <p>TEL : (+223) 63 59 80 96 / 83 94 24 11 / E-MAIL : CONTACTPRINTARTSERVICE@GMAIL.COM</p>
-      </div>
+      <p class="text-[11px] px-[57px]  pt-2 text-center line-clamp-4">
+  
+
+        <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+    
+    </p>
     </div>
     <table>
       <tbody>
