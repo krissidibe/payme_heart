@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;;
+    }
+    .inter {
+      font-family: 'Inter', sans-serif;
+    }
+    .poppin {
+      font-family: 'Poppins', sans-serif;;
+    }
+    .page-header,
+    .page-header-space {
+      height: 100px;
+    }
+
+    .page-footer,
+    .page-footer-space {
+      height: 50px;
+    }
+
+    .page-footer {
+      position: fixed;
+      bottom: 80px;
+
+      width: 100%;
+      /* for demo */
+      /* for demo */
+    }
+
+    .page-header {
+      position: fixed;
+      top: 0mm;
+      width: 100%;
+      border-bottom: 1px solid black; /* for demo */
+      background: yellow; /* for demo */
+    }
+
+    .page {
+      page-break-after: always;
+      padding-bottom: 0px;
+    }
+
+    @page {
+      margin: 0mm;
+    }
+
+    @media print {
+      thead {
+        display: table-header-group;
+      }
+      tfoot {
+        display: table-footer-group;
+      }
+
+      button {
+        display: none;
+      }
+
+      body {
+        margin: 0;
+      }
+    }
+    /* Facture Custom styling */
+    .heading {
+      margin-top: 46.9px;
+      margin-bottom: 34.8px;
+
+      .logo {
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #ECB05D;
+        color: #383838;
+      }
+
+      .logo p {
+        margin-left: 0;
+      }
+    }
+
+    .headline {
+      padding: 0 56px;
+      margin-top: 31.15px;
+
+      > div:first-child {
+        padding-right: 21.18px;
+        margin-left: 51px;
+      }
+
+      > div:nth-child(2) {
+        padding-left: 9px;
+      }
+
+      > div:last-child {
+        padding-left: 23px;
+        margin-right: 63px;
+      }
+    }
+
+    .tabs {
+      margin-top: 30px;
+      padding: 14px 56px;
+
+      .tabs-header {
+        margin-bottom: 12px;
+        font-size: 10px !important;
+        color: #222428;
+        font-weight: 400;
+        background: transparent;
+        border-bottom: 1px solid #4D4C4C;
+      }
+
+      .tabs-header p:first-child {
+        background: transparent;
+      }
+
+      .tabs-item {
+        padding: 12px 16px;
+        color: #4D4B4C;
+      }
+      
+      .tabs-item:nth-child(even) {
+        background: #FDF7EF;
+      }
+
+      .tabs-item:last-child {
+        border-bottom: 1px solid #4D4C4C;
+      }
+
+      .tabs-item:nth-child(odd) {
+        padding-top: 26px;
+        padding-bottom: 26px;
+      }
+    } 
+
+
+    .total {
+      background: transparent;
+      margin-left: 56px;
+      margin-right: 56px;
+
+      > div {
+        padding-bottom: 22px;
+      }
+
+      .left {
+        margin-top: 32px;
+      }
+
+      .right {
+        > p {
+          margin: 0 !important;
+          padding: 12.5px 20px;
+          background: #FDF7EF;
+        }
+
+        > p:nth-child(even) {
+          background: #FAEBD7;
+        }
+
+        .total-amount > p {
+          font-family: 'Poppins', sans-serif;
+          height: 31.13px;
+          padding: 8px 62px 3px 0;
+          text-align: center;
+          color: white;
+        }
+
+        > p.total-amount {
+          padding: 10px 62px;
+          height: 31.13px;
+          background-color: #ECB05D;
+        }
+      } 
+      
+    }
+    
+
+    .sign {
+      font-weight: 700;
+    }
+    
+    .footer {
+      bottom: -20px !important;
+      z-index: 1;
+      color: #383838;
+      margin-bottom: 10px;
+    }
+
+    .footer-mark {
+      width: 229.3px;
+      height: 18px;
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      background: #383838;
+    }
+
+    .footer-text {
+      margin-left: 248px;
+    }
+
+    /* End Facture Custom styling */
+
+    /* Validation */
+    .pages {
+      .tabs {
+        .tabs-item {
+        align-items: start;
+        }
+
+        .tabs-item p {
+          color: #4D4C4C;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        .tabs-item p:first-child {
+          padding-left: 10px;
+        }
+
+        .tabs-item p:last-child, .tabs-header p:last-child {
+          text-align: end;
+          padding-right: 20px;
+          }
+
+          .tabs-item:last-child {
+            border-color: #ECB05D;
+          }
+      }
+      .total {
+        margin-top: 8px;
+
+        .right  {
+          > p {
+          padding-right: 35px;
+          padding-left: 28px;
+        }
+
+          p.total-amount {
+          margin-top: 6px;
+          padding-left: 60px;
+          padding-right: 60px;
+          font-weight: 700;
+          display: flex;
+          justify-content: flex-end;
+          > p:last-child {
+            padding: 8px 92px 3px 0;
+            text-align: center;
+            background: #18A5B6;
+          }
+          > span:first-child {
+            margin-right: 4px;
+          }
+        }
+          
+        }
+        .sign {
+          padding-left: 30px;
+        }
+      }
+    }
+    /* Validation */
+  </style>
+
+  <body>
+    <!-- footer -->
+    <div class="footer bottom-0 page-footer h-[80px] flex flex-col justify-start items-center inter">
+      <div class="relative w-full mb-3">
+        <div class="absolute right-0 top-0 w-full border-t-[1px] border-[#ECB05D]"></div>
+        <div class="absolute right-0 top-[-3px] w-[337.839px] border-t-[4px] rounded-l-full border-[#ECB05D]"></div>
+      </div>
+      <div class="text-center text-[11px] px-[98px] line-clamp-3 pt-1">
+        <p>NOTRE ADRESSE : QUARTIER BACO DJICORONI GOLF, RUE 849 IMMEUBLE ALY KOUMA, BAMAKO/ MALI</p>
+        <p>TEL : (+223) 63 59 80 96 / 83 94 24 11 / E-MAIL : CONTACTPRINTARTSERVICE@GMAIL.COM</p>
+      </div>
+    </div>
+    <table>
+      <tbody>
+        <tr>
+          <td class="pages w-[827px]">
+
+            <div class="flex flex-col w-full page-content">
+
+              <!-- logo + facture -->
+              <header class="flex justify-center heading">
+                <div class="logo rounded-full w-[122px] h-[122px] flex items-center">
+                  <p class="font-bold text-[43px]">LOGO</p>
+                </div>
+              </header>
+
+              <div class="relative w-full">
+                <div class="absolute left-0 top-0 w-full border-t-[1px] border-[#ECB05D]"></div>
+                <div class="absolute left-0 top-0 w-[337.839px] border-t-[4px] rounded-b-md border-[#ECB05D]"></div>
+              </div>
+          
+              <!-- headline (object, address, client) -->
+              <div class="headline text-[10.8px] flex inter leading-4">
+                <div class="relative flex flex-col items-end justify-center">
+                  <p>Object</p>
+                  <p>Client</p>
+                  <p>Adresse</p>
+                  <div class="h-[37.522px] absolute border-r-[2px] border-[#ECB05D] right-0"></div>
+                </div>
+                <div class="relative flex flex-col justify-center flex-1">
+                  <p>badgesprofessionnelspourlesnouveauxstaffs</p>
+                  <p>internationalmedicalcorpsimc</p>
+                  <p>hmdallaye</p>
+                  <div class="h-[37.522px] absolute border-r-[2px] border-[#ECB05D] right-0"></div>
+                </div>
+                <div class="flex flex-col justify-center font-semibold leading-3 facture-number inter ">
+                  <div class="mb-1 leading-4 ">
+                    <p class="text-[10px] font-normal">FACTURE</p>
+                    <p class="font-normal text-[20px] text-[#ECB05D]">N°: 05234</p>
+                  </div>
+                  <p class="text-[12px] font-normal">Date: 03/10/2019</p>
+                </div>
+              </div>
+
+              <!-- table -->
+              <main class="flex flex-col font-light tabs">
+                <!-- table heading -->
+                <div class="tabs-header inter flex w-full p-[16px] text-[14.8px] gap-[5px]">
+                  <p class="flex-1 pl-[12px]">Description</p>
+                  <p class="w-[115px] text-center">Prix.U</p>
+                  <p class="w-[115px] text-center">Qté.</p>
+                  <p class="w-[115px] text-center">Montant</p>
+                </div>
+                <!-- table item -->
+                <div class="tabs-item text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
+                  <p class="flex-1 pl-[6px]">Adaptation, éxécution et mise en page, badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec plastique, <br>pochette cordon- forfait</p>
+                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
+                  <p class="w-[115px] py-[8.34px] text-center">20</p>
+                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
+                </div>
+                <!-- table item -->
+                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
+                  <p class="flex-1 pl-[6px]">item</p>
+                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
+                  <p class="w-[115px] py-[8.34px] text-center">20</p>
+                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
+                </div>
+                <!-- table item -->
+                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
+                  <p class="flex-1 pl-[6px]">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
+                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
+                  <p class="w-[115px] py-[8.34px] text-center">50</p>
+                  <p class="w-[115px] py-[8.34px] text-center">14.000.000.000 FCFA</p>
+                </div>
+                <!-- table item -->
+                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
+                  <p class="flex-1 pl-[6px]">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
+                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
+                  <p class="w-[115px] py-[8.34px] text-center">50</p>
+                  <p class="w-[115px] py-[8.34px] text-center">526.706 FCFA</p>
+                </div>
+              </main>
+                
+              <!-- facture totals informations -->
+              <div class="total text-[12.51px] text-[#000] inter">
+                <div class="flex flex-col justify-between">
+                  <div class="right flex flex-col text-[9.73px] inter">
+                    <p class="flex justify-between pl-[11.6px] pr-[20px]">
+                      <span>MONTANT TOTAL HT:</span>
+                      <span>19.726.706 FCFA</span>
+                    </p>
+                    <p class="flex justify-between pl-[11.6px]">
+                      <span>TVA 10%:</span>
+                      <span>19.726.706 FCFA</span>
+                    </p>
+                    <p class="flex justify-between pl-[11.6px]">
+                      <span>REMISE COMMERCIALE(10%):</span>
+                      <span>-100.000FCFA</span>
+                    </p>
+                    <p class="total-amount">
+                      <span>MONTANT TOTAL TTC : </span>
+                      <span>1.599.376,6 FCFA</span>
+                    </p>
+                  </div>
+
+                  <div class="leading-2 left mt-[5.56px] popin">
+                    <p class="font-semibold text-[#000]">Arrêtée la présente Facture à la somme de : Un million deux cent mille plus que</p>
+                    <p>
+                      Modalité de paiment : 40% à la commande - ccompte à payer : 8.679.750,64 FCFA<br>
+                      Réliquat à la livraison : 13.019.625,96 FCFA <br>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- signature -->
+              <div class="sign text-[9.73px] border-opacity-25 text-[#222428] pt-[10px] pb-[108.4px] inter mx-14">
+                <div class="flex justify-between px-[36px] font-normal">
+                  <p class="px-[33.36px] py-[12.51px] ml-[40px] border-b-[1px] border-[#4D4C4C]">POUR ACQUIS</p>
+                  <p class="px-[33.36px] py-[12.51px] mr-[40px] border-b-[1px] border-[#4D4C4C]">LE PRESTATAIRE</p>
+                </div>
+              </div>
+
+              <!-- footer -->
+            </div>
+          </td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td>
+            <!--place holder for the fixed-position footer-->
+            <div class="page-footer-space"></div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

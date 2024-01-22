@@ -1,37 +1,73 @@
-<main class="tabs flex flex-col font-light px-14 py-[14px]">
+<main class="tabs flex flex-col mt-[31.43px] font-light">
+ 
   <!-- table heading -->
-  <div class="tabs-header tabs-item inter flex w-full  text-[14.8px] gap-[5px]">
-    <p class="flex-1 py-[8.34px]">DESCRIPTION</p>
-    <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
-    <p class="w-[115px] py-[8.34px] text-center">Prix.U</p>
-    <p class="w-[115px] py-[8.34px] text-center">Montant</p>
+  <div class="tabs-header     tabs-item inter flex w-full  text-[14.8px]  px-14 py-[14px]">
+    <% if(invoiceType !== 2) { %>
+      <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
+    <p class="flex-1 py-[8.34px]  text-left    ">DESCRIPTION</p>
+
+      
+      
+      <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+  
+      <p class="w-[115px] py-[8.34px] text-center"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+      
+    <% } %> 
+    <% if(invoiceType === 2) { %>
+      <p class="w-[115px] py-[8.34px]  text-center">QTé.</p>
+      <p class="min-w-[325px] w-[275px] flex-1 py-[8.34px]  text-left  ">DESCRIPTION</p>
+      <p class="flex-1 py-[8.34px] mr-0 text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+  
+ 
+    <% } %> 
+
+    
   </div>
-  <!-- table item -->
-  <div class="tabs-item text-[12px] flex w-full items-center gap-[5px] py-[18px]">
-    <p class="flex-1">Adaptation, éxécution et mise en page, badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec plastique, <br>pochette cordon- forfait</p>
-    <p class="w-[115px] py-[8.34px] text-center">20</p>
-    <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-    <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-  </div>
-  <!-- table item -->
-  <div class="tabs-item pb-[16.68px] text-[12px] flex w-full items-center gap-[5px] py-[18px]">
-    <p class="flex-1">item</p>
-    <p class="w-[115px] py-[8.34px] text-center">20</p>
-    <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-    <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-  </div>
-  <!-- table item -->
-  <div class="tabs-item pb-[16.68px] text-[12px] flex w-full items-center gap-[5px] py-[18px]">
-    <p class="flex-1">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
-    <p class="w-[115px] py-[8.34px] text-center">50</p>
-    <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-    <p class="w-[115px] py-[8.34px] text-center">14.000.000.000 FCFA</p>
-  </div>
-  <!-- table item -->
-  <div class="tabs-item pb-[16.68px] text-[12px] flex w-full items-center gap-[5px] py-[18px]">
-    <p class="flex-1">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
-    <p class="w-[115px] py-[8.34px] text-center">50</p>
-    <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-    <p class="w-[115px] py-[8.34px] text-center">526.706 FCFA</p>
+
+  <% table.forEach(function(item,index) { %>
+    
+    <div class="px-14 tabs-item ">
+      <!-- table item -->
+      <div class="border-b-[0.1px]  border-[#1D1D1D]/20 text-[12px] flex w-full items-center  min-h-[50px]  py-[14px]">
+        <p class="w-[115px] py-[8.34px] text-center"> <%=item.quantity%> </p>
+        <p class="flex-1"> <%=item.designation%> </p>
+    
+    
+        <p class="w-[115px] py-[8.34px] text-center"> 
+          <% if(item.rate != 0 && item.rate != null) { %>
+            <%= invoiceType === 2 ? "": item.rate %>
+          
+          
+            <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+            
+          <% } %> 
+    
+         
+      
+    
+        </p>
+        <p class="w-[115px] py-[8.34px] text-center">  
+          <% if(item.amount != 0 && item.amount != null) { %>
+          <%=   invoiceType === 2 ? "": item.amount %>
+        
+                        
+           
+            
+            <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span>
+            
+            <% } %> 
+          </p>
+        
+        </div>
+        
+        
+        
+      </div>
+      <% }) %>
+
+
+ 
+  <div class="flex align-bottom empty-item">
+    <div class="w-full"></div>
   </div>
 </main>

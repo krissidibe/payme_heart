@@ -27,20 +27,7 @@
       height: 100px;
     }
 
-    .page-footer,
-    .page-footer-space {
-      height: 80px;
-    }
-
-    .page-footer {
-      position: fixed;
-      bottom: 80px;
-
-      width: 100%;
-      /* for demo */
-      /* for demo */
-    }
-
+    
     .page-header {
       position: fixed;
       top: 0mm;
@@ -56,6 +43,7 @@
 
     @page {
       margin: 0mm;
+      margin-bottom: 30px;
     }
 
     @media print {
@@ -86,41 +74,73 @@
     .heading {
       margin-top: 55.6px;
       flex-direction: column;
-      
-      align-items: center;
+      justify-content: space-between;
+  
+     
     }
     .heading img {
      
+     
+      
+    }
+
+    .heading > div   {
+   
+      
+      align-items: center !important;
+    position: relative;
+    padding-bottom: 10px !important; 
+    }
+   
+
+    .heading > div:first-child:after   {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      
+    
+      background: #383838;
+       height: 0.2px !important;
+       width: 300px !important;
+
+
+       margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+    
+      
+    }
+    .heading > div > p  {
+   
+      
       color: #383838;
-      object-position: center;
+       flex: 1;
+        
+      height: 100% !important;
+     border-right: 6px solid black;
+    
+    
       
     }
     .pages .facture-number {
-      width: 280px;
-      margin: 24px auto;
-      justify-self: flex-start;
-      padding-right: 0 !important;
-      border-color: var(--primary-text-color,white);
+     
    
       
     }
     .pages .facture-number > div p    {
       
      
-      color: var(--primary-text-color,white) !important;
+      
     }
 
     .pages .facture-number > div {
-      width: 280px;
-      padding: 2px 12.5px;
-      background:  var(--primary-color,#AA7F12);
+      
+     
       
      
     }
-    .facture-number {
-     
-      margin-top: 0px !important;
-     }
 
     .facture-number > div p:first-child {
       color: #010101;
@@ -146,87 +166,42 @@
 
     .heading .logo {
       font-family: 'Helvetica Neue', sans-serif;
-      background:  var(--primary-color,#AA7F12);
+      background:  var(--primary-color,#383838);
       color: var(--primary-text-color,white);
     }
 
-    .headline {
-      margin-top: 0.5px !important;
-      padding-top: 0px;
-    }
-
-    .headline p { 
-      font-weight: 400;
-    }
-
-    .tabs {
-      margin-top: 10px;
      
-    }
 
-    .tabs-item {
-      color: #4D4B4C;
-    }
-
-    .tabs .tabs-header p {
-      color: var(--primary-text-color,white);
-      
-       
-    }
-
-    .total .right {
+  
     
-      position: relative;
-      bottom: -2px;
-      gap: 0px !important;
-    }
-    .total .right >p:last-child {
-      border-bottom:none;
-    }
-
-    .tabs .tabs-header {
-      font-weight: bold;
-      background:  var(--primary-color,#AA7F12);
-      color: var(--primary-text-color,white);
-      width: auto !important;
-      gap: 0;
-      color: #3C3C3B;
-     margin: 0px 52px !important;
-     padding: 0px 5px !important;
-     margin-bottom: 20px !important;
-     border-radius: 100px !important;
-    }
-   
+     
 
     
 
-    .total {
-      margin-top: 20px !important;
-      margin-bottom: 1.9px;
-    }
-
-    .total .left  {
-       
-      padding-top: 18px;
-     }
-
-
-    .total .right {
-      position: relative;
-      bottom: -2px;
-    }
-
-    .total .right p {
-      border-bottom: 1px solid #010101;
-    }
-
-    .total .right .total-amount {
-      color: #383838;
+    .total   {
+      padding: 30px 50px !important;
+      margin: 0px 56px !important;
      
+     background: #EBEBEB;
+    }
+    .total-separator{
+      display: block !important;
+      opacity: 0.2;
+    }
+
+    .total .total-amount {
+      background:  var(--primary-color,#4D4C4C);
+      color: var(--primary-text-color,white);
     }
 
     .signature {
       margin-top: 0px !important;
+      margin: 0px 56px !important;
+      padding: 0px 30px !important;
+      padding-top: 20px !important;
+      padding-bottom: 60px !important;
+      background:  #EBEBEB;
+      padding-left: 60px !important;
      
     }
     
@@ -240,7 +215,7 @@
       z-index: 1;
      
       padding-top: 0 !important;
-      background:  var(--primary-color,#AA7F12);
+      background:  var(--primary-color,#383838);
       color: var(--primary-text-color,white);
     }
 
@@ -256,7 +231,7 @@
 
   <body>
     <!-- footer -->
-    <%- include('../subtemplates/footer1') %>
+    
     <table>
       <tbody>
         <tr>
@@ -264,16 +239,60 @@
 
             <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
-              <%- include('../subtemplates/header4') %>
+              <header class="heading flex justify-center items-center mt-[58px] px-[56px]">
+           
+                  <img class=" max-h-[120px] object-center object-contain h-[120px] max-w-[400px] w-[400px]  " src="<%=logo%>" alt="" srcset="">
+                    
+              </header> 
+              
+              
+              
+              
+              
           
               <!-- headline (object, address, client) -->
-              <%- include('../subtemplates/headline1') %>
+              <div class="headline inter leading-5 font-light   text-[16.4px] px-14">
+ 
+                <div class="flex flex-col items-center">
+              
+                  <p>Objet: <%= project.name %></p>
+                  <p>Client: <%=  customer.name %></p>
+                  <p>Adresse: <%=  customer.address %>  </p>
+                </div>
+              
+               
+              </div>
+              
+              
+              
+              
+               
+              <div class="facture-number-new   px-6    mr-[56px] items-end mt-4 border-r-[7px] mb-8 border-black   flex flex-col     leading-tight text-[15px] inter">
+                <div class="flex leading-6">
+                  <% if(invoiceType == 0) { %>
+                    <p>PROFORMA</p>
+                  <% } %>
+                  <% if(invoiceType == 1) { %>
+                    <p>FACTURE</p>
+                  <% } %>
+                  <% if(invoiceType == 2) { %>
+                    <p >BORDEREAU</p>
+                  <% } %> 
+                 
+                  <p> <span class="ml-1">N°</span> :  <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
+                </div>
+                <div class="flex items-center">
+                  <p>DATE :  <span><%=date%></span></p>
+                  
+                  
+                </div>
+              </div>
 
               <!-- table -->
-              <%- include('../subtemplates/table1') %>
+              <%- include('../subtemplates/table4') %>
                 
               <!-- facture totals informations -->
-              <%- include('../subtemplates/total2') %>
+              <%- include('../subtemplates/total1') %>
 
               <!-- signature -->
               <%- include('../subtemplates/sign1') %>

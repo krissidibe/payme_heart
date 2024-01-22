@@ -1,13 +1,10 @@
-<div class="bottom-0 flex items-center justify-center py-2 pt-0 footer page-footer inter">
-  <div class="footer-mark-last min-w-[180px] hidden ">
-  </div>
-  <p class="text-[11px] px-[57px]  text-left line-clamp-3">
+<div class="bottom-0 items-center justify-center py-2 pt-2 footer page-footer inter">
+  <p class="absolute -top-[100px]">kekek</p>
+  <p class="text-[11px] px-[57px]  pt-2 text-center line-clamp-4">
   
 
       <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
   
   </p>
-  <div class="footer-mark min-w-[180px] ">
-  </div>
-
 </div>
+

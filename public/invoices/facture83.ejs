@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -23,23 +24,22 @@
     }
     .page-header,
     .page-header-space {
-      height: 100px;
+      height: 30px;
     }
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 30px;
     }
 
     .page-footer {
       position: fixed;
-      bottom: 80px;
+      bottom: 30px;
 
       width: 100%;
       /* for demo */
       /* for demo */
-    }
-
+    }    
     .page-header {
       position: fixed;
       top: 0mm;
@@ -55,6 +55,7 @@
 
     @page {
       margin: 0mm;
+      margin-bottom: 30px;
     }
 
     @media print {
@@ -83,319 +84,260 @@
     }
 
     .heading {
-      margin-top: 110px;
+      margin-top: 55.6px;
+      flex-direction: column;
+      justify-content: space-between;
+  
+     
+    }
+    .heading img {
+     margin-top: 0px !important;
+     margin-bottom: 10px !important;
+      color: #383838;
+      object-position: center;
+      
+      padding-right: 10px !important;
+      
+      
     }
 
-    .facture-number div p:first-child {
+    .heading > div   {
+   flex-direction: column;
+     
+      align-items: center !important;
+    position: relative;
+    padding-bottom: 10px !important; 
+    }
+   
+
+    .heading > div:first-child:after   {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 140px !important;
+      border-bottom:1px solid #383838;
+       height: 0.2px !important;
+       width: 100px !important;
+
+
+       margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+    
+      
+    }
+    .heading > div > p  {
+   
+      
+      color: #383838;
+      text-align: center;
+       flex: 1;
+       
+       padding-left: 120px !important ;
+       padding-right:120px !important  ;
+        
+      height: 100% !important; 
+    padding-bottom: 10px !important;
+    
+      
+    }
+    .pages .facture-number {
+      width: auto !important;
+       
+      justify-self: flex-start;
+      padding-right: 0 !important;
+      border-left: 3px solid var(--primary-color,#D45431);
+      height: 100%;
+      min-width: 220px;
+      padding-top: 5px !important;
+      padding-bottom: 5px !important;
+      padding-left: 20px !important;
+      margin-right: 0px !important;
+      margin-left: 20px !important;
+   
+      
+    }
+    .pages .facture-number > div p    {
+      
+     
+    
+    }
+
+    .pages .facture-number > div {
+      
+     
+      
+     
+    }
+
+    .facture-number > div p:first-child {
       color: #010101;
     }
-
-    .pages .facture-number {
-      padding-right: 0;
-      border-color: #010101;
-    }
-
     .facture-number .dividor {
       display: block !important;
-      width: 80px;
-      border-top: 1px solid #010101;
+     flex: 1;
+      border-top: 1px solid var(--primary-text-color,white) !important;
       margin-left: 11px;
       margin-right: 3px;
     }
+    .facture-number .dividor2 {
+    
+      display: block !important;
+      flex: 1;
+      border-top: 1px solid var(--primary-text-color,white) !important;
+      margin-left: 11px;
+      margin-right: 3px;
+      
+     
+    }
+
 
     .heading .logo {
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #D45431;
-      color: #383838;
-    }
-
-    .heading .logo p {
-      margin-left: 0;
+      background:  var(--primary-color,#383838);
+      color: var(--primary-text-color,white);
     }
 
     .headline {
-      padding-top: 44px;
+      margin-top: 40.5px !important;
+      margin-bottom: 20.5px !important;
+      padding-top: 0px;
+      justify-content: space-between;
+     
+      display: flex;
     }
 
-    .headline p {
-      font-size: 13.4px;
+    .headline p { 
       font-weight: 400;
     }
+    .headline > div { 
+    padding-left: 15px;
+    }
 
-    .pages .tabs {
-      margin-top: 12px;
-      padding-bottom: 0;
+    .tabs {
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+     
     }
 
     .tabs-item {
       color: #4D4B4C;
-      border-bottom: 1px solid #010101;
-    }
 
+    }
 
     .tabs .tabs-header {
-      color: white;
-      font-weight: 700;
-      padding-top: 0 !important;
-      background: #D45431;
-      border: none;
+     margin-top: 0px !important;
+   
+     padding-bottom: 5px !important;
+    
+      
+       
     }
-
     .tabs .tabs-header p {
-      padding-top: 12px;
+     
+      background-color: var(--primary-color,#D45431);
+      color: var(--primary-text-color,#fff);
+   padding-top: 10px !important;
+      
+      
+       
     }
 
-    .tabs .tabs-header p:first-child {
-      background: transparent;
+
+    .tabs-item  p {
+  
+        
+       padding-top: 0px !important;
+  
+      }
+  
+     
+
+    .tabs-item :last-child {
+  
+    justify-content: flex-end !important;
+    align-items: start;
+
     }
 
-    .total {
-      background: transparent;
-      margin-left: 56px;
-      margin-right: 56px;
-      padding-top: 25px;
+    .total   {
+      padding: 30px 30px !important;
+      margin: 0px 56px !important;
+     
+     
     }
-
-    .total > div {
-      padding-bottom: 22px;
+    .total-separator{
+      display: block !important;
+      opacity: 0.2;
+      margin-left: 56px  !important;
+      margin-right: 56px  !important;
     }
 
     .total .total-amount {
-      background: #D45431;
-      color: white;
+      background:  var(--primary-color,#D45431);
+      color: var(--primary-text-color,white);
     }
 
+    .signature {
+      margin-top: 0px !important;
+      margin: 0px 56px !important;
+      padding: 0px 30px !important;
+      padding-top: 20px !important;
+      padding-bottom: 60px !important;
+     
+      padding-left: 60px !important;
+     
+    }
+    
     .sign {
       font-weight: 700;
     }
     
     .footer {
-      bottom: -50px !important;
-      z-index: 1;
-      color: #383838;
-      background: #D45431;
-      margin-bottom: 42px;
+      background: var(--primary-color,#D45431);
+      color:  var(--primary-color,#D45431);
+      bottom: 0;
     }
 
-    .footer-mark {
-      width: 229.3px;
-      height: 18px;
-      position: absolute;
-      bottom: 8px;
-      left: 0;
-      background: #383838;
+    .footer div {
+       
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-
-    .footer-text {
-      margin-left: 248px;
-    }
-
 
     /* End Facture Custom styling */
-
-        
-    /* Validation styles */
-    .pages {
-      .sign {
-        border-top: 1px solid #010101;
-      }
-      
-      .headline {
-        padding-left: 76px;
-      }
-
-      .tabs {
-        .tabs-item {
-          align-items: start;
-        }
-        
-        .tabs-item p {
-          padding-top: 0;
-          padding-bottom: 0;
-        }
-
-        .tabs-item p:first-child {
-          text-align: start;
-          padding-left: 20px;
-          width: 70px;
-        }
-
-        .tabs-header {
-          margin-bottom: 10px;
-        }
-
-        .tabs-header p {
-          text-align: center;
-          padding-top: 6px;
-          padding-bottom: 6px;
-        }
-
-        .tabs-header p:nth-child(2) {
-          text-align: start;
-
-      }
-      
-      }
-      .total {
-        padding-left: 20px;
-        padding-left: 20px;
-        div .right {
-          .total-amount {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-          }
-
-          .total-amount span:last-child {
-            font-size: 11px;
-            padding: 0;
-          }
-        };
-      }
-
-      .sign {
-        margin-top: 20px;
-        padding-left: 40px;
-        padding-right: 60px;
-
-        p {
-          margin-right: 0;
-        }
-      }
-  }
-    /* End Validation styles */
-
   </style>
 
   <body>
     <!-- footer -->
-    <div class="footer pt-4 bottom-0 page-footer h-[51px] text-center justify-center items-center  inter">
-      <div class="text-[11px] px-[57px] line-clamp-3">
-      </div>
-    </div>
+    <%- include('../subtemplates/footer1') %>
     <table>
       <tbody>
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
-              <header class="heading flex flex-col justify-between mt-[45px] px-[56px]">
-                <div class="logo m-auto rounded-full w-[122px] h-[122px] flex items-center">
-                  <p class="font-bold text-[43px] ml-[66.7px]">LOGO</p>
-                </div>
-                <div class="facture-number h-[80px] pr-[20px] flex justify-center items-center my-[15px] leading-tight text-[11px] inter">
-                  <div class="flex flex-col text-center justify-center items-center leading-tight">
-                    <p>Notre adresse : Quartier Baco Djicoroni GOLF, Rue 849 Immeuble Aly </p>
-                    <p>Kouma, Bamako/ Mali - Tel : (+223) 63 59 80 96 / 83 94 24 11 / </p>
-                    <p>E-mail : contactprintartservice@gmail.com</p>
-                  </div>
-                </div>
-              </header>
-              <div class="w-[75px] border-[1px] border-[#222428] m-auto"></div>
+              <%- include('../subtemplates/header5') %>
           
               <!-- headline (object, address, client) -->
-              <div class="flex justify-between">
-                <div class="headline inter font-bold text-[16.4px] px-14 leading-[20px]">
-                  <p>Objet: badges professionnels pour les nouveaux staffs</p>
-                  <p>Client: internationalmedicalcorpsimc</p>
-                  <p>Adresse: hmdallaye</p>
-                </div>
-  
-                <div class="pr-[106px] mt-[16px] flex justify-end items-center">
-                  <div class="w-[2px] h-[65px] bg-[#D45431] mr-[28px]"></div>
-                  <div class="facture-number h-[80px] flex flex-col justify-center items-end my-[15px] leading-tight text-[14px] inter">
-                    <p class="flex w-full justify-between">
-                      <span>FACTURE N°: </span>
-                      <span class="pl-2">05234</span>
-                    </p>
-                    <p class="flex w-full justify-between">
-                      <span>DATE:</span>
-                      <span>03/ 10/ 2019</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <%- include('../subtemplates/headline2') %>
+             
 
               <!-- table -->
-              <main class="tabs flex flex-col font-light px-14 py-[14px]">
-                <!-- table heading -->
-                <div class="tabs-header tabs-item inter flex w-full  text-[14.8px] gap-[5px]">
-                  <p class="w-[115px] py-[8.34px] text-center">Qté.</p>
-                  <p class="flex-1 py-[8.34px]">Description</p>
-                  <p class="w-[115px] py-[8.34px] text-center">Prix.U</p>
-                  <p class="w-[115px] py-[8.34px] text-center">Montant</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="flex-1">Adaptation, éxécution et mise en page, badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec plastique, <br>pochette cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="flex-1">item</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="flex-1">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="flex-1">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">526.706 FCFA</p>
-                </div>
-              </main>
+              <%- include('../subtemplates/table3') %>
                 
               <!-- facture totals informations -->
-              <div class="total  mt-[23.63px] text-[12.51px] text-[#4D4B4C] px-14 inter">
-                <div class="flex justify-between">
-                  <div class="leading-4 left ">
-                    <p class="font-semibold">Arrêtée la présente Facture à la somme de :</p>
-                    <p>
-                      Un million deux cent mille plus que<br>
-                      Modalité de paiment : 40% à la commande <br>
-                      Accompte à payer : 8.679.750,64 FCFA <br>
-                      Réliquat à la livraison : 13.019.625,96 FCFA <br>
-                    </p>
-                  </div>
-                  <div class="right flex flex-col text-[9.73px] gap-[11.12px] inter w-[270px]">
-                    <p class="flex justify-between pl-[11.6px]">
-                      <span>MONTANT TOTAL HT:</span>
-                      <span class="pr-[10px]">19.726.706 FCFA</span>
-                    </p>
-                    <p class="flex justify-between pl-[11.6px]">
-                      <span>TVA 10%:</span>
-                      <span class="pr-[10px]">19.726.706 FCFA</span>
-                    </p>
-                    <p class="flex justify-between text-[7.64px] px-[11.81px] py-[6.25px] text-[#222428] border border-[#4D4B4C]">
-                      <span>REMISE COMMERCIALE(10%):</span>
-                      <span class="pr-[10px]">-100.000FCFA</span>
-                    </p>
-                    <p class="total-amount px-[11.12px] py-[9.73px]">
-                      <span> MONTANT TOTAL TTC : </span>
-                      <span class="pr-[10px]">1.599.376,6 FCFA</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <%- include('../subtemplates/total1') %>
 
               <!-- signature -->
-              <div class="sign text-[9.73px] border-opacity-25 text-[#222428] pt-[10px] pb-[108.4px] inter mx-14">
-                <div class="flex justify-between px-[36px] font-normal">
-                  <p class="px-[33.36px] py-[12.51px]">POUR ACQUIS</p>
-                  <p class="px-[33.36px] py-[12.51px] mr-[107px]">LE PRESTATAIRE</p>
-                </div>
-              </div>
+              <%- include('../subtemplates/sign1') %>
 
               <!-- footer -->
             </div>
