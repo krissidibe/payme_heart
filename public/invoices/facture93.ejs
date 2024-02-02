@@ -28,6 +28,19 @@
     }
 
     
+    .page-footer,
+    .page-footer-space {
+      height: 80px;
+    }
+
+    .page-footer {
+      position: fixed;
+      bottom: 80px;
+
+      width: 100%;
+      /* for demo */
+      /* for demo */
+    }
     .page-header {
       position: fixed;
       top: 0mm;
@@ -179,18 +192,26 @@ text-align: center;
     
 
     .total   {
-      padding: 30px 50px !important;
+      padding: 30px 10px !important;
       margin: 0px 56px !important;
      
-     background: #EBEBEB;
-    }
-    .total-separator{
-      display: block !important;
-      opacity: 0.2;
+    
     }
 
+    .total .left   {
+     border-right: 1px solid black;
+min-width: 359px !important;
+     padding-right: 30px !important;
+     
+    
+    }
+ 
     .total .total-amount {
-      background:  var(--primary-color,#4D4C4C);
+      background:  var(--primary-color,#00525F);
+      color: var(--primary-text-color,white);
+    }
+    .bg-primary {
+      background:  var(--primary-color,#00525F);
       color: var(--primary-text-color,white);
     }
 
@@ -198,9 +219,8 @@ text-align: center;
       margin-top: 0px !important;
       margin: 0px 56px !important;
       padding: 0px 30px !important;
-      padding-top: 20px !important;
-      padding-bottom: 60px !important;
-      background:  #EBEBEB;
+      padding-top: 20px !important; 
+    
       padding-left: 60px !important;
      
     }
@@ -208,6 +228,12 @@ text-align: center;
     .sign {
       font-weight: 700;
     }
+
+    .border-separator-footer  {
+      height: 3px; 
+    background:  linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#00525F) 20%, transparent) 61%,color-mix(in srgb, var(--primary-color,#00525F) 100%, transparent) 61.1% ,  color-mix(in srgb, var(--primary-color,#00525F) 100%, transparent)) !important;
+    color: black;
+ }
     
     .footer {
       bottom: 0;
@@ -215,8 +241,7 @@ text-align: center;
       z-index: 1;
      
       padding-top: 0 !important;
-      background:  var(--primary-color,#383838);
-      color: var(--primary-text-color,white);
+      
     }
 
     .footer div {
@@ -231,7 +256,18 @@ text-align: center;
 
   <body>
     <!-- footer -->
+    <div class="footer bottom-0 page-footer h-[80px] flex flex-col justify-start items-center inter">
+      <div class="relative w-full mb-3">
+        <div class="absolute right-0 top-0 w-full border-t-[1px] border-separator-footer"></div>
+        
+      </div>
+      <p class="text-[11px] px-[57px]  pt-2 text-center line-clamp-4">
+  
+
+        <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
     
+    </p>
+    </div>
     <table>
       <tbody>
         <tr>
@@ -248,26 +284,7 @@ text-align: center;
               
               
               
-              
-          
-              <!-- headline (object, address, client) -->
-              <div class="headline inter leading-5 font-light   text-[16.4px] px-14">
- 
-                <div class="flex flex-col items-center">
-              
-                  <p>Objet: <%= project.name %></p>
-                  <p>Client: <%=  customer.name %></p>
-                  <p>Adresse: <%=  customer.address %>  </p>
-                </div>
-              
-               
-              </div>
-              
-              
-              
-              
-               
-              <div class="facture-number-new   px-6    mr-[56px] items-end mt-4 border-r-[7px] mb-8 border-black   flex flex-col     leading-tight text-[15px] inter">
+              <div class="facture-number-new   p-3 w-[280px] mx-auto rounded-full    mt-2  mb-4  text-center justify-center items-center   flex flex-col bg-primary      leading-tight text-[15px] inter">
                 <div class="flex leading-6">
                   <% if(invoiceType == 0) { %>
                     <p>PROFORMA</p>
@@ -287,6 +304,25 @@ text-align: center;
                   
                 </div>
               </div>
+          
+              <!-- headline (object, address, client) -->
+              <div class="headline inter leading-5 font-light   text-[16.4px] px-14">
+ 
+                <div class="flex flex-col items-center">
+              
+                  <p class="text-center" >Objet: <%= project.name %></p>
+                  <p class="text-center" >Client: <%=  customer.name %></p>
+                  <p class="text-center" >Adresse: <%=  customer.address %>  </p>
+                </div>
+              
+               
+              </div>
+              
+              
+              
+              
+               
+          
 
               <!-- table -->
               <%- include('../subtemplates/table4') %>

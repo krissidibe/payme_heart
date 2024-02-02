@@ -327,7 +327,7 @@ enterprise.nif, -->
               <!-- headline (object, address, client) -->
              <div class="flex items-start justify-between pr-7 mt-[34.53px]">
               <div class="headline flex-1 inter leading-5 font-light  text-[16.4px] pl-14">
-                <div class="flex">  <p class="w-[80px] min-w-[80px]  text-right pr-3" >Objet </p> <p class="pl-2 border-l border-color" ><%= project.name %></p></div>
+                <div class="flex">  <p class="w-[80px] min-w-[80px]  text-right pr-3" >Objet </p> <p class="pl-2 border-l border-color" ><%= project.name %>  </p></div>
                 <div class="flex">  <p class="w-[80px] min-w-[80px]  text-right pr-3" >Client</p>  <p class="pl-2 border-l border-color" ><%=  customer.name %></p></div>
                 <div class="flex">  <p class="w-[80px] min-w-[80px]  text-right pr-3" >Adresse </p> <p class="pl-2 border-l border-color" ><%=  customer.address %></p></div>
                 </div>
@@ -361,7 +361,7 @@ enterprise.nif, -->
 
 
               <!-- signature -->
-              <%- include('../subtemplates/sign1',signed,signature) %>
+              <%- include('../subtemplates/sign1') %>
 
               <!-- footer -->
             </div>

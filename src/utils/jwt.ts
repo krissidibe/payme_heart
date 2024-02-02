@@ -7,7 +7,7 @@ interface SignOption {
 /* expiresIn: "9999999999 years", */
 
 const DEFAULT_SIGN_OPTION: SignOption = {
-  expiresIn:'1d',
+  expiresIn:'30d',
 }; 
 
 export function signJwtAccessToken(payload: JwtPayload, options: SignOption = DEFAULT_SIGN_OPTION) {

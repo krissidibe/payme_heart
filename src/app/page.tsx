@@ -80,6 +80,7 @@ export default async function Home() {
       </div> */}
       {/* Info */}
       <div className="w-[986px]     flex flex-col justify-center items-center px-10 mt-[120px] md:mt-[189px] ">
+       
         <p className="leading-9  md:leading-[55px] text-center xl:max-w-[970px] md:max-w-[800px] px-6 max-w-[390px] ">
           
           <span
@@ -134,6 +135,7 @@ export default async function Home() {
         </div>
       </div>
       {/* 
+    
     
    
 
