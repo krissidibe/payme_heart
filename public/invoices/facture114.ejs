@@ -86,7 +86,7 @@
     }
 
     .tabs .tabs-header {
-      color: var(--primary-color,#3E2256);
+      
     }
     
     .total .total-amount {
@@ -135,13 +135,63 @@ enterprise.nif, -->
             <div class="flex flex-col w-full page-content">
              
               <!-- logo + facture -->
-              <%- include('../subtemplates/header1') %>
+              <header class="heading flex justify-center mt-[48.95px]  px-14">
+ 
+                <img class=" max-h-[120px] object-center object-contain    h-[120px] max-w-[400px] w-[400px] " src="<%=logo%>" alt="" srcset="">
+               
+                             
+                              
+              </header>
+              
+              
+              
+              <div class="facture-numbers my-[15px] flex flex-col items-center py-4 max-w-[300px] w-[300px] mx-auto border-t border-b border-black font-light text-[23px] inter pr-4">
+                <div class="leading-[24px] mb-1">
+                  <% if(invoiceType == 0) { %>
+                    <p>PROFORMA  N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span>   </p> 
+                  <% } %>
+                  <% if(invoiceType == 1) { %>
+                    <p>FACTURE  N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span>   </p> 
+                  <% } %>
+                  <% if(invoiceType == 2) { %>
+                    <p >BORDEREAU  N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span>   </p> 
+                  <% } %> 
+                  
+                </div>
+
+                
+                <% if(invoiceType == 0) { %>
+                
+                  <p class=" font-light border-[#4D4B4C] text-[17px] flex justify-between">Date: <%=date%></p>
+                <% } %> 
+                <% if(invoiceType == 1) { %>
+                
+                  <p class=" font-light border-[#4D4B4C] text-[14px] flex justify-between">Date: <%=date%></p>
+                <% } %> 
+                <% if(invoiceType == 2) { %>
+                
+                  <p class=" font-light border-[#4D4B4C] text-[19px] flex justify-between">Date: <%=date%></p>
+                <% } %> 
+
+              </div>
+               
+              
+               
           
               <!-- headline (object, address, client) -->
-              <%- include('../subtemplates/headline1') %>
+              <div class=" items-center flex flex-col inter leading-5 font-light mt-[4.53px] text-[16.4px] px-14">
+                <p>Objet: <%= project.name %></p>
+                <p>Client: <%=  customer.name %></p>
+                <p>Adresse: <%=  customer.address %></p>
+              </div>
+              
+              
+              
+              
+               
 
               <!-- table -->
-              <%- include('../subtemplates/table1') %>
+              <%- include('../subtemplates/table1test') %>
                 
               <!-- facture totals informations -->
               <%- include('../subtemplates/total1') %>

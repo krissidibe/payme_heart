@@ -3,8 +3,11 @@
   <head>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-
+<script>
+  
+</script>
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +31,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -39,6 +42,8 @@
       /* for demo */
       /* for demo */
     }
+
+    
 
     .page-header {
       position: fixed;
@@ -74,306 +79,309 @@
       }
     }
     /* Facture Custom styling */
-    .heading {
-      padding: 0 56px;
-      margin: 37px 0 0 0;
-
-      .logo {
-        font-family: 'Helvetica Neue', sans-serif;
-        background-color: #B02939;
-        color: #383838;
-      }
-
-      .logo p {
-        margin-left: 0;
-      }
-
-      .facture-number {
-        padding-right: 42px;
-        margin-top: 49px;
-        color: white;
-        background: #00525F;
-        border-radius: 30px;
-      }
+    .logo {
+      background-color: #3E2256;
     }
 
-    .headline {
-      padding: 0 56px;
-      margin-top: 54px;
-
-      > div:nth-child(2) {
-        padding-left: 9px;
-      }
-
-      > div:last-child {
-        padding-left: 23px;
-        margin-right: 63px;
-      }
-      
-      .facture-number {
-        padding-right: 42px;
-      }
+    .tabs-item {
+      margin: 0px 56px !important;
+      padding: 0px !important;
+      border-bottom: 0.1px solid #01010131;
     }
 
-    .tabs {
-      margin-top: 63px;
-      padding: 10px 56px;
-
-      .tabs-header {
-        width: 700px;
-        margin-bottom: 30px;
-        font-size: 13px ;
-        color: white;
-        font-weight: 400;
-        background: #B02939;
-        border-radius: 50px;
-      }
-
-      .tabs-header p:first-child {
-        width: 298px;
-        background: transparent;
-      }
-
-      .tabs-item {
-        width: 660px;
-        padding: 12px 0;
-        margin-left: 20px;
-        margin-right: 24px;
-        color: #4D4B4C;
-        border-bottom: 1px solid #4D4C4C;
-      }
-
-      .tabs-item p:first-child {
-        width: 298px;
-      }
-
-      .tabs-item:last-child {
-        padding-bottom: 24px;
-      }
-      
-      .tabs-item:nth-child(even) {
-        background: transparent;
-      }
-
-    } 
-
-    .total {
-      margin-top: 30px;
-      padding-left: 76px;
-      padding-right: 76px;
-
-      > div {
-        padding-bottom: 22px;
-      }
-
-      .left {
-        background: #F0F0EF;
-        margin-top: 32px;
-        padding: 16px 0;
-      }
-
-      .right {
-        > p {
-          margin: 0 !important;
-          padding: 12.5px 20px;
-          background: #E9E9E9;
-          border-bottom: 1px solid #4D4C4C;
-        }
-
-        .total-amount > p {
-          font-family: 'Poppins', sans-serif;
-          height: 31.13px;
-          padding: 8px 62px 3px 0;
-          text-align: center;
-          color: white;
-        }
-
-        > p.total-amount {
-          padding: 10px 20px 0 62px;
-          height: 35.13px;
-          color: white;
-          background-color: #B02939;
-          border-bottom: 4px solid #000;
-        }
-      } 
-      
+    .tabs .tabs-header {
+      border-top: 1px solid #1d1d1d58;
+      border-bottom: 1px solid #1d1d1d58;
+      margin-left: 56px !important;
+      width: 86.4% !important;
+      padding: 4px 0px !important;
+      margin-bottom: 20px;
     }
     
+    .tabs > .tabs-item:nth-child(even) {
+      
+     
 
-    .sign {
-      padding-left: 56px;
-      padding-right: 56px;
-      font-weight: 700;
     }
     
-    .footer {
-      bottom: -20px !important;
-      z-index: 1;
-      color: #383838;
-      margin-bottom: 10px;
+    .facture-number-separator {
+      
+      background:#F0F0EF;
+     
+
+    }
+    .separator {
+      
+      background: color-mix(in srgb, var(--primary-color,#E0892F) 10%, transparent);
+     height: 1px;
+      margin: 0px 56px !important;
+      padding: 0px !important;
+
+    }
+    .facture-number {
+      
+     
+ 
     }
 
-    .footer-mark {
-      width: 229.3px;
-      height: 18px;
+    .facture-number > p:last-child {
+      
+      border-color: var(--primary-text-color,white)  !important; 
+          }
+
+       
+       
+
+    .tabs-item  p:first-child {
+   
+      padding-left: 20px !important;
+    }
+
+    .tabs-item  div    {
+   
+    border: none !important;
+    }
+
+
+    .tabs-item > p:first-child {
+      
+    }
+    .total  {
+      padding-top: 10px !important;
+       display: flex !important;
+       flex-direction: column-reverse !important;
+    }
+
+    .total .left  {
+
+      padding-top: 10px !important;
+      
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+     
+     
+      flex-direction: column-reverse !important;
+   }
+   
+   .total .right  {
+      gap: 0px !important;
+      
+     
+ }
+   .total .right p  {
+      gap: 0px !important;
+      padding: 10px !important;
+    border-bottom: 1px solid black !important;
+     
+ }
+   .total .right p:last-child  {
+      
+    border-bottom: 5px solid black !important;
+     
+ }
+ 
+ .primary-bg  {
+      
+  background: color-mix(in srgb, var(--primary-color,#E0892F) 100%, transparent);
+  
+   
+}
+.primary-bg *  {
+      
+  
+  color: var(--primary-text-color,white) !important;
+   
+}
+.primary-bg-50  {
+      
+  background:#F0F0EF;
+   
+}
+   .total .right p:nth-child(odd)  {
+      
+    background:#F0F0EF;
+    color: black;
+ }
+   .total .right p:nth-child(even)  {
+      
+    background:#F0F0EF;
+    color:  black;
+ }
+
+ .remise{
+  border:none !important;
+  font-size: 12px !important;
+ }
+ 
+    .total .total-amount {
+      background:  #B02939 !important;
+      color: var(--primary-text-color,white) !important;
+       
+      
+    }
+
+ 
+    
+    .footer-mark-last {
+      
+      width: 334px;
+      height: 3px;
       position: absolute;
-      bottom: 8px;
+      top: -4px;
       left: 0;
-      background: #383838;
+      background:  var(--primary-color,#E0892F) !important;
+    }
+    .bg-primary {
+      
+     
+      background:  var(--primary-color,#E0892F) !important;
     }
 
-    .footer-text {
-      margin-left: 248px;
+ 
+    .footer {
+    
+      color: black;
+      bottom: 0;
     }
 
+    
+    .border-separator-footer  {
+      height: 1px; 
+    background:   black;
+ }
+  
 
     /* End Facture Custom styling */
-
-    /* Validation */
-
-    .pages {
-      .tabs {
-        .tabs-item {
-          align-items: start;
-        }
-        .tabs-item p {
-          color: #4D4C4C;
-        }
-
-        .tabs-header p:first-child {
-          padding-left: 4px;
-        }
-
-        .tabs-item p:last-child, .tabs-header p:last-child {
-          text-align: end;
-          padding-right: 20px;
-        }
-      }
-    }
-
-    /* Validation */
   </style>
-
+<!-- enterprise.name,
+enterprise.address,
+enterprise.rccm,
+enterprise.email,
+enterprise.bankNumber,
+enterprise.numbers,
+enterprise.numbers,
+enterprise.numbers,
+enterprise.numbers,
+enterprise.nif, -->
   <body>
-    <!-- footer -->
-    <div class="footer bottom-0 page-footer h-[80px] flex flex-col justify-start items-center inter">
-      <div class="w-[119.098px] border-t-[1px] border-[#000] mb-[16px]"></div>
-        <div class="text-center text-[11px] px-[56px] line-clamp-3 pt-1">
-          <p>NOTRE ADRESSE : QUARTIER BACO DJICORONI GOLF, RUE 849 IMMEUBLE ALY KOUMA, BAMAKO/ MALI</p>
-          <p>TEL : (+223) 63 59 80 96 / 83 94 24 11 / E-MAIL : CONTACTPRINTARTSERVICE@GMAIL.COM</p>
-        </div>
+    <div class="footer bottom-0 page-footer h-[60px] flex flex-col justify-start items-start inter">
+
+      
+        <p class="text-[11px] px-[98px]   pt-0 text-center line-clamp-4">
+      
+    
+          <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+      
+      </p>
+ 
+      <div class="w-[140px] border-separator-footer   absolute -top-[12px] translate-x-[250%] ">
+       
       </div>
     </div>
+    <!-- footer -->
+    
+    
     <table>
       <tbody>
+         
+
         <tr>
           <td class="pages w-[827px]">
+             
+           
 
-            <div class="page-content flex flex-col w-full">
 
+            <div class="flex flex-col w-full page-content">
+             
               <!-- logo + facture -->
-              <header class="heading flex items-start justify-between">
-                <div class="logo rounded-full w-[122px] h-[122px] flex justify-center items-center">
-                  <p class="font-bold text-[43px] ml-[66.7px]">LOGO</p>
-                </div>
-                <div class="w-[401px] flex flex-col items-start leading-tight text-[16.24px] inter">
-                  <p>FACTURE N°: 05234</p>
-                  <p>Date: 03/10/2019</p>
-                  <div class="w-full flex my-[15px] border-b-[1px] border-[#4D4C4C]"></div>
-                  <div class="flex flex-col justify-center inter font-normal text-[13.465px] leading-4">
-                    <p>Objet: badges professionnels pour les nouveaux staffs</p>
-                    <p>Client: internationalmedicalcorpsimc</p>
-                    <p>Adresse: hmdallaye</p>
-                  </div>
+            
+              <header class="heading flex justify-between mt-[38.95px] px-14 ">
+ 
+                <div class="max-h-[120px] flex object-left object-contain h-[120px] max-w-[400px] w-[400px]  ">
+                  <img class=" max-h-[120px] object-left object-contain h-[120px] max-w-[400px] w-[400px] " src="<%=logo%>" alt="" srcset="">
+                  
+                                </div>
 
-                </div>
+                                <div class="facture-numberx h-[108px] font-semibold text-[23px] inter mt-4 ">
+                                  <div class="mb-1 font-normal leading-6 ">
+                                    <% if(invoiceType == 0) { %>
+                                      <p class="text-[15px]">PROFORMA</p>
+                                    <% } %>
+                                    <% if(invoiceType == 1) { %>
+                                      <p class="text-[15px]">FACTURE</p>
+                                    <% } %>
+                                    <% if(invoiceType == 2) { %>
+                                      <p class="text-[14px]" >BORDEREAU</p>
+                                    <% } %> 
+                                    <p class="font-normal">N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
+                                  </div>
+                                  <p class="pt-1 border-t-[1px] border-[#000] text-[14px] font-normal flex justify-between">
+                                    <span>Date:</span>
+                                    <span class="ml-1"> <%=date%></span>
+                                  </p>
+                                  <div class="w-full h-6 bg-primary">
+
+                                  </div>
+                                </div>
+                             <!--    <div class="facture-number w-[175.66px] h-[160.125px] primary-bg z-50 absolute top-0 right-[75.6px] text-white font-semibold text-[23px] flex flex-col items-center justify-center inter ">
+                                  <div class="mb-1 leading-6 ">
+                                  
+                                    <p class="font-normal">N°:  <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
+                                  </div>
+                                  <p class="pt-1 border-t-[1px] border-white text-[13px] font-normal">Date: </p>
+                                </div> -->
+                             
+                                <!-- <div class="facture-number  flex flex-col items-center my-[15px] font-light text-[23px] inter pr-4">
+                                  <div class="leading-[24px] mb-1">
+                                    <% if(invoiceType == 0) { %>
+                                      <p>PROFORMA</p>
+                                    <% } %>
+                                    <% if(invoiceType == 1) { %>
+                                      <p>FACTURE</p>
+                                    <% } %>
+                                    <% if(invoiceType == 2) { %>
+                                      <p >BORDEREAU</p>
+                                    <% } %> 
+                                    <p >N°:  </p>
+                                  </div>
+              
+                                  <div class=" h-[1px]  w-[200px] facture-number-separator" ></div>
+                                  <% if(invoiceType == 0) { %>
+                                  
+                                    <p class="pt-1  border-t-[1px] font-light border-[#4D4B4C] text-[17px] flex justify-between">Date: <%=date%></p>
+                                  <% } %> 
+                                  <% if(invoiceType == 1) { %>
+                                  
+                                    <p class="pt-1  border-t-[1px] font-light border-[#4D4B4C] text-[14px] flex justify-between">Date: <%=date%></p>
+                                  <% } %> 
+                                  <% if(invoiceType == 2) { %>
+                                  
+                                    <p class="pt-1  border-t-[1px] font-light border-[#4D4B4C] text-[19px] flex justify-between">Date: <%=date%></p>
+                                  <% } %> 
+              
+                                </div> -->
               </header>
+              
+              
+              
+               
+              
+               
           
               <!-- headline (object, address, client) -->
+              <%- include('../subtemplates/headline1') %>
 
               <!-- table -->
-              <main class="tabs flex flex-col font-light relative">
-                <!-- table heading -->
-                <div class="tabs-header inter flex w-full p-[16px] text-[14.8px] gap-[5px]">
-                  <p>Description</p>
-                  <p class="w-[115px] text-center">Prix</p>
-                  <p class="w-[115px] text-center">Qté.</p>
-                  <p class="w-[115px] text-center">Montant</p>
-                </div>
-                <div class="absolute top-[10px] left-0 z-[-1] flex w-full h-[51px] bg-black">
-                </div>
-                <!-- table item -->
-                <div class="tabs-item text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p>Adaptation, éxécution et mise en page, badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec plastique, pochette cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p>item</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p>Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p>Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="w-[115px] py-[8.34px] text-center">526.706 FCFA</p>
-                </div>
-              </main>
-
+              <%- include('../subtemplates/table1') %>
+              <div class=" separator" ></div>
+                
               <!-- facture totals informations -->
-              <div class="total text-[12.51px] text-[#000] inter">
-                <div class="flex flex-col justify-between">
-                  <div class="right flex flex-col text-[9.73px] inter">
-                    <p class="flex justify-between pl-[11.6px]">
-                      <span>MONTANT TOTAL HT:</span>
-                      <span class="pr-[10px]">19.726.706 FCFA</span>
-                    </p>
-                    <p class="flex justify-between pl-[11.6px]">
-                      <span>TVA 10%:</span>
-                      <span class="pr-[10px]">19.726.706 FCFA</span>
-                    </p>
-                    <p class="flex justify-between pl-[11.6px]">
-                      <span>REMISE COMMERCIALE(10%):</span>
-                      <span class="pr-[10px]">-100.000FCFA</span>
-                    </p>
-                    <p class="total-amount flex justify-between">
-                      <span></span>
-                      <span class="pr-[10px]">
-                        <span>MONTANT TOTAL TTC : </span>
-                        <span class="ml-1">1.599.376,6 FCFA</span>
-                      </span>
-                    </p>
-                  </div>
+              <%- include('../subtemplates/total1') %>
 
-                  <div class="leading-2 left flex flex-col text-center justify-center items-center mt-[5.56px] popin">
-                    <p class="font-semibold text-[#000]">Arrêtée la présente Facture à la somme de : Un million deux cent mille plus que</p>
-                    <p>
-                      Modalité de paiment : 40% à la commande - ccompte à payer : 8.679.750,64 FCFA<br>
-                      Réliquat à la livraison : 13.019.625,96 FCFA <br>
-                    </p>
-                  </div>
-                </div>
-              </div>
 
               <!-- signature -->
-              <div class="sign text-[9.73px] border-opacity-25 text-[#222428] pt-[10px] pb-[108.4px] inter mx-14">
-                <div class="flex justify-between px-[45px] font-normal">
-                  <p class="px-[33.36px] py-[12.51px] border-b-[1px] border-[#4D4C4C]">POUR ACQUIS</p>
-                  <p class="px-[33.36px] py-[12.51px]  border-b-[1px] border-[#4D4C4C]">LE PRESTATAIRE</p>
-                </div>
-              </div>
+              <%- include('../subtemplates/sign1') %>
 
               <!-- footer -->
             </div>
@@ -392,3 +400,12 @@
     </table>
   </body>
 </html>
+
+
+
+
+
+
+
+
+

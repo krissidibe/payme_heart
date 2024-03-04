@@ -1,0 +1,88 @@
+<main class="tabs flex flex-col mt-[31.43px] font-light">
+ 
+  <!-- table heading -->
+  <div class="tabs-header     tabs-item inter flex w-full  text-[14.8px]  px-14 pt-[14px]">
+    <% if(invoiceType !== 2) { %>
+    <p class="flex-1 py-[8.34px]    px-[15.29px] border border-black ">DESCRIPTION</p>
+
+      
+      
+      <p class="w-[115px] py-[8.34px] text-center border border-black self-stretch  border-l-0 ">QTé.</p>
+      <p class="w-[115px] py-[8.34px] text-center border border-black  border-l-0"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+  
+      <p class="w-[115px] py-[8.34px] text-center border border-black  border-l-0"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+      
+    <% } %> 
+    <% if(invoiceType === 2) { %>
+      <p class="min-w-[368px] w-[275px] flex-1 py-[8.34px]   px-[15.29px] border border-black  ">DESCRIPTION</p>
+      <p class="w-[115px] py-[8.34px]  text-center border border-black  border-l-0">QTé.</p>
+      <p class="flex-1 py-[8.34px] mr-0 max-w-auto   border  text-center border-black  border-l-0 "> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+  
+ 
+    <% } %> 
+
+    
+  </div>
+
+  
+
+  <% table.forEach(function(item,index) { %>
+    
+    <div class="px-14 ">
+      <!-- table item -->
+      <div class="     text-[12px] flex w-full   min-h-[50px] ">
+        <p class="flex-1 border border-l-0 border-t-0 border-black  py-[14px]"> <%=item.designation%> </p>
+    
+        <p class="w-[115px] py-[8.34px] text-center border border-l-0 border-t-0 border-black"> <%=item.quantity%> </p>
+    
+
+
+        <% if(invoiceType === 2) { %>
+          <p class="w-[115px] py-[8.34px] text-center border border-l-0 border-r-0  border-t-0 border-black"> 
+          <% } %>
+        <% if(invoiceType !== 2) { %>
+          
+          <p class="w-[115px] py-[8.34px] text-center border border-l-0   border-t-0 border-black"> 
+          <% } %>
+
+
+          <% if(item.rate != 0 && item.rate != null) { %>
+            <%= invoiceType === 2 ? "": item.rate %>
+          
+          
+            <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+            
+          <% } %> 
+    
+         
+      
+    
+        </p>
+
+       
+          <p class="w-[115px] py-[8.34px] text-center border border-r-0 border-l-0 border-t-0 border-black">  
+        
+          <% if(item.amount != 0 && item.amount != null) { %>
+          <%=   invoiceType === 2 ? "": item.amount %>
+        
+                        
+           
+            
+            <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span>
+            
+            <% } %> 
+          </p>
+        
+        </div>
+        
+        
+        
+      </div>
+      <% }) %>
+
+
+ 
+  <div class="flex align-bottom empty-item">
+    <div class="w-full"></div>
+  </div>
+</main>

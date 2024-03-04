@@ -77,13 +77,13 @@ export async function POST(req:NextRequest,res:NextResponse) {
       .replaceAll("Et", "")
       .replaceAll("-", " ")
      
-     /*  
+      
       const logo =`${process.env.BASE_API_URL}/files/logo-${dataNew.enterprise.id}.png`
-      const signature =`${process.env.BASE_API_URL}/files/signature-${dataNew.enterprise.id}.png`   */
+      const signature =`${process.env.BASE_API_URL}/files/signature-${dataNew.enterprise.id}.png`  
       
      
-      const logo =`https://paymefinance.com/files/logo-${dataNew.enterprise.id}.png`
-      const signature =`https://paymefinance.com/files/signature-${dataNew.enterprise.id}.png`
+      /* const logo =`https://paymefinance.com/files/logo-${dataNew.enterprise.id}.png`
+      const signature =`https://paymefinance.com/files/signature-${dataNew.enterprise.id}.png` */
       
  
       let  invoiceTypeName = "";

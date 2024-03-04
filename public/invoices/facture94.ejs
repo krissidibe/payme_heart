@@ -27,7 +27,20 @@
       height: 100px;
     }
 
-    
+    .page-footer,
+    .page-footer-space {
+      height: 80px;
+    }
+
+    .page-footer {
+      position: fixed;
+      bottom: 80px;
+
+      width: 100%;
+      /* for demo */
+      /* for demo */
+    }
+
     .page-header {
       position: fixed;
       top: 0mm;
@@ -72,7 +85,7 @@
     }
 
     .heading {
-      margin-top: 55.6px;
+     
       flex-direction: column;
       justify-content: space-between;
   
@@ -81,7 +94,7 @@
     .heading img {
      
       color: #383838;
-      object-position: center;
+      object-position: right;
       
       padding-right: 10px !important;
       max-width: 300px !important;
@@ -93,29 +106,10 @@
       
       align-items: center !important;
     position: relative;
-    padding-bottom: 10px !important; 
+    padding-bottom: 4px !important; 
     }
    
-
-    .heading > div:first-child:after   {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      
-    
-      background: #383838;
-       height: 0.2px !important;
-       width: 300px !important;
-
-
-       margin-left: auto;
-margin-right: auto;
-left: 0;
-right: 0;
-text-align: center;
-    
-      
-    }
+ 
     .heading > div > p  {
    
       
@@ -299,8 +293,8 @@ text-align: center;
       z-index: 1;
      
       padding-top: 0 !important;
-      background:  var(--primary-color,#383838);
-      color: var(--primary-text-color,white);
+      
+      color: black;
     }
 
     .bg-primary{
@@ -318,11 +312,35 @@ text-align: center;
       justify-content: center;
     }
 
+    .borderlinear{
+      height: 3px;
+      background:  linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#338980) 100%, transparent) 51%,color-mix(in srgb, var(--secondary-color,#00526A) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--secondary-color,#00526A) 100%, transparent)) !important;
+    }
+
+    .borderlinear2{
+      
+      background:  linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#338980) 100%, transparent) 51%,color-mix(in srgb, var(--secondary-color,#00526A) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--secondary-color,#00526A) 100%, transparent)) !important;
+    }
+
     /* End Facture Custom styling */
   </style>
 
   <body>
     <!-- footer -->
+    
+    <div class="bottom-0 items-center justify-center py-2 pt-2 footer page-footer inter">
+  
+      <p class="text-[11px] px-[57px]  pt-2 text-center line-clamp-4">
+      
+    
+          <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+      
+      </p>
+      <div class="mr-[190px] mt-2 h-[4px] borderlinear2" >
+
+      </div>
+    </div>
+    
     
     <table>
       <tbody>
@@ -331,30 +349,97 @@ text-align: center;
 
             <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
-              <%- include('../subtemplates/header5') %>
+    <div>
+      <header class="heading flex  items-center flex-row mt-[28px] px-[56px]">
+        <div class="w-full h-[1px] borderlinear2" >
+
+        </div>
+        <img class=" max-h-[120px] object-left object-contain h-[120px] max-w-[400px] w-[400px]  " src="<%=logo%>" alt="" srcset="">
+        
+      
+      </header> 
+      
+      
+      
+      
+      
+    </div>
           
+
+
+       <div class="flex px-[56px] items-start py-10">
+        <div class="facture-number-new h-[85px]  font-semibold text-[23px] inter mr-4  pr-[18px]  ">
+          <div class="mb-1 leading-6 ">
+            <% if(invoiceType == 0) { %>
+              <p>PROFORMA</p>
+            <% } %>
+            <% if(invoiceType == 1) { %>
+              <p>FACTURE</p>
+            <% } %>
+            <% if(invoiceType == 2) { %>
+              <p >BORDEREAU</p>
+            <% } %> 
+            <p >N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
+          </div>
+          <div class="borderlinear" >
+
+          </div>
+          <% if(invoiceType == 0) { %>
+                          
+            <p class="pt-2   font-light  text-[17px] flex justify-between">Date: <%=date%></p>
+          <% } %> 
+          <% if(invoiceType == 1) { %>
+          
+            <p class="pt-2   font-light  text-[14px] flex justify-between">Date: <%=date%></p>
+          <% } %> 
+          <% if(invoiceType == 2) { %>
+          
+            <p class="pt-2   font-light  text-[19px] flex justify-between">Date: <%=date%></p>
+          <% } %> 
+        </div>
+        <!-- Info projet -->
+        <div class="border-l  border-black inter leading-5 font-light pl-4   text-[16.4px] px-12">
+ 
+          <div>
+        
+            <p>Objet: <%= project.name %></p>
+            <p>Client: <%=  customer.name %>  </p>
+            <p>Adresse: <%=  customer.address %>  </p>
+          </div>
+        
+          <div class="facture-number h-[80px]   flex flex-col     leading-tight text-[15px] inter">
+            <div class="flex leading-6">
+              <% if(invoiceType == 0) { %>
+                <p>PROFORMA</p>
+              <% } %>
+              <% if(invoiceType == 1) { %>
+                <p>FACTURE</p>
+              <% } %>
+              <% if(invoiceType == 2) { %>
+                <p >BORDEREAU</p>
+              <% } %> 
+             
+              <p> <span class="ml-1" >N°</span> :  <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
+            </div>
+            <div class="flex items-center">
+              <p>DATE:  <span><%=date%></span></p>
+              
+              
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+         
+       </div>
+
+
+
               <!-- headline (object, address, client) -->
-              <%- include('../subtemplates/headline2') %>
-              <div class="facture-number-new   px-6    mr-[56px] items-end mt-4 border-r-[7px] mb-8 border-black   flex flex-col     leading-tight text-[15px] inter">
-                <div class="flex leading-6">
-                  <% if(invoiceType == 0) { %>
-                    <p>PROFORMA</p>
-                  <% } %>
-                  <% if(invoiceType == 1) { %>
-                    <p>FACTURE</p>
-                  <% } %>
-                  <% if(invoiceType == 2) { %>
-                    <p >BORDEREAU</p>
-                  <% } %> 
-                 
-                  <p> <span class="ml-1">N°</span> :  <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
-                </div>
-                <div class="flex items-center">
-                  <p>DATE :  <span><%=date%></span></p>
-                  
-                  
-                </div>
-              </div>
+            
+            
 
               <!-- table -->
               <main class="tabs flex flex-col mt-[31.43px]  font-light">
