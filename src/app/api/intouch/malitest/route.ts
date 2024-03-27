@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
 		"recipientEmail": "assowlove@gmail.com",
 		"recipientFirstName": "Aboubacar Sidiki",
 		"recipientLastName": "Sidibe",
-		"destinataire": dataPayment.number
+		"destinataire": 100
 	},
 	"amount":dataPayment.amount,
 	"callback":  `${
