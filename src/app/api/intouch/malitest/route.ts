@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
  
 
 
- 
+ //dataPayment.amount
  
  const body = {
 	"idFromClient":  "ekdsdks2239023jdjd323",
@@ -48,9 +48,9 @@ export async function POST(request: NextRequest) {
 		"recipientEmail": "assowlove@gmail.com",
 		"recipientFirstName": "Aboubacar Sidiki",
 		"recipientLastName": "Sidibe",
-		"destinataire": 100
+		"destinataire": dataPayment.number
 	},
-	"amount":dataPayment.amount,
+	"amount":100,
 	"callback":  `${
     process.env.BASE_API_URL
   }/api/payment?userId=${searchParams.get("userId")!}&data=${JSON.stringify(dataPayment)!}`,
