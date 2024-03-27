@@ -97,7 +97,7 @@ const dataResponse = await dataRequest.json()
 
   return new Response(
     JSON.stringify({
-      message: `Payment en cours  ${JSON.stringify(dataResponse)}`,
+      message: `Payment en cours  ${callback}`,
     }),
     {
       status: 200,
