@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body  className="w-screen min-w-screen  h-screen flex min-h-screen bg-[#060606]  text-white">
+    <html lang="en"> 
+      <body  className="w-screen min-w-full  h-screen flex min-h-screen bg-[#060606]  text-white">
       <Sidebar/>
         <main className='w-full p-10 '>
 

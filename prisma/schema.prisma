@@ -297,9 +297,9 @@ model InvoiceList {
   id          String       @id @default(cuid())
   name   String   @unique
   invoiceFileName   String  @unique
-  primaryColor   String?   @default("")
-  saturationColor   String?   @default("")
-  secondaryColor   String?   @default("")
+  primaryColor    Boolean?   @default(false)
+  saturationColor    Boolean?   @default(false)
+  secondaryColor    Boolean?   @default(false)
 
   hGrid   Boolean?   @default(false)
   vGrid   Boolean?   @default(false)

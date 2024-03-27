@@ -15,6 +15,18 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+
+import { RiAddCircleFill } from "react-icons/ri"; 
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import { FaEllipsis } from "react-icons/fa6";
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/utils/prisma";
@@ -30,14 +42,26 @@ export function InvoiceItem({ item }: InvoiceItemProps) {
       <DropdownMenuTrigger asChild>
        <FaEllipsis className="text-black"  />
       </DropdownMenuTrigger>
+
+      
       <DropdownMenuContent className="w-[110px] mr-20">
         
-        <DropdownMenuGroup  >
+        <DropdownMenuGroup     >
           
           
-          <DropdownMenuItem  className="cursor-pointer" >
-           <form className="w-full ">
-           <button  className="flex items-start justify-start w-full" formAction={async ()=>{
+          <DropdownMenuItem asChild  className="cursor-pointer" >
+
+          <Dialog>
+  <DialogTrigger className="w-full cursor-pointer" >Supprimer</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Êtes-vous sur </DialogTitle>
+      <DialogDescription>
+       Voulez vous vraitement supprimer cette facture?
+      </DialogDescription>
+             
+         <form className="w-full ">
+           <button  className="flex items-end justify-end w-full text-red-500" formAction={async ()=>{
                 "use server"
  
                 const data = await prisma.invoiceList.delete({
@@ -50,7 +74,13 @@ export function InvoiceItem({ item }: InvoiceItemProps) {
 
             Supprimer
             </button>
-           </form>
+           </form> 
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
+
+
+     
           
           </DropdownMenuItem>
         </DropdownMenuGroup>
