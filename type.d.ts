@@ -136,6 +136,7 @@ enum FolderType {
     type Payment = {
     reference  :string
     type  :string
+    number  :number
     month  :number
     amount  :number
     currency  :string

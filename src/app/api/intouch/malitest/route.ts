@@ -19,26 +19,42 @@ export async function GET() {
  ba612227c93cb1e42a25b91243a8b185266f6dc8b179c71ad3e87a851a095f29
  b96aa59aaa01731bf197e4c09e42b1680bfc10057fd5397007a44e6e9f7f529e
  */
-export async function PUT(request: NextRequest) {
- // const body: RequestBody = await request.json();
- const { searchParams } = new URL(request.url);
+export async function POST(request: NextRequest) {
+  const  dataPayment:Payment = await request.json();
+  const { searchParams } = new URL(request.url);
 
-console.log(searchParams.get("price")!);
 
+/*   `${
+    process.env.BASE_API_URL
+  }/api/payment?userId=${searchParams.get("userId")!}&data=${JSON.stringify(dataPayment)!}`
+  return new Response(
+    JSON.stringify({
+      message: `Payment en cours   `,
+    }),
+    {
+      status: 200,
+    }
+  );
+ */
+
+ 
+
+
+ 
  
  const body = {
 	"idFromClient":  "ekdsdks2239023jdjd323",
 	"additionnalInfos": {
-		"recipientEmail": "tapha.seck@hubsocial.org",
+		"recipientEmail": "assowlove@gmail.com",
 		"recipientFirstName": "Aboubacar Sidiki",
 		"recipientLastName": "Sidibe",
-		"destinataire": "70114965"
+		"destinataire": dataPayment.number
 	},
-	"amount":parseInt(searchParams.get("price")!),
+	"amount":dataPayment.amount,
 	"callback":  `${
     process.env.BASE_API_URL
-  }/api/protected/payment?userId=userId&data=dataUser`,
-	"recipientNumber": "70114965",
+  }/api/payment?userId=${searchParams.get("userId")!}&data=${JSON.stringify(dataPayment)!}`,
+	"recipientNumber": dataPayment.number,
 	"serviceCode": "ML_PAIEMENTMARCHAND_OM_TP"
 }
 
@@ -56,7 +72,7 @@ const client = new DigestClient('ba612227c93cb1e42a25b91243a8b185266f6dc8b179c71
 
 const dataResponse = await dataRequest.json()
 
- console.log(dataResponse);
+ 
  
   
 
@@ -65,7 +81,7 @@ const dataResponse = await dataRequest.json()
       message: `Payment en cours  ${JSON.stringify(dataResponse)}`,
     }),
     {
-      status: 401,
+      status: 200,
     }
   );
  }
