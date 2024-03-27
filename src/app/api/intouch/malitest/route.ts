@@ -36,6 +36,25 @@ export async function POST(request: NextRequest) {
     }
   );
  */
+ 
+  
+ 
+  const callback = `${
+    process.env.BASE_API_URL
+  }/api/payment?userId=${searchParams.get("userId")!}&month=${dataPayment.month}&amount=${dataPayment.amount}`
+
+ 
+ 
+/*   return new Response(
+    JSON.stringify({
+      message: `Payment en cours  ....   ${callback} `,
+    }),
+    {
+      status: 200,
+    }
+  );
+  */
+
 
  
 
@@ -51,9 +70,7 @@ export async function POST(request: NextRequest) {
 		"destinataire": dataPayment.number
 	},
 	"amount":100,
-	"callback":  `${
-    process.env.BASE_API_URL
-  }/api/payment?userId=${searchParams.get("userId")!}&data=${JSON.stringify(dataPayment)!}`,
+	"callback": callback,
 	"recipientNumber": dataPayment.number,
 	"serviceCode": "ML_PAIEMENTMARCHAND_OM_TP"
 }

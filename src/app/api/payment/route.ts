@@ -7,17 +7,19 @@ export async function GET(req: NextRequest, res: NextResponse) {
 
 
 
-const dataNew: any  = JSON.parse(searchParams.get("data")!)
+//const dataNew: any  = JSON.parse(searchParams.get("data")!)
    
 
 //const dataNew2: Payment = await req.json();
 
-if(dataNew.month != 3 && dataNew.month != 6 && dataNew.month != 12){
+const monthValue = parseInt(searchParams.get("month")!)
+
+if(monthValue != 3 && monthValue != 6 && monthValue != 12){
   return new Response(JSON.stringify("Error"));
 }
  
 let amount = "";
-  switch (dataNew.month) {
+  switch (monthValue) {
     case 3:
       amount = "9850"
       break;
@@ -48,8 +50,8 @@ let amount = "";
     data: {
       reference:`${lettersPart}-${numbersPart}`,
       type: "Orange Money",
-      month: dataNew.month,
-      amount: parseInt(amount),
+      month: parseInt(searchParams.get("month")!),
+      amount: parseInt(searchParams.get("amount")!),
       currency: "FCFA",
      
       userId: searchParams.get("userId")!,
@@ -61,7 +63,7 @@ let amount = "";
   new Date(currentDate).toLocaleDateString()
   let dateEdit = new Date();
   dateEdit.setHours(0,0,0)
-  dateEdit.setMonth(dateEdit.getMonth() + dataNew.month)
+  dateEdit.setMonth(dateEdit.getMonth() + monthValue)
  
  
 
