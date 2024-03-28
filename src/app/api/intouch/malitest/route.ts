@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
  //dataPayment.amount
  
  const body = {
-	"idFromClient":  "ekdsdks2239023jdjd323",
+	"idFromClient":  new Date().getTime().toString(),
 	"additionnalInfos": {
 		"recipientEmail": "assowlove@gmail.com",
 		"recipientFirstName": "Aboubacar Sidiki",
@@ -97,7 +97,7 @@ const dataResponse = await dataRequest.json()
 
   return new Response(
     JSON.stringify({
-      message: `Payment en cours  ${callback}`,
+      message: `callback url  ${callback}`,
     }),
     {
       status: 200,
