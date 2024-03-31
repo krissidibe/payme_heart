@@ -1,0 +1,96 @@
+<main class="tabs flex flex-col font-light">
+  <div class="tab-dummy absolute"></div>
+  <div class="tab-dummy absolute"></div>
+  <div class="tab-dummy absolute"></div>
+  <div class="tab-dummy absolute"></div>
+ 
+  <!-- table heading -->
+  <div class="tabs-header inter flex text-[14.8px]">
+    <p class="w-[80px] text-center tab-indexs hidden">No</p>
+    <% if(invoiceType !== 2) { %>
+    <p class="w-[80px] text-center quantity first">Qté.</p>
+    <p class="flex-1 description">Description</p>
+    <p class="w-[115px] text-center quantity second">Qté.</p>
+    <p class="w-[115px] text-center price"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+    <p class="w-[115px] text-center quantity third">Qté.</p>
+    <p class="hidden"></p>
+    <p class="w-[115px] text-center amount"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+    <% } %>
+    <% if(invoiceType === 2) { %>
+      <p class="w-[115px] text-center quantity first">Qté.</p>
+      <p class="flex-1 description">Description</p> <!-- min-w-[355px] w-[275px]  -->
+      <p class="w-[115px] text-center quantity second">Qté.</p>
+      <p class="w-[115px] text-center quantity third">Qté.</p>
+      <p class="flex-1 mr-0 max-w-auto text-center price"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+    <% } %> 
+  </div>
+
+
+  <% table.forEach(function(item,index) { %>
+    <% if(invoiceType != 2) { %>
+    <div class="tabs-item  <%= index == table.length-1 ? "last": "" %> ">
+      <!-- table item -->
+      <div class="text-[12px] flex w-full min-h-[50px]">
+        <p class="w-[80px] text-center tab-indexs hidden text-[14.8px]"><%= index +1 %></p>
+        <p class="w-[100px] text-center quantity first"> <%=item.quantity%> </p>
+        <p class="flex-1 description"> <%=item.designation%> </p>
+        <p class="w-[115px] text-center quantity second"> <%=item.quantity%> </p>
+        <p class="w-[115px] text-center price"> 
+          <% if(item.rate != 0 && item.rate != null) { %>
+            <%= invoiceType === 2 ? "": item.rate %>
+            <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+          <% } %>
+        </p>
+        <p class="w-[115px] text-center quantity third"> <%=item.quantity%> </p>
+        <p class="w-[115px] text-center amount">  
+          <% if(item.amount != 0 && item.amount != null) { %>
+            <%=   invoiceType === 2 ? "": item.amount %>
+            <span class="pl-1"> <%=   invoiceType === 2 ? "": currency %></span>
+          <% } %> 
+        </p>
+      </div>
+    </div>
+    <% } %> 
+    <% if(invoiceType == 2) { %>
+    <div class="tabs-item  <%= index == table.length-1 ? "last": "" %> ">
+      <!-- table item -->
+      <div class="text-[12px] flex w-full min-h-[50px]">
+        <p class="w-[80px] text-center tab-indexs hidden text-[14.8px]"><%= index +1 %></p>
+        <p class="w-[120px] text-center quantity first"> <%=item.quantity%> </p>
+        <p class="flex-1 description"> <%=item.designation%> </p>
+        <p class="w-[120px] text-center quantity second "> <%=item.quantity%> </p>
+        <p class="w-[120px] text-center quantity third "> <%=item.quantity%> </p>
+        <p class="flex-1"></p>
+      </div>
+    </div>
+    <% } %> 
+
+    <% }) %>
+
+      <% if(invoiceType != 2) { %>
+        <div class="flex align-bottom empty-item w-auto">
+          <!-- table item -->
+          <div class="text-[12px] flex w-full">
+            <p class="w-[80px] text-center tab-indexs hidden"></p>
+            <p class="w-[100px] text-center quantity first"> </p>
+            <p class="flex-1 description"> </p>
+            <p class="w-[115px] text-center quantity second"> </p>
+            <p class="w-[115px] text-center price"></p>
+            <p class="w-[115px] text-center quantity third"></p>
+            <p class="w-[115px] text-center amount"></p>
+          </div>
+        </div>
+        <% } %> 
+        <% if(invoiceType == 2) { %>
+        <div class="flex align-bottom empty-item w-auto">
+          <!-- table item -->
+          <div class="text-[12px] flex w-full">
+            <p class="w-[80px] text-center tab-indexs hidden"></p>
+            <p class="flex-1 description"> </p>
+            <p class="w-[120px] text-center quantity block"></p>
+            <p class="flex-1 max-w-[290px]"></p>
+          </div>
+        </div>
+        <% } %>
+
+</main>

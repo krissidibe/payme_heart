@@ -1,0 +1,41 @@
+<header class="header flex justify-between">
+  
+  <div class="logo max-h-[120px] flex object-left object-contain h-[120px] w-[400px] bg-gray">
+    <img class="object-left object-contain h-[120px] w-[400px]" src="<%=logo%>" alt="" srcset="">
+  </div>
+  
+  <div class="facture-number my-auto font-light text-[23px] inter">
+    
+    <div class="leading-[24px]">
+      <% if(invoiceType == 0) { %>
+        <p>PROFORMA</p>
+      <% } %>
+      <% if(invoiceType == 1) { %>
+        <p>FACTURE</p>
+      <% } %>
+      <% if(invoiceType == 2) { %>
+        <p >BORDEREAU</p>
+      <% } %> 
+      <p>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
+    </div>
+
+    <div class="hidden hidden-date-border"></div>
+          
+    <% if(invoiceType == 0) { %>
+      <p class="date font-light text-[17px]">Date: <%=date%></p>
+    <% } %> 
+    <% if(invoiceType == 1) { %>
+      <p class="date font-light text-[14px]">Date: <%=date%></p>
+    <% } %> 
+    <% if(invoiceType == 2) { %>
+      <p class="date font-light text-[19px]">Date: <%=date%></p>
+    <% } %>
+
+  </div>
+</header>
+            
+            
+            
+            
+            
+            

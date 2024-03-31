@@ -166,14 +166,16 @@ text-align: center;
       margin-right: 3px;
     }
     .facture-number .dividor2 {
-    
       display: block !important;
       flex: 1;
       border-top: 1px solid var(--primary-text-color,white) !important;
       margin-left: 11px;
       margin-right: 3px;
-      
-     
+    }
+
+    .tabs-header p {
+    color: var(--primary-color,#00525F);
+    text-transform: uppercase;
     }
 
 
@@ -200,7 +202,7 @@ text-align: center;
 
     .total .left   {
      border-right: 1px solid black;
-min-width: 359px !important;
+min-width: 325px !important;
      padding-right: 30px !important;
      
     
@@ -257,6 +259,12 @@ min-width: 359px !important;
   <body>
     <!-- footer -->
     <div class="footer bottom-0 page-footer h-[80px] flex flex-col justify-start items-center inter">
+      <div class="absolute bottom-[0px] z-40 left-0">
+        <div class="w-[10px] h-[902.114px]  bg-primary"></div>
+      </div>
+      <div class="absolute bottom-[0px] z-40   right-0">
+        <div class="w-[10px] h-[902.114px]  bg-primary"></div>
+      </div>
       <div class="relative w-full mb-3">
         <div class="absolute right-0 top-0 w-full border-t-[1px] border-separator-footer"></div>
         
@@ -275,7 +283,7 @@ min-width: 359px !important;
 
             <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
-              <header class="heading flex justify-center items-center mt-[58px] px-[56px]">
+              <header class="heading flex justify-center items-center mt-[10px] px-[56px]">
            
                   <img class=" max-h-[120px] object-center object-contain h-[120px] max-w-[400px] w-[400px]  " src="<%=logo%>" alt="" srcset="">
                     
@@ -284,22 +292,22 @@ min-width: 359px !important;
               
               
               
-              <div class="facture-number-new   p-3 w-[280px] mx-auto rounded-full    mt-2  mb-4  text-center justify-center items-center   flex flex-col bg-primary      leading-tight text-[15px] inter">
-                <div class="flex leading-6">
+              <div class="facture-number-new   p-3 w-[305px]  mx-auto rounded-[25px] py-4    mt-2  mb-4  text-center justify-center items-center   flex flex-col bg-primary      leading-tight text-[15px] inter">
+                <div class="flex leading-6 text-[24px]  min-w-max">
                   <% if(invoiceType == 0) { %>
-                    <p>PROFORMA</p>
+                    <p class="" >PROFORMA</p>
                   <% } %>
                   <% if(invoiceType == 1) { %>
                     <p>FACTURE</p>
                   <% } %>
                   <% if(invoiceType == 2) { %>
-                    <p >BORDEREAU</p>
+                    <p  class="" >BORDEREAU</p>
                   <% } %> 
                  
-                  <p> <span class="ml-1">N°</span> :  <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
+                  <p> <span class="ml-1">N°</span>: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
                 </div>
-                <div class="flex items-center">
-                  <p>DATE :  <span><%=date%></span></p>
+                <div class="flex items-center mt-1">
+                  <p>Date :  <span><%=date%></span></p>
                   
                   
                 </div>
@@ -328,7 +336,7 @@ min-width: 359px !important;
               <%- include('../subtemplates/table4') %>
                 
               <!-- facture totals informations -->
-              <%- include('../subtemplates/total1') %>
+              <%- include('../subtemplates/total1c') %>
 
               <!-- signature -->
               <%- include('../subtemplates/sign1') %>

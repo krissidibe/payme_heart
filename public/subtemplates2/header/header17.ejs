@@ -1,0 +1,22 @@
+            <header class="header flex">
+              <div class="absolute top-[-2px] right-0">
+                <svg width="508" height="143" viewBox="0 0 508 143" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 0H0V143H10V0Z" fill="#DF0A14"/>
+                  <path d="M29 0H19V143H29V0Z" fill="#DF0A14"/>
+                  <path d="M510 0H41V143H510V0Z" fill="#DF0A14"/>
+                </svg>                  
+              </div>
+              <div class="logo">
+                <p>LOGO</p>
+              </div>
+              <div class="facture-number font-light text-[23px] leading-[18px] inter">
+                <p class="">
+                  <span><%= invoiceType == 0 ? 'PROFORMA' : invoiceType == 1 ? 'FACTURE' : invoiceType == 2 ? 'BORDEREAU' : '' %></span><br>
+                  <span>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></span>
+                </p>
+                <p class="date text-[12px] flex">
+                  <span>Date: </span>
+                  <span><%=date%></span>
+                </p>
+              </div>
+            </header>

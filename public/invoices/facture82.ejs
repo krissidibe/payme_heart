@@ -98,14 +98,9 @@
   
     .heading > div > p  {
    
-      
       color: #383838;
-       flex: 1;
-        
+      flex: 1;
       height: 100% !important;
-    
-    
-    
       
     }
     .pages .facture-number {
@@ -215,9 +210,9 @@
     .tabs .tabs-header p {
       background:  var(--primary-color,#DBAC5B);
       color: var(--primary-text-color,black);
-   padding-top: 10px !important;
-   
-      
+      padding-top: 8px !important;
+   height: 35px !important;
+   font-weight: 100;
       
        
     }
@@ -277,6 +272,11 @@ opacity: 0.4;
     .total .total-amount {
       background:  var(--secondary-color,#4D4C4C);
       color: var(--secondary-text-color,white);
+      height: 32px !important;
+      
+      display: flex; 
+      justify-items: center;
+      align-items: center;
     }
 
     .signature {
@@ -338,7 +338,41 @@ opacity: 0.4;
           
               <div class="h-[1px] mx-[56px] headline-line mt-10" ></div>
               <!-- headline (object, address, client) -->
-              <%- include('../subtemplates/headline2') %>
+              <div class="headline inter leading-5 font-light    text-[16.4px] px-14">
+ 
+                <div>
+              
+                  <p>Objet: <%= project.name %></p>
+                  <p>Client: <%=  customer.name %></p>
+                  <p>Adresse: <%=  customer.address %>  </p>
+                </div>
+              
+                <div class="facture-number h-[80px]   flex flex-col     leading-tight text-[15px] inter">
+                  <div class="flex leading-6">
+                    <% if(invoiceType == 0) { %>
+                      <p>PROFORMA</p>
+                    <% } %>
+                    <% if(invoiceType == 1) { %>
+                      <p>FACTURE</p>
+                    <% } %>
+                    <% if(invoiceType == 2) { %>
+                      <p >BORDEREAU</p>
+                    <% } %> 
+                   
+                    <p class="self-end"> <span class="ml-1" >N°</span> :  <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
+                  </div>
+                  <div class="flex items-end self-end ">
+                    <p>DATE:  <span><%=date%></span></p>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+              
+               
              
 
               <!-- table -->

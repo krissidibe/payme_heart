@@ -1,0 +1,23 @@
+            <header class="header flex">
+              <div class="logo">
+                <p>LOGO</p>
+              </div>
+              <div class="facture-number font-light text-[23px] inter">
+                <div class="leading-[24px]">
+                  <% if(invoiceType == 0) { %>
+                    <p>PROFORMA</p>
+                  <% } %>
+                  <% if(invoiceType == 1) { %>
+                    <p>FACTURE</p>
+                  <% } %>
+                  <% if(invoiceType == 2) { %>
+                    <p >BORDEREAU</p>
+                  <% } %> 
+                  <p>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
+                </div>
+                <p class="date pt-1 border-t-[1px] text-[12px] flex">
+                  <span>Date: </span>
+                  <span><%=date%></span>
+                </p>
+              </div>
+            </header>

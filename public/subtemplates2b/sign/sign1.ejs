@@ -1,0 +1,34 @@
+<div class="sign flex justify-between text-[10px] signature font-light">
+  <% if(signed){ %>
+    <div class="w-[130px] h-[180px] text-center uppercase">
+  <% } %>
+  <% if(!signed){ %>
+    <div class="w-[130px] text-center uppercase">
+  <% } %>
+        <% if( invoiceType != 1){ %>
+        <p> <%=   invoiceType === 2 ? "Le réceptionnaire": "Pour accord" %> </p>
+        <% } %>
+        <% if( invoiceType == 1){ %>
+        <p> Pour acquit </p>
+        <% } %>
+  </div>
+
+  <% if(signed){ %>
+    <div class="h-[180px] relative flex justify-center flex-col items-center text-center uppercase">
+    <% } %>
+    <% if(!signed){ %>
+      <div class=" h-[40px] relative flex justify-center flex-col items-center text-center uppercase">
+      <% } %>
+      <% if(signed){ %>
+        <div class="absolute top-[30px] w-[130px]"></div>
+    <p class="pb-2  max-w-[130px]  "> <%=   invoiceType === 2 ? "Le fournisseur": "Le prestataire" %> </p>
+    <img src="<%=signature%>" class="pt-3   object-top w-[200px] object-contain h-[140px] " alt="" srcset="">
+  </div>
+    <% } %>
+    <% if(!signed){ %>
+      <div class="absolute top-[30px] w-[130px]"></div>
+      <p class="pt-2 max-w-[130px] "> <%=   invoiceType === 2 ? "Le fournisseur": "Le prestataire" %> </p>
+      <div class="pt-3 object-top w-[200px] object-contain h-[140px] " alt="" srcset=""></div>
+    </div>
+      <% } %>
+</div>

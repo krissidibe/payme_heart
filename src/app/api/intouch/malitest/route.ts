@@ -55,6 +55,8 @@ export async function POST(request: NextRequest) {
   );
   */
 
+  console.log(callback);
+  
 
  
 

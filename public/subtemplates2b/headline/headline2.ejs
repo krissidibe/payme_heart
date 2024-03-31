@@ -1,0 +1,43 @@
+<div class="headline-wrapper flex justify-between">
+  <div class="headline flex inter leading-5 font-light text-[16.4px]">
+    <div class="flex flex-col">
+      <p>Objet</p>
+      <p>Client</p>
+      <p>Adresse</p>
+    </div>
+    <div class="flex flex-col">
+      <p><%= project.name %></p>
+      <p><%=  customer.name %></p>
+      <p><%= customer.address %></p>
+    </div>
+  </div>
+
+  <div class="facture-number font-light text-[23px] inter">
+    <div class="leading-[24px]">
+      <% if(invoiceType == 0) { %>
+        <p>PROFORMA</p>
+      <% } %>
+      <% if(invoiceType == 1) { %>
+        <p>FACTURE</p>
+      <% } %>
+      <% if(invoiceType == 2) { %>
+        <p >BORDEREAU</p>
+      <% } %> 
+      <p>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
+    </div>
+
+    <div class="hidden hidden-date-border"></div>
+          
+    <% if(invoiceType == 0) { %>
+      <p class="date font-light text-[17px]">Date: <%=date%></p>
+    <% } %> 
+    <% if(invoiceType == 1) { %>
+      <p class="date font-light text-[14px]">Date: <%=date%></p>
+    <% } %> 
+    <% if(invoiceType == 2) { %>
+      <p class="date font-light text-[19px]">Date: <%=date%></p>
+    <% } %>
+
+  </div>
+
+</div>

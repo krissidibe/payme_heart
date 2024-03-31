@@ -118,7 +118,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     height: 140px !important;
-      border-bottom:1px solid #383838;
+      border-bottom:1px solid var(--primary-color,#C03432);
        height: 0.2px !important;
        width: 100px !important;
 
@@ -248,7 +248,9 @@ text-align: center;
       border-top:1px solid var(--primary-color,#C03432);
       border-bottom:1px solid var(--primary-color,#C03432);
       color: black;
-   padding-top: 10px !important;
+      padding-top: 6px !important;
+      height: 35px !important;
+      font-weight: 100;
       
       
        
@@ -256,10 +258,11 @@ text-align: center;
 
     .tabs .tabs-header p:first-child {
      
+     
       border-left:1px solid var(--primary-color,#C03432);
      
       color: black;
-   padding-top: 10px !important;
+   padding-top: 6px !important;
       
       
        
@@ -269,7 +272,7 @@ text-align: center;
       border-right:1px solid var(--primary-color,#C03432);
      
       color: black;
-   padding-top: 10px !important;
+   padding-top: 6px !important;
       
       
        
@@ -307,6 +310,11 @@ text-align: center;
     .total .total-amount {
       background:  var(--primary-color,#C03432);
       color: var(--primary-text-color,white);
+      height: 32px !important;
+      
+      display: flex; 
+      justify-items: center;
+      align-items: center;
     }
 
     .signature {
@@ -343,7 +351,12 @@ text-align: center;
 
   <body>
     <!-- footer -->
-    <%- include('../subtemplates/footer1') %>
+    <div class="bottom-0 items-center justify-center py-2 pt-2 footer page-footer inter">
+  
+ 
+    </div>
+    
+    
     <table>
       <tbody>
         <tr>
@@ -363,6 +376,10 @@ text-align: center;
               <!-- facture totals informations -->
               <%- include('../subtemplates/total1') %>
 
+              <% if(invoiceType == 2) { %>
+             
+                <div class="h-5"></div>
+              <% } %>
               <!-- signature -->
               <%- include('../subtemplates/sign1') %>
 

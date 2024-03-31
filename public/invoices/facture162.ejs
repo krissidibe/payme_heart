@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+  <style>
+    :root
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;600&display=swap');
+  
+  body {
+    font-family: 'Poppins', sans-serif;;
+  }
+  .inter {
+    font-family: 'Inter', sans-serif;
+  }
+  .poppin {
+    font-family: 'Poppins', sans-serif;;
+  }
+  .page-header,
+  .page-header-space {
+    height: 100px;
+  }
+  
+  .page-footer,
+  .page-footer-space {
+    height: 50px;
+  }
+  
+  .page-footer {
+    position: fixed;
+    bottom: 80px;
+    
+    width: 100%;
+    /* for demo */
+    /* for demo */
+  }
+  
+  .page-header {
+    position: fixed;
+    top: 0mm;
+    width: 100%;
+    border-bottom: 1px solid black; /* for demo */
+    background: yellow; /* for demo */
+  }
+  
+  .page {
+    page-break-after: always;
+    padding-bottom: 0px;
+  }
+  
+  @page {
+    margin: 0mm;
+  }
+  
+  @media print {
+    thead {
+      display: table-header-group;
+    }
+    tfoot {
+      display: table-footer-group;
+    }
+    
+    button {
+      display: none;
+    }
+    
+    body {
+      margin: 0;
+    }
+  }
+  /* Facture Custom styling */
+ 
+  /* End Facture Custom styling */
+</style>
+
+    <!-- Templates styling -->
+  <style>
+    .header {
+    padding: 0px 55px;
+  }
+  .date {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #000100;
+  }
+    .headline-wrapper {
+    width: auto;
+    margin: 0 55px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .facture-content .headline-wrapper .facture-number {
+    display: none;
+  }
+    .sub-headline-wrapper {
+    width: auto;
+    margin: 0 55px;
+  }
+  .sub-headline {
+    flex: 1;
+  }
+  .sub-headline > div {
+    flex: 1;
+  }
+
+  .sub-headline > div {
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .hidden-subheadline {
+    display: none;
+  }
+
+  .hidden-subheadline div {
+    display: none;
+  }
+
+  .sub-headline p {
+    max-width: 150px;
+  }
+  .facture-content .sub-headline-wrapper .facture-number {
+    display: none;
+  }
+    .tabs-header {
+    gap: 5px;
+    width: auto;
+    margin-left: 56px;
+    margin-right: 56px;
+    margin-bottom: 8px;
+  }
+
+  .tabs-header p {
+    padding-top: 10px; /* /!\ */
+    padding-bottom: 10px; /* /!\ */
+  }
+  
+  .facture-content .tabs-header .description {
+    padding-left: 10px;
+  }
+
+  .tabs-item {
+    padding: 0 56px;
+  }
+  
+  .tabs-item p {
+    padding-top: 14px; /* /!\ */
+    padding-bottom: 14px; /* /!\ */
+    padding-left: 5px;
+  }
+
+  .tabs-item.empty-item {
+    display: none;
+  }
+  
+  /* Show default qty */
+  .tabs .quantity {
+    display: none;
+  }
+  
+  .tabs .quantity.second {
+    display: block;
+  }
+  
+  /* Hide indexs */
+  .tab-indexs {
+    display: block;
+  }
+
+  .tabs .amount {
+    padding-left: 0 !important;
+  }
+    .total {
+    color: #4D4B4C;
+    margin-top: 23.63px;
+    padding-left: 56px;
+    padding-right: 56px;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .left {
+    max-width: 300px;
+  }
+
+  .right, .right > div {
+    min-width: 260px;
+    gap: 10px;
+  }
+
+  .right p {
+    padding-left: 6px;
+    padding-right: 14px;
+  }
+  
+  .right p span {
+    z-index: 2;
+  }
+
+  .right .remise {
+    padding: 6px 12px 8px 6px;
+    border: 1px solid #4D4B4C;
+  }
+
+  .right .total-amount {
+    background: pink;
+    padding: 10px 12px 10px 9px;
+  }
+
+  .total-separator {
+    height: 1px;
+    background: black;
+    left: 0;
+    right: 0;
+  }
+    .sign {
+    margin-top: 8px;
+    padding-top: 40px;
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+
+  .sign > div p {
+    width: 130px;
+    padding-top: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #4E4D4D;
+  }
+
+  .sign > div:last-child {
+     /* margin-top: -8px*/
+     margin-top: 0;
+  }
+  /* <!-- addons styling --> */
+    .tabs {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .tabs-header {
+    border-top: 1px solid #4D4B4C;
+    border-bottom: 1px solid #4D4B4C;
+    gap: 0;
+  }
+
+  .tabs-header .description {
+    padding-left: 22px !important;
+  }
+
+  .tabs-item .description {
+    padding-left: 22px;
+  }
+  
+  .tabs-item .amount {
+    padding-right: 22px;
+  }
+      /* Pour ajouter du background au tabs items full-width*/
+  .tabs-item:nth-child(even) {
+    background: transparent;
+  }
+  
+  /* Pour ajouter du background au tabs items not full-widht*/
+  .tabs-item:nth-child(even) p {
+    background: transparent;
+  }
+      .total {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    gap: 0px;
+  }
+  
+  .right, .right > div {
+    gap: 0;
+    width: 100%;
+  }
+  
+  .right p {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  
+  .right p:nth-child(even) {
+    background: transparent;
+  }
+
+  .right p:nth-child(2) {
+    padding: 9;
+    border-top: transparent;
+  }
+
+  .right .remise {
+    border: none;
+    font-size: 12px;
+  }
+
+  .right .total-amount {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .left {
+    flex: 1;
+    max-width: unset !important;
+    margin-top: 20px;
+  }
+      .headline-wrapper {
+    padding: 22px 16px;
+    align-items: unset;
+  }
+
+  .headline {
+    padding: 0;
+    flex: 1;
+    border-right: 1px solid #4D4B4C;
+  }
+
+  .header .facture-number {
+    display: none;
+  }
+
+  .headline-wrapper .facture-number {
+    display: block !important;
+    justify-self: flex-start;
+    align-self: flex-start;
+    border: none;
+    padding-top: 0;
+  }
+      .facture-number {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .facture-number > div {
+    display: flex;
+    font-size: 14px;
+  }
+  
+  .facture-number > div p:last-child {
+    padding-left: 6px;
+    padding-top: 0;
+  }
+
+  .date {
+    font-size: 14px;
+    margin-top: 0;
+    padding-top: 0;
+    border: none;
+    line-height: 12px;
+    text-transform: uppercase;
+  }
+
+  .facture-content .facture-number p,
+  .facture-content .facture-number > div p:last-child {
+    padding-top: 0;
+    font-size: 14px;
+  }
+    </style>
+<!-- end addons styling -->
+<style>
+  /* custom styling */
+
+  .header {
+    border-top: 18px solid #683C11;
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+
+  .headline-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 8px;
+    padding-left: 56px;
+    padding-right: 56px;
+  }
+
+  .headline-wrapper .facture-number {
+    padding-left: 72px;
+    padding-right: 8px;
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .headline-wrapper .facture-number > div {
+    justify-content: flex-end;
+  }
+  
+  .headline-wrapper .facture-number > div p {
+    font-size: 22px !important;
+    line-height: 28px !important;
+  }
+
+  .headline-wrapper .facture-number > div:first-child p:first-child {
+    display: none;
+  }
+
+  .tabs-header {
+    gap: 0;
+  }
+
+  .tabs .tabs-item:nth-child(even) p {
+    background: #F8F7F7;
+  }
+
+  .empty-item {
+    padding-bottom: 44px;
+    border-bottom: 1px solid #000;
+    width: auto;
+    margin: 0 56px;
+  }
+
+  .total {
+    padding-top: 18px;
+    padding-left: 72px;
+    padding-right: 72px;
+  }
+
+  .left {
+    color: #000;
+  }
+
+  .right > div {
+    gap: 8px;
+  }
+
+  .right p,
+  .right p:nth-child(2) {
+    color: #000;
+    background: #F0F0EF;
+  }
+  .right .total-amount {
+    color: var(--primary-text-color, white) !important;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#683C11) 100%, transparent) 51%,color-mix(in srgb, var(--primary-color,#B17F4A) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--primary-color,#B17F4A) 100%, transparent)) !important;
+  }
+
+  .sign {
+    padding-top: 12px;
+  }
+
+  .page-footer {
+    height: 90px;
+    bottom: 0px;
+    padding-top: 30px;
+    padding-left: 72px;
+    padding-right: 72px;
+    background: var(--primary-color, #683C11);
+    text-align: center;
+    color: var(--primary-color, white);
+  }
+
+  /* custom end styling */
+</style>
+
+<body>
+  <!-- footer -->
+  <div class="page-footer footer">
+    <%- include('../subtemplates2b/footer2') %>
+  </div>
+  <table>
+    <tbody>
+      <tr>
+        <td class="pages w-[827px]">
+          <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
+            <!-- Header + Facture -->
+            <%- include('../subtemplates2b/header/header1') %>
+            
+            <!-- Headline -->
+            <%- include('../subtemplates2b/headline/headline1') %>
+            
+            <!-- table -->
+            <%- include('../subtemplates2b/tabs/tab1') %>
+            
+            <!-- facture totals informations -->
+            <%- include('../subtemplates2b/total/total1') %>
+
+            <!-- signature -->
+            <%- include('../subtemplates2b/sign/sign1') %>
+
+          </main>
+        </td>
+      </tr>
+    </tbody>
+    
+    <tfoot>
+      <tr>
+        <td>
+          <!--place holder for the fixed-position footer-->
+          <div class="page-footer-space"></div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

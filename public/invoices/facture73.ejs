@@ -94,7 +94,8 @@
      
       color: #383838;
       object-position: center;
-      
+ 
+       
     }
 
     .facture-number div p:first-child {
@@ -103,6 +104,9 @@
 
     .facture-number {
       border-color: #010101;
+      background-color:"#FF1717" !important;
+      margin-bottom: 1px !important;
+      margin-top: 0px !important;
     }
 
     .facture-number .dividor {
@@ -111,6 +115,7 @@
       border-top: 1px solid #010101;
       margin-left: 11px;
       margin-right: 3px;
+    
     }
     .facture-number .dividor2 {
     
@@ -134,7 +139,7 @@
     }
 
     .pages .headline {
-      margin-top: 40px !important;
+      margin-top: 30px !important;
     }
 
     .headline {
@@ -290,7 +295,19 @@
 
   <body>
     <!-- footer -->
-    <%- include('../subtemplates/footer2') %>
+    <div class="bottom-0 flex items-center justify-center py-2 pt-0 footer page-footer inter">
+      <div class="footer-mark-last min-w-[180px] !h-[15px]    ">
+      </div>
+      <p class="text-[11px] px-[57px]  text-left line-clamp-3">
+      
+    
+          <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+      
+      </p>
+      <div class="footer-mark min-w-[180px]  !h-[15px] ">
+      </div>
+    
+    </div>
     <table>
       <tbody>
         <tr>

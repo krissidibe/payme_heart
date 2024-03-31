@@ -97,14 +97,14 @@
     }
    
 
-    .heading > div:first-child:after   {
+    .headings > div:first-child:after   {
       content: "";
       position: absolute;
       bottom: 0;
       
     
-      background: #383838;
-       height: 0.2px !important;
+      background: #0000005f;
+       height: 0.1px !important;
        width: 300px !important;
 
 
@@ -128,29 +128,34 @@ text-align: center;
     
       
     }
+
+    .facture-number-new p{
+      font-size: 14px; 
+    }
     .pages .facture-number {
       width: auto !important;
        
       justify-self: flex-start;
       padding-right: 0 !important;
      display: none !important;
-   
-      
+     
+     
     }
     .pages .facture-number > div p    {
       
-     
+      
       
     }
-
+    
     .pages .facture-number > div {
       
-     
       
-     
+      
+      
     }
-
+    
     .facture-number > div p:first-child {
+      
       color: #010101;
     }
     .facture-number .dividor {
@@ -187,7 +192,7 @@ text-align: center;
     }
 
     .headline p { 
-      font-weight: 400;
+      font-weight: 100;
     }
 
     .tabs {
@@ -210,10 +215,10 @@ text-align: center;
        
     }
     .tabs .tabs-header p {
-     
+     font-weight: bold;
       background-color: #EBEBEB;
-   padding-top: 10px !important;
-      
+   padding-top: 8px !important;
+      height: 35px !important;
       
        
     }
@@ -249,6 +254,11 @@ text-align: center;
     .total .total-amount {
       background:  var(--primary-color,#4D4C4C);
       color: var(--primary-text-color,white);
+      height: 32px !important;
+      
+      display: flex; 
+      justify-items: center;
+      align-items: center;
     }
 
     .signature {
@@ -297,19 +307,19 @@ text-align: center;
             <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
               <%- include('../subtemplates/header5') %>
-          
+          <div class="h-[1px] w-[300px] bg-black/30 mx-auto"></div>
               <!-- headline (object, address, client) -->
               <%- include('../subtemplates/headline2') %>
               <div class="facture-number-new   px-6    mr-[56px] items-end mt-4 border-r-[7px] mb-8 border-black   flex flex-col     leading-tight text-[15px] inter">
-                <div class="flex leading-6">
+                <div class="flex leading-6 ">
                   <% if(invoiceType == 0) { %>
-                    <p>PROFORMA</p>
+                    <p class="" >PROFORMA</p>
                   <% } %>
                   <% if(invoiceType == 1) { %>
-                    <p>FACTURE</p>
+                    <p class="" >FACTURE</p>
                   <% } %>
                   <% if(invoiceType == 2) { %>
-                    <p >BORDEREAU</p>
+                    <p class=""  >BORDEREAU</p>
                   <% } %> 
                  
                   <p> <span class="ml-1">N°</span> :  <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>

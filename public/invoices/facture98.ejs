@@ -3,8 +3,11 @@
   <head>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-
+<script>
+  
+</script>
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +31,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -74,311 +77,273 @@
       }
     }
     /* Facture Custom styling */
-    .heading {
-      padding: 0 70px;
-      margin: 46.9px 0 0 0;
-
-      .logo {
-        font-family: 'Helvetica Neue', sans-serif;
-        background-color: #ECB05D;
-        color: #383838;
-      }
-
-      .logo p {
-        margin-left: 0;
-      }
-
-      .facture-number {
-        padding: 0 20px;
-        border-left: 4px solid #D24635;
-        border-right: 4px solid #D24635;
-      }
+    .logo {
+      background-color: #4D4B93;
     }
 
-    .headline {
-      padding: 0 70px;
-      margin-top: 54.15px;
-
-      > div:first-child {
-        padding-right: 21.18px;
-        margin-left: 51px;
-      }
-
-      > div:nth-child(2) {
-        padding-left: 9px;
-      }
-
-      > div:last-child {
-        padding-left: 23px;
-        margin-right: 63px;
-      }
+    .tabs-item {
+      color: #4D4B4C;
     }
 
-    .tabs {
-      margin-top: 63px;
-      padding: 14px 56px;
-
-      .tabs-header {
-        margin-bottom: 12px;
-        font-size: 10px !important;
-        color: #222428;
-        font-weight: 400;
-        background: transparent;
-        border-top: 1px solid #4D4C4C;
-        border-bottom: 1px solid #4D4C4C;
-      }
-
-      .tabs-header p:first-child {
-        background: transparent;
-      }
-
-      .tabs-item {
-        padding: 12px 16px;
-        color: #4D4B4C;
-      }
+    .tabs .tabs-header {
+      color: var(--primary-color,#4D4B93);
+    }
+    .tabs > .tabs-item:nth-child(even) {
       
-      .tabs-item:last-child {
-        padding-bottom: 24px;
-        border-bottom: 1px solid #4D4C4C;
-      }
-      
-      .tabs-item:nth-child(even) {
-        background: #F4F4F4;
-      }
+      background: color-mix(in srgb, var(--primary-color,#8e8e8e) 10%, transparent);
+    
+      margin: 0px 56px !important;
+      padding: 0px 20px !important;
 
-    } 
-
-
-    .total {
-      margin: 20px 56px 0 56px;
-      padding: 20px 16px 0 16px;
-      > div {
-        padding-bottom: 22px;
-      }
-
-      .right {
-        padding-left: 45px;
-        > p {
-          margin: 0 ;
-          margin-bottom: 12px;
-        }
-
-        > p.total-amount {
-          color: black;
-          margin-top: 22px;
-          border-left: 4px solid #D24635;
-          border-right: 4px solid #D24635;
-          background-color: #FBEEED;
-        }
-      } 
-      
     }
 
-    .sign {
-      padding-left: 72px;
-      padding-right: 54px;
-      font-weight: 700;
+    .tabs > .tabs-item:nth-child(odd) {
+      
+      
+    
+      margin: 0px 56px !important;
+      padding: 0px 20px !important;
+
+    }
+
+
+    .tabs > .tabs-item:nth-child(1) {
+     
+      
+     width: auto !important;
+       
+      padding: 0px 0px !important;
+
+ 
+      color: black;
+      border-top: 1px solid rgb(170, 170, 170);
+      border-bottom: 1px solid rgb(170, 170, 170);
+      margin-bottom: 10px !important;
+      padding-right: 2px !important;
     }
     
+    .facture-number{
+      border-right: 4px solid var(--primary-color,#D24635);
+      border-left: 4px solid var(--primary-color,#D24635);
+      padding: 0px 18px !important;
+      position: relative;
+    }
+
+    .facture-number::after {
+     content: "";
+     right: -65px;
+     top: 0;
+     width: 62px;
+     background-color: #e0e0e0;
+     height: 100%;
+     position: absolute;
+    }
+    .tabs-item > div{
+      border: none !important;
+    }
+    .total .total-amount {
+      color: black;
+      border-right: 4px solid var(--primary-color,#D24635);
+      border-left: 4px solid var(--primary-color,#D24635);
+      background-color: color-mix(in srgb, var(--primary-color,#D24635) 10%, transparent);;
+      height: 30px !important;
+      display: flex; 
+      align-items: center;
+    }
+    .bg-primary{
+      background:  var(--primary-color,#4D4B93);
+      color: var(--primary-text-color,white);
+    }
+
     .footer {
-      bottom: -20px !important;
-      z-index: 1;
-      color: #383838;
-      margin-bottom: 10px;
+      
+      bottom: 0;
     }
 
-    .footer-mark {
-      width: 229.3px;
-      height: 18px;
-      position: absolute;
-      bottom: 8px;
-      left: 0;
-      background: #383838;
+    .primaryText {
+      color: var(--primary-color,#4D4B93);
+      
     }
 
-    .footer-text {
-      margin-left: 248px;
-    }
-
+  
 
     /* End Facture Custom styling */
-
-        /* Validation */
-
-    .pages {
-      .tabs {
-        padding: 0 70px;
-        .tabs-item {
-          align-items: start;
-        }
-        .tabs-item p {
-          color: #4D4C4C;
-        }
-
-        .tabs-header p:first-child {
-          padding-left: 4px;
-        }
-
-        .tabs-item p:last-child, .tabs-header p:last-child {
-          text-align: end;
-          padding-right: 20px;
-        }
-      }
-
-      .total {
-        margin: 20px 70px;
-        padding-left: 0;
-        padding-right: 25px;
-        .left {
-          padding-left: 24px;
-        }
-      }
-
-      .sign {
-        padding-left: 30px;
-      }
-
-      .footer div p {
-        text-align: start;
-      }
-    }
-
-    /* Validation */
   </style>
-
+<!-- enterprise.name,
+enterprise.address,
+enterprise.rccm,
+enterprise.email,
+enterprise.bankNumber,
+enterprise.numbers,
+enterprise.numbers,
+enterprise.numbers,
+enterprise.numbers,
+enterprise.nif, -->
   <body>
     <!-- footer -->
-    <div class="footer bottom-0 page-footer h-[90px] flex flex-col justify-start items-start inter">
-      <div class="w-full h-[2px] mb-[16px]">
-        <svg width="828" height="5" viewBox="0 0 828 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M837.319 0.756836H767.357V4.65133H837.319V0.756836Z" fill="#EBEBEB"/>
-          <path d="M563.591 0.756836H558.306V4.65133H563.591V0.756836Z" fill="#D24635"/>
-          <path d="M767.357 0.756836H762.072V4.65133H767.357V0.756836Z" fill="#D24635"/>
-          <path opacity="0.09" d="M762.072 0.756836H563.591V4.65133H762.072V0.756836Z" fill="#D24635"/>
-          <path d="M558.167 0.756836H488.205V4.65133H558.167V0.756836Z" fill="#EBEBEB"/>
-          <path d="M284.439 0.756836H279.153V4.65133H284.439V0.756836Z" fill="#D24635"/>
-          <path d="M488.205 0.756836H482.919V4.65133H488.205V0.756836Z" fill="#D24635"/>
-          <path opacity="0.09" d="M482.919 0.756836H284.438V4.65133H482.919V0.756836Z" fill="#D24635"/>
-          <path d="M279.152 0.756836H209.19V4.65133H279.152V0.756836Z" fill="#EBEBEB"/>
-          <path d="M5.2854 0.756836H0V4.65133H5.2854V0.756836Z" fill="#D24635"/>
-          <path d="M209.052 0.756836H203.766V4.65133H209.052V0.756836Z" fill="#D24635"/>
-          <path opacity="0.09" d="M203.766 0.756836H5.28516V4.65133H203.766V0.756836Z" fill="#D24635"/>
-          </svg>
-      </div>
-      <div class="text-start text-[11px] px-[78px] line-clamp-3 pt-1">
-        <p>NOTRE ADRESSE : QUARTIER BACO DJICORONI GOLF, RUE 849 IMMEUBLE ALY KOUMA, BAMAKO/ MALI</p>
-        <p>TEL : (+223) 63 59 80 96 / 83 94 24 11 / E-MAIL : CONTACTPRINTARTSERVICE@GMAIL.COM</p>
-      </div>
-    </div>
+
+   <div class="bottom-0 items-center justify-center py-2 pt-0 footer page-footer inter">
+  
+    <div class="h-1 border-b w-[59%] border-black/70 mx-auto"></div>
+  <p class="text-[11px] px-[57px]  pt-2 text-center line-clamp-4">
+  
+
+      <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+  
+  </p>
+</div>
+
+
     <table>
       <tbody>
+         
+
         <tr>
           <td class="pages w-[827px]">
+             
+           
 
-            <div class="page-content flex flex-col w-full">
 
-              <!-- logo + facture -->
-              <header class="heading flex justify-between ">
-                <div class="logo rounded-full w-[122px] h-[122px] flex items-center">
-                  <p class="font-bold text-[43px] ml-[66.7px]">LOGO</p>
-                </div>
-                <div class="facture-number flex flex-col justify-center items-center relative h-[111.689px] font-semibold text-[23px] inter ">
-                  <div class="mb-1 leading-6 ">
-                    <p class="text-[15.454px] font-normal">FACTURE</p>
-                    <p class="text-[28.878px]">N°: 05234</p>
-                  </div>
-                  <p class="mt-[11px] pt-[8px] border-t-[1px] border-[#000] text-[16.626px] font-normal">Date:03/10/2019</p>
-                  <div class="absolute h-full w-[72px] right-[-76px] top-0 bg-[#EBEBEB]"></div>
-                </div>
+            <div class="flex flex-col w-full page-content">
+             
+              <header class="heading flex justify-between mt-[88.95px] px-14">
+ 
+                <div class="max-h-[120px] flex object-left object-contain h-[120px] max-w-[400px] w-[400px]  ">
+                  <img class=" max-h-[120px] object-left object-contain h-[120px] max-w-[400px] w-[400px] " src="<%=logo%>" alt="" srcset="">
+                  
+                                </div>
+                             
+                                <div class="facture-number my-[15px] font-light text-[23px] inter pr-4">
+                                  <div class="leading-[24px] mb-1">
+                                    <% if(invoiceType == 0) { %>
+                                      <p>PROFORMA</p>
+                                    <% } %>
+                                    <% if(invoiceType == 1) { %>
+                                      <p>FACTURE</p>
+                                    <% } %>
+                                    <% if(invoiceType == 2) { %>
+                                      <p >BORDEREAU</p>
+                                    <% } %> 
+                                    <p >N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
+                                  </div>
+              
+                                  
+                                  <% if(invoiceType == 0) { %>
+                                  
+                                    <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[14px] flex justify-between">Date: <%=date%></p>
+                                  <% } %> 
+                                  <% if(invoiceType == 1) { %>
+                                  
+                                    <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[14px] flex justify-between">Date: <%=date%></p>
+                                  <% } %> 
+                                  <% if(invoiceType == 2) { %>
+                                  
+                                    <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[14px] flex justify-between">Date: <%=date%></p>
+                                  <% } %> 
+              
+                                </div>
               </header>
+              
+              
+              
+               
+              
+               
           
               <!-- headline (object, address, client) -->
-              <div class="headline inter font-normal text-[13px] leading-4">
-                <p>Objet: badges professionnels pour les nouveaux staffs</p>
-                <p>Client: internationalmedicalcorpsimc</p>
-                <p>Adresse: hmdallaye</p>
+              <div class="headline inter leading-5 font-light mt-[14.53px] mb-7 text-[16.4px] px-14">
+                <p>Objet: <%= project.name %></p>
+                <p>Client: <%=  customer.name %></p>
+                <p>Adresse: <%=  customer.address %></p>
               </div>
-
+              
+              
+              
+              
+               
               <!-- table -->
-              <main class="tabs flex flex-col font-light">
+              <main class="tabs flex flex-col mt-[31.43px] font-light">
+ 
                 <!-- table heading -->
-                <div class="tabs-header inter flex w-full p-[16px] text-[14.8px] gap-[5px]">
-                  <p class="flex-1 pl-[12px]">Description</p>
-                  <p class="w-[115px] text-center">Prix.U</p>
-                  <p class="w-[115px] text-center">Qté.</p>
-                  <p class="w-[115px] text-center">Montant</p>
+                <div class="tabs-header     tabs-item inter flex w-full  text-[14.8px] gap-[5px] px-14 py-[14px]">
+                  <% if(invoiceType !== 2) { %>
+                  <p class="flex-1 py-[8.34px]  w-[275px]   px-[15.29px]">DESCRIPTION</p>
+              
+                    
+                    
+                    <p class="w-[115px] pr-7 py-[8.34px] text-center">QTé.</p>
+                    <p class="w-[115px] pr-7  py-[8.34px] text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+                
+                    <p class="w-[115px] py-[8.34px] pr-6 text-center"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+                    
+                  <% } %> 
+                  <% if(invoiceType === 2) { %>
+                    <p class="min-w-[306px] w-[306px] flex-1 py-[8.34px]   px-[15.29px]">DESCRIPTION</p>
+                    <p class="w-[115px] py-[8.34px]  text-center">QTé.</p>
+                    <p class="flex-1 py-[8.34px] mr-0 max-w-auto    text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+                
+               
+                  <% } %> 
+              
+                  
                 </div>
-                <!-- table item -->
-                <div class="tabs-item text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="flex-1 pl-[6px]">Adaptation, éxécution et mise en page, badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec plastique, <br>pochette cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="flex-1 pl-[6px]">item</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="flex-1 pl-[6px]">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="flex-1 pl-[6px]">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec <br>pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="w-[115px] py-[8.34px] text-center">526.706 FCFA</p>
+              
+                <% table.forEach(function(item,index) { %>
+                  
+                  <div class=" px-14 tabs-item">
+                    <!-- table item -->
+                    <div class="border-b-[0.1px]  border-[#1D1D1D]/20 text-[12px] flex w-full items-center gap-[5px] min-h-[50px]  py-[14px]">
+                      <p class="flex-1"> <%=item.designation%> </p>
+                  
+                      <p class="w-[115px] py-[8.34px] text-center"> <%=item.quantity%> </p>
+                  
+                      <p class="w-[115px] py-[8.34px] text-center"> 
+                        <% if(item.rate != 0 && item.rate != null) { %>
+                          <%= invoiceType === 2 ? "": item.rate %>
+                        
+                        
+                          <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+                          
+                        <% } %> 
+                  
+                       
+                    
+                  
+                      </p>
+                      <p class="w-[115px] py-[8.34px] text-center">  
+                        <% if(item.amount != 0 && item.amount != null) { %>
+                        <%=   invoiceType === 2 ? "": item.amount %>
+                      
+                                      
+                         
+                          
+                          <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span>
+                          
+                          <% } %> 
+                        </p>
+                      
+                      </div>
+                      
+                      
+                      
+                    </div>
+                    <% }) %>
+              
+              
+               
+                <div class="flex align-bottom empty-item">
+                  <div class="w-full"></div>
                 </div>
               </main>
+              
+              <div class="h-1 border-b border-black mx-[56px]"></div>
                 
               <!-- facture totals informations -->
-              <div class="total text-[12.51px] text-[#4D4B4C] inter">
-                <div class="flex justify-between">
-                  <div class="leading-4 left">
-                    <p class="font-semibold">Arrêtée la présente Facture à la somme de :</p>
-                    <p>
-                      Un million deux cent mille plus que<br>
-                      Modalité de paiment : 40% à la commande <br>
-                      Accompte à payer : 8.679.750,64 FCFA <br>
-                      Réliquat à la livraison : 13.019.625,96 FCFA <br>
-                    </p>
-                  </div>
-                  <div class="right flex flex-col relative text-[9.73px] inter w-[314px]">
-                    <p class="flex justify-between  pl-[11.6px]">
-                      <span>MONTANT TOTAL HT:</span>
-                      <span class="pr-[10px]">19.726.706 FCFA</span>
-                    </p>
-                    <p class="flex justify-between pl-[11.6px]">
-                      <span>TVA 10%:</span>
-                      <span class="pr-[10px]">19.726.706 FCFA</span>
-                    </p>
-                    <p class="flex justify-between text-[7.64px] px-[11.81px] py-[6.25px] text-[#222428] border border-[#4D4B4C]">
-                      <span>REMISE COMMERCIALE(10%):</span>
-                      <span>-100.000FCFA</span>
-                    </p>
-                    <p class="total-amount relative px-[11.12px] py-[3px] flex justify-between">
-                      <span> MONTANT TOTAL TTC : </span>
-                      <span>1.599.376,6 FCFA</span>
-                    </p>
-                    <div class="absolute h-[21px] w-[72px] right-[-72px] bottom-[12px] bg-[#EBEBEB]"></div>
-                  </div>
-                </div>
-              </div>
+              <%- include('../subtemplates/total1') %>
+
 
               <!-- signature -->
-              <div class="sign text-[9.73px] border-opacity-25 text-[#222428] pt-[10px] pb-[108.4px] inter mx-14">
-                <div class="flex justify-between px-[45px] font-normal">
-                  <p class="px-[33.36px] py-[12.51px] border-b-[1px] border-[#4D4C4C]">POUR ACQUIS</p>
-                  <p class="px-[33.36px] py-[12.51px]  border-b-[1px] border-[#4D4C4C] mr-[35px]">LE PRESTATAIRE</p>
-                </div>
-              </div>
+              <%- include('../subtemplates/sign1',signed,signature) %>
 
               <!-- footer -->
             </div>
@@ -397,3 +362,12 @@
     </table>
   </body>
 </html>
+
+
+
+
+
+
+
+
+

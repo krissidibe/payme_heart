@@ -1,0 +1,51 @@
+<!-- <p class="whitespace-nowrap px-[33.36px] py-[12.51px]">POUR ACQUIS</p> -->
+<!-- <p class="whitespace-nowrap px-[33.36px] py-[12.51px]">LE PRESTATAIRE</p> -->
+
+<!-- Image for signed -->
+<% if(signed){ %>
+
+  <div class="text-center uppercase">
+  
+<% } %>
+  <% if(!signed){ %>
+   
+    <div class="text-center uppercase">
+    <% } %>
+
+
+
+
+  <% if( invoiceType != 1){ %>
+  <p class="whitespace-nowrap px-[33.36px] py-[12.51px]"> <%=   invoiceType === 2 ? "Le réceptionnaire": "Pour accord" %> </p>
+  <% } %>
+  <% if( invoiceType == 1){ %>
+    <p class="whitespace-nowrap px-[33.36px] py-[12.51px]">POUR ACQUIS</p>
+  <% } %>
+
+</div>
+
+<% if(signed){ %>
+
+  <div class="relative flex justify-center flex-col   items-center text-center uppercase">
+  
+  <% } %>
+  <% if(!signed){ %>
+   
+    <div class="relative flex justify-center flex-col   items-center text-center uppercase">
+    <% } %>
+
+
+
+    <% if(signed){ %>
+      <div class=""></div>
+  <p class="whitespace-nowrap px-[33.36px] py-[12.51px]"> <%=   invoiceType === 2 ? "Le fournisseur": "Le prestataire" %> </p>
+  <img src="<%=signature%>" class=" object-top w-[200px] object-contain h-[140px] " alt="" srcset="">
+</div>
+  <% } %>
+  <% if(!signed){ %>
+    <div class=""></div>
+    <p class="whitespace-nowrap px-[33.36px] py-[12.51px]"> <%=   invoiceType === 2 ? "Le fournisseur": "Le prestataire" %> </p>
+    <div class="object-top w-[200px] object-contain h-[140px] " alt="" srcset=""></div>
+  </div>
+    <% } %>
+

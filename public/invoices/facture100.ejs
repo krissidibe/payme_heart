@@ -5,6 +5,7 @@
   </head>
 
   <style>
+    :root
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +29,7 @@
 
     .page-footer,
     .page-footer-space {
-      height: 50px;
+      height: 80px;
     }
 
     .page-footer {
@@ -74,298 +75,322 @@
       }
     }
     /* Facture Custom styling */
+    @font-face {
+      font-family: 'Helvetica Neue';
+      src: url('path-to-your-fonts/HelveticaNeue-Bold.woff2') format('woff2'),
+          url('path-to-your-fonts/HelveticaNeue-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+    }
+
     .heading {
-      padding: 0 0 0 80px;
-      margin: 37px 0 0 0;
-
-      .logo {
-        font-family: 'Helvetica Neue', sans-serif;
-        background-color: #007083;
-        color: #383838;
-      }
-
-      .logo p {
-        margin-left: 0;
-      }
-
-      .facture-number {
-        margin-top: 40px;
-        color: white;
-        background: #007083;
-        border-bottom: 7px solid #B2B2B2;
-        padding: 31px 16px 22px 16px;
-      }
-
+      margin-top: 55.6px;
+      flex-direction: column;
+      
+      
     }
-
-    .headline {
-      margin-top: 54px;
+    .heading img {
+     
+      color: #007083;
+      object-position: left;
+      
     }
+     
+
+    
+    
+
+    .heading .logo {
+      font-family: 'Helvetica Neue', sans-serif;
+      background:  var(--primary-color,#007083);
+      color: var(--primary-text-color,white);
+    }
+ 
 
     .tabs {
-      margin-top: 54px;
-      padding: 0 80px;
+      margin-top: 10px;
+     
+    }
 
-      .tabs-header {
-        font-size: 10px !important;
-        color: white;
-        font-weight: 400;
-        margin-bottom: 42px;
-        border-radius: 50px;
-        background: #007083;
-      }
-
-      .tabs-header p:first-child {
-        padding-left: 18px;
-        background: transparent;
-      }
-
-      .tabs-item {
-        padding: 12px 16px;
-        color: #4D4B4C;
-      }
-      
-      .tabs-item:nth-child(even) {
-        background: #E9E9E9;
-      }
-
-      .tabs-item:last-child {
-        border-bottom: 1px solid #4D4C4C;
-      }
-
-      .tabs-item:nth-child(odd) {
-        padding-top: 26px;
-        padding-bottom: 26px;
-      }
-    } 
-
-    .total {
-      margin: 20px 80px 0 80px;
-      padding-top: 20px;
-      > div {
-        padding-bottom: 22px;
-      }
-
-      .right {
-        padding-left: 45px;
-        > p {
-          margin: 0 ;
-          margin-bottom: 12px;
-        }
-
-
-        > p.total-amount {
-          height: 31.13px;
-          color: white;
-          border-radius: 50px;
-          background: #007083;
-        }
-      } 
+    .tabs-item {
+      color: #4D4B4C;
       
     }
 
-    .sign {
+    .tabs-item * {
+    
+      border: none !important;
+    }
 
-      font-weight: 700;
+    .tabs .tabs-header p {
+      color: var(--primary-text-color,white);
+
+      padding-top: 10px !important;
+      
+      padding-top: 7px !important;
+      height: 35px !important;
+      font-weight: 100;
+      font-size: 14px;
+   
+       
+    }
+
+   
+    .tabs .tabs-header {
+      font-weight: bold;
+      background:  var(--primary-color,#007083);
+      color: var(--primary-text-color,white);
+      width: auto !important;
+      gap: 0;
+      color: #3C3C3B;
+     margin: 0px 52px !important;
+     padding: 0px 5px !important;
+     margin-bottom: 30px !important;
+     border-radius: 100px !important;
+    }
+   
+
+    
+
+    
+
+     .tabs > .tabs-item:nth-child(even) {
+      
+      background: color-mix(in srgb, #E9E9E9 100%, transparent);
+    
+      margin: 0px 56px !important;
+      padding: 0px !important;
+
+    }
+
+    .tabs-item  p:first-child {
+   
+      padding-left: 15px !important;
+     
+    }
+
+
+    
+.facture-number-primary {
+  background:  var(--primary-color,#007083);
+  color: var(--primary-text-color,white);
+}
+.facture-number-secondary {
+  background:  var(--secondary-color,#CCD55F); 
+}
+    
+.border-primary {
+  
+  border-color: var(--primary-color,#007083);
+}
+.date-border {
+  
+  border-color: var(--primary-text-color,white);
+}
+    .total .total-amount {
+      background:  var(--primary-color,#007083);
+      color: var(--primary-text-color,white);
+      border-radius: 100px !important;
+
+      height: 32px !important;
+      
+      display: flex; 
+      justify-items: center;
+      align-items: center;
+    }
+    .remise {
+      
+      border-radius: 100px !important;
+    }
+
+
+    .signature {
+      margin-top: 0px !important;
+     
     }
     
+    .sign {
+      font-weight: 700;
+    }
+    .separator {
+      
+      background: black;
+     height: 1px;
+      margin: 0px 56px !important;
+      padding: 0px !important;
+
+    }
     .footer {
-      bottom: -20px !important;
+      bottom: 0;
+      
       z-index: 1;
-      color: #383838;
-      margin-bottom: 10px;
+     
+      padding-top: 0 !important;
+      
+      color: black;
     }
 
-    .footer-mark {
-      width: 229.3px;
-      height: 18px;
-      position: absolute;
-      bottom: 8px;
-      left: 0;
-      background: #383838;
+    .footer div {
+       
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-
-    .footer-text {
-      margin-left: 248px;
-    }
-
 
     /* End Facture Custom styling */
-
-        /* Validation */
-
-        .pages {
-
-
-.tabs {
-  .tabs-item {
-    align-items: start;
-  }
-  .tabs-item p {
-    color: #4D4C4C;
-  }
-
-  .tabs-header p:first-child {
-    padding-left: 4px;
-  }
-
-  .tabs-item p:last-child, .tabs-header p:last-child {
-    text-align: end;
-    padding-right: 20px;
-  }
-}
-
-.total {
-  padding-left: 0;
-
-}
-
-.sign {
-  padding-left: 30px;
-}
-
-.footer div p {
-  text-align: start;
-}
-
-}
-
-/* Validation */
   </style>
 
   <body>
     <!-- footer -->
-    <div class="footer bottom-0 page-footer h-[80px] flex flex-col justify-start items-center inter">
-
-      <div class="text-[11px] w-[619.673px] text-center line-clamp-3 pt-[21px] border-t-[1px] border-[#4D4C4C]">
-        <p>NOTRE ADRESSE : QUARTIER BACO DJICORONI GOLF, RUE 849 IMMEUBLE ALY KOUMA, BAMAKO/ MALI</p>
-        <p>TEL : (+223) 63 59 80 96 / 83 94 24 11 / E-MAIL : CONTACTPRINTARTSERVICE@GMAIL.COM</p>
-      </div>
+     
+    <div class="bottom-0 items-center justify-center py-2 pt-2 footer page-footer inter">
+    
+    
+   
+      <div class="border-t-[1px] border-black w-[699px] mx-auto "></div>
+      <p class="text-[11px] px-[57px]  pt-3 text-center line-clamp-4">
+      
+    
+          <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+      
+      </p>
     </div>
+    
+    
     <table>
       <tbody>
         <tr>
           <td class="pages w-[827px]">
 
-            <div class="page-content flex flex-col w-full">
-
+            <div class="flex flex-col w-full page-content">
               <!-- logo + facture -->
-              <div class="w-full px-[80px] flex justify-between bg-[#F8F8F8]">
-                <div class="headline flex flex-1 ">
-                  <div class="flex flex-col flex-1 pt-[30px] h-auto inter font-normal text-[14.081px] leading-4">
-                    <p>Objet</p>
-                    <p>badges professionnels </p>
-                    <p>pour les nouveaux staffs</p>
-                    <br>
-                    <br>
-                    <p>Client</p>
-                    <p>international edicalcorps imc </p>
-                    <br>
-                    <br>
-                    <p>Adresse</p>
-                    <p>hmdallaye289BPbamako02</p>
-                  </div>
-                </div>
-
-                <header class="heading flex flex-col items-center justify-center">
-                  <div class="logo rounded-full w-[122px] h-[122px] flex justify-center items-center">
-                    <p class="font-bold text-[43px] ml-[66.7px]">LOGO</p>
-                  </div>
-                  <div class="facture-number relative bottom-[-7px] font-normal text-[23.556px] text-[#4D4B93] inter ">
-                    <div class="mb-1 leading-8 ">
-                      <p>FACTURE</p>
-                      <p>N°: 05234</p>
-                    </div>
-                    <p class="border-t-[1px] border-white pt-1 text-[13.445px] font-normal flex justify-between">
-                      <span>Date:</span>
-                      <span>03/10/2019</span>
-                    </p>
-                  </div>
-                </header>
-              </div>
+             
           
               <!-- headline (object, address, client) -->
-
-
-              <!-- table -->
-              <main class="tabs flex flex-col font-light">
-                <!-- table heading -->
-                <div class="tabs-header inter flex w-full p-[16px] text-[14.8px] gap-[5px]">
-                  <p class="flex-1">Description</p>
-                  <p class="w-[115px] text-center">PRIX</p>
-                  <p class="w-[115px] text-center">QTE.</p>
-                  <p class="w-[115px] text-center">MONTANT</p>
+              <div class="flex justify-between bg-black/5">
+                <div class="headline-wrapper text-[#4D4C4C] mt-[0px] pl-[76px] flex justify-between items-end">
+                  <div class="headline flex-1 mt-[50.91px] pb-[37.12px]  flex flex-col gap-4  text-[16.4px]     leading-5 font-light inter">
+                    <p>Objet: <br> <%= project.name %></p>
+                    <p>Client: <br> <%=  customer.name %></p>
+                    <p>Adresse: <br> <%=  customer.address %></p>
+                  </div>
+                  
                 </div>
-                <!-- table item -->
-                <div class="tabs-item text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="flex-1 pl-[6px]">Adaptation, éxécution et mise en page, badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec plastique, pochette cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="flex-1 pl-[6px]">item</p>
-                  <p class="w-[115px] py-[8.34px] text-center">700.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">20</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="flex-1 pl-[6px]">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="w-[115px] py-[8.34px] text-center">14.000.000 FCFA</p>
-                </div>
-                <!-- table item -->
-                <div class="tabs-item pb-[16.68px] text-[9.72px] flex w-full items-center gap-[5px] py-[18px]">
-                  <p class="flex-1 pl-[6px]">Adaptation , éxécution et mise en page , badge <br>professionnel, en PVC, Recto, Verso, impréssion en couleur avec pochette plastique, cordon- forfait</p>
-                  <p class="w-[115px] py-[8.34px] text-center">80.000 FCFA</p>
-                  <p class="w-[115px] py-[8.34px] text-center">50</p>
-                  <p class="w-[115px] py-[8.34px] text-center">526.706 FCFA</p>
-                </div>
-              </main>
+                <!--  -->
+                <header class="heading flex justify-between mt-[28px] px-[56px] pr-[80px]">
                 
-              <!-- facture totals informations -->
-              <div class="total text-[12.51px] text-[#4D4B4C] inter">
-                <div class="flex justify-between">
-                  <div class="leading-4 left">
-                    <p class="font-semibold">Arrêtée la présente Facture à la somme de :</p>
-                    <p>
-                      Un million deux cent mille plus que<br>
-                      Modalité de paiment : 40% à la commande <br>
-                      Accompte à payer : 8.679.750,64 FCFA <br>
-                      Réliquat à la livraison : 13.019.625,96 FCFA <br>
-                    </p>
-                  </div>
-                  <div class="right flex flex-col text-[9.73px] inter w-[314px]">
-                    <p class="flex justify-between pl-[11.6px]">
-                      <span>MONTANT TOTAL HT:</span>
-                      <span class="pr-[10px]">19.726.706 FCFA</span>
-                    </p>
-                    <p class="flex justify-between pl-[11.6px]">
-                      <span>TVA 10%:</span>
-                      <span class="pr-[10px]">19.726.706 FCFA</span>
-                    </p>
-                    <p class="flex justify-between text-[7.64px] px-[11.81px] py-[6.25px] text-[#222428] border border-[#4D4B4C]">
-                      <span>REMISE COMMERCIALE(10%):</span>
-                      <span>-100.000FCFA</span>
-                    </p>
-                    <p class="total-amount px-[11.12px] py-[9.73px] flex justify-between">
-                      <span> MONTANT TOTAL TTC : </span>
-                      <span>1.599.376,6 FCFA</span>
-                    </p>
-                  </div>
-                </div>
+                  <div class="max-h-[120px] flex object-left object-contain h-[120px] max-w-[300px] w-[300px]  ">
+                    <img class=" max-h-[120px] object-left object-contain h-[120px] max-w-[300px] w-[300px] " src="<%=logo%>" alt="" srcset="">
+                    
+                                  </div>
+  
+                                  <div class="w-[144px] self-end h-[130px] my-auto  facture-number-primary relative flex justify-center items-center">
+                                  
+                                    <div class="text-[23.5px]  flex flex-col">
+                                      <div class="mb-1 leading-6 ">
+                                        <% if(invoiceType == 0) { %>
+                                          <p class="text-[18px]">PROFORMA</p>
+                                        <% } %>
+                                        <% if(invoiceType == 1) { %>
+                                          <p>FACTURE</p>
+                                        <% } %>
+                                        <% if(invoiceType == 2) { %>
+                                          <p  class="text-[18px]" >BORDEREAU</p>
+                                        <% } %> 
+                                        <p>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
+                                      </div>
+                                      <p class="pt-1 border-t-[1px] date-border text-[13.4px]">Date : <%=date%> </p>
+                                    </div>
+                                    
+                                  </div>
+             
+                </header> 
               </div>
+              <div class="  w-[144px] self-end mr-[80px] bg-[#B2B2B2] top-0  h-[10px] "></div>
+              <!-- table -->
+           <div class="flex flex-col px-5">
+            <main class="tabs flex flex-col mt-[31.43px] font-light">
+ 
+              <!-- table heading -->
+              <div class="tabs-header     tabs-item inter flex w-full  text-[14.8px] gap-[5px] px-14 py-[14px]">
+                <% if(invoiceType !== 2) { %>
+                <p class="flex-1 py-[8.34px]  w-[275px]   px-[15.29px]">DESCRIPTION</p>
+            
+                  
+                  
+                  <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
+                  <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+              
+                  <p class="w-[115px] py-[8.34px] text-center"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+                  
+                <% } %> 
+                <% if(invoiceType === 2) { %>
+                  <p class="min-w-[293px] w-[293px] flex-1 py-[8.34px]   px-[15.29px]">DESCRIPTION</p>
+                  <p class="w-[115px] py-[8.34px]  text-center">QTé.</p>
+                  <p class="flex-1 py-[8.34px] mr-0 max-w-auto    text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+              
+             
+                <% } %> 
+            
+                
+              </div>
+            
+              <% table.forEach(function(item,index) { %>
+                
+                <div class="px-14 tabs-item ">
+                  <!-- table item -->
+                  <div class="border-b-[0.1px]  border-[#1D1D1D]/20 text-[12px] flex w-full items-center gap-[5px] min-h-[50px]  py-[14px]">
+                    <p class="flex-1"> <%=item.designation%> </p>
+                
+                    <p class="w-[115px] py-[8.34px] text-center"> <%=item.quantity%> </p>
+                
+                    <p class="w-[115px] py-[8.34px] text-center"> 
+                      <% if(item.rate != 0 && item.rate != null) { %>
+                        <%= invoiceType === 2 ? "": item.rate %>
+                      
+                      
+                        <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+                        
+                      <% } %> 
+                
+                     
+                  
+                
+                    </p>
+                    <p class="w-[115px] py-[8.34px] text-center">  
+                      <% if(item.amount != 0 && item.amount != null) { %>
+                      <%=   invoiceType === 2 ? "": item.amount %>
+                    
+                                    
+                       
+                        
+                        <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span>
+                        
+                        <% } %> 
+                      </p>
+                    
+                    </div>
+                    
+                    
+                    
+                  </div>
+                  <% }) %>
+            
+            
+             
+              <div class="flex align-bottom empty-item">
+                <div class="w-full"></div>
+              </div>
+            </main>
+            
+                
+            <div class=" separator" ></div>
+            <!-- facture totals informations -->
+            <%- include('../subtemplates/total1') %>
 
-              <!-- signature -->
-              <div class="sign text-[9.73px] border-opacity-25 text-[#222428] pt-[10px] pb-[108.4px] inter mx-14">
-                <div class="flex justify-between px-[45px] font-normal">
-                  <p class="px-[33.36px] py-[12.51px] border-[#4D4C4C] border-b-[1px]">POUR ACQUIS</p>
-                  <p class="px-[33.36px] py-[12.51px] border-[#4D4C4C] border-b-[1px] mr-[35px]">LE PRESTATAIRE</p>
-                </div>
-              </div>
+            <!-- signature -->
+            <%- include('../subtemplates/sign1') %>
+           </div>
 
               <!-- footer -->
             </div>
@@ -384,3 +409,11 @@
     </table>
   </body>
 </html>
+
+
+
+
+
+
+
+ 

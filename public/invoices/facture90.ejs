@@ -98,7 +98,7 @@
     
     .tabs > .tabs-item:nth-child(even) {
       
-      background: color-mix(in srgb, var(--primary-color,#18A5B6) 10%, transparent);
+      background: color-mix(in srgb, var(--primary-color,#004A7D) 10%, transparent);
     
       margin: 0px 56px !important;
       padding: 0px !important;
@@ -107,13 +107,13 @@
     
     .facture-number-separator {
       
-      background: color-mix(in srgb, var(--primary-color,#18A5B6) 100%, transparent);
+      background: color-mix(in srgb, var(--primary-color,#004A7D) 100%, transparent);
      
 
     }
     .separator {
       
-      background: color-mix(in srgb, var(--primary-color,#18A5B6) 10%, transparent);
+      background: color-mix(in srgb, var(--primary-color,#004A7D) 10%, transparent);
      height: 1px;
       margin: 0px 56px !important;
       padding: 0px !important;
@@ -155,7 +155,8 @@
 
     .total .left  {
 
-      padding-top: 10px !important;
+ 
+        padding: 10px 20px !important;
       
       display: block !important;
       width: 100% !important;
@@ -172,7 +173,7 @@
  }
    .total .right p  {
       gap: 0px !important;
-      padding: 10px !important;
+      padding: 10px 25px !important;
      
  }
  
@@ -190,18 +191,18 @@
 }
 .primary-bg-50  {
       
-  background: color-mix(in srgb, var(--primary-color,#18A5B6) 50%, transparent);
+  background: color-mix(in srgb, var(--primary-color,#004A7D) 100%, transparent);
    
 }
    .total .right p:nth-child(odd)  {
       
-    background: color-mix(in srgb, var(--primary-color,#18A5B6) 10%, transparent);
-    color: black;
+    background: color-mix(in srgb, var(--primary-color,#004A7D) 10%, transparent);
+    color: var(--primary-text-color,black);
  }
    .total .right p:nth-child(even)  {
       
-    background: color-mix(in srgb, var(--primary-color,#18A5B6) 30%, transparent);
-    color:  black;
+    background: color-mix(in srgb, var(--primary-color,#004A7D) 10%, transparent);
+    color:  var(--primary-text-color,black);
  }
 
  .remise{
@@ -210,7 +211,7 @@
  }
  
     .total .total-amount {
-      background:  linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#18A5B6) 50%, transparent) 51%,color-mix(in srgb, var(--primary-color,#18A5B6) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--primary-color,#18A5B6) 100%, transparent)) !important;
+      background:  linear-gradient(90deg, color-mix(in srgb, var(--secondary-color,#004A7D) 100%, transparent) 51%,color-mix(in srgb, var(--primary-color,#18A5B6) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--primary-color,#18A5B6) 100%, transparent)) !important;
       color: var(--primary-text-color,white) !important;
       
     }
@@ -224,7 +225,7 @@
       position: absolute;
       top: -4px;
       left: 0;
-      background:  var(--primary-color,#18A5B6) !important;
+      background:  var(--primary-color,#004A7D) !important;
     }
 
  
@@ -292,19 +293,19 @@ enterprise.nif, -->
                                 </div>
 
                                 <div class="facture-number w-[175.66px] h-[160.125px] primary-bg z-50 absolute top-0 right-[75.6px] text-white font-semibold text-[23px] flex flex-col items-center justify-center inter ">
-                                  <div class="mb-1 leading-6 ">
+                                  <div class="mb-1 leading-4 ">
                                     <% if(invoiceType == 0) { %>
-                                      <p class="text-[13px]">PROFORMA</p>
+                                      <p class="text-[16px] font-light ">PROFORMA</p>
                                     <% } %>
                                     <% if(invoiceType == 1) { %>
-                                      <p class="text-[13px]">FACTURE</p>
+                                      <p class="text-[16px] font-light ">FACTURE</p>
                                     <% } %>
                                     <% if(invoiceType == 2) { %>
-                                      <p class="text-[13px]" >BORDEREAU</p>
+                                      <p class="text-[16px] font-light " >BORDEREAU</p>
                                     <% } %> 
-                                    <p class="font-normal">N°:  <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
+                                    <p class="font-normal mt-2 text-center mb-2 text-[28px]">N°:  <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
                                   </div>
-                                  <p class="pt-1 border-t-[1px] border-white text-[13px] font-normal">Date:  <%=date%></p>
+                                  <p class="pt-1 border-t-[1px] border-white text-[16px] font-normal">Date:  <%=date%></p>
                                 </div>
                              
                                 <!-- <div class="facture-number  flex flex-col items-center my-[15px] font-light text-[23px] inter pr-4">
@@ -348,11 +349,84 @@ enterprise.nif, -->
               <%- include('../subtemplates/headline1') %>
 
               <!-- table -->
-              <%- include('../subtemplates/table1') %>
+              <main class="tabs flex flex-col mt-[31.43px] font-light">
+ 
+                <!-- table heading -->
+                <div class="tabs-header     tabs-item inter flex w-full  text-[14.8px] gap-[5px] px-14 py-[14px]">
+                  <% if(invoiceType !== 2) { %>
+                  <p class="flex-1 py-[8.34px]  w-[275px]   px-[15.29px]">DESCRIPTION</p>
+              
+                    
+                    
+                    <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
+                    <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+                
+                    <p class="w-[115px] py-[8.34px] text-center"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+                    
+                  <% } %> 
+                  <% if(invoiceType === 2) { %>
+                    <p class="min-w-[328px] w-[328px] flex-1 py-[8.34px]   px-[15.29px]">DESCRIPTION</p>
+                    <p class="w-[115px] py-[8.34px]  text-center">QTé.</p>
+                    <p class="flex-1 py-[8.34px] mr-0 max-w-auto    text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+                
+               
+                  <% } %> 
+              
+                  
+                </div>
+              
+                <% table.forEach(function(item,index) { %>
+                  
+                  <div class="px-14 tabs-item ">
+                    <!-- table item -->
+                    <div class="border-b-[0.1px]  border-[#1D1D1D]/20 text-[12px] flex w-full items-center gap-[5px] min-h-[50px]  py-[14px]">
+                      <p class="flex-1"> <%=item.designation%> </p>
+                  
+                      <p class="w-[115px] py-[8.34px] text-center"> <%=item.quantity%> </p>
+                  
+                      <p class="w-[115px] py-[8.34px] text-center"> 
+                        <% if(item.rate != 0 && item.rate != null) { %>
+                          <%= invoiceType === 2 ? "": item.rate %>
+                        
+                        
+                          <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+                          
+                        <% } %> 
+                  
+                       
+                    
+                  
+                      </p>
+                      <p class="w-[115px] py-[8.34px] text-center">  
+                        <% if(item.amount != 0 && item.amount != null) { %>
+                        <%=   invoiceType === 2 ? "": item.amount %>
+                      
+                                      
+                         
+                          
+                          <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span>
+                          
+                          <% } %> 
+                        </p>
+                      
+                      </div>
+                      
+                      
+                      
+                    </div>
+                    <% }) %>
+              
+              
+               
+                <div class="flex align-bottom empty-item">
+                  <div class="w-full"></div>
+                </div>
+              </main>
+              
               <div class=" separator" ></div>
                 
               <!-- facture totals informations -->
-              <%- include('../subtemplates/total1') %>
+              <%- include('../subtemplates/total1b') %>
 
 
               <!-- signature -->

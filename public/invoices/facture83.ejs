@@ -234,6 +234,7 @@ text-align: center;
      margin-top: 0px !important;
    
      padding-bottom: 5px !important;
+     
     
       
        
@@ -242,7 +243,9 @@ text-align: center;
      
       background-color: var(--primary-color,#D45431);
       color: var(--primary-text-color,#fff);
-   padding-top: 10px !important;
+   padding-top: 8px !important;
+   height: 35px !important;
+   font-weight: 100;
       
       
        
@@ -281,6 +284,11 @@ text-align: center;
     .total .total-amount {
       background:  var(--primary-color,#D45431);
       color: var(--primary-text-color,white);
+      height: 32px !important;
+      
+      display: flex; 
+      justify-items: center;
+      align-items: center;
     }
 
     .signature {
@@ -316,7 +324,7 @@ text-align: center;
 
   <body>
     <!-- footer -->
-    <%- include('../subtemplates/footer1') %>
+    <!-- <%- include('../subtemplates/footer1') %> -->
     <table>
       <tbody>
         <tr>
@@ -336,6 +344,11 @@ text-align: center;
               <!-- facture totals informations -->
               <%- include('../subtemplates/total1') %>
 
+              
+              <% if(invoiceType == 2) { %>
+             
+                <div class="h-5"></div>
+              <% } %>
               <!-- signature -->
               <%- include('../subtemplates/sign1') %>
 
@@ -349,7 +362,7 @@ text-align: center;
         <tr>
           <td>
             <!--place holder for the fixed-position footer-->
-            <div class="page-footer-space"></div>
+           <!--  <div class="page-footer-space"></div> -->
           </td>
         </tr>
       </tfoot>

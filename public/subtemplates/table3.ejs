@@ -3,7 +3,7 @@
   <!-- table heading -->
   <div class="tabs-header     tabs-item inter flex w-full  text-[14.8px]  px-14 py-[14px]">
     <% if(invoiceType !== 2) { %>
-      <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
+      <p class="w-[100px] py-[8.34px] text-left pl-5">QTé.</p>
     <p class="flex-1 py-[8.34px]  text-left    ">DESCRIPTION</p>
 
       
@@ -14,7 +14,7 @@
       
     <% } %> 
     <% if(invoiceType === 2) { %>
-      <p class="w-[115px] py-[8.34px]  text-center">QTé.</p>
+      <p class="w-[100px] py-[8.34px]  text-left pl-5">QTé.</p>
       <p class="min-w-[325px] w-[275px] flex-1 py-[8.34px]  text-left  ">DESCRIPTION</p>
       <p class="flex-1 py-[8.34px] mr-0 text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
   
@@ -29,7 +29,7 @@
     <div class="px-14 tabs-item ">
       <!-- table item -->
       <div class="border-b-[0.1px]  border-[#1D1D1D]/20 text-[12px] flex w-full items-center  min-h-[50px]  py-[14px]">
-        <p class="w-[115px] py-[8.34px] text-center"> <%=item.quantity%> </p>
+        <p class="w-[100px] py-[8.34px] text-left pl-7"> <%=item.quantity%> </p>
         <p class="flex-1"> <%=item.designation%> </p>
     
     

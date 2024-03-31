@@ -1,0 +1,71 @@
+<div class="relative flex flex-col w-full" >
+  <% if(invoiceType != 2) { %>
+  <div class="total    flex justify-between mt-[23.63px]  text-[12.51px] text-[#4D4B4C] px-14">
+    <div class="leading-4 left mt-[5.56px] max-w-[340px]">
+      <p>
+        <span class="font-semibold">Arrêtée la présente Facture à la somme de :</span>
+        <%=totalLetter %> <%=currency %><br>
+  
+        <% if(invoiceType != 2) { %>
+          
+          <% if(project.modalite != 0){ %> 
+       
+        Modalité de paiment : <%=project.modalite%>% à la commande <br>
+
+        <% if(invoiceType == 1) { %>
+         <%=   project.invoiceType == 0 ? "Accompte à payer ": "Acompte déjà payé" %>  : <%= totalAccount %> <%=currency %> <br>
+         <%=   project.invoiceType == 0 ? " Réliquat à la livraison": "Reliquat à payer" %>  : <%= totalReliquat %> <%=currency %> <br>
+  
+        <% } %>
+        <% } %>
+        <% } %>
+      </p>
+      <% if(project.remarque.length > 0){ %>
+                     
+        <div class=" flex justify-between  mt-1   text-[#4D4B4C]">
+    
+          <p class=""> <span class="pr-1 underline">Remarque :</span> <%= project.remarque %></p>
+        </div>             
+    
+        <% }%>
+    </div>
+    <% } %>
+    <% if(invoiceType != 2) { %>
+          
+       
+      <div class="right flex flex-col text-[12px] min-w-[260px] gap-[11.12px] inter">
+        <% if(project.tva != 0 || project.tva != ''){ %>
+        <p class="flex justify-between">
+          <span>MONTANT TOTAL HT:</span>
+          <span> <%=totalHT%>  <%=currency %></span>
+        </p>
+        <% } %>
+  
+        <% if(project.tva != 0 || project.tva != ''){ %>
+        <p class="flex justify-between">
+          <span>TVA <%=project.tva%>%:</span>
+          <span><%=totalTva%>  <%=currency %></span>
+        </p>
+  
+        <% } %>
+  
+        <% if(project.discount != 0 || project.discount != ''){ %>
+        <p class="flex justify-between w-full remise text-[10px] px-[11.81px] py-[6.25px] pr-2 text-[#222428] border border-[#4D4B4C]">
+          <span>REMISE COMMERCIALE (<%= project.discount %>%) : </span>
+          <span>- <%=totalDiscount%>  <%=currency %></span>
+        </p>
+        <% }%>
+    
+        <p class="total-amount flex justify-between  px-[11.12px] py-[9.73px]"   >
+          <span> MONTANT TOTAL    <%= (project.tva != 0 || project.tva != '') ? "TTC": "HT" %>  : </span>
+          <span><%= total %>  <%=currency %></span>
+        </p>
+      </div>
+  
+      
+    </div>
+    <div class=" px-[10px] total-separator hidden left-0 right-0 h-[1px] bg-black mx-[104px] absolute bottom-2 " ></div>
+    <% } %>
+
+ 
+</div>

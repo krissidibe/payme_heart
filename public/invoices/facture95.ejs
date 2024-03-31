@@ -87,6 +87,7 @@
       margin: 0px 56px !important;
       padding: 0px !important;
       border-bottom: 0.1px solid #01010131;
+     
     }
 
     .tabs .tabs-header {
@@ -134,7 +135,7 @@
 
     .tabs-item  p:first-child {
    
-      padding-left: 20px !important;
+      padding-left: 0px !important;
     }
 
     .tabs-item  div    {
@@ -150,19 +151,35 @@
       padding-top: 10px !important;
        display: flex !important;
        flex-direction: column-reverse !important;
+       margin-bottom: 0px !important;
     }
 
+    .signature{
+      padding-top: 5px !important;
+    }
     .total .left  {
 
-      padding-top: 10px !important;
-      
-      display: block !important;
+      padding: 20px  !important;
+      margin-top: 20px !important;
+      display: flex !important;
       width: 100% !important;
       max-width: 100% !important;
+     background-color: #ebebeb;
      
-     
-      flex-direction: column-reverse !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      justify-items: center !important;
+      align-items: center !important;
+
+      text-align: center;
+    
    }
+
+   .total .left *  {
+
+  
+  
+ }
    
    .total .right  {
       gap: 0px !important;
@@ -171,7 +188,7 @@
  }
    .total .right p  {
       gap: 0px !important;
-      padding: 10px !important;
+      padding: 10px 25px  !important;
     border-bottom: 1px solid black !important;
      
  }
@@ -183,7 +200,8 @@
  
  .primary-bg  {
       
-  background: color-mix(in srgb, var(--primary-color,#E0892F) 100%, transparent);
+  background: color-mix(in srgb, var(--primary-color,#B02939) 100%, transparent);
+  color: var(--primary-text-color,white);
   
    
 }
@@ -215,9 +233,12 @@
  }
  
     .total .total-amount {
-      background:  #B02939 !important;
+      background:  var(--primary-color,#B02939)  !important;
       color: var(--primary-text-color,white) !important;
        
+      height: 35px !important;
+      display: flex;
+      align-items: center;
       
     }
 
@@ -296,34 +317,41 @@ enterprise.nif, -->
              
               <!-- logo + facture -->
             
-              <header class="heading flex justify-between mt-[38.95px] px-14 ">
+              <header class="heading flex justify-between mt-[38.95px] px-14 mb-10 ">
  
-                <div class="max-h-[120px] flex object-left object-contain h-[120px] max-w-[400px] w-[400px]  ">
-                  <img class=" max-h-[120px] object-left object-contain h-[120px] max-w-[400px] w-[400px] " src="<%=logo%>" alt="" srcset="">
+                <div class="max-h-[120px] flex object-left object-contain h-[120px] max-w-[300px] w-[300px]  ">
+                  <img class=" max-h-[120px] object-left object-contain h-[120px] max-w-[300px] w-[300px] " src="<%=logo%>" alt="" srcset="">
                   
                                 </div>
 
-                                <div class="facture-numberx h-[108px] font-semibold text-[23px] inter mt-4 ">
-                                  <div class="mb-1 font-normal leading-6 ">
+                               <div class="flex flex-col w-[360px] max-w-[360px]">
+                                <div class=" h-[48px]   text-[15px] w-[360px] max-w-[360px] font-semibold  leading-2   border-b border-[#000]   inter mt-4 ">
+                                  <div class="flex items-center font-normal leading-4 ">
                                     <% if(invoiceType == 0) { %>
-                                      <p class="text-[15px]">PROFORMA</p>
+                                      <p class="">PROFORMA</p>
                                     <% } %>
                                     <% if(invoiceType == 1) { %>
-                                      <p class="text-[15px]">FACTURE</p>
+                                      <p class="">FACTURE</p>
                                     <% } %>
                                     <% if(invoiceType == 2) { %>
-                                      <p class="text-[14px]" >BORDEREAU</p>
+                                      <p class="" >BORDEREAU</p>
                                     <% } %> 
-                                    <p class="font-normal">N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
+                                    <p class="ml-1 font-normal">N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></p>
                                   </div>
-                                  <p class="pt-1 border-t-[1px] border-[#000] text-[14px] font-normal flex justify-between">
+                                  <p class="flex font-normal ">
                                     <span>Date:</span>
                                     <span class="ml-1"> <%=date%></span>
                                   </p>
-                                  <div class="w-full h-6 bg-primary">
-
-                                  </div>
+                                 
                                 </div>
+                               <div>
+                                <div class="headline inter leading-5 font-light mt-2 text-[16.4px] ">
+                                  <p>Objet: <%= project.name %></p>
+                                  <p>Client: <%=  customer.name %></p>
+                                  <p>Adresse: <%=  customer.address %></p>
+                                </div>                                
+                               </div>
+                               </div>
                              <!--    <div class="facture-number w-[175.66px] h-[160.125px] primary-bg z-50 absolute top-0 right-[75.6px] text-white font-semibold text-[23px] flex flex-col items-center justify-center inter ">
                                   <div class="mb-1 leading-6 ">
                                   
@@ -370,18 +398,98 @@ enterprise.nif, -->
                
           
               <!-- headline (object, address, client) -->
-              <%- include('../subtemplates/headline1') %>
+            
 
               <!-- table -->
-              <%- include('../subtemplates/table1') %>
+              <main class="tabs flex flex-col mt-[21.43px] font-light ">
+ 
+                <!-- table heading -->
+                <div class="     tabs-items inter flex   text-[14.8px] mb-4   bg-black text-white px-[70px]  h-[40px] ">
+                  <% if(invoiceType !== 2) { %>
+                  <p class="flex-1  h-full rounded-tl-full rounded-bl-full      items-center flex  px-[15.29px] primary-bg">DESCRIPTION</p>
+              
+                    
+                    
+                    <p class="w-[120px]  pl-8  h-full  items-center flex primary-bg text-center">QTé.</p>
+                    <p class="w-[120px]  pl-8  h-full  items-center flex primary-bg text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+                
+                    <p class="w-[115px] pl-8  h-full  items-center rounded-tr-full rounded-br-full flex  primary-bg text-center"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+                    
+                  <% } %> 
+                  <% if(invoiceType === 2) { %>
+                    <p class="min-w-[283px] w-[283px] rounded-tl-full rounded-bl-full    items-center primary-bg flex  flex-1  h-full    px-[15.29px]">DESCRIPTION</p>
+                    <p class="w-[115px] pl-11   h-full  items-center flex primary-bg   text-center">QTé.</p>
+                    <p class="flex items-center flex-1 h-full pl-8 mr-0 text-center rounded-tr-full rounded-br-full primary-bg max-w-auto"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+                
+               
+                  <% } %> 
+              
+                  
+                </div>
+              
+                <% table.forEach(function(item,index) { %>
+                  
+                <div class="px-6">
+                  <div class="!px-[0px]  tabs-item    ">
+                    <!-- table item -->
+                    <div class="border-b-[0.1px]  border-[#1D1D1D]/20 text-[12px] flex w-full items-center gap-[5px] min-h-[50px]  px-0  py-[14px]">
+                      <p class="flex-1"> <%=item.designation%> </p>
+                  
+                      <p class="w-[115px] py-[8.34px] text-center"> <%=item.quantity%> </p>
+                  
+                      <p class="w-[115px] py-[8.34px] text-center"> 
+                        <% if(item.rate != 0 && item.rate != null) { %>
+                          <%= invoiceType === 2 ? "": item.rate %>
+                        
+                        
+                          <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+                          
+                        <% } %> 
+                  
+                       
+                    
+                  
+                      </p>
+                      <p class="w-[115px] py-[8.34px] text-center">  
+                        <% if(item.amount != 0 && item.amount != null) { %>
+                        <%=   invoiceType === 2 ? "": item.amount %>
+                      
+                                      
+                         
+                          
+                          <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span>
+                          
+                          <% } %> 
+                        </p>
+                      
+                      </div>
+                      
+                      
+                      
+                    </div>
+                </div>
+                    <% }) %>
+              
+              
+               
+                <div class="flex align-bottom empty-item">
+                  <div class="w-full"></div>
+                </div>
+              </main>
+              
               <div class=" separator" ></div>
                 
-              <!-- facture totals informations -->
-              <%- include('../subtemplates/total1') %>
+             <div class="px-[25px] flex flex-col">
+               <!-- facture totals informations -->
+               <%- include('../subtemplates/total1d') %>
 
-
-              <!-- signature -->
-              <%- include('../subtemplates/sign1') %>
+ <% if(invoiceType === 2) { %>
+                  <div class="h-10"></div>
+               
+                  <% } %> 
+               <!-- signature -->
+               <%- include('../subtemplates/sign1') %>
+             </div>
 
               <!-- footer -->
             </div>

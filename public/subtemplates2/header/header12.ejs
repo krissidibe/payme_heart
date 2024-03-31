@@ -1,0 +1,30 @@
+            <header class="header flex">
+              <div class="logo-facture-number">
+                <div class="logo">
+                  <p>LOGO</p>
+                </div>
+                <div class="facture-number font-light text-[23px] leading-[18px] inter">
+                  <p>
+                    <span>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></span>
+                  </p>
+                  <p class="date text-[12px] flex">
+                    <span>Date: </span>
+                    <span><%=date%></span>
+                  </p>
+                </div>
+              </div>
+              <div class="heading-info flex flex-col justify-center">
+                <div>
+                  <p>Object</p>
+                  <p><%= project.name %></p>
+                </div>
+                <div>
+                  <p>Client</p>
+                  <p><%=  customer.name %></p>
+                </div>
+                <div>
+                  <p>Adresse</p>
+                  <p><%=  customer.address %></p>
+                </div>
+              </div>
+            </header>

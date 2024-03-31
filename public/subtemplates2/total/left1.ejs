@@ -1,0 +1,27 @@
+<p class="font-semibold pr-1">Arrêtée la présente Facture à la somme de :</p>
+<p class="pr-1">
+  <%=totalLetter %> <%=currency %><br>
+
+  <% if(invoiceType != 2) { %>
+    
+    <% if(project.modalite != 0){ %> 
+ 
+  Modalité de paiment : <%=project.modalite%>% à la commande <br>
+
+  <% if(invoiceType == 1) { %>
+   <%=   project.invoiceType == 0 ? "Accompte à payer ": "Acompte déjà payé" %>  : <%= totalAccount %> <%=currency %> <br>
+   <%=   project.invoiceType == 0 ? " Réliquat à la livraison": "Reliquat à payer" %>  : <%= totalReliquat %> <%=currency %> <br>
+
+  <% } %>
+  <% } %>
+  <% } %>
+</p>
+<% if(project.remarque.length > 0){ %>
+               
+  <div class="pr-1 flex justify-between   mt-3   text-[#4D4B4C]">
+
+    <p class=""> <span class="pr-1 underline">Remarque :</span> <%= project.remarque %></p>
+  </div>             
+
+  <% }%>
+</div>

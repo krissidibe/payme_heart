@@ -124,6 +124,13 @@
 
     .tabs .tabs-header p {
       color: var(--primary-text-color,white);
+
+      padding-top: 10px !important;
+      
+      padding-top: 7px !important;
+      height: 35px !important;
+      font-weight: 100;
+      font-size: 14px;
    
        
     }
@@ -184,6 +191,12 @@
       background:  var(--primary-color,#3C433A);
       color: var(--primary-text-color,white);
       border-radius: 100px !important;
+
+      height: 32px !important;
+      
+      display: flex; 
+      justify-items: center;
+      align-items: center;
     }
     .remise {
       
@@ -229,7 +242,7 @@
 
   <body>
     <!-- footer -->
-    
+     
     <div class="bottom-0 items-center justify-center py-2 pt-2 footer page-footer inter">
       <div class="absolute bottom-[79px] left-0">
         <div class="w-[21px] h-[324px] facture-number-secondary flex items-end">
@@ -246,7 +259,7 @@
       </div>
    
       <div class="border-t-[1px] border-primary w-[699px] "></div>
-      <p class="text-[11px] px-[57px]  pt-2 text-center line-clamp-4">
+      <p class="text-[11px] px-[57px]  pt-3 text-center line-clamp-4">
       
     
           <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
@@ -277,7 +290,7 @@
                   <p>Client: <%=  customer.name %></p>
                   <p>Adresse: <%=  customer.address %></p>
                 </div>
-                <div class="facture-number w-[175.5px] h-[140px] my-[15px] facture-number-secondary inter mb-0">
+                <div class="facture-number w-[175.5px] h-[120px] my-[4px] facture-number-secondary inter mb-0">
                   <div class="w-[144px] h-full my-auto facture-number-primary relative flex justify-center items-center">
                     <div class="text-[23.5px]  flex flex-col">
                       <div class="mb-1 leading-6 ">
@@ -294,7 +307,7 @@
                       </div>
                       <p class="pt-1 border-t-[1px] date-border text-[13.4px]">Date : <%=date%> </p>
                     </div>
-                    <div class="absolute right-0  top-[140px]">
+                    <div class="absolute right-0  top-[110px]">
                       <svg xmlns="http://www.w3.org/2000/svg" class="facture-number-primary" width="1" height="213" viewBox="0 0 1 213" fill="none">
                         <path d="M0.472168 212.591V0.65918"   stroke-width="0.347428" stroke-miterlimit="10"/>
                       </svg>
@@ -305,14 +318,89 @@
               </div>
 
               <!-- table -->
-              <%- include('../subtemplates/table1') %>
+           <div class="flex flex-col px-5">
+            <main class="tabs flex flex-col mt-[31.43px] font-light">
+ 
+              <!-- table heading -->
+              <div class="tabs-header     tabs-item inter flex w-full  text-[14.8px] gap-[5px] px-14 py-[14px]">
+                <% if(invoiceType !== 2) { %>
+                <p class="flex-1 py-[8.34px]  w-[275px]   px-[15.29px]">DESCRIPTION</p>
+            
+                  
+                  
+                  <p class="w-[115px] py-[8.34px] text-center">QTé.</p>
+                  <p class="w-[115px] py-[8.34px] text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+              
+                  <p class="w-[115px] py-[8.34px] text-center"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+                  
+                <% } %> 
+                <% if(invoiceType === 2) { %>
+                  <p class="min-w-[293px] w-[293px] flex-1 py-[8.34px]   px-[15.29px]">DESCRIPTION</p>
+                  <p class="w-[115px] py-[8.34px]  text-center">QTé.</p>
+                  <p class="flex-1 py-[8.34px] mr-0 max-w-auto    text-center"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+              
+             
+                <% } %> 
+            
                 
-              <div class=" separator" ></div>
-              <!-- facture totals informations -->
-              <%- include('../subtemplates/total1') %>
+              </div>
+            
+              <% table.forEach(function(item,index) { %>
+                
+                <div class="px-14 tabs-item ">
+                  <!-- table item -->
+                  <div class="border-b-[0.1px]  border-[#1D1D1D]/20 text-[12px] flex w-full items-center gap-[5px] min-h-[50px]  py-[14px]">
+                    <p class="flex-1"> <%=item.designation%> </p>
+                
+                    <p class="w-[115px] py-[8.34px] text-center"> <%=item.quantity%> </p>
+                
+                    <p class="w-[115px] py-[8.34px] text-center"> 
+                      <% if(item.rate != 0 && item.rate != null) { %>
+                        <%= invoiceType === 2 ? "": item.rate %>
+                      
+                      
+                        <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+                        
+                      <% } %> 
+                
+                     
+                  
+                
+                    </p>
+                    <p class="w-[115px] py-[8.34px] text-center">  
+                      <% if(item.amount != 0 && item.amount != null) { %>
+                      <%=   invoiceType === 2 ? "": item.amount %>
+                    
+                                    
+                       
+                        
+                        <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span>
+                        
+                        <% } %> 
+                      </p>
+                    
+                    </div>
+                    
+                    
+                    
+                  </div>
+                  <% }) %>
+            
+            
+             
+              <div class="flex align-bottom empty-item">
+                <div class="w-full"></div>
+              </div>
+            </main>
+            
+                
+            <div class=" separator" ></div>
+            <!-- facture totals informations -->
+            <%- include('../subtemplates/total1') %>
 
-              <!-- signature -->
-              <%- include('../subtemplates/sign1') %>
+            <!-- signature -->
+            <%- include('../subtemplates/sign1') %>
+           </div>
 
               <!-- footer -->
             </div>

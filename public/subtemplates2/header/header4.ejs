@@ -1,0 +1,22 @@
+            <header class="heading flex flex-col items-center justify-center">
+              <div class="logo rounded-full w-[122px] h-[122px] flex justify-center items-center">
+                <p class="font-bold text-[43px]">LOGO</p>
+              </div>
+              <div class="facture-number flex flex-col justify-center items-center font-normal inter ">
+                <p class="leading-6 ">
+                  <% if(invoiceType == 0) { %>
+                    <span>PROFORMA</span>
+                  <% } %>
+                  <% if(invoiceType == 1) { %>
+                    <span>FACTURE</span>
+                  <% } %>
+                  <% if(invoiceType == 2) { %>
+                    <span >BORDEREAU</span>
+                  <% } %> 
+                  <span>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></span>
+                </p>
+                <p class="text-center text-[13px] font-normal">
+                  Date: <%=date%>
+                </p>
+              </div>
+            </header>

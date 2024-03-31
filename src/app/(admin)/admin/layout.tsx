@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en"> 
-      <body  className="w-screen min-w-full  h-screen flex min-h-screen bg-[#060606]  text-white">
+      <body  className="w-screen min-w-full  h-screen flex min-h-screen bg-[#060606] text-white">
       <Sidebar/>
         <main className='w-full p-10 '>
 

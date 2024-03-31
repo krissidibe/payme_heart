@@ -76,7 +76,7 @@ export async function POST(req:NextRequest) {
 const sumWithInitial = dataNew.dataTable.reduce((accumulator:any, currentValue:any) => parseInt(accumulator) + parseInt(currentValue.amountTotal), initialValue);
 //console.log(JSON.stringify(dataTable));
  
-const logo =`https://paymefinance.com/files/logo-payme-complet.png`
+const logo =`https://paymefinance.com/images/logo-payme-complet.png`
 //const logo =`${process.env.BASE_API_URL}/files/logo-payme-complet.png`
 
 const datasFilter = country.filter((item) => item.Phone.toString().toLowerCase() == dataNew.enterprise.currency.replaceAll('"',''))

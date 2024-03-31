@@ -145,10 +145,10 @@
      z-index: 50;
  width: 150px;
  margin-right: 40px;
-       height: 100px;
+       height: 94px;
        right: 0;
        
-       top: 20;
+       top: 120;
 
        position: absolute;
     
@@ -278,7 +278,9 @@
       border-top:1px solid var(--primary-color,#75173F);
       border-bottom:1px solid var(--primary-color,#75173F);
       color: black;
-   padding-top: 10px !important;
+      padding-top: 6px !important;
+      height: 35px !important;
+      font-weight: 100;
       
       
        
@@ -289,7 +291,7 @@
       border-left:1px solid var(--primary-color,#75173F);
      
       color: black;
-   padding-top: 10px !important;
+   padding-top: 6px !important;
       
       
        
@@ -299,7 +301,7 @@
       border-right:1px solid var(--primary-color,#75173F);
      
       color: black;
-   padding-top: 10px !important;
+   padding-top: 6px !important;
       
       
        
@@ -308,6 +310,7 @@
  
    border-top-left-radius: 40px;
    border-bottom-left-radius: 40px;  
+   padding-top: 6px !important;
        
     }
 
@@ -315,6 +318,7 @@
       border-top-right-radius: 40px;
  
       border-bottom-right-radius: 40px;  
+         padding-top: 6px !important;
           
        }
 
@@ -360,6 +364,11 @@ opacity: 0.4;
       background: var(--primary-color,#75173F) !important;
       color: var(--primary-text-color,white);
       border-left: 10px solid var(--secondary-color,#009CDD);
+      height: 32px !important;
+      
+      display: flex; 
+      justify-items: center;
+      align-items: center;
     }
 
     .signature {
@@ -429,7 +438,10 @@ opacity: 0.4;
                 
               <!-- facture totals informations -->
               <%- include('../subtemplates/total1') %>
-
+              <% if(invoiceType == 2) { %>
+             
+                <div class="h-5"></div>
+              <% } %>
               <!-- signature -->
               <%- include('../subtemplates/sign1') %>
 

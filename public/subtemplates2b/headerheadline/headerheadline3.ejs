@@ -1,0 +1,94 @@
+<div class="headline-subheadline-wrapper flex justify-between">
+  <header class="header flex flex-col justify-between">
+
+    <div class="logo max-h-[120px] flex object-left object-contain h-[120px] w-[400px] bg-gray">
+      <img class="object-left object-contain h-[120px] w-[400px]" src="<%=logo%>" alt="" srcset="">
+    </div>
+    
+    <div class="facture-number my-auto font-light text-[23px] inter">
+      
+      <div class="leading-[24px]">
+        <% if(invoiceType == 0) { %>
+          <p>PROFORMA</p>
+        <% } %>
+        <% if(invoiceType == 1) { %>
+          <p>FACTURE</p>
+        <% } %>
+        <% if(invoiceType == 2) { %>
+          <p >BORDEREAU</p>
+        <% } %> 
+        <p>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
+      </div>
+            
+      <% if(invoiceType == 0) { %>
+        <p class="date font-light text-[17px]">Date: <%=date%></p>
+      <% } %> 
+      <% if(invoiceType == 1) { %>
+        <p class="date font-light text-[14px]">Date: <%=date%></p>
+      <% } %> 
+      <% if(invoiceType == 2) { %>
+        <p class="date font-light text-[19px]">Date: <%=date%></p>
+      <% } %>
+  
+    </div>
+  </header>
+  <div class="sub-headline-wrapper flex  justify-between">
+    <div class="sub-headline flex row">
+      <div class="flex-1 flex flex-col">
+        <div class="headline-object inter leading-5 font-light text-[16.4px]">
+          <p>Objet:</p>
+          <p><%= project.name %></p>
+        </div>
+        <div class="headline-client inter leading-5 font-light text-[16.4px]">
+          <p>Client:</p>
+          <p><%=  customer.name %></p>
+        </div>
+        <div class="headline-address inter leading-5 font-light text-[16.4px]">
+          <p>Adresse:</p>
+          <p><%=  customer.address %></p>
+        </div>
+      </div>
+      <div class="flex-1 hidden-subheadline">
+        <div class="headline-object inter leading-5 font-light text-[16.4px]">
+          <p>Objet:</p>
+          <p><%= project.name %></p>
+        </div>
+        <div class="headline-client inter leading-5 font-light text-[16.4px]">
+          <p>Client:</p>
+          <p><%=  customer.name %></p>
+        </div>
+        <div class="headline-address  inter leading-5 font-light text-[16.4px]">
+          <p>Adresse:</p>
+          <p><%=  customer.address %></p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="facture-number font-light text-[23px] inter">
+      
+      <div class="leading-[24px]">
+        <% if(invoiceType == 0) { %>
+          <p>PROFORMA</p>
+        <% } %>
+        <% if(invoiceType == 1) { %>
+          <p>FACTURE</p>
+        <% } %>
+        <% if(invoiceType == 2) { %>
+          <p >BORDEREAU</p>
+        <% } %> 
+        <p>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
+      </div>
+            
+      <% if(invoiceType == 0) { %>
+        <p class="date font-light text-[17px]">Date: <%=date%></p>
+      <% } %> 
+      <% if(invoiceType == 1) { %>
+        <p class="date font-light text-[14px]">Date: <%=date%></p>
+      <% } %> 
+      <% if(invoiceType == 2) { %>
+        <p class="date font-light text-[19px]">Date: <%=date%></p>
+      <% } %>
+  
+    </div>
+  </div>
+</div>

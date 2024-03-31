@@ -110,27 +110,7 @@
     }
    
 
-    .heading > div:first-child:after   {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      
-    padding-top: 10px;
-    padding-bottom: 10px;
-    height: 140px !important;
-      border-bottom:1px solid #383838;
-       height: 0.2px !important;
-       width: 100px !important;
-
-
-       margin-left: auto;
-margin-right: auto;
-left: 0;
-right: 0;
-text-align: center;
-    
-      
-    }
+   
     .heading > div > p  {
    
       
@@ -152,14 +132,14 @@ text-align: center;
        
       justify-self: flex-start;
       padding-right: 0 !important;
-      border-left: 40px solid var(--primary-color,#005374);
+      border-left: 60px solid var(--primary-color,#005374);
+      border-right: 4px solid var(--primary-color,#005374);
       height: 100%;
-      min-width: 198px;
-      padding-top: 5px !important;
-      padding-top: 10px !important;
-      padding-bottom: 10px !important;
+      
+      padding-right: 10px !important;
+      
       padding-left: 10px !important;
-      margin-right: 0px !important;
+      margin-right: 10px !important;
       margin-left: 0px !important;
 
     
@@ -168,7 +148,8 @@ text-align: center;
     }
     .pages .facture-number > div p    {
       
-     
+     font-size: 18px;
+    
     
     }
 
@@ -249,6 +230,9 @@ text-align: center;
       color:  #000;
    padding-top: 10px !important;
       
+   padding-top: 6px !important;
+   height: 35px !important;
+   font-weight: 100;
       
        
     }
@@ -277,7 +261,7 @@ text-align: center;
      
     }
     .total-separator{
-      display: block !important;
+      display: none !important;
       opacity: 0.2;
       margin-left: 56px  !important;
       margin-right: 56px  !important;
@@ -286,6 +270,11 @@ text-align: center;
     .total .total-amount {
       background:  var(--primary-color,#005374);
       color: var(--primary-text-color,white);
+      height: 32px !important;
+      
+      display: flex; 
+      justify-items: center;
+      align-items: center;
     }
 
     .signature {
@@ -341,10 +330,10 @@ text-align: center;
               <%- include('../subtemplates/header5') %>
           
               <!-- headline (object, address, client) -->
-              <div class="headline inter leading-5 font-light   text-[16.4px] pr-14">
+              <div class="headline inter -leading-2 font-light   text-[16.4px] pr-14">
  
                 <div class="facture-number  font-light text-[20px] inter ">
-                  <div class="leading-[24px] mb-1">
+                  <div class="leading-[20px] mb-1">
                     <% if(invoiceType == 0) { %>
                       <p>PROFORMA</p>
                     <% } %>
@@ -357,26 +346,26 @@ text-align: center;
                     <p >N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
                   </div>
 
-                  
+                  <div class="w-full bg-[#4D4B4C] h-[1px]   "></div>
                   <% if(invoiceType == 0) { %>
                   
-                    <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[17px] flex justify-between">Date: <%=date%></p>
+                    <p class="    font-light  text-[17px] flex justify-between"><%=date%></p>
                   <% } %> 
                   <% if(invoiceType == 1) { %>
                   
-                    <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[14px] flex justify-between">Date: <%=date%></p>
+                    <p class="    font-light  text-[17px] flex justify-between"><%=date%></p>
                   <% } %> 
                   <% if(invoiceType == 2) { %>
                   
-                    <p class="pt-2 mt-2  border-t-[1px] font-light border-[#4D4B4C] text-[19px] flex justify-between">Date: <%=date%></p>
+                    <p class="    font-light  text-[17px] flex justify-between"><%=date%></p>
                   <% } %> 
 
                 </div>
-                <div class="grid items-start grid-cols-3 ">
+                <div class="grid items-start grid-cols-3 text-[15px] leading-[18px] flex-1 ">
               
-                  <p class="info-project" >Objet: <%= project.name %></p>
-                  <p class="info-project" >Client: <%=  customer.name %></p>
-                  <p class="info-project" >Adresse: <%=  customer.address %>  </p>
+                  <p class="info-project" >Objet :   <br><%= project.name %></p>
+                  <p class="info-project" >Client : <br> <%=  customer.name %></p>
+                  <p class="info-project" >Adresse : <br> <%=  customer.address %>  </p>
                 </div>
               
               
@@ -393,7 +382,10 @@ text-align: center;
                 
               <!-- facture totals informations -->
               <%- include('../subtemplates/total1') %>
-
+              <% if(invoiceType == 2) { %>
+             
+                <div class="h-5"></div>
+              <% } %>
               <!-- signature -->
               <%- include('../subtemplates/sign1') %>
 

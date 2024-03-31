@@ -189,7 +189,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
     margin: {
       top: "0px",
       right: "0px",
-      bottom: "10px",
+      bottom: "0px",
       left: "0px"
   },
     

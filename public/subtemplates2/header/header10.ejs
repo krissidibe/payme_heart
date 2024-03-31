@@ -1,0 +1,21 @@
+            <header class="header flex">
+              <div class="logo">
+                <p>LOGO</p>
+              </div>
+              <div class="facture-headline-wrapper">
+                <div class="facture-number font-light inter">
+                  <p class="leading-[24px] text-center">
+                    <%= invoiceType == 0 ? 'PROFORMA' : invoiceType == 1 ? 'FACTURE' : invoiceType == 2 ? 'BORDEREAU' : '' %> N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span>
+                  </p>
+                </div>
+                <!-- Headline -->
+                <div class="headline text-center">
+                  <p>Objet : <%= project.name %></p>
+                  <p>Client : <%=  customer.name %> </p>
+                  <p>Adresse : <%=  customer.address %></p>
+                </div>
+                <p class="date text-center">
+                  Date: <%=date%>
+                </p>
+              </div>
+            </header>

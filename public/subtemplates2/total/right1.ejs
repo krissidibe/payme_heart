@@ -1,0 +1,24 @@
+<% if(project.tva != 0 || project.tva != ''){ %>
+  <p class="flex justify-between">
+    <span>MONTANT TOTAL HT:</span>
+    <span> <%=totalHT%>  <%=currency %></span>
+  </p>
+  <% } %>
+
+  <% if(project.tva != 0 || project.tva != ''){ %>
+  <p class="flex justify-between">
+    <span>TVA <%=project.tva%>%:</span>
+    <span><%=totalTva%>  <%=currency %></span>
+  </p>
+
+  <% } %>
+  <% if(project.discount != 0 || project.discount != ''){ %>
+  <p class="remise flex justify-between text-[#222428]">
+    <span>REMISE COMMERCIALE (<%= project.discount %>%) : </span>
+    <span>- <%=totalDiscount%>  <%=currency %></span>
+  </p>
+<% }%>
+<p class="total-amount flex justify-between">
+  <span> MONTANT TOTAL    <%= (project.tva != 0 || project.tva != '') ? "TTC": "HT" %>  : </span>
+  <span><%= total %>  <%=currency %></span>
+</p>

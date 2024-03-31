@@ -32,7 +32,8 @@
       height: 80px;
     }
 
-    .page-footer {
+    .page-footer { 
+ 
       position: fixed;
       bottom: 80px;
 
@@ -170,7 +171,7 @@
     .tabs .tabs-header p {
       color: var(--primary-text-color,white);
       
-       
+       font-weight: 300 !important;
     }
 
     .total .right {
@@ -189,6 +190,7 @@
       color: var(--primary-text-color,white);
       width: auto !important;
       gap: 0;
+      height: 35px;
       color: #3C3C3B;
      margin: 0px 52px !important;
      padding: 0px 5px !important;
@@ -235,10 +237,10 @@
     
     .footer {
       bottom: 0;
-      
+    
       z-index: 1;
      
-      padding-top: 0 !important;
+      padding-top: 10px !important;
       background:  var(--primary-color,#662483);
       color: var(--primary-text-color,white);
     }
@@ -269,10 +271,10 @@
               <%- include('../subtemplates/headline1') %>
 
               <!-- table -->
-              <%- include('../subtemplates/table1') %>
+              <%- include('../subtemplates/table1b') %>
                 
               <!-- facture totals informations -->
-              <%- include('../subtemplates/total2') %>
+              <%- include('../subtemplates/total2b') %>
 
               <!-- signature -->
               <%- include('../subtemplates/sign1') %>

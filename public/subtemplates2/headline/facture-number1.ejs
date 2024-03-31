@@ -1,0 +1,18 @@
+<div class="facture-number font-light text-[23px] leading-[18px] inter">
+  <p class="">
+    <% if(invoiceType == 0) { %>
+      <span>PROFORMA</span>
+    <% } %>
+    <% if(invoiceType == 1) { %>
+      <span>FACTURE</span>
+      <% } %>
+    <% if(invoiceType == 2) { %>
+      <span >BORDEREAU</span>
+      <% } %> 
+    <span>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span></span>
+  </p>
+  <p class="date text-[12px] flex">
+    <span>DATE: </span>
+    <span><%=date%></span>
+  </p>
+</div>
