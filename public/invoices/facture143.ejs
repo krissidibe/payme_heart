@@ -364,7 +364,23 @@
   }
 
   .tabs-header .description {
-    background-color: #F9B233;
+    background-color: var(--primary-color,#F9B233);
+    color: var(--primary-text-color, white);
+  }
+
+ 
+
+  .tabs-header .quantity  {
+    background-color: var(--secondary-color,#EF7922);
+    color: var(--primary-text-color, white);
+  }
+  .tabs-header .price  {
+    background-color: var(--secondary-color,#EF7922);
+    color: var(--primary-text-color, white);
+  }
+  .tabs-header .amount  {
+    background-color: var(--secondary-color,#EF7922);
+    color: var(--primary-text-color, white);
   }
 
   .tabs-item:nth-child(even) p {
@@ -385,6 +401,12 @@
     padding-top: 24px;
   }
 
+  .primary{
+    color: var(--primary-text-color, white);
+    background: linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#F9B233) 100%, transparent) 51%,color-mix(in srgb, var(--secondary-color,#EF7922) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--secondary-color,#EF7922) 100%, transparent)) !important;
+ 
+  }
+
   .right .total-amount {
     color: var(--primary-text-color, white);
     background: linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#F9B233) 100%, transparent) 51%,color-mix(in srgb, var(--secondary-color,#EF7922) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--secondary-color,#EF7922) 100%, transparent)) !important;
@@ -395,6 +417,7 @@
     bottom: 0px;
     left: 0;
     right: 0;
+    padding-bottom: 10px !important; 
     margin: 0 64px;
     border-top: 1px solid #4D4B4C;
     width: auto;
@@ -468,7 +491,9 @@
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
             <!-- Header + Facture -->
-            <%- include('../subtemplates2b/headerheadline/headerheadline3') %>
+        <div class="pl-5">
+          <%- include('../subtemplates2b/headerheadline/headerheadline3') %>
+        </div>
 
             
             <!-- table -->

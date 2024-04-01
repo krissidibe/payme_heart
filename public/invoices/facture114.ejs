@@ -29,7 +29,7 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 80px;
   }
   
   .page-footer {
@@ -142,6 +142,8 @@
   bottom: 0px;
   z-index: 1;
   color: #383838;
+   
+ 
 }
 .footer-text {
   margin-left: 248px;
@@ -316,9 +318,10 @@
   }
 
   .facture-content .logo img {
-    object-position: center;
+    object-position:right;
   }
 
+  
   .facture-content .header .facture-number {
     margin-top: 20px;
   }
@@ -386,19 +389,19 @@
 
 <body>
   <!-- footer -->
-  <div class="footer page-footer flex flex-col inter">
+  <div class="flex flex-col footer page-footer inter">
     <div class="absolute left-[-10px] bottom-0">
       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="1015" viewBox="0 0 50 1015" fill="none">
         <path d="M49.9765 -0.00439453H-1.08496V1016.69H49.9765V-0.00439453Z" fill="var(--primary-color, #F9BE70)
 "/>
       </svg>
     </div>
-    <div class="absolute top-[-28px] right-[222px]">
+    <div class="absolute top-[8px] right-[222px]">
       <svg xmlns="http://www.w3.org/2000/svg" width="356" height="2" viewBox="0 0 356 2" fill="none">
         <path d="M355.658 0.899414H0.161133V1.59489H355.658V0.899414Z" fill="#4E4D4D"/>
       </svg>
     </div>
-    <div class="text-center text-[11px] px-[98px] line-clamp-3 pt-1">
+    <div class="text-center text-[11px] px-[10px] line-clamp-3 pt-5">
       <div class="w-full text-[11px] line-clamp-3 flex flex-col px-14 ">
         <p>      <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %></p>
       </div>
@@ -419,9 +422,9 @@
 <%- include('../subtemplates2b/headline/headline1') %>
             
             <!-- table -->
-            <main class="tabs flex flex-col font-light">
+            <main class="flex flex-col font-light tabs">
               <!-- table heading -->
-              <div class="tabs-header inter flex ">
+              <div class="flex tabs-header inter ">
                 <% if(invoiceType !== 2) { %>
                 <p class="flex-1">Description</p>
                 <p class="w-[60px] text-center">QTé.</p>
@@ -441,15 +444,15 @@
                   <p class="flex-1"><%=item.designation%></p>
                   <p class="w-[65px] text-center"><%=item.quantity%></p>
                   <% if(item.rate != 0 && item.rate != null) { %>
-                    <p class="w-[120px] text-center">
+                    <p class="w-[120px] flex flex-row text-center">
                       <%= invoiceType === 2 ? "": item.rate %>
-                      <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+                  <%=   invoiceType === 2 ? "": currency %> 
                     </p>
                     <% } %> 
                     <% if(item.amount != 0 && item.amount != null) { %>
                       <p class="w-[120px] text-center">
                       <%=   invoiceType === 2 ? "": item.amount %>
-                        <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span>
+                        <%=   invoiceType === 2 ? "": currency %> 
                       </p>
                       <% } %> 
                     </div>

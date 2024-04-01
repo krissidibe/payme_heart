@@ -135,6 +135,7 @@
     margin-left: 56px;
     margin-right: 56px;
     margin-bottom: 8px;
+    border-bottom: 1px solid black;
   }
 
   .tabs-header p {
@@ -145,9 +146,15 @@
   .facture-content .tabs-header .description {
     padding-left: 10px;
   }
+  .facture-content .tabs-header .amount {
+    padding-right: 20px;
+  }
 
   .tabs-item {
     padding: 0 56px;
+  }
+  .tabs-item .amount {
+    padding-right:  16px !important;
   }
   
   .tabs-item p {
@@ -431,13 +438,24 @@
     bottom: 0px;
   }
 
+
+  .logo img{
+    object-position: left;
+   
+    padding-right: 10px;
+ }
+
+ .facture-number p{
+  font-size: 16px !important;
+ }
+
   /* custom end styling */
 </style>
 
 <body>
   <!-- footer -->
   <div class="pt-4 page-footer footer">
-    <div class="absolute bottom-[50px]">
+    <div class="absolute bottom-[10px]">
       <svg xmlns="http://www.w3.org/2000/svg" width="828" height="9" viewBox="0 0 828 9" fill="none">
         <path d="M-4.38135 4.6123H833.564" stroke="#29235C" stroke-width="8.34565" stroke-miterlimit="10"/>
       </svg>
@@ -450,24 +468,31 @@
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
             
             <!-- Header + Facture -->
-<%- include('../subtemplates2b/header/header2') %>
+            <header class="flex justify-between header">
+  
+              <div class="logo max-h-[120px] flex object-left object-contain h-[120px] w-[400px] pl-[0px]">
+                <img class="object-left object-contain h-[120px] w-[400px]" src="<%=logo%>" alt="" srcset="">
+              </div>
+              
+              <div class="heading-info flex items-center px-[45px] flex-1 min-h-[120px] ml-4">
+                <p class="text-[12px]">
+                  <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+                </p>
+              </div>
+            </header>
             
             <!-- Headline -->
             <%- include('../subtemplates2b/headline/headline1') %>
 
-            <div class="w-[290px] h-[8px] relative top-[-4px]"></div>
+            <div class="w-[370px] h-[8px] relative top-[-4px]"></div>
 
-            <div class="absolute bottom-[-6px] left-[-10px]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="387" height="12" viewBox="0 0 387 12" fill="none">
-                <path d="M386.39 0.59082H-25.5376V11.8436H386.39V0.59082Z" fill="#662483"/>
-              </svg>
-            </div>
+           
             
             <!-- table -->
 <%- include('../subtemplates2b/tabs/tab1') %>
             
                         <!-- facture totals informations -->
-            <%- include('../subtemplates2b/total/total1') %>
+            <%- include('../subtemplates/total1') %>
 
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>

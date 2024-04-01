@@ -75,6 +75,12 @@
     }
   }
   /* Facture Custom styling */
+
+.footer {
+  padding-left: 12px;
+  padding-right: 88px;
+}
+
   /* End Facture Custom styling */
 </style>
 
@@ -311,7 +317,7 @@
   }
 
   .facture-number {
-    border-color: var(--secondary-color, #4570B4);
+    border-color: var(--primary-color, #4570B4);
   }
 
   .headline {
@@ -338,7 +344,7 @@
 
 
   .tabs-item:nth-child(even) p {
-    background:  color-mix(in srgb, var(--primary-color, #559FF9) 10%, transparent);
+    background:  color-mix(in srgb, var(--primary-color, #4570B4) 10%, transparent);
   }
   .right p,
   .right .remise,
@@ -347,24 +353,32 @@
   }
 
   .right p {
-    background: color-mix(in srgb, var(--primary-color, #E8D5B3) 10%, transparent);
+    background: color-mix(in srgb, var(--primary-color, #E8D5B3) 15%, gray 5%);
   }
 
   .facture-content .total .right p:nth-child(2) {
-  border-top: 4px solid color-mix(in srgb, var(--primary-color, #E8D5B3) 40%, transparent);
-  padding: 8.5px 20px;
-  background: color-mix(in srgb, var(--primary-color, #E8D5B3) 30%, transparent);
+    border-top: 3px solid color-mix(in srgb, var(--primary-color, #E8D5B3) 30%, transparent);;
+    padding: 9.5px 20px;
+  }
+
+  .facture-content .total .right p:nth-child(even) {
+    background: color-mix(in srgb, var(--primary-color, #E8D5B3) 30%, transparent);
   }
 
   .left, .right {
     color: #000
   }
 
+  .left {
+    padding-left: 22px;
+  }
+
   .facture-content .total .right .total-amount {
     border: none !important;
     padding-top: 9px;
     padding-bottom: 9px;
-    background: color-mix(in srgb, var(--primary-color, #E8D5B3) 10%, transparent) !important;
+    color: var(--primary-text-color, white);
+    background: var(--primary-color, #E8D5B3) !important;
   }
 
   .page-footer {
@@ -372,13 +386,6 @@
     color: #000;
     bottom: 0px;
     padding-right: 85px;
-  }
-
-  .facture-content .tabs .tabs-item:nth-child(4n+2) p {
-    background: var(--secondary-color, #EBEDEF);
-  }
-  .facture-content .tabs .tabs-item:nth-child(4n) p {
-    background: var(--secondary-color, #EBEDEF);
   }
 
   .headline {
@@ -418,6 +425,9 @@
   .page-footer {
     padding-left: 24px;
   }
+  .left {
+    padding-left: 0;
+  }
   /* custom end styling */
 </style>
 
@@ -427,12 +437,14 @@
     <%- include('../subtemplates2b/footer1') %>
     <div class="absolute bottom-[36px] left-[-10px]">
       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="25" viewBox="0 0 50 25" fill="none">
-        <path d="M49.365 0.179688H-9.40234V24.2708H49.365V0.179688Z" fill="var(--primary-color, #E8D5B3)"/>
+        <path d="M49.3645 0.179688H-9.40283V24.2708H49.3645V0.179688Z" fill="var(--primary-color, #E8D5B3)
+"/>
       </svg>
     </div>
     <div class="absolute bottom-[36px] right-[-40px]">
       <svg xmlns="http://www.w3.org/2000/svg" width="189" height="25" viewBox="0 0 189 25" fill="none">
-        <path d="M195.051 0.179688H0.805664V24.2708H195.051V0.179688Z" fill="var(--primary-color, #E8D5B3)"/>
+        <path d="M195.05 0.179688H0.80542V24.2708H195.05V0.179688Z" fill="var(--primary-color, #E8D5B3)
+"/>
       </svg>
     </div>
   </div>
@@ -454,6 +466,7 @@
 
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
+          
           </main>
         </td>
       </tr>

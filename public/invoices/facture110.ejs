@@ -290,7 +290,14 @@
     background: #E8E8E8;
     height: auto;
     max-height: unset;
-    align-items: center;
+    display: flex;
+    align-items: center; 
+  }
+
+  .header .logo img {
+   
+    object-position:right;
+    
   }
   .header .heading-info {
     width: 50%;
@@ -420,7 +427,7 @@
             <%- include('../subtemplates2b/header/header2') %>
             
             <!-- Headline -->
-            <div class="headline-wrapper flex justify-between">
+            <div class="flex justify-between headline-wrapper">
               <%- include('../subtemplates2b/headline/headline1') %>
             </div>
             

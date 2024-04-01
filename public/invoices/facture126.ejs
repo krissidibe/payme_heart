@@ -38,7 +38,6 @@
     
     width: 100%;
     /* for demo */
-    /* for demo */
   }
   
   .page-header {
@@ -238,7 +237,7 @@
      margin-top: 0;
   }
   /* <!-- addons styling --> */
-      .facture-number {
+    .facture-number {
     display: flex;
     flex-direction: column;
   }
@@ -291,13 +290,15 @@
     background: #E8E8E8;
     height: auto;
     max-height: unset;
-    align-items: center;
+    display: flex;
+    align-items: center; 
   }
 
   .header .logo img {
-    object-position: right;
+   
+    object-position:right;
+    
   }
-
   .header .heading-info {
     width: 50%;
     padding-top: 40px;
@@ -320,13 +321,12 @@
 
   .facture-content .headline-wrapper .facture-number {
     display: block;
-    padding-right: 56px;
   }
 
   .headline {
     margin: 0;
     padding-left: 56px;
-    color: var(--primary-color, #917A06);
+    color: black;
   }
 
   .tabs-header {
@@ -368,6 +368,7 @@
     bottom: 0px;
     background-color: var(--primary-color, #917A06);
     width: 100%;
+    /* for demo */
   }
 
   /* custom end styling */
@@ -382,10 +383,6 @@
     padding-right: 70px;
     padding-left: 14px;
   }
-  
-  .header .logo img {
-    object-position: left;
-  }
   .facture-content .headline-wrapper {
     padding: 30px 0;
   }
@@ -394,7 +391,7 @@
     padding-left: 70px;
   }
   .facture-number {
-    padding-right: 74px !important;
+    padding-right: 70px !important;
   }
 
   .tabs {
@@ -430,15 +427,14 @@
             <%- include('../subtemplates2b/header/header2') %>
             
             <!-- Headline -->
-            <div class="headline-wrapper flex justify-between">
-<%- include('../subtemplates2b/headline/headline1') %>
-              
+            <div class="flex justify-between headline-wrapper">
+              <%- include('../subtemplates2b/headline/headline1') %>
             </div>
             
             <!-- table -->
-<%- include('../subtemplates2b/tabs/tab1') %>
+            <%- include('../subtemplates2b/tabs/tab1') %>
             
-                        <!-- facture totals informations -->
+            <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
 
             <!-- signature -->

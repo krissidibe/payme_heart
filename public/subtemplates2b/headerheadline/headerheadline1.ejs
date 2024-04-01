@@ -1,4 +1,4 @@
-<header class="header flex justify-between">
+<header class="flex justify-between header">
   
   <div class="logo max-h-[120px] flex object-left object-contain h-[120px] w-[400px] bg-gray">
     <img class="object-left object-contain h-[120px] w-[400px]" src="<%=logo%>" alt="" srcset="">
@@ -19,7 +19,7 @@
     </div>
 
     <div class="hidden hidden-date-border"></div>
-          
+        
     <% if(invoiceType == 0) { %>
       <p class="date font-light text-[17px]">Date: <%=date%></p>
     <% } %> 
@@ -30,7 +30,7 @@
       <p class="date font-light text-[19px]">Date: <%=date%></p>
     <% } %>
 
-    <div class="headline-wrapper flex justify-between">
+    <div class="flex justify-between headline-wrapper">
       <div class="headline inter leading-5 font-light text-[16.4px]">
         <p>Objet: <%= project.name %></p>
         <p>Client: <%=  customer.name %></p>

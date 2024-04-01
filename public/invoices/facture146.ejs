@@ -124,7 +124,8 @@
   }
 
   .sub-headline p {
-    max-width: 150px;
+    max-width: 250px;
+    
   }
   .facture-content .sub-headline-wrapper .facture-number {
     display: none;
@@ -274,6 +275,11 @@
     padding-bottom: 8px;
   }
 
+  .logo img{
+    object-position: left;
+   
+    padding-right: 10px;
+ }
   .left {
     flex: 1;
     max-width: unset !important;
@@ -451,13 +457,17 @@
     border: none;
   }
 
+  .facture-text{
+    font-size: 22px !important;
+    margin-bottom: 5px !important;
+  }
   /* custom end styling */
 </style>
 
 <body>
   <!-- footer -->
   <div class="page-footer footer">
-    <div class="absolute left-0">
+    <div class="absolute left-0 -bottom-[70px]">
       <svg xmlns="http://www.w3.org/2000/svg" width="115" height="42" viewBox="0 0 115 42" fill="none">
         <path d="M94.6115 41.03H-4.10365C-15.3564 41.03 -24.481 31.9054 -24.481 20.6526C-24.481 9.39992 -15.3564 0.275391 -4.10365 0.275391H94.6115C105.864 0.275391 114.989 9.39992 114.989 20.6526C114.989 31.9054 105.864 41.03 94.6115 41.03Z" fill="#D7A4AE"/>
       </svg>
@@ -469,18 +479,95 @@
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
             <!-- Header + Facture -->
-            <%- include('../subtemplates2b/header/header2') %>
+            <header class="flex justify-between header">
+  
+              <div class="logo max-h-[120px] flex object-left object-contain h-[120px] w-[400px] pl-[0px]">
+                <img class="object-left object-contain h-[120px] w-[400px]" src="<%=logo%>" alt="" srcset="">
+              </div>
+              
+              <div class="heading-info flex items-center px-[45px] flex-1 min-h-[120px] ml-4">
+                <p class="text-[12px]">
+                  <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+                </p>
+              </div>
+            </header>
 
                         
             <!-- Subheadline -->
-            <%- include('../subtemplates2b/headline/subheadline1') %>
+            <div class="flex justify-between sub-headline-wrapper">
+              <div class="flex sub-headline row">
+                <div class="flex flex-1">
+                  <div class="headline-object inter leading-5 font-light text-[16.4px]">
+                    <p>Objet:</p>
+                    <p><%= project.name %></p>
+                  </div>
+                  <div class="headline-client inter leading-5 font-light text-[16.4px]">
+                    <p>Client:</p>
+                    <p><%=  customer.name %></p>
+                  </div>
+                  <div class="headline-address inter leading-5 font-light text-[16.4px]">
+                    <p>Adresse:</p>
+                    <p><%=  customer.address %></p>
+                  </div>
+                </div>
+                
+
+                <div class="flex   w-[470px]">
+                  
+                  <div class=" flex flex-col  w-full  leading-5 font-light text-[16.4px]">
+                    <p>Client:</p>
+                    <p class=""><%=  customer.name %></p>
+                  </div>
+                  <div class="     w-full   leading-5 font-light text-[16.4px]">
+                    <p>Adresse:</p>
+                    <p class=""><%=  customer.address %> </p>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="facture-number font-light text-[23px] ">
+                
+                <div class="leading-[24px]">
+                  <p></p>
+                  <% if(invoiceType == 0) { %>
+                    <p class="facture-text" >PROFORMA</p>
+                  <% } %>
+                  <% if(invoiceType == 1) { %>
+                    <p class="facture-text" >FACTURE</p>
+                    <% } %>
+                    <% if(invoiceType == 2) { %>
+                    <p  class="facture-text" >BORDEREAU</p>
+                  <% } %> 
+
+                  
+                  
+                  <p>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
+                </div>
+            
+                <div class="hidden hidden-date-border"></div>
+                      
+                <% if(invoiceType == 0) { %>
+                  <p class="date font-light text-[17px]">Date: <%=date%></p>
+                <% } %> 
+                <% if(invoiceType == 1) { %>
+                  <p class="date font-light text-[14px]">Date: <%=date%></p>
+                <% } %> 
+                <% if(invoiceType == 2) { %>
+                  <p class="date font-light text-[19px]">Date: <%=date%></p>
+                <% } %>
+            
+              </div>
+            </div>
             
             
+            <div class="h-4"></div>
             <div class="headline-separator w-auto mx-[56px]">
               <svg xmlns="http://www.w3.org/2000/svg" width="721" height="8" viewBox="0 0 721 8" fill="none">
                 <path d="M4.18408 3.85156H717.362" stroke="var(--primary-color, #D7A4AE)" stroke-width="6.95471" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
+            
+            <div class="h-2"></div>
             
             <!-- table -->
 <%- include('../subtemplates2b/tabs/tab1') %>

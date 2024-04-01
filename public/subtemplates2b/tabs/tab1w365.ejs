@@ -18,7 +18,7 @@
     <% } %>
     <% if(invoiceType === 2) { %>
       <p class="w-[115px] text-center quantity first">Qté.</p>
-      <p class="flex-1 description">Description</p> <!-- min-w-[355px] w-[275px]  -->
+      <p class="w-[365px] description">Description</p> <!-- min-w-[355px] w-[275px]  -->
       <p class="w-[115px] text-center quantity second">Qté.</p>
       <p class="w-[115px] text-center quantity third">Qté.</p>
       <p class="flex-1 mr-0 text-center max-w-auto price"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
@@ -57,7 +57,7 @@
       <div class="text-[12px] flex w-full min-h-[50px]">
         <p class="w-[80px] text-center tab-indexs hidden text-[14.8px]"><%= index +1 %></p>
         <p class="w-[120px] text-center quantity first"> <%=item.quantity%> </p>
-        <p class="flex-1 description"> <%=item.designation%> </p>
+        <p class="w-[365px] description"> <%=item.designation%> </p>
         <p class="w-[120px] text-center quantity second "> <%=item.quantity%> </p>
         <p class="w-[120px] text-center quantity third "> <%=item.quantity%> </p>
         <p class="flex-1"></p>

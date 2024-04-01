@@ -177,7 +177,7 @@
   }
     .total {
     color: #4D4B4C;
-    margin-top: 23.63px;
+    margin-top: 1.63px !important;
     padding-left: 56px;
     padding-right: 56px;
     align-items: flex-start;
@@ -232,6 +232,10 @@
     border-bottom: 1px solid #4E4D4D;
   }
 
+  .sub-headline-wrapper{
+    margin-top: 20px;
+     padding: 0px 20px !important;
+  }
   .sign > div:last-child {
      /* margin-top: -8px*/
      margin-top: 0;
@@ -341,6 +345,7 @@
     margin-top: 30px;
   }
 
+  
   .tabs .tab-dummy:first-child {
     background: linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#878787) 100%, transparent) 51%,color-mix(in srgb, var(--primary-color,#BE1622) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--primary-color,#BE1622) 100%, transparent)) !important;
   }
@@ -381,6 +386,7 @@
   .right p:nth-child(2) {
     color: #000;
     background: #F0F0EF;
+    padding: 10px 20px !important;
   }
   .right .total-amount {
     color: var(--primary-text-color, white) !important;
@@ -419,23 +425,167 @@
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
             <!-- Header + Facture -->
-            <%- include('../subtemplates2b/header/header1') %>
+            <header class="flex justify-between header">
+  
+              <div class="logo max-h-[120px] flex object-left object-contain h-[120px] w-[400px] bg-gray">
+                <img class="object-left object-contain h-[120px] w-[400px]" src="<%=logo%>" alt="" srcset="">
+              </div>
+              
+
+              <div class="flex">
+
+                <div class="facture-number my-auto font-light text-[23px] inter">
+                  
+                  <div class="leading-[24px]">
+                    <% if(invoiceType == 0) { %>
+                      <p>PROFORMA</p>
+                    <% } %>
+                    <% if(invoiceType == 1) { %>
+                      <p>FACTURE</p>
+                    <% } %>
+                    <% if(invoiceType == 2) { %>
+                      <p >BORDEREAU</p>
+                    <% } %> 
+                    <p>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
+                  </div>
+              
+                  <div class="hidden hidden-date-border"></div>
+                        
+                  <% if(invoiceType == 0) { %>
+                    <p class="date font-light text-[17px]">Date: <%=date%></p>
+                  <% } %> 
+                  <% if(invoiceType == 1) { %>
+                    <p class="date font-light text-[14px]">Date: <%=date%></p>
+                  <% } %> 
+                  <% if(invoiceType == 2) { %>
+                    <p class="date font-light text-[19px]">Date: <%=date%></p>
+                  <% } %>
+              
+                </div>
+                <% if(invoiceType == 0) { %>
+                  <div class="w-10"></div>
+                  <% } %>
+                <% if(invoiceType == 1) { %>
+                  <div class="w-16"></div>
+                  <% } %>
+                <% if(invoiceType == 2) { %>
+                  <div class="w-6"></div>
+                  <% } %>
+              </div>
+
+          
+              
+            </header>
+                        
+                        
+                        
+                        
+                        
+                        
             
             <%- include('../subtemplates2b/headline/subheadline1') %>
-              .tabs .quantity.second, 
-  .tabs .quantity.first {
-    display: none;
-  }
-
-  .tabs .quantity.third {
-    display: block;
-  }
-                        
+                    
             <!-- table -->
-            <%- include('../subtemplates2b/tabs/tab1') %>
+            <main class="flex flex-col font-light tabs">
+              <div class="absolute tab-dummy"></div>
+              <div class="absolute tab-dummy"></div>
+              <div class="absolute tab-dummy"></div>
+              <div class="absolute tab-dummy"></div>
+             
+              <!-- table heading -->
+              <div class="tabs-header inter flex text-[14.8px]">
+                <p class="w-[80px] text-center tab-indexs hidden">No</p>
+                <% if(invoiceType !== 2) { %>
+                <p class="w-[80px] text-center quantity first">Qté.</p>
+                <p class="flex-1 description">Description</p>
+                <p class="w-[115px] text-center quantity second">Qté.</p>
+                <p class="w-[115px] text-center price"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+                <p class="w-[115px] text-center quantity third">Qté.</p>
+                <p class="hidden"></p>
+                <p class="w-[115px] text-center amount"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+                <% } %>
+                <% if(invoiceType === 2) { %>
+                  <p class="w-[115px] text-center quantity first">Qté.</p>
+                  <p class="w-[365px] description">Description</p> <!-- min-w-[355px] w-[275px]  -->
+                  <p class="w-[115px]  text-center quantity second">Qté.</p>
+                  <p class="w-[115px]  text-center quantity third">Qté.</p>
+                  <p class="flex-1 mr-0 text-center max-w-auto price"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+                <% } %> 
+              </div>
+            
+            
+              <% table.forEach(function(item,index) { %>
+                <% if(invoiceType != 2) { %>
+                <div class="tabs-item  <%= index == table.length-1 ? "last": "" %> ">
+                  <!-- table item -->
+                  <div class="text-[12px] flex w-full min-h-[50px]">
+                    <p class="w-[80px] text-center tab-indexs hidden text-[14.8px]"><%= index +1 %></p>
+                    <p class="w-[100px] text-center quantity first"> <%=item.quantity%> </p>
+                    <p class="flex-1 description"> <%=item.designation%> </p>
+                    <p class="w-[115px] text-center quantity second"> <%=item.quantity%> </p>
+                    <p class="w-[115px] text-center price"> 
+                      <% if(item.rate != 0 && item.rate != null) { %>
+                        <%= invoiceType === 2 ? "": item.rate %>
+                        <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+                      <% } %>
+                    </p>
+                    <p class="w-[115px] text-center quantity third"> <%=item.quantity%> </p>
+                    <p class="w-[115px] text-center amount">  
+                      <% if(item.amount != 0 && item.amount != null) { %>
+                        <%=   invoiceType === 2 ? "": item.amount %>
+                        <span class="pl-1"> <%=   invoiceType === 2 ? "": currency %></span>
+                      <% } %> 
+                    </p>
+                  </div>
+                </div>
+                <% } %> 
+                <% if(invoiceType == 2) { %>
+                <div class="tabs-item  <%= index == table.length-1 ? "last": "" %> ">
+                  <!-- table item -->
+                  <div class="text-[12px] flex w-full min-h-[50px]">
+                    <p class="w-[80px] text-center tab-indexs hidden text-[14.8px]"><%= index +1 %></p>
+                    <p class="w-[120px] text-center quantity first"> <%=item.quantity%> </p>
+                    <p class="w-[362px] description"> <%=item.designation%> </p>
+                    <p class="w-[120px] text-center quantity second "> <%=item.quantity%> </p>
+                    <p class="w-[120px] text-center quantity third "> <%=item.quantity%> </p>
+                    <p class="flex-1"></p>
+                  </div>
+                </div>
+                <% } %> 
+            
+                <% }) %>
+            
+                  <% if(invoiceType != 2) { %>
+                    <div class="flex w-auto align-bottom empty-item">
+                      <!-- table item -->
+                      <div class="text-[12px] flex w-full">
+                        <p class="w-[80px] text-center tab-indexs hidden"></p>
+                        <p class="w-[100px] text-center quantity first"> </p>
+                        <p class="flex-1 description"> </p>
+                        <p class="w-[115px] text-center quantity second"> </p>
+                        <p class="w-[115px] text-center price"></p>
+                        <p class="w-[115px] text-center quantity third"></p>
+                        <p class="w-[115px] text-center amount"></p>
+                      </div>
+                    </div>
+                    <% } %> 
+                    <% if(invoiceType == 2) { %>
+                    <div class="flex w-auto align-bottom empty-item">
+                      <!-- table item -->
+                      <div class="text-[12px] flex w-full">
+                        <p class="w-[80px] text-center tab-indexs hidden"></p>
+                        <p class="flex-1 description"> </p>
+                        <p class="w-[120px] text-center quantity block"></p>
+                        <p class="flex-1 max-w-[290px]"></p>
+                      </div>
+                    </div>
+                    <% } %>
+            
+            </main>
+            
             
             <!-- facture totals informations -->
-            <%- include('../subtemplates2b/total/total1') %>
+            <%- include('../subtemplates2b/total/total1b') %>
 
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>

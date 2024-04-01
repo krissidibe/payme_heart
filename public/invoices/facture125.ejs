@@ -75,6 +75,12 @@
     }
   }
   /* Facture Custom styling */
+
+.footer {
+  padding-left: 12px;
+  padding-right: 88px;
+}
+
   /* End Facture Custom styling */
 </style>
 
@@ -311,7 +317,7 @@
   }
 
   .facture-number {
-    border-color: var(--secondary-color, #4570B4);
+    border-color: var(--primary-color, #4570B4);
   }
 
   .headline {
@@ -336,17 +342,15 @@
     padding-right: 22px;
   }
 
+
   .tabs-item:nth-child(even) p {
-    background:  color-mix(in srgb, var(--secondary-color, #394960) 10%, transparent);
+    background:  color-mix(in srgb, var(--primary-color, #4570B4) 10%, transparent);
   }
-  
   .right p,
   .right .remise,
   .right .total-amount {
     padding: 12.5px 20px;
   }
-
-
 
   .right p {
     background: color-mix(in srgb, var(--primary-color, #46B298) 15%, gray 5%);
@@ -365,11 +369,16 @@
     color: #000
   }
 
+  .left {
+    padding-left: 22px;
+  }
+
   .facture-content .total .right .total-amount {
     border: none !important;
     padding-top: 9px;
     padding-bottom: 9px;
-    background: color-mix(in srgb, var(--primary-color, #46B298) 15%, gray 5%) !important;
+    color: var(--primary-text-color, white);
+    background: var(--primary-color, #46B298) !important;
   }
 
   .page-footer {
@@ -416,40 +425,10 @@
   .page-footer {
     padding-left: 24px;
   }
+  .left {
+    padding-left: 0;
+  }
   /* custom end styling */
-</style>
-
-<style>
-  .header {
-    padding-top: 60px;
-    margin-left: 14px;
-    margin-right: 14px;
-  }
-  .headline {
-    padding-top: 24px;
-    margin-left: 14px;
-  }
-  .tabs {
-    padding-top: 20px;
-    margin-left: 14px;
-    margin-right: 14px;
-  }
-  .tabs-header {
-    gap: 0;
-  }
-  .empty-item {
-    padding-top: 10px;
-    margin: 0 60px;
-    border-bottom: 1px solid #4E4D4D;
-  }
-
-  .total {
-    margin-left: 14px;
-    margin-right: 14px;
-  }
-  .page-footer {
-    padding-left: 24px;
-  }
 </style>
 
 <body>
@@ -458,12 +437,14 @@
     <%- include('../subtemplates2b/footer1') %>
     <div class="absolute bottom-[36px] left-[-10px]">
       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="25" viewBox="0 0 50 25" fill="none">
-        <path d="M49.365 0.179688H-9.40234V24.2708H49.365V0.179688Z" fill="var(--primary-color, #46B298)"/>
+        <path d="M49.3645 0.179688H-9.40283V24.2708H49.3645V0.179688Z" fill="var(--primary-color, #46B298)
+"/>
       </svg>
     </div>
     <div class="absolute bottom-[36px] right-[-40px]">
       <svg xmlns="http://www.w3.org/2000/svg" width="189" height="25" viewBox="0 0 189 25" fill="none">
-        <path d="M195.051 0.179688H0.805664V24.2708H195.051V0.179688Z" fill="var(--primary-color, #46B298)"/>
+        <path d="M195.05 0.179688H0.80542V24.2708H195.05V0.179688Z" fill="var(--primary-color, #46B298)
+"/>
       </svg>
     </div>
   </div>
@@ -485,6 +466,7 @@
 
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
+          
           </main>
         </td>
       </tr>
