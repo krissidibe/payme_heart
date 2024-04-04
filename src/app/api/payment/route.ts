@@ -2,9 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
 import { FolderType } from "@prisma/client";
 
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
 
+ 
 
 
 //const dataNew: any  = JSON.parse(searchParams.get("data")!)
@@ -112,7 +113,7 @@ let amount = "";
  
 }
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function PUT(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
 
 

@@ -39,7 +39,7 @@ function MobileMenu() {
      <p className="text-white">Acceuil</p>
      <p className="cursor-pointer hover:text-white">Caractéristiques</p>
      <p className="cursor-pointer hover:text-white">Cible</p>
-     <p className="cursor-pointer hover:text-white">FAQ</p>
+     <a href="#faq" className="cursor-pointer hover:text-white">FAQ</a>
      <p className="cursor-pointer hover:text-white">Télécharger</p>
    </div>
 

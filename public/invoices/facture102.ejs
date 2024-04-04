@@ -29,7 +29,7 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 80px;
   }
   
   .page-footer {
@@ -439,7 +439,7 @@
                         <div class="relative flex flex-col w-full" >
                           <% if(invoiceType != 2) { %>
                           <div class="total flex justify-between text-[12.51px] ">
-                            <div class="left leading-4 ">
+                            <div class="leading-4 left ">
                               <p class="font-semibold">Arrêtée la présente Facture à la somme de :</p>
                               <p>
                                 <%=totalLetter %> <%=currency %><br>
@@ -494,7 +494,7 @@
                         
                                 </div>
                             
-                                <p class="total-amount relative flex justify-between">
+                                <p class="relative flex justify-between total-amount">
                                   <span class="absolute empty-total-amount"></span>
                                   <span> MONTANT TOTAL <%= (project.tva != 0 || project.tva != '') ? "TTC": "HT" %>: </span>
                                   <span class="pl-[12px]"> <%= total %>  <%=currency %></span>
@@ -507,7 +507,7 @@
                               </div>
                             </div>
                             
-                            <div class="total-separator absolute hidden" ></div>
+                            <div class="absolute hidden total-separator" ></div>
                             <% } %>
                          
                         </div>

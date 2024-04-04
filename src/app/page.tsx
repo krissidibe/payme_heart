@@ -336,7 +336,7 @@ transform: rotate(15deg);
           Foire aux questions 
         </p>
 
-        <div className="flex flex-col gap-7">
+        <div id="faq" className="flex flex-col gap-7">
           <FaqItem content="Est-ce que Payme est facile à utiliser, même pour ceux qui ne sont pas experts en finance ?" />
           <FaqItem
             content=" Quelles sont les fonctionnalités principales de Payme pour la
