@@ -55,9 +55,6 @@ export async function POST(request: NextRequest) {
   );
   */
 
-  console.log(callback);
-  
-
  
 
   
@@ -99,7 +96,7 @@ const dataResponse = await dataRequest.json()
 
   return new Response(
     JSON.stringify({
-      message: `callback url  ${callback}`,
+      message: `En attente de paiement`,
     }),
     {
       status: 200,
@@ -111,7 +108,7 @@ const dataResponse = await dataRequest.json()
 
 return new Response(
   JSON.stringify({
-    message: `${process.env.BASE_API_URL}   error`,
+    message: `Error`,
   }),
   {
     status: 401,
