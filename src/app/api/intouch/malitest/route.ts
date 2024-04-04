@@ -86,6 +86,19 @@ const client = new DigestClient('ba612227c93cb1e42a25b91243a8b185266f6dc8b179c71
   }
 });
 
+
+if(dataRequest.status != 200){
+  return new Response(
+    JSON.stringify({
+      message: `Error`,
+    }),
+    {
+      status: 401,
+    }
+  );
+}
+
+
  if (dataRequest.status == 200) {
 
 const dataResponse = await dataRequest.json()
@@ -115,34 +128,8 @@ return new Response(
   }
 );
 
- const requestFetch = await fetch("https://api.gutouch.com/dist/api/touchpayapi/v1/MEEEN6554/transaction?loginAgent=73382636&passwordAgent=KVa8HskLLM", {
-  method: "PUT",
-  body: JSON.stringify(body),
-  
-  headers: {
-   "Content-Type": "application/json",
-   Authorization :" ",
-   
- },});
-
- if (requestFetch.status == 200) {
-
-    return new Response(
-        JSON.stringify( await  requestFetch.json()),
-        {
-          status: 401,
-        }
-      );
-    
- }
  
- const response = await requestFetch.json()
-    return new Response(
-      JSON.stringify({
-        message: `${process.env.BASE_API_URL}  ${response.description}`,
-      }),
-      {
-        status: 401,
-      }
-    );
+
+ 
+ 
 }

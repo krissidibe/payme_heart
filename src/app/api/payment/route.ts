@@ -37,6 +37,7 @@ let amount = "";
 
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const numbers = '0123456789';
+  const date = new Date(Date.now()).getTime();
 
   let lettersPart = '';
   let numbersPart = '';
@@ -49,7 +50,7 @@ let amount = "";
 
   const payment = await prisma.payment.create({
     data: {
-      reference:`${lettersPart}-${numbersPart}`,
+      reference:`${lettersPart}-${numbersPart}-${date}`,
       type: "Orange Money",
       month: parseInt(searchParams.get("month")!),
       amount: parseInt(searchParams.get("amount")!),
