@@ -21,6 +21,8 @@ export async function POST(request: NextRequest) {
   const dataPayment: Payment = await request.json();
   const { searchParams } = new URL(request.url);
 
+
+
   const callback = `${
     process.env.BASE_API_URL
   }/api/payment?userId=${searchParams.get("userId")!}&month=${
@@ -79,9 +81,13 @@ export async function POST(request: NextRequest) {
     
   }
 
+
+
   /* EndMali */
 
-  if (dataPayment.country == "MALI") {
+  if (dataPayment.country == "Mali") {
+
+ 
     const client = new DigestClient(
       "ba612227c93cb1e42a25b91243a8b185266f6dc8b179c71ad3e87a851a095f29",
       "b96aa59aaa01731bf197e4c09e42b1680bfc10057fd5397007a44e6e9f7f529e"
