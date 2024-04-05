@@ -77,7 +77,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
       .replaceAll("Et", "")
       .replaceAll("-", " ")
      
-      let logo;
+    /*   let logo;
       let signature;
 
       if (process.env.NODE_ENV=="development") {
@@ -87,11 +87,14 @@ export async function POST(req:NextRequest,res:NextResponse) {
       }else{
         logo =`https://paymefinance.com/files/logo-${dataNew.enterprise.id}.png`
         signature =`https://paymefinance.com/files/signature-${dataNew.enterprise.id}.png` 
-      }
+      } */
       
       
+      const  logo = `${process.env.NODE_ENV=="development" ? process.env.BASE_API_URL : "https://paymefinance.com"}/files/logo-${dataNew.enterprise.id}.png`
+      const    signature = `${process.env.NODE_ENV=="development" ? process.env.BASE_API_URL : "https://paymefinance.com"}/files/signature-${dataNew.enterprise.id}.png`
     
    
+      
       
  
       let  invoiceTypeName = "";

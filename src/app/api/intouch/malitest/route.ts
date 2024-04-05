@@ -1,7 +1,7 @@
 import { signJwtAccessToken } from "@/utils/jwt";
-import {prisma} from "@/utils/prisma";
+import { prisma } from "@/utils/prisma";
 import * as bcrypt from "bcrypt";
-import DigestClient from "digest-fetch"
+import DigestClient from "digest-fetch";
 import { NextRequest } from "next/server";
 
 interface RequestBody {
@@ -9,43 +9,25 @@ interface RequestBody {
   password: string;
 }
 
-
 export async function GET() {
   return new Response(JSON.stringify("LOGIN GET"));
- }
+}
 
-
- /* 
+/* 
  ba612227c93cb1e42a25b91243a8b185266f6dc8b179c71ad3e87a851a095f29
  b96aa59aaa01731bf197e4c09e42b1680bfc10057fd5397007a44e6e9f7f529e
  */
 export async function POST(request: NextRequest) {
-  const  dataPayment:Payment = await request.json();
+  const dataPayment: Payment = await request.json();
   const { searchParams } = new URL(request.url);
 
-
-/*   `${
-    process.env.BASE_API_URL
-  }/api/payment?userId=${searchParams.get("userId")!}&data=${JSON.stringify(dataPayment)!}`
-  return new Response(
-    JSON.stringify({
-      message: `Payment en cours   `,
-    }),
-    {
-      status: 200,
-    }
-  );
- */
- 
-  
- 
   const callback = `${
     process.env.BASE_API_URL
-  }/api/payment?userId=${searchParams.get("userId")!}&month=${dataPayment.month}&amount=${dataPayment.amount}`
+  }/api/payment?userId=${searchParams.get("userId")!}&month=${
+    dataPayment.month
+  }&amount=${dataPayment.amount}`;
 
- 
- 
-/*   return new Response(
+  /*   return new Response(
     JSON.stringify({
       message: `Payment en cours  ....   ${callback} `,
     }),
@@ -55,81 +37,97 @@ export async function POST(request: NextRequest) {
   );
   */
 
- 
+  //dataPayment.amount
 
+  /* Mali */
+  const bodyMaliOR = {
+    idFromClient: new Date().getTime().toString(),
+    additionnalInfos: {
+      recipientEmail: "assowlove@gmail.com",
+      recipientFirstName: "Aboubacar Sidiki",
+      recipientLastName: "Sidibe",
+      destinataire: dataPayment.number,
+    },
+    amount: 100,
+    callback: callback,
+    recipientNumber: dataPayment.number,
+    serviceCode: "ML_PAIEMENTMARCHAND_OM_TP",
+  };
+  const bodyMaliMoov = {
+    idFromClient: new Date().getTime().toString(),
+    additionnalInfos: {
+      recipientEmail: "JUNIOR@hubsocial.org",
+      recipientFirstName: "Moustapha",
+      recipientLastName: "SECK",
+      destinataire: dataPayment.number,
+    },
+    amount: 100,
+    callback: callback,
+    recipientNumber: dataPayment.number,
+    serviceCode: "PAIEMENTMARCHAND_MOOV_CI",
+  };
+
+  let bodyMali = {};
+  switch (dataPayment.operateur) {
+    case "OrangeMoney":
+      bodyMali = bodyMaliOR
+      break;
+    case "Moov":
+      bodyMali =  bodyMaliMoov
+      break;
   
-
-
- //dataPayment.amount
- 
- const body = {
-	"idFromClient":  new Date().getTime().toString(),
-	"additionnalInfos": {
-		"recipientEmail": "assowlove@gmail.com",
-		"recipientFirstName": "Aboubacar Sidiki",
-		"recipientLastName": "Sidibe",
-		"destinataire": dataPayment.number
-	},
-	"amount":100,
-	"callback": callback,
-	"recipientNumber": dataPayment.number,
-	"serviceCode": "ML_PAIEMENTMARCHAND_OM_TP"
-}
-
-const client = new DigestClient('ba612227c93cb1e42a25b91243a8b185266f6dc8b179c71ad3e87a851a095f29', 'b96aa59aaa01731bf197e4c09e42b1680bfc10057fd5397007a44e6e9f7f529e')
- const dataRequest = await  client.fetch("https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEEN6554/transaction?loginAgent=73382636&passwordAgent=KVa8HskLLM", {
-  method: "PUT",
-  body: JSON.stringify(body),
-  headers: {
-   "Content-Type": "application/json",
-   
+    
   }
-});
 
+  /* EndMali */
 
-if(dataRequest.status != 200){
-  return new Response(
-    JSON.stringify({
-      message: `Error`,
-    }),
-    {
-      status: 401,
+  if (dataPayment.country == "MALI") {
+    const client = new DigestClient(
+      "ba612227c93cb1e42a25b91243a8b185266f6dc8b179c71ad3e87a851a095f29",
+      "b96aa59aaa01731bf197e4c09e42b1680bfc10057fd5397007a44e6e9f7f529e"
+    );
+    const dataRequest = await client.fetch(
+      "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEEN6554/transaction?loginAgent=73382636&passwordAgent=KVa8HskLLM",
+      {
+        method: "PUT",
+        body: JSON.stringify(bodyMali),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (dataRequest.status != 200) {
+      return new Response(
+        JSON.stringify({
+          message: `Error`,
+        }),
+        {
+          status: 401,
+        }
+      );
     }
-  );
-}
 
+    if (dataRequest.status == 200) {
+      const dataResponse = await dataRequest.json();
 
- if (dataRequest.status == 200) {
-
-const dataResponse = await dataRequest.json()
-
- 
- 
-  
-
-  return new Response(
-    JSON.stringify({
-      message: `En attente de paiement`,
-    }),
-    {
-      status: 200,
+      return new Response(
+        JSON.stringify({
+          message: `Payment en cours  ....   ${callback} `,
+        }),
+        {
+          status: 200,
+        }
+      );
     }
-  );
- }
 
-
-
-return new Response(
-  JSON.stringify({
-    message: `Error`,
-  }),
-  {
-    status: 401,
+    return new Response(
+      JSON.stringify({
+        message: `Error`,
+      }),
+      {
+        status: 401,
+      }
+    );
   }
-);
-
- 
-
- 
- 
 }

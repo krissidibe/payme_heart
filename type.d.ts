@@ -134,6 +134,14 @@ enum FolderType {
 
  
     type Payment = {
+
+      otp?  : number
+     number?  :number
+     method?  :string
+     operateur?  :string
+    country?  :string
+
+
     reference  :string
     type  :string
     number  :number
