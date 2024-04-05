@@ -121,11 +121,11 @@ export async function POST(request: NextRequest) {
 
     if (dataRequest.status != 200) {
       console.log("Not 200");
-      console.log(await dataRequest.json());
+      
       
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....${dataRequest.status} -> ${JSON.stringify(await dataRequest.json())}    `,
+          message: `Payment en cours  ....  Not 200`,
         }),
         {
           status: 200,
@@ -135,11 +135,11 @@ export async function POST(request: NextRequest) {
 
     if (dataRequest.status == 200) {
       console.log("IS 200");
-console.log(await dataRequest.json());
+ 
 
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....${dataRequest.status} -> ${JSON.stringify(await dataRequest.json())}    `,
+          message: `Payment en cours  ....    200`,
         }),
         {
           status: 200,
@@ -232,7 +232,7 @@ console.log(await dataRequest.json());
     if (dataRequest.status != 200) {
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....${dataRequest.status} -> ${JSON.stringify(await dataRequest.json())}    `,
+          message: `Payment en cours  ....  Not 200`,
         }),
         {
           status: 200,
@@ -245,7 +245,7 @@ console.log(await dataRequest.json());
 
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....${dataRequest.status} -> ${JSON.stringify(await dataRequest.json())}    `,
+          message: `Payment en cours  ....  200`,
         }),
         {
           status: 200,
