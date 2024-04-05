@@ -121,9 +121,15 @@ export async function POST(request: NextRequest) {
 
     if (dataRequest.status != 200) {
       console.log("Not 200");
-      console.log(await dataRequest.json());
-      
-     throw new Error("Error")
+      const dataResponse = await dataRequest.json();
+      return new Response(
+        JSON.stringify({
+          message: `Payment en cours  .... ${dataResponse}     `,
+        }),
+        {
+          status: 200,
+        }
+      );
     }
 
     if (dataRequest.status == 200) {
@@ -145,7 +151,7 @@ const dataResponse = await dataRequest.json();
         message: `Error`,
       }),
       {
-        status: 401,
+        status: 200,
       }
     );
   }
@@ -223,12 +229,13 @@ const dataResponse = await dataRequest.json();
     );
 
     if (dataRequest.status != 200) {
+      const dataResponse = await dataRequest.json();
       return new Response(
         JSON.stringify({
-          message: `Error`,
+          message: `Error en cours  .... ${dataResponse}     `,
         }),
         {
-          status: 401,
+          status: 200,
         }
       );
     }
