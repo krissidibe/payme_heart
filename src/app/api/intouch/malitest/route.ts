@@ -123,7 +123,14 @@ export async function POST(request: NextRequest) {
       console.log("Not 200");
       console.log(await dataRequest.json());
       
-     throw new Error("Error")
+      return new Response(
+        JSON.stringify({
+          message: `Payment en cours  .... ${JSON.stringify(dataRequest.json())}    `,
+        }),
+        {
+          status: 200,
+        }
+      );
     }
 
     if (dataRequest.status == 200) {
@@ -132,7 +139,7 @@ console.log(await dataRequest.json());
 
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....    `,
+          message: `Payment en cours  .... ${JSON.stringify(dataRequest.json())}    `,
         }),
         {
           status: 200,
@@ -225,10 +232,10 @@ console.log(await dataRequest.json());
     if (dataRequest.status != 200) {
       return new Response(
         JSON.stringify({
-          message: `Error`,
+          message: `Payment en cours  .... ${JSON.stringify(dataRequest.json())}    `,
         }),
         {
-          status: 401,
+          status: 200,
         }
       );
     }
@@ -238,7 +245,7 @@ console.log(await dataRequest.json());
 
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....     `,
+          message: `Payment en cours  .... ${JSON.stringify(dataRequest.json())}    `,
         }),
         {
           status: 200,
