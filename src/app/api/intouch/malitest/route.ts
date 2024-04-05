@@ -17,7 +17,7 @@ export async function GET() {
  ba612227c93cb1e42a25b91243a8b185266f6dc8b179c71ad3e87a851a095f29
  b96aa59aaa01731bf197e4c09e42b1680bfc10057fd5397007a44e6e9f7f529e
  */
-export async function POST(request: NextRequest) {
+export async function PUT(request: NextRequest) {
   const dataPayment: Payment = await request.json();
   const { searchParams } = new URL(request.url);
 
