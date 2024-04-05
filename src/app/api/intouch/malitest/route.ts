@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
 
 
 
-  /* EndMali */
+  
 
   if (dataPayment.country == "Mali") {
 
@@ -97,6 +97,112 @@ export async function POST(request: NextRequest) {
       {
         method: "PUT",
         body: JSON.stringify(bodyMali),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (dataRequest.status != 200) {
+      return new Response(
+        JSON.stringify({
+          message: `Error`,
+        }),
+        {
+          status: 401,
+        }
+      );
+    }
+
+    if (dataRequest.status == 200) {
+      const dataResponse = await dataRequest.json();
+
+      return new Response(
+        JSON.stringify({
+          message: `Payment en cours  ....   ${callback} `,
+        }),
+        {
+          status: 200,
+        }
+      );
+    }
+
+    return new Response(
+      JSON.stringify({
+        message: `Error`,
+      }),
+      {
+        status: 401,
+      }
+    );
+  }
+  /* EndMali */
+  /* CI */
+
+
+
+
+  const bodyCiOR = {	
+    idFromClient: new Date().getTime().toString(),
+	  additionnalInfos: {
+		recipientEmail: "JUNIOR@hubsocial.org",
+		recipientFirstName: "Moustapha",
+		recipientLastName: "SECK",
+		destinataire: dataPayment.number,
+		otp: dataPayment.otp
+	},
+	amount: 100,
+	callback: callback,
+	recipientNumber: dataPayment.number,
+	serviceCode: "PAIEMENTMARCHANDOMPAYCIDIRECT"
+}
+
+  const bodyCiMoov ={
+    idFromClient: new Date().getTime().toString(),
+	  additionnalInfos: {
+		recipientEmail: "JUNIOR@hubsocial.org",
+		recipientFirstName: "Moustapha",
+		recipientLastName: "SECK",
+		destinataire: dataPayment.number
+		
+	},
+	amount: 100,
+	callback: callback,
+	recipientNumber: dataPayment.number,
+	serviceCode: "PAIEMENTMARCHAND_MOOV_CI"
+}
+
+
+  let bodyCi = {};
+  switch (dataPayment.operateur) {
+    case "OrangeMoney":
+      bodyCi = bodyCiOR
+      break;
+    case "Moov":
+      bodyCi =  bodyCiMoov
+      break;
+  
+    
+  }
+
+
+
+
+
+
+
+  if (dataPayment.country == "Côte d'Ivoire") {
+
+ 
+    const client = new DigestClient(
+      "8ad4041d5c41b8af9fecc5856a4b0f29dbadca53fbd53c9fe6d55fac4ce3050e",
+      "9829080684812e132d12d02326e303d797360359039a4241d8f57f414859e3af"
+    );
+    const dataRequest = await client.fetch(
+      "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEECI10889/transaction?loginAgent=2373382636&passwordAgent=e52aGamwGc",
+      {
+        method: "PUT",
+        body: JSON.stringify(bodyCi),
         headers: {
           "Content-Type": "application/json",
         },
