@@ -129,10 +129,10 @@ export async function POST(request: NextRequest) {
     if (dataRequest.status == 200) {
       console.log("IS 200");
 console.log(await dataRequest.json());
-
+const dataResponse = await dataRequest.json();
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....    `,
+          message: `Payment en cours  .... ${dataResponse}     `,
         }),
         {
           status: 200,
@@ -238,7 +238,7 @@ console.log(await dataRequest.json());
 
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....     `,
+          message: `Payment en cours  ....   ${dataResponse}   `,
         }),
         {
           status: 200,
