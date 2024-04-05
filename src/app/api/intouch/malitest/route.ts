@@ -17,17 +17,21 @@ export async function GET() {
  ba612227c93cb1e42a25b91243a8b185266f6dc8b179c71ad3e87a851a095f29
  b96aa59aaa01731bf197e4c09e42b1680bfc10057fd5397007a44e6e9f7f529e
  */
-export async function PUT(request: NextRequest) {
+export async function POST(request: NextRequest) {
   const dataPayment: Payment = await request.json();
   const { searchParams } = new URL(request.url);
 
 
 
-  const callback = `${
+  const callbackOld = `${
     process.env.BASE_API_URL
   }/api/payment?userId=${searchParams.get("userId")!}&month=${
     dataPayment.month
   }&amount=${dataPayment.amount}`;
+
+   const callback = `${
+    process.env.BASE_API_URL
+  }/api/paytest`
 
   /*   return new Response(
     JSON.stringify({
@@ -45,9 +49,9 @@ export async function PUT(request: NextRequest) {
   const bodyMaliOR = {
     idFromClient: new Date().getTime().toString(),
     additionnalInfos: {
-      recipientEmail: "assowlove@gmail.com",
-      recipientFirstName: "Aboubacar Sidiki",
-      recipientLastName: "Sidibe",
+      recipientEmail: "assowlovesss@gmail.com",
+      recipientFirstName: "Aboubacar Sidikiss",
+      recipientLastName: "Sidibess",
       destinataire: dataPayment.number,
     },
     amount: 100,
@@ -55,19 +59,20 @@ export async function PUT(request: NextRequest) {
     recipientNumber: dataPayment.number,
     serviceCode: "ML_PAIEMENTMARCHAND_OM_TP",
   };
-  const bodyMaliMoov = {
+  const bodyMaliMoov = 
+  {
     idFromClient: new Date().getTime().toString(),
-    additionnalInfos: {
-      recipientEmail: "JUNIOR@hubsocial.org",
+      additionnalInfos: {
+      recipientEmail: "tapha.seck@hubsocial.org",
       recipientFirstName: "Moustapha",
       recipientLastName: "SECK",
-      destinataire: dataPayment.number,
+      destinataire: dataPayment.number
     },
     amount: 100,
     callback: callback,
     recipientNumber: dataPayment.number,
-    serviceCode: "PAIEMENTMARCHAND_MOOV_CI",
-  };
+    serviceCode: "ML_PAIEMENTMARCHAND_MOOV_TP"
+  }
 
   let bodyMali = {};
   switch (dataPayment.operateur) {
@@ -83,14 +88,17 @@ export async function PUT(request: NextRequest) {
 
 
 
+
+
   
 
   if (dataPayment.country == "Mali") {
 
- 
+
+    
     const client = new DigestClient(
       "ba612227c93cb1e42a25b91243a8b185266f6dc8b179c71ad3e87a851a095f29",
-      "b96aa59aaa01731bf197e4c09e42b1680bfc10057fd5397007a44e6e9f7f529e"
+      "b96aa59aaa01731bf197e4c09e42b1680bfc10057fd5397007a44e6e9f7f529e",
     );
     const dataRequest = await client.fetch(
       "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEEN6554/transaction?loginAgent=73382636&passwordAgent=KVa8HskLLM",
@@ -103,23 +111,26 @@ export async function PUT(request: NextRequest) {
       }
     );
 
+    
+   /* 99999235 */
+
+
+ 
+
     if (dataRequest.status != 200) {
-      return new Response(
-        JSON.stringify({
-          message: `Error`,
-        }),
-        {
-          status: 401,
-        }
-      );
+      console.log("Not 200");
+      console.log(await dataRequest.json());
+      
+     throw new Error("Error")
     }
 
     if (dataRequest.status == 200) {
-      const dataResponse = await dataRequest.json();
+      console.log("IS 200");
+console.log(await dataRequest.json());
 
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....   ${callback} `,
+          message: `Payment en cours  ....    `,
         }),
         {
           status: 200,
@@ -225,7 +236,7 @@ export async function PUT(request: NextRequest) {
 
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....   ${callback} `,
+          message: `Payment en cours  ....     `,
         }),
         {
           status: 200,
