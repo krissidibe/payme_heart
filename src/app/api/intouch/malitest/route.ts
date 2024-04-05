@@ -31,7 +31,9 @@ export async function POST(request: NextRequest) {
 
    const callback = `${
     process.env.BASE_API_URL
-  }/api/paytest`
+  }/api/paytest?userId=${searchParams.get("userId")!}&month=${
+    dataPayment.month
+  }&amount=${dataPayment.amount}&type=${dataPayment.country}-${dataPayment.operateur}`
 
   /*   return new Response(
     JSON.stringify({

@@ -1,15 +1,39 @@
 import { NextRequest } from "next/server";
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest,) {
 
-
+    const { searchParams } = new URL(request.url);
 
     const data: any = await request.json();
 
-   console.log("PayTest");
+   console.log("=====");
    console.log(data);
-   console.log("PayTest");
+   console.log("=====");
+
+
+   const callbackOld = `${
+    process.env.BASE_API_URL
+  }/api/payment?userId=${searchParams.get("userId")!}&month=${
+    searchParams.get("month")
+  }&amount=${searchParams.get("amount")}&type=${searchParams.get("type")}`;
+
+console.log(callbackOld);
+
+
+
+   if(data.status == 'SUCCESSFUL'){
+    const dataRequest = await fetch(callbackOld, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        
+      })
+      console.log(await dataRequest.json());
+      
+      return new Response(JSON.stringify("Payment Successful"));
+   }
    
 
-    return new Response(JSON.stringify(data))
+    return new Response(JSON.stringify("Payment not Successful"));
 }

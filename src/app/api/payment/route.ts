@@ -51,7 +51,7 @@ let amount = "";
   const payment = await prisma.payment.create({
     data: {
       reference:`${lettersPart}-${numbersPart}-${date}`,
-      type: "Orange Money",
+      type: searchParams.get("type") ?? "",
       month: parseInt(searchParams.get("month")!),
       amount: parseInt(searchParams.get("amount")!),
       currency: "FCFA",
