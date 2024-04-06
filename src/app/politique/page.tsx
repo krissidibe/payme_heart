@@ -9,8 +9,9 @@ export const dynamic = "force-dynamic";
 import { IoIosMenu } from "react-icons/io";
 import localFont from "next/font/local";
 import ToggleButton from "../ToggleButton";
-import MobileMenu from "../MobileMenu";
+import MobileMenu2 from "../MobileMenu2";
 import { Linkedin } from "lucide-react";
+import Link from "next/link";
 
 const titleFont = localFont({
   src: [
@@ -52,13 +53,13 @@ export default async function Home() {
 
   return (
     <main
-      className={`flex flex-col items-center  overflow-x-hidden relative text-[#B9B9B9] w-full   min-h-screen bg-[#0E0E0E] ${myFont.className}`}
+      className={`flex flex-col items-center no-scrollbar  overflow-x-hidden relative text-[#B9B9B9] w-full   min-h-screen bg-[#0E0E0E] ${myFont.className}`}
     >
       <img className="absolute" src="images/Grille.png" alt="" />
 
       <div className="heroEclipse"></div>
       {/* Header */}
-      <MobileMenu />
+      <MobileMenu2 />
 
       <div className="relative w-full max-w-5xl xl:px-0 md:px-[50px] px-[40px] mt-[180px] pb-20">
         <div
@@ -217,11 +218,11 @@ Partie III – Généralités
 
           <p className="mt-4">
             <span className="text-xl">Informations personnelles concernant les enfants </span> <br />
-            Les produits et services de Payme ne sont pas destinés aux personnes de moins de 16 ans. Nous ne collectons délibérément aucune information personnelle auprès d'enfants de moins de 16 ans à nos propres fins. Si nous constatons qu'un enfant de moins de 16 ans nous a fourni des informations personnelles, des mesures seront prises pour supprimer ces informations. Si vous avez connaissance qu'un enfant de moins de 16 ans nous a fourni des informations personnelles, veuillez nous contacter à <span className="text-teal-500">contact@paymefinance.com</span> en fournissant les détails nécessaires, et nous prendrons les mesures appropriées pour supprimer ces informations. Cependant, en utilisant nos produits, vous pourriez collecter des informations sur des personnes qui peuvent être des enfants. En traitant de telles informations, vous reconnaissez et acceptez d'assumer la responsabilité de respecter les lois et réglementations applicables en matière de protection de ces informations personnelles.
+            Les produits et services de Payme ne sont pas destinés aux personnes de moins de 16 ans. Nous ne collectons délibérément aucune information personnelle auprès d'enfants de moins de 16 ans à nos propres fins. Si nous constatons qu'un enfant de moins de 16 ans nous a fourni des informations personnelles, des mesures seront prises pour supprimer ces informations. Si vous avez connaissance qu'un enfant de moins de 16 ans nous a fourni des informations personnelles, veuillez nous contacter à <a href={`mailto:contact@paymefinance.com?subject=${"object"}&body=${"message"}`}  className="text-teal-500">contact@paymefinance.com</a> en fournissant les détails nécessaires, et nous prendrons les mesures appropriées pour supprimer ces informations. Cependant, en utilisant nos produits, vous pourriez collecter des informations sur des personnes qui peuvent être des enfants. En traitant de telles informations, vous reconnaissez et acceptez d'assumer la responsabilité de respecter les lois et réglementations applicables en matière de protection de ces informations personnelles.
 </p>
           <p className="mt-4">
             <span className="text-xl">Niveau de sécurité de vos informations</span> <br />
-            Chez Payme, la sécurité des données est une priorité. Nous avons mis en place des mesures de protection administratives, techniques et physiques appropriées pour prévenir l'accès, l'utilisation, la modification, la divulgation ou la destruction non autorisés des informations que vous nous confiez. Pour des préoccupations relatives à la sécurité de vos données, nous vous encourageons à consulter notre politique de sécurité ou à nous contacter à <span className="text-teal-500">contact@paymefinance.com</span> pour toute question.
+            Chez Payme, la sécurité des données est une priorité. Nous avons mis en place des mesures de protection administratives, techniques et physiques appropriées pour prévenir l'accès, l'utilisation, la modification, la divulgation ou la destruction non autorisés des informations que vous nous confiez. Pour des préoccupations relatives à la sécurité de vos données, nous vous encourageons à consulter notre politique de sécurité ou à nous contacter à <a href={`mailto:contact@paymefinance.com?subject=${"object"}&body=${"message"}`}  className="text-teal-500">contact@paymefinance.com</a> pour toute question.
           </p>
           <p className="mt-4">
             <span className="text-xl">Transferts internationaux et emplacements</span> <br />
@@ -261,24 +262,20 @@ Partie III – Généralités
           </p>
           <p className="mt-4">
             <span className="text-xl">Conformité avec cette Politique de confidentialité</span> <br />
-            Nous nous efforçons de garantir que les informations personnelles que vous fournissez sont utilisées conformément à cette Politique de confidentialité. Si vous avez des préoccupations concernant notre conformité ou l'utilisation de vos informations personnelles, veuillez nous contacter à <span className="text-teal-500">contact@paymefinance.com</span>. Nous prendrons contact avec vous et, si nécessaire, collaborerons avec les autorités réglementaires pour résoudre efficacement vos préoccupations.
+            Nous nous efforçons de garantir que les informations personnelles que vous fournissez sont utilisées conformément à cette Politique de confidentialité. Si vous avez des préoccupations concernant notre conformité ou l'utilisation de vos informations personnelles, veuillez nous contacter à <a href={`mailto:contact@paymefinance.com?subject=${"object"}&body=${"message"}`}  className="text-teal-500">contact@paymefinance.com</a>. Nous prendrons contact avec vous et, si nécessaire, collaborerons avec les autorités réglementaires pour résoudre efficacement vos préoccupations.
           </p>
-          <p className="mt-4">
+          <p className="mt-4 border-b pb-[60px] border-white/20">
             <span className="text-xl">Notification des changements</span> <br />
             La politique de confidentialité peut être modifiée à tout moment, avec un avis par le biais d'une annonce de service ou d'un e-mail à votre adresse e-mail principale. En cas de modifications substantielles affectant vos droits, vous recevrez un préavis d'au moins 30 jours par e-mail à votre adresse principale. Si vous ne vérifiez pas votre adresse e-mail, vous risquez de manquer des notifications importantes. Si vous estimez que les modifications affectent vos droits, vous pouvez mettre fin à votre utilisation dans les 30 jours suivant l'entrée en vigueur des modifications. Votre utilisation continue sera considérée comme l'acceptation de la Politique de confidentialité modifiée. Les modifications mineures ne feront pas l'objet d'une notification par e-mail. Pour les mises à jour, veuillez vérifier périodiquement <span className="text-teal-500">https://www.paymefinance.com/politique</span>
           </p>
           
         </div>
       </div>
-      <div className="w-full  max-w-6xl xl:px-16 md:px-[50px] px-[40px] flex-col bg  rounded-3xl flex   relative ">
-        <div className="gestion opacity-40"></div>
+      <div className="w-full  max-w-6xl xl:px-14 md:px-[50px] px-[40px] flex-col  p-8 py-4 rounded-3xl flex   relative ">
+  <div className="gestion opacity-40"></div> 
         <div className="flex flex-col items-end justify-between mt-6 md:flex-row">
           <div className="flex flex-col w-full">
-            <img
-              src={"/images/logo-payme-complet.png"}
-              width={110}
-              height={50}
-            />
+          <img src={"/images/logo-payme-complet.png"} width={110} height={50} />
             <p className="text-[14px] mt-[13px]">
               © 2024 Payme, Sarl. Tout droit réservé.
             </p>
@@ -289,7 +286,8 @@ Partie III – Généralités
           </div>
 
           <div className="w-full flex flex-col items-end leading-4  md:w-[700px]">
-            <div className="flex flex-row items-center justify-center ">
+        
+          <div className="flex flex-row items-center justify-center ">
               <svg
                 width="41"
                 height="41"
@@ -343,40 +341,21 @@ Partie III – Généralités
                 />
               </svg>
             </div>
+            
+          <div className="z-50 flex gap-2">
+          <p className="text-[16px] mt-[7px] text-[#727072]">
+             <Link href="/conditions-generales"  
+          className="cursor-pointer hover:text-white/70 " > Conditions d'utilisation </Link> et  
+          
+          <Link  href="/politique"   
+          className="cursor-pointer hover:text-white/70 " > Politique de confidentialité    </Link> 
+          
+            </p>
+            
+          
 
-            <div className="z-50 flex gap-2">
-              <p className="text-[16px] mt-[7px] text-[#727072]">
-                <span
-                  onClick={() => {
-                    window.open(
-                      `${
-                        process.env.BASE_API_URL + "/" + "conditions-generales"
-                      }`,
-                      "_blank"
-                    );
-                  }}
-                  className="cursor-pointer hover:text-white/70 "
-                >
-                  {" "}
-                  Conditions d'utilisation{" "}
-                </span>{" "}
-                et
-                <span
-                  onClick={() => {
-                    window.open(
-                      `${
-                        process.env.BASE_API_URL + "/" + "conditions-generales"
-                      }`,
-                      "_blank"
-                    );
-                  }}
-                  className="cursor-pointer hover:text-white/70 "
-                >
-                  {" "}
-                  Politique de confidentialité{" "}
-                </span>
-              </p>
-            </div>
+          </div>
+           
           </div>
         </div>
       </div>

@@ -53,7 +53,7 @@ export default async function Home() {
 
   return (
     <main id="index"
-      className={`flex flex-col items-center  overflow-x-hidden relative text-[#B9B9B9] w-full   min-h-screen bg-[#0E0E0E] ${myFont.className}`}
+      className={`flex flex-col items-center no-scrollbar  overflow-x-hidden relative text-[#B9B9B9] w-full   min-h-screen bg-[#0E0E0E] ${myFont.className}`}
     >
       <img className="absolute" src="images/Grille.png" alt="" />
       
@@ -450,15 +450,11 @@ transform: rotate(15deg);
             
           <div className="z-50 flex gap-2">
           <p className="text-[16px] mt-[7px] text-[#727072]">
-             <span  onClick={()=>{
-            window.open(`${process.env.BASE_API_URL+"/"+"conditions-generales"}`, "_blank")
-          }} 
-          className="cursor-pointer hover:text-white/70 " > Conditions d'utilisation </span> et  
+             <Link href="/conditions-generales"  
+          className="cursor-pointer hover:text-white/70 " > Conditions d'utilisation </Link> et  
           
-          <span  onClick={()=>{
-            window.open(`${process.env.BASE_API_URL+"/"+"politique"}`, "_blank")
-          }} 
-          className="cursor-pointer hover:text-white/70 " > Politique de confidentialité    </span> 
+          <Link  href="/politique"   
+          className="cursor-pointer hover:text-white/70 " > Politique de confidentialité    </Link> 
           
             </p>
             

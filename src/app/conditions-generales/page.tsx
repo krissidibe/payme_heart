@@ -9,8 +9,9 @@ export const dynamic = "force-dynamic";
 import { IoIosMenu } from "react-icons/io";
 import localFont from "next/font/local";
 import ToggleButton from "../ToggleButton";
-import MobileMenu from "../MobileMenu";
+import MobileMenu2 from "../MobileMenu2";
 import { Linkedin } from "lucide-react";
+import Link from "next/link";
 
 const titleFont = localFont({
   src: [
@@ -52,13 +53,13 @@ export default async function Home() {
 
   return (
     <main
-      className={`flex flex-col items-center  overflow-x-hidden relative text-[#B9B9B9] w-full   min-h-screen bg-[#0E0E0E] ${myFont.className}`}
+      className={`flex flex-col no-scrollbar items-center  overflow-x-hidden relative text-[#B9B9B9] w-full   min-h-screen bg-[#0E0E0E] ${myFont.className}`}
     >
       <img className="absolute" src="images/Grille.png" alt="" />
 
       <div className="heroEclipse"></div>
       {/* Header */}
-      <MobileMenu />
+      <MobileMenu2 />
 
       <div className="relative w-full max-w-5xl xl:px-0 md:px-[50px] px-[40px] mt-[180px] pb-20">
         <div
@@ -347,15 +348,11 @@ export default async function Home() {
           {/* End */}
         </div>
       </div>
-      <div className="w-full  max-w-6xl xl:px-16 md:px-[50px] px-[40px] flex-col bg  rounded-3xl flex   relative ">
-        <div className="gestion opacity-40"></div>
+      <div className="w-full  max-w-6xl xl:px-14 md:px-[50px] px-[40px] flex-col  p-8 py-4 rounded-3xl flex   relative ">
+  <div className="gestion opacity-40"></div> 
         <div className="flex flex-col items-end justify-between mt-6 md:flex-row">
           <div className="flex flex-col w-full">
-            <img
-              src={"/images/logo-payme-complet.png"}
-              width={110}
-              height={50}
-            />
+          <img src={"/images/logo-payme-complet.png"} width={110} height={50} />
             <p className="text-[14px] mt-[13px]">
               © 2024 Payme, Sarl. Tout droit réservé.
             </p>
@@ -366,7 +363,8 @@ export default async function Home() {
           </div>
 
           <div className="w-full flex flex-col items-end leading-4  md:w-[700px]">
-            <div className="flex flex-row items-center justify-center ">
+        
+          <div className="flex flex-row items-center justify-center ">
               <svg
                 width="41"
                 height="41"
@@ -420,40 +418,21 @@ export default async function Home() {
                 />
               </svg>
             </div>
+            
+          <div className="z-50 flex gap-2">
+          <p className="text-[16px] mt-[7px] text-[#727072]">
+             <Link href="/conditions-generales"  
+          className="cursor-pointer hover:text-white/70 " > Conditions d'utilisation </Link> et  
+          
+          <Link  href="/politique"   
+          className="cursor-pointer hover:text-white/70 " > Politique de confidentialité    </Link> 
+          
+            </p>
+            
+          
 
-            <div className="z-50 flex gap-2">
-              <p className="text-[16px] mt-[7px] text-[#727072]">
-                <span
-                  onClick={() => {
-                    window.open(
-                      `${
-                        process.env.BASE_API_URL + "/" + "conditions-generales"
-                      }`,
-                      "_blank"
-                    );
-                  }}
-                  className="cursor-pointer hover:text-white/70 "
-                >
-                  {" "}
-                  Conditions d'utilisation{" "}
-                </span>{" "}
-                et
-                <span
-                  onClick={() => {
-                    window.open(
-                      `${
-                        process.env.BASE_API_URL + "/" + "conditions-generales"
-                      }`,
-                      "_blank"
-                    );
-                  }}
-                  className="cursor-pointer hover:text-white/70 "
-                >
-                  {" "}
-                  Politique de confidentialité{" "}
-                </span>
-              </p>
-            </div>
+          </div>
+           
           </div>
         </div>
       </div>
