@@ -11,18 +11,24 @@ export async function POST(request: NextRequest,) {
    console.log("=====");
 
 
-   const callbackOld = `${
+   const callbackPushPayment = `${
     process.env.BASE_API_URL
   }/api/payment?userId=${searchParams.get("userId")!}&month=${
     searchParams.get("month")
   }&amount=${searchParams.get("amount")}&type=${searchParams.get("type")}`;
 
-console.log(callbackOld);
+ 
 
 
+
+
+  console.log(data);
+  
 
    if(data.status == 'SUCCESSFUL'){
-    const dataRequest = await fetch(callbackOld, {
+    console.log("SUCCESSFUL");
+    
+    const dataRequest = await fetch(callbackPushPayment, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

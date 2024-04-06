@@ -24,13 +24,22 @@ export async function POST(request: NextRequest) {
 
 
 
+ 
 
-   const callback = `${
-    process.env.BASE_API_URL
-  }/api/paytest?userId=${searchParams.get("userId")!}&month=${
+
+  const  typePayment = `${dataPayment.country}-${dataPayment.operateur}`
+
+
+   const callback = `https://paymefinance.com/api/paymentpush?userId=${searchParams.get("userId")!}&month=${
     dataPayment.month
-  }&amount=${dataPayment.amount}&type=${dataPayment.country} - ${dataPayment.operateur}`
+  }&amount=${dataPayment.amount}&type=${typePayment}`
 
+
+/*   const callbackOld = `https://paymefinance.com/api/paytest?userId=${searchParams.get("userId")!}&month=${
+    dataPayment.month
+  }&amount=${dataPayment.amount}&type=${typePayment}`
+ */
+ 
   /*   return new Response(
     JSON.stringify({
       message: `Payment en cours  ....   ${callback} `,
