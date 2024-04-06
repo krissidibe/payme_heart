@@ -88,7 +88,7 @@ export const Welcome = ({
 
           <Section style={footer}>
             <Text style={{ textAlign: "center", padding:"10px" ,color: "#00000095" }}>
-              © 2023 Payme, Tous droits réservés <br />
+              © 2024 Payme, Tous droits réservés <br />
               350 Bush Street, Bamako Golf, CA, 94104 - Mali
             </Text>
           </Section>

@@ -1,7 +1,7 @@
- 
+"use client"; 
 import Pdfrenderer from "@/components/pdfrenderer";
 import MyDocumentPDF from "@/components/PdfRend";
-import { FaWindows } from "react-icons/fa6";
+import { FaLinkedinIn, FaWindows } from "react-icons/fa6";
 import Image from "next/image";
 import { IoIosClose, IoMdMenu } from "react-icons/io";
 import { RiAppleFill } from "react-icons/ri";
@@ -10,6 +10,7 @@ import { IoIosMenu } from "react-icons/io";
 import localFont from "next/font/local";
 import ToggleButton from "./ToggleButton";
 import MobileMenu from "./MobileMenu";
+import Link from "next/link";
  
 
 const titleFont = localFont({
@@ -51,7 +52,7 @@ export default async function Home() {
   const data: any[] = [];
 
   return (
-    <main
+    <main id="index"
       className={`flex flex-col items-center  overflow-x-hidden relative text-[#B9B9B9] w-full   min-h-screen bg-[#0E0E0E] ${myFont.className}`}
     >
       <img className="absolute" src="images/Grille.png" alt="" />
@@ -79,7 +80,8 @@ export default async function Home() {
       </div>
       </div> */}
       {/* Info */}
-      <div className="w-[986px]     flex flex-col justify-center items-center px-10 mt-[120px] md:mt-[189px] ">
+      <div id="telecharger"  ></div>
+      <div  className="w-[986px]     flex flex-col justify-center items-center px-10 mt-[120px] md:mt-[189px] ">
        
         <p className="leading-9  md:leading-[55px] text-center xl:max-w-[970px] md:max-w-[800px] px-6 max-w-[390px] ">
           
@@ -101,11 +103,12 @@ export default async function Home() {
 <div>
   
 </div>
+
        <div className="relative flex gap-4 mt-[25px]  md:mt-[36px]">
        <div className="relative flex md:hidden">
        <div className="absolute -top-1 downloadApp2 -left-4 md:flex"></div> 
          
-        <div className=" w-[180px] text-[13px]  bg-[#0E0E0E] relative  border-2   h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
+        <div   className=" w-[180px] text-[13px]  bg-[#0E0E0E] relative  border-2   h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
       
         Télécharger l'application
         </div>
@@ -131,7 +134,7 @@ export default async function Home() {
 
       <div className=" px-6 mt-[40px] md:mt-[52px] xl:mt-[72px]   xl:w-[1308px] z-10 md:px-[70px] xl:px-[80px] ">
         <div className="p-[6px] xl:p-3 bg-[#ffffff09] border-t border-opacity-30 border-white rounded-md">
-          <img src="/images/Rectangle 14.png" alt="" />
+          <img src="/images/Rectangle.png" alt="" />
         </div>
       </div>
       {/* 
@@ -150,10 +153,13 @@ filter: blur(161px);
 transform: rotate(15deg);
 
     */}
+
+
+<div id="caracteristique"  ></div>
       <div className="relative w-full max-w-6xl xl:px-0 md:px-[50px] px-[40px]">
         <div className="eclipse "></div>
 
-        <div className=" mt-10 md:mt-[122px]  flex-col md:flex-row flex rounded-md">
+        <div  className=" mt-10 md:mt-[122px]  flex-col md:flex-row flex rounded-md">
           <div className="md:w-1/2">
             <p className="text-[14px] md:text-[18px] text-[#3ED7C4] uppercase">Caractéristiques</p>
             <p className="md:text-[38px] text-[24px] xl:text-[48px] my-[20px] leading-7 md:leading-[45px] bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#656565] bg-clip-text text-transparent">
@@ -251,8 +257,9 @@ transform: rotate(15deg);
         </div>
       </div>
 
+      <div id="cible"  ></div>
       <div className="w-full max-w-6xl xl:px-0 md:px-[50px] px-[40px] mt-[102px] mr-0">
-        <p className="md:text-[38px] text-[24px] xl:text-[48px] my-[20px] leading-8 md:leading-[45px] font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#656565] bg-clip-text text-transparent">
+        <p className="md:text-[38px] h-[55px] text-[24px] xl:text-[48px] my-[20px]   leading-8 md:leading-[45px] font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#656565] bg-clip-text text-transparent">
         Payme est le compagnon idéal pour
         </p>
 
@@ -260,20 +267,18 @@ transform: rotate(15deg);
           <div className="gestion"></div>
           <GestionInfo
             icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-8 h-8"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3"
-                />
-              </svg>
+              <svg width="36" height="34" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="9" y1="-4.37114e-08" x2="9" y2="34" stroke="white" stroke-width="2"/>
+<rect x="1" y="1" width="16" height="32" stroke="white" stroke-width="2"/>
+<rect x="1" y="33" width="24" height="34" transform="rotate(-90 1 33)" stroke="white" stroke-width="2"/>
+<line x1="16" y1="17" x2="2" y2="17" stroke="white" stroke-width="2"/>
+<line x1="16" y1="24" x2="2" y2="24" stroke="white" stroke-width="2"/>
+<rect x="26" y="16" width="4" height="3" fill="#7C7C7C"/>
+<rect x="20" y="16" width="4" height="3" fill="#7C7C7C"/>
+<rect x="26" y="23" width="4" height="3" fill="#7C7C7C"/>
+<rect x="20" y="23" width="4" height="3" fill="#7C7C7C"/>
+</svg>
+
             }
             key={3}
             isBr={true}
@@ -284,20 +289,18 @@ transform: rotate(15deg);
           />
           <GestionInfo
             icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-8 h-8"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3"
-                />
+              <svg width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="8.72632" width="34.1364" height="24.0182" rx="1" fill="url(#paint0_linear_360_366)" stroke="white" stroke-width="2"/>
+              <rect x="11.1172" y="1.94458" width="13.9" height="6.67273" rx="1" stroke="white" stroke-width="2"/>
+              <path d="M6 15.9446L29.1273 15.9446" stroke="#7C7C7C" stroke-width="2" stroke-linecap="round"/>
+              <defs>
+              <linearGradient id="paint0_linear_360_366" x1="17.6362" y1="32.6809" x2="17.6362" y2="10.999" gradientUnits="userSpaceOnUse">
+              <stop stop-color="white" stop-opacity="0.26"/>
+              <stop offset="1" stop-color="white" stop-opacity="0"/>
+              </linearGradient>
+              </defs>
               </svg>
+              
             }
             key={3}
             isBr={true}
@@ -308,20 +311,12 @@ transform: rotate(15deg);
           />
           <GestionInfo
             icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-8 h-8"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3"
-                />
+              <svg width="32" height="37" viewBox="0 0 32 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.85 14.963C19.4951 14.963 22.45 11.8373 22.45 7.98149C22.45 4.12572 19.4951 1 15.85 1C12.2049 1 9.25 4.12572 9.25 7.98149C9.25 11.8373 12.2049 14.963 15.85 14.963Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M30.7 35.9076C30.7 27.2322 24.0513 20.1992 15.85 20.1992C7.64867 20.1992 1 27.2322 1 35.9076" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.8508 35.9076L19.1508 31.5441L15.8508 20.1992L12.5508 31.5441L15.8508 35.9076Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
+              
             }
             key={3}
             isBr={true}
@@ -331,12 +326,13 @@ transform: rotate(15deg);
           />
         </div>
       </div>
-      <div className="w-full max-w-6xl xl:px-0 md:px-[50px] px-[40px] mt-[110px]  ">
+      <div id="faq"  ></div>
+      <div  className="w-full max-w-6xl xl:px-0 md:px-[50px] px-[40px] mt-[110px]  ">
         <p className=" text-[30px] md:text-[48px] md:pb-[100px] pb-[40px] leading-[45px] font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#656565] bg-clip-text text-transparent">
           Foire aux questions 
         </p>
 
-        <div id="faq" className="flex flex-col gap-7">
+        <div className="flex flex-col gap-7">
           <FaqItem content="Est-ce que Payme est facile à utiliser, même pour ceux qui ne sont pas experts en finance ?" />
           <FaqItem
             content=" Quelles sont les fonctionnalités principales de Payme pour la
@@ -350,8 +346,15 @@ transform: rotate(15deg);
       </div>
       <div className=" px-6 mt-[40px] md:mt-[52px] xl:mt-[72px]   xl:w-[1308px] z-10 md:px-[70px] xl:px-[80px] ">
       
+      <a href="#telecharger">
+
           <img className="hidden md:flex" src="/images/Groupf.png" alt="" />
+      </a>
+      <a href="#telecharger">
+
           <img className="md:hidden" src="/images/Groupfm.png" alt="" />
+          
+      </a>
         
       </div>
     {/*   <div className="relative">
@@ -374,25 +377,95 @@ transform: rotate(15deg);
         </div>
       </div> */}
 
-      <div className="w-full  max-w-6xl xl:px-14 md:px-[50px] px-[40px] flex-col mt-[52px] h-[503px] p-8 py-4 rounded-3xl flex   relative ">
+      <div className="w-full  max-w-6xl xl:px-14 md:px-[50px] px-[40px] flex-col  p-8 py-4 rounded-3xl flex   relative ">
   <div className="gestion opacity-40"></div> 
-        <div className="flex flex-col items-center justify-between md:flex-row">
+        <div className="flex flex-col items-end justify-between mt-20 md:flex-row">
           <div className="flex flex-col w-full">
-            <p className="text-[30px] text-white ">Payme.</p>
+          <img src={"/images/logo-payme-complet.png"} width={110} height={50} />
             <p className="text-[14px] mt-[13px]">
-              © 2023 Payme, Sarl. Tout droit réservé.
+              © 2024 Payme, Sarl. Tout droit réservé.
             </p>
             <p className="text-[16px] mt-[7px] text-[#727072]">
               Toutes les marques, logos et noms de marque sont <br /> la
-              propriété de leurs propriétaires respectifs..
+              propriété de leurs propriétaires respectifs.
             </p>
           </div>
 
-          <div className="w-full  md:w-[280px]">
-            <p className="text-[30px] text-white ">.</p>
-            <p className="text-[16px] mt-[7px] text-[#ffffff]">
-              Conditions d'utilisation <br /> Politique de confidentialité
+          <div className="w-full flex flex-col items-end leading-4  md:w-[700px]">
+        
+          <div className="flex flex-row items-center justify-center ">
+              <svg
+                width="41"
+                height="41"
+                viewBox="0 0 41 41"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M25.24 21.7804L25.8229 18.0721H22.2326V15.6617C22.2326 14.6477 22.7338 13.6569 24.3366 13.6569H25.9919V10.499C25.028 10.3451 24.0539 10.2618 23.0777 10.2499C20.1227 10.2499 18.1935 12.0287 18.1935 15.2445V18.0721H14.918V21.7804H18.1935V30.7499H22.2326V21.7804H25.24Z"
+                  fill="#D9D9D9"
+                />
+              </svg>
+              
+              <FaLinkedinIn className="w-6 h-6 mx-2 " />
+              <svg
+                width="42"
+                height="41"
+                viewBox="0 0 42 41"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M31.6117 13.9465C30.9363 14.2379 30.2262 14.4408 29.499 14.5501C29.839 14.4917 30.3392 13.8784 30.5384 13.6301C30.8409 13.2556 31.0714 12.8282 31.2183 12.3694C31.2183 12.3353 31.2523 12.2866 31.2183 12.2623C31.2012 12.2529 31.182 12.248 31.1625 12.248C31.1429 12.248 31.1237 12.2529 31.1066 12.2623C30.317 12.6908 29.4766 13.0179 28.6054 13.2358C28.575 13.2451 28.5427 13.246 28.5119 13.2382C28.4811 13.2305 28.453 13.2145 28.4305 13.192C28.3627 13.1111 28.2897 13.0347 28.212 12.9632C27.8566 12.6441 27.4535 12.3829 27.0172 12.1892C26.4284 11.9471 25.7923 11.8422 25.1571 11.8826C24.5407 11.9216 23.939 12.0873 23.3892 12.3694C22.8479 12.6667 22.3721 13.0708 21.9905 13.5571C21.5891 14.0577 21.2992 14.6386 21.1405 15.2609C21.0097 15.8527 20.9948 16.4644 21.0968 17.062C21.0968 17.1642 21.0968 17.1788 21.0094 17.1642C17.5465 16.6531 14.7053 15.4215 12.3838 12.7783C12.2818 12.6614 12.2284 12.6614 12.1458 12.7783C11.1356 14.3165 11.6262 16.7504 12.8889 17.9528C13.0589 18.1134 13.2337 18.2692 13.4183 18.4152C12.8393 18.374 12.2745 18.2168 11.7573 17.9528C11.6602 17.8895 11.6067 17.9236 11.6019 18.0404C11.5881 18.2024 11.5881 18.3652 11.6019 18.5272C11.7032 19.3034 12.0084 20.0387 12.4863 20.658C12.9642 21.2772 13.5975 21.7581 14.3217 22.0515C14.4982 22.1273 14.6821 22.1844 14.8705 22.2219C14.3345 22.3276 13.7848 22.3441 13.2435 22.2706C13.1269 22.2462 13.0832 22.3095 13.1269 22.4215C13.8408 24.3686 15.3901 24.9625 16.5266 25.2935C16.682 25.3178 16.8375 25.3178 17.0123 25.3568C17.0123 25.3568 17.0123 25.3568 16.9832 25.386C16.648 25.9993 15.293 26.4131 14.6713 26.6273C13.5366 27.0358 12.3268 27.1919 11.1259 27.0849C10.9365 27.0556 10.8928 27.0605 10.8442 27.0849C10.7956 27.1092 10.8442 27.1627 10.8976 27.2114C11.1405 27.3721 11.3833 27.5132 11.6359 27.6495C12.3877 28.0605 13.1826 28.387 14.006 28.6231C18.2702 29.8011 23.0687 28.9346 26.2693 25.7462C28.7851 23.2441 29.669 19.7928 29.669 16.3366C29.669 16.2052 29.8293 16.1273 29.9216 16.0592C30.558 15.5621 31.1192 14.9751 31.5874 14.3165C31.6685 14.2183 31.7101 14.0933 31.704 13.966C31.704 13.893 31.704 13.9076 31.6117 13.9465Z"
+                  fill="#D9D9D9"
+                />
+              </svg>
+              <svg
+                width="42"
+                height="41"
+                viewBox="0 0 42 41"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M25.5355 17.6556C26.9056 18.6318 28.5463 19.1534 30.2272 19.1471V15.8081C29.8968 15.809 29.5672 15.7735 29.2445 15.7023V18.3624C27.5597 18.3654 25.9166 17.8378 24.5472 16.8543V23.7215C24.543 24.8484 24.2347 25.9531 23.6549 26.9186C23.0751 27.884 22.2455 28.6742 21.2539 29.2053C20.2623 29.7365 19.1458 29.9888 18.0228 29.9355C16.8998 29.8822 15.812 29.5252 14.875 28.9026C15.7417 29.7815 16.8492 30.3829 18.0572 30.6306C19.2652 30.8783 20.5194 30.7612 21.6609 30.294C22.8024 29.8268 23.7799 29.0306 24.4696 28.0062C25.1594 26.9819 25.5303 25.7754 25.5355 24.5396V17.6556ZM26.7515 14.2498C26.0548 13.493 25.6273 12.5264 25.5355 11.5007V11.0667H24.6027C24.718 11.7186 24.9689 12.339 25.3391 12.8874C25.7093 13.4358 26.1905 13.9 26.7515 14.2498ZM17.0349 26.2592C16.7116 25.8354 16.5134 25.3292 16.463 24.7982C16.4126 24.2671 16.512 23.7326 16.7498 23.2553C16.9875 22.7781 17.3542 22.3774 17.8081 22.0987C18.2619 21.82 18.7847 21.6747 19.3169 21.6792C19.6107 21.6791 19.9028 21.7241 20.183 21.8127V18.3624C19.8555 18.3189 19.5251 18.3003 19.1947 18.3067V20.9891C18.5124 20.7729 17.7739 20.8221 17.1261 21.1268C16.4783 21.4315 15.9687 21.9694 15.6986 22.6336C15.4285 23.2978 15.4177 24.0395 15.6684 24.7113C15.9191 25.3831 16.4128 25.9357 17.0515 26.2592H17.0349Z"
+                  fill="#D9D9D9"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M24.5494 16.832C25.9188 17.8156 27.562 18.3431 29.2467 18.3401V15.6801C28.2868 15.4766 27.4148 14.9764 26.7537 14.2498C26.1928 13.9 25.7116 13.4358 25.3414 12.8874C24.9712 12.339 24.7202 11.7186 24.6049 11.0667H22.1508V24.5396C22.1485 25.1359 21.96 25.7166 21.6116 26.2001C21.2632 26.6835 20.7726 27.0455 20.2085 27.2352C19.6444 27.4249 19.0352 27.4328 18.4664 27.2577C17.8976 27.0827 17.3978 26.7335 17.0371 26.2592C16.4655 25.9701 16.0077 25.4964 15.7377 24.9146C15.4676 24.3328 15.401 23.6768 15.5485 23.0524C15.6961 22.4279 16.0493 21.8716 16.551 21.473C17.0528 21.0744 17.6739 20.8569 18.3141 20.8555C18.6079 20.8565 18.8998 20.9015 19.1803 20.9891V18.3067C17.9685 18.3359 16.7916 18.719 15.7941 19.4091C14.7965 20.0992 14.0217 21.0662 13.5647 22.1915C13.1078 23.3167 12.9886 24.5511 13.2217 25.7433C13.4549 26.9355 14.0302 28.0335 14.8772 28.9026C15.8145 29.5297 16.9039 29.8903 18.0294 29.946C19.155 30.0016 20.2745 29.7502 21.2688 29.2185C22.2631 28.6869 23.0948 27.8948 23.6755 26.9268C24.2561 25.9588 24.5639 24.851 24.5661 23.7215L24.5494 16.832Z"
+                  fill="#D9D9D9"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M29.2456 15.6796V14.9618C28.3641 14.9655 27.4996 14.7185 26.7526 14.2494C27.4121 14.9781 28.2848 15.4787 29.2456 15.6796ZM24.6039 11.0662C24.6039 10.9382 24.565 10.8047 24.5483 10.6767V10.2426H21.1614V23.7211C21.1585 24.4758 20.8569 25.1985 20.3229 25.7306C19.7889 26.2627 19.066 26.5607 18.313 26.5593C17.8697 26.5615 17.4321 26.4585 17.036 26.2588C17.3967 26.7331 17.8965 27.0822 18.4653 27.2573C19.0341 27.4324 19.6433 27.4245 20.2074 27.2348C20.7715 27.0451 21.2622 26.6831 21.6105 26.1997C21.9589 25.7162 22.1474 25.1355 22.1497 24.5392V11.0662H24.6039ZM19.1792 18.3008V17.5384C17.7855 17.3486 16.3688 17.6376 15.1599 18.3581C13.951 19.0787 13.0213 20.1884 12.5222 21.5064C12.0231 22.8244 11.9841 24.2729 12.4116 25.6159C12.8391 26.959 13.7078 28.1173 14.8761 28.9021C14.0356 28.0311 13.4663 26.9335 13.2379 25.7435C13.0095 24.5535 13.1319 23.3226 13.5901 22.2011C14.0482 21.0797 14.8223 20.1162 15.8179 19.4285C16.8134 18.7408 17.9872 18.3586 19.1959 18.3286L19.1792 18.3008Z"
+                  fill="#D9D9D9"
+                />
+              </svg>
+            </div>
+            
+          <div className="z-50 flex gap-2">
+          <p className="text-[16px] mt-[7px] text-[#727072]">
+             <span  onClick={()=>{
+            window.open(`${process.env.BASE_API_URL+"/"+"conditions-generales"}`, "_blank")
+          }} 
+          className="cursor-pointer hover:text-white/70 " > Conditions d'utilisation </span> et  
+          
+          <span  onClick={()=>{
+            window.open(`${process.env.BASE_API_URL+"/"+"politique"}`, "_blank")
+          }} 
+          className="cursor-pointer hover:text-white/70 " > Politique de confidentialité    </span> 
+          
             </p>
+            
+          
+
+          </div>
+           
           </div>
         </div>
       </div>

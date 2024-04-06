@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
    const callback = `https://paymefinance.com/api/paymentpush?userId=${searchParams.get("userId")!}&month=${
     dataPayment.month
   }&amount=${dataPayment.amount}&type=${typePayment}`
-
+ 
 
 /*   const callbackOld = `https://paymefinance.com/api/paytest?userId=${searchParams.get("userId")!}&month=${
     dataPayment.month
