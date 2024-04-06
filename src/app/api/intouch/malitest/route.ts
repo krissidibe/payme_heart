@@ -214,6 +214,11 @@ export async function POST(request: NextRequest) {
 
 
 
+
+
+
+
+
   if (dataPayment.country == "Côte d'Ivoire") {
 
  
@@ -226,6 +231,120 @@ export async function POST(request: NextRequest) {
       {
         method: "PUT",
         body: JSON.stringify(bodyCi),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const result = await dataRequest.json();
+    if (dataRequest.status != 200) {
+      return new Response(
+        JSON.stringify({
+           status:dataRequest.status,
+          message: `Payment en cours  ....  Not  ${JSON.stringify(result)}   `,
+        }),
+        {
+          status: 200,
+        }
+      );
+    }
+
+    if (dataRequest.status == 200) {
+
+      return new Response(
+        JSON.stringify({
+           status:dataRequest.status,
+          message: `Payment en cours  ....  ${JSON.stringify(result)}    `,
+        }),
+        {
+          status: 200,
+        }
+      );
+    }
+
+    return new Response(
+      JSON.stringify({
+        status:401,
+        message: `Error`,
+      }),
+      {
+        status: 401,
+      }
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const bodyGNOR = {
+    idFromClient: new Date().getTime().toString(),
+	additionnalInfos: {
+		recipientEmail: "JUNIOR@hubsocial.org",
+		recipientFirstName: "Moustapha",
+		recipientLastName: "SECK",
+		destinataire:  dataPayment.number
+		
+	},
+	amount: 100,
+	callback: callback,
+	recipientNumber:  dataPayment.number,
+	serviceCode: "PAIEMENTMARCHANDOMPAYGNDIRECT"
+}
+
+  const bodyGNMTN ={	
+    idFromClient: new Date().getTime().toString(),
+	  additionnalInfos: {
+		recipientEmail: "JUNIOR@hubsocial.org",
+		recipientFirstName: "Moustapha",
+		recipientLastName: "SECK",
+		destinataire: dataPayment.number
+		
+	},
+	amount: 100,
+	callback: callback,
+	recipientNumber: dataPayment.number,
+	serviceCode: "PAIEMENTMARCHAND_MTN_GN"
+}
+
+
+
+  let bodyGN = {};
+  switch (dataPayment.operateur) {
+    case "OrangeMoney":
+      bodyCi = bodyGNOR
+      break;
+    case "Moov":
+      bodyCi =  bodyGNMTN
+      break;
+  
+    
+  }
+
+
+  if (dataPayment.country == "Guinée conakry") {
+
+ 
+    const client = new DigestClient(
+      "41e4ae1b44e4514168dadefe0046e01a755c73ac911ee96e3e08395fb006a404",
+      "b76105a42a5ac51a5fe1b11f52b09b9abaca33b83c86c10224852234b28e7226"
+    );
+    const dataRequest = await client.fetch(
+      "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=l3E9ZwF3",
+      {
+        method: "PUT",
+        body: JSON.stringify(bodyGN),
         headers: {
           "Content-Type": "application/json",
         },
