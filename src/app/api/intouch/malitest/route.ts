@@ -117,7 +117,7 @@ export async function POST(request: NextRequest) {
    /* 99999235 */
 
 
- 
+ const result = await dataRequest.json();
 
     if (dataRequest.status != 200) {
       console.log("Not 200");
@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
       
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....  Not    `,
+          message: `Payment en cours  ....  Not  ${result}   `,
         }),
         {
           status: 200,
@@ -139,7 +139,7 @@ export async function POST(request: NextRequest) {
 
       return new Response(
         JSON.stringify({
-          message: `Payment en cours  ....       `,
+          message: `Payment en cours  ....  ${result}      `,
         }),
         {
           status: 200,
