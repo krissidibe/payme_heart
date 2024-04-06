@@ -23,17 +23,13 @@ export async function POST(request: NextRequest) {
 
 
 
-  const callbackOld = `${
-    process.env.BASE_API_URL
-  }/api/payment?userId=${searchParams.get("userId")!}&month=${
-    dataPayment.month
-  }&amount=${dataPayment.amount}`;
+
 
    const callback = `${
     process.env.BASE_API_URL
   }/api/paytest?userId=${searchParams.get("userId")!}&month=${
     dataPayment.month
-  }&amount=${dataPayment.amount}&type=${dataPayment.country}-${dataPayment.operateur}`
+  }&amount=${dataPayment.amount}&type=${dataPayment.country} - ${dataPayment.operateur}`
 
   /*   return new Response(
     JSON.stringify({
@@ -195,6 +191,22 @@ export async function POST(request: NextRequest) {
 	serviceCode: "PAIEMENTMARCHAND_MOOV_CI"
 }
 
+  const bodyCiMTN ={
+    idFromClient: "15487171111111669723",
+	  additionnalInfos: {
+		recipientEmail: "JUNIOR@hubsocial.org",
+		recipientFirstName: "Moustapha",
+		recipientLastName: "SECK",
+		destinataire: dataPayment.number
+		
+	},
+	amount: 100,
+	callback: callback,
+	recipientNumber: dataPayment.number,
+	serviceCode: "PAIEMENTMARCHAND_MTN_CI"
+}
+
+
 
   let bodyCi = {};
   switch (dataPayment.operateur) {
@@ -203,6 +215,9 @@ export async function POST(request: NextRequest) {
       break;
     case "Moov":
       bodyCi =  bodyCiMoov
+      break;
+    case "MTN":
+      bodyCi =  bodyCiMTN
       break;
   
     
@@ -238,6 +253,7 @@ export async function POST(request: NextRequest) {
     );
 
     const result = await dataRequest.json();
+      console.log(result);
     if (dataRequest.status != 200) {
       return new Response(
         JSON.stringify({
@@ -297,7 +313,7 @@ export async function POST(request: NextRequest) {
 		destinataire:  dataPayment.number
 		
 	},
-	amount: 100,
+	amount: 10000,
 	callback: callback,
 	recipientNumber:  dataPayment.number,
 	serviceCode: "PAIEMENTMARCHANDOMPAYGNDIRECT"
@@ -312,7 +328,7 @@ export async function POST(request: NextRequest) {
 		destinataire: dataPayment.number
 		
 	},
-	amount: 100,
+	amount: 10000,
 	callback: callback,
 	recipientNumber: dataPayment.number,
 	serviceCode: "PAIEMENTMARCHAND_MTN_GN"
@@ -323,10 +339,10 @@ export async function POST(request: NextRequest) {
   let bodyGN = {};
   switch (dataPayment.operateur) {
     case "OrangeMoney":
-      bodyCi = bodyGNOR
+      bodyGN = bodyGNOR
       break;
     case "Moov":
-      bodyCi =  bodyGNMTN
+      bodyGN =  bodyGNMTN
       break;
   
     
@@ -351,12 +367,16 @@ export async function POST(request: NextRequest) {
       }
     );
 
+  
+    
     const result = await dataRequest.json();
+
+  
     if (dataRequest.status != 200) {
       return new Response(
         JSON.stringify({
            status:dataRequest.status,
-          message: `Payment en cours  ....  Not  ${JSON.stringify(result)}   `,
+          message: `GN ->   ${JSON.stringify(result)} -    `,
         }),
         {
           status: 200,
@@ -369,7 +389,7 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
            status:dataRequest.status,
-          message: `Payment en cours  ....  ${JSON.stringify(result)}    `,
+          message: `GN ->  ${JSON.stringify(result)}  -    `,
         }),
         {
           status: 200,
