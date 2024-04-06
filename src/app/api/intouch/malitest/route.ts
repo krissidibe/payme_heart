@@ -129,7 +129,7 @@ export async function POST(request: NextRequest) {
           message: `Payment en cours  ....  Not  ${JSON.stringify(result)}   `,
         }),
         {
-          status:dataRequest.status,
+          status: 200,
         }
       );
     }
@@ -155,7 +155,7 @@ export async function POST(request: NextRequest) {
         message: `Error`,
       }),
       {
-        status: 401,
+        status: 200,
       }
     );
   }
@@ -240,7 +240,7 @@ export async function POST(request: NextRequest) {
           message: `Payment en cours  ....  Not  ${JSON.stringify(result)}   `,
         }),
         {
-          status: dataRequest.status,
+          status: 200,
         }
       );
     }
