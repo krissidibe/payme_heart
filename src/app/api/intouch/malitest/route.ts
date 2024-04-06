@@ -125,6 +125,7 @@ export async function POST(request: NextRequest) {
       
       return new Response(
         JSON.stringify({
+          status:dataRequest.status,
           message: `Payment en cours  ....  Not  ${JSON.stringify(result)}   `,
         }),
         {
@@ -139,6 +140,7 @@ export async function POST(request: NextRequest) {
 
       return new Response(
         JSON.stringify({
+          status:dataRequest.status,
           message: `Payment en cours  ....  ${JSON.stringify(result)}      `,
         }),
         {
@@ -149,6 +151,7 @@ export async function POST(request: NextRequest) {
 
     return new Response(
       JSON.stringify({
+        status:401,
         message: `Error`,
       }),
       {
@@ -233,6 +236,7 @@ export async function POST(request: NextRequest) {
     if (dataRequest.status != 200) {
       return new Response(
         JSON.stringify({
+           status:dataRequest.status,
           message: `Payment en cours  ....  Not  ${JSON.stringify(result)}   `,
         }),
         {
@@ -245,6 +249,7 @@ export async function POST(request: NextRequest) {
 
       return new Response(
         JSON.stringify({
+           status:dataRequest.status,
           message: `Payment en cours  ....  ${JSON.stringify(result)}    `,
         }),
         {
@@ -255,6 +260,7 @@ export async function POST(request: NextRequest) {
 
     return new Response(
       JSON.stringify({
+        status:401,
         message: `Error`,
       }),
       {
