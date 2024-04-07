@@ -11,6 +11,7 @@ import localFont from "next/font/local";
 import ToggleButton from "./ToggleButton";
 import MobileMenu from "./MobileMenu";
 import Link from "next/link";
+import { useState } from "react";
  
 
 const titleFont = localFont({
@@ -333,15 +334,58 @@ transform: rotate(15deg);
         </p>
 
         <div className="flex flex-col gap-7">
-          <FaqItem content="Est-ce que Payme est facile à utiliser, même pour ceux qui ne sont pas experts en finance ?" />
+          <FaqItem content="Est-ce que Payme est facile à utiliser, même pour ceux qui ne sont pas experts en finance ?" >
+            <p>Absolument ! Payme a été conçu avec une interface conviviale, pensée spécifiquement pour rendre la facturation et la comptabilité accessibles à tous, même pour ceux qui ne sont pas des experts en finance. Notre application simplifiée offre une expérience intuitive, avec des fonctionnalités faciles à comprendre et à utiliser. Vous n'avez pas besoin d'avoir des connaissances approfondies en comptabilité pour créer des devis, des factures, suivre les paiements ou générer des rapports financiers. Que vous soyez un entrepreneur débutant ou un professionnel expérimenté, vous trouverez que Payme vous offre une solution simple et efficace pour gérer vos finances.</p>
+          </FaqItem>
           <FaqItem
             content=" Quelles sont les fonctionnalités principales de Payme pour la
         gestion financière des PME au Mali ?"
-          />
-          <FaqItem content="Est-ce que Payme permet de personnaliser les factures avec le logo et les informations de mon entreprise ?" />
-          <FaqItem content="Y a-t-il une période d’essai gratuite ou une garantie de satisfaction pour Payme ?" />
-          <FaqItem content="Est-ce que Payme offre des fonctionnalités de génération de rapports financiers ?" />
-          <FaqItem content="Comment Payme sécurise-t-il mes données financières et celles de mon entreprise ?" />
+          >
+
+<div className="flex flex-col">
+<p>Payme offre une gamme de fonctionnalités essentielles pour la gestion financière des PME au Mali :</p>
+
+<p>1. Création de Devis et Factures : Avec Payme, vous pouvez créer facilement des devis et des factures professionnelles en quelques clics. Il vous suffit d'entrer les détails pertinents, et l'application générera automatiquement les documents nécessaires.</p>
+
+<p>2. Suivi des Paiements : Payme vous permet de suivre automatiquement les paiements en attente, vous offrant ainsi une visibilité sur votre trésorerie et vous permettant de gérer efficacement vos finances.
+</p>
+
+<p>3. Tableau de Bord Intuitif : Notre tableau de bord vous offre une vue d'ensemble de votre situation financière, vous permettant de surveiller vos revenus et la santé globale de votre entreprise en un coup d'œil.
+</p>
+
+<p>4. Rapports Financiers : Payme génère des rapports financiers complets, vous permettant de suivre et d'analyser la santé financière de votre entreprise avec précision.
+</p>
+<p>5. Sécurité des Données : Nous accordons une grande importance à la sécurité de vos données financières. Vos informations sont cryptées et stockées de manière sécurisée, garantissant ainsi la confidentialité et la protection de vos données.
+</p>
+<p>Avec ces fonctionnalités, Payme vous offre une solution complète pour gérer efficacement vos finances et faire prospérer votre entreprise au Mali.</p>
+</div>
+
+
+          </FaqItem>
+          <FaqItem content="Est-ce que Payme permet de personnaliser les factures avec le logo et les informations de mon entreprise ?" >
+          Oui, absolument ! Payme vous permet de personnaliser vos factures en y ajoutant le logo et les informations de votre entreprise. Vous pouvez facilement télécharger votre logo et saisir les détails de votre entreprise, tels que le nom de l'entreprise, l'adresse, les coordonnées, etc. Une fois ces informations saisies, elles seront automatiquement incluses sur toutes les factures que vous créez, ce qui donne à vos documents une apparence professionnelle et personnalisée.
+          </FaqItem>
+          <FaqItem content="Y a-t-il une période d’essai gratuite ou une garantie de satisfaction pour Payme ?" >
+          Oui, absolument ! Payme vous permet de personnaliser vos factures en y ajoutant le logo et les informations de votre entreprise. De plus, notre application offre une vaste bibliothèque de modèles de factures, comprenant plus de 100 000 modèles différentes. Vous pouvez choisir parmi ces modèles ou créer le vôtre en personnalisant chaque détail selon vos préférences. Avec cette flexibilité, les possibilités de personnalisation sont infinies, vous permettant de créer des factures qui correspondent parfaitement à l'image de votre entreprise.
+          </FaqItem>
+          <FaqItem content="Est-ce que Payme offre des fonctionnalités de génération de rapports financiers ?" >
+          Oui, absolument ! Payme offre des fonctionnalités complètes de génération de rapports financiers. Notre application génère des rapports détaillés sur divers aspects de vos finances, vous permettant de suivre et d'analyser la santé financière de votre entreprise en toute simplicité. Ces rapports peuvent inclure des informations telles que les revenus générés, les dépenses engagées, les paiements en attente, etc. Grâce à ces rapports, vous pouvez prendre des décisions éclairées pour la croissance et la gestion efficace de votre entreprise.
+          </FaqItem>
+          <FaqItem content="Comment Payme sécurise-t-il mes données financières et celles de mon entreprise ?" >
+      <div className="flex flex-col">
+      <p>  Payme prend la sécurité de vos données financières et de celles de votre entreprise très au sérieux. Nous avons mis en place plusieurs mesures de sécurité pour garantir la protection de vos informations sensibles :</p>
+
+<p>1. Chiffrement des données : Toutes les données, y compris les informations financières, sont cryptées en transit et au repos. Cela signifie que même en cas de violation, les données restent inaccessibles aux tiers non autorisés.</p>
+<p>2. Authentification multi-facteurs (AMF) : Nous offrons une authentification multi-facteurs pour renforcer la sécurité de l'accès à votre compte. Cela garantit que seules les personnes autorisées peuvent accéder à vos données, même si un mot de passe est compromis.</p>
+<p>3. Sauvegardes régulières : Vos données sont sauvegardées régulièrement, minimisant ainsi le risque de perte en cas de sinistre ou de défaillance technique.</p>
+<p>4. Conformité aux normes de sécurité : Notre application est conçue en respectant les normes de sécurité les plus strictes, telles que le RGPD, pour assurer la protection de la vie privée de vos clients et de vos données.
+</p>
+<p>5. Support technique : Notre équipe de support technique est prête à vous assister en cas de problème lié à la sécurité ou d'accès non autorisé, assurant ainsi une surveillance constante de la sécurité de vos données.
+</p>
+<p>Avec ces mesures en place, vous pouvez avoir l'assurance que vos données financières et celles de votre entreprise sont entre de bonnes mains avec Payme.
+</p>
+      </div>
+          </FaqItem>
         </div>
       </div>
       <div className=" px-6 mt-[40px] md:mt-[52px] xl:mt-[72px]   xl:w-[1308px] z-10 md:px-[70px] xl:px-[80px] ">
@@ -468,10 +512,12 @@ transform: rotate(15deg);
     </main>
   );
 
-  function FaqItem({ content = "" }) {
+  function FaqItem({ content = "" ,children}: { content: string ,children?:any}) {
+    const [isOpen, setIsOpen] = useState(false)
     return (
-      <div className="md:text-[24px] text-[14px] cursor-pointer hover:text-white  border-t flex justify-between items-center border-white/20 pt-6">
-        <p>{content}</p>
+  <div onClick={()=>setIsOpen(!isOpen)}  className="flex flex-col cursor-pointer md:text-[24px] text-[15px]  w-full">
+        <div className="flex items-center justify-between pt-6 border-t cursor-pointer hover:text-white border-white/20">
+        <p className="w-full ">{content}</p>
         <div className="pl-2 md:pl-[100px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -479,7 +525,7 @@ transform: rotate(15deg);
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
+            className={`w-6 h-6 transition-all ease-in-out duration-200  ${isOpen ? "rotate-45" : ""}`}
           >
             <path
               strokeLinecap="round"
@@ -489,6 +535,8 @@ transform: rotate(15deg);
           </svg>
         </div>
       </div>
+       <div className={`mt-4 transition-all text-[15px] duration-700 ease-in-out ${isOpen ? 'flex' : 'hidden'} `}>{children}</div>
+  </div>
     );
   }
 
