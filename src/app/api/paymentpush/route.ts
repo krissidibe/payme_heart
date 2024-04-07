@@ -1,43 +1,55 @@
 import { NextRequest } from "next/server";
 import { prisma } from "@/utils/prisma";
-export async function POST(request: NextRequest,) {
+import { render } from "@react-email/components";
+import transporter from "@/lib/emailSend";
+import SubscribeEmailNew from "@/emails/SubscribeEmailNew";
+export async function POST(request: NextRequest) {
+  const { searchParams } = new URL(request.url);
 
-    const { searchParams } = new URL(request.url);
+  const data: any = await request.json();
 
-    const data: any = await request.json();
-
- 
-   const callbackOld = `${
+  const callbackOld = `${
     process.env.BASE_API_URL
-  }/api/payment?userId=${searchParams.get("userId")!}&month=${
-    searchParams.get("month")
-  }&amount=${searchParams.get("amount")}&type=${searchParams.get("type")}`;
+  }/api/payment?userId=${searchParams.get("userId")!}&month=${searchParams.get(
+    "month"
+  )}&amount=${searchParams.get("amount")}&type=${searchParams.get("type")}`;
+
+  if (data.status == "SUCCESSFUL") {
+    const dataRequest = await fetch(callbackOld, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const paymentData = await dataRequest.json();
+
+    const user = await prisma.user.findUnique({
+      where: {
+        id: searchParams.get("userId")!,
+      },
+    });
+    user?.email;
+
+   
+    
+    const emailHtml = render(SubscribeEmailNew({username:user!.name.toString(),subscribe:paymentData}));
+
+ 
+    const options = {
+      from: 'support@paymefinance.com',
+      to: user!.email!.toString(),
+      subject: `En route vers l'élite professionnelle avec votre nouvel abonnement Payme ! 🚀`,
+      html: emailHtml,
+    };
+
+
+  const data =  await transporter.sendMail(options);
 
  
 
 
+    return new Response(JSON.stringify("Payment Successful"));
+  }
 
-   if(data.status == 'SUCCESSFUL'){
-    const dataRequest = await fetch(callbackOld, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        
-      })
-      console.log(await dataRequest.json());
-
-  const user = await  prisma.user.findUnique({
-      where: {
-        id:   searchParams.get("userId")!
-      }
-    })
-user?.email
-
-      
-      return new Response(JSON.stringify("Payment Successful"));
-   }
-   
-
-    return new Response(JSON.stringify("Payment not Successful"));
+  return new Response(JSON.stringify("Payment not Successful"));
 }

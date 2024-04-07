@@ -11,41 +11,38 @@ import {
   Section,
   Text,
 } from "@react-email/components";
+import { format } from "date-fns";
 import * as React from "react";
 
 interface TwitchResetPasswordEmailProps {
   username?: string;
-  updatedDate?: Date;
+  subscribe?: any;
 }
 
 const baseUrl = `https://paymefinance.com`;
 
-export const Welcome = ({
+export const SubscribeEmailNew = ({
   username = "zenorocha",
-  updatedDate = new Date("June 23, 2022 4:06:00 pm UTC"),
+  subscribe = null,
 }: TwitchResetPasswordEmailProps) => {
-  const formattedDate = new Intl.DateTimeFormat("en", {
-    dateStyle: "medium",
-    timeStyle: "medium",
-  }).format(updatedDate);
-
   return (
     <Html>
-      <Head> <Preview>Cher(e) {username}</Preview> </Head>
-     
+      <Head>
+        {" "}
+        <Preview>Cher(e) {username}</Preview>{" "}
+      </Head>
+
       <Body style={main}>
         <Container style={container}>
           <Row style={logo}>
             <Column>
-            <Img
-                  width={134}
-                  src={`${baseUrl}/images/logo-payme-complet.png`}
-                />
+              <Img
+                width={134}
+                src={`${baseUrl}/images/logo-payme-complet.png`}
+              />
             </Column>
             <Column align="right">
-              <Link style={link}>
-                www.payamefinance.com
-              </Link>
+              <Link style={link}>www.payamefinance.com</Link>
             </Column>
           </Row>
 
@@ -55,25 +52,47 @@ export const Welcome = ({
             <Text style={paragraph}>
               Nous tenons à vous remercier pour votre confiance en notre
               service. Vous avez souscrit avec succès à notre plan d'abonnement
-              [Nom du plan d'abonnement] le [Date de souscription]. Votre numéro
-              de référence de facture est : [Numéro de référence de facture].
+              de {subscribe.month} Mois le{" "}
+              {format(
+                new Date(subscribe.createdAt).toString(),
+                "dd/MM/yyyy HH:mm"
+              )}
+              . Votre numéro de référence de facture est :  <span style={{ fontWeight: "bold" }}>{subscribe.reference}</span> 
+              .
             </Text>
             <Text style={paragraph}>
               Voici un récapitulatif de votre abonnement :
             </Text>
             <Text style={paragraph}>
-              Plan d'abonnement : [Nom du plan d'abonnement] <br /> Date de
-              souscription : [Date de souscription] <br />  Date d'expiration de
-              l'abonnement : [Date d'expiration de l'abonnement] <br /> Votre
-              abonnement est actif et vous donne accès à [Détails des
-              fonctionnalités incluses dans le plan]. Nous espérons que vous
-              tirerez le meilleur parti de notre service pour atteindre vos
-              objectifs professionnels.
+              <span style={{ fontWeight: "bold" , marginRight:"3px" }}>Plan d'abonnement :</span>
+              {subscribe.month} Mois
+              <br />
+              <span style={{ fontWeight: "bold" , marginRight:"3px" }}>Date de souscription :</span>
+              {format(
+                new Date(subscribe.createdAt).toString(),
+                "dd/MM/yyyy"
+              )}{" "}
+              <br />
+              <span style={{ fontWeight: "bold" , marginRight:"3px" }}>
+                Date d'expiration de l'abonnement :
+              </span>
+              {format(
+                new Date(subscribe.createdAt).setMonth(
+                  new Date(subscribe.createdAt).getMonth() +
+                    parseInt(subscribe.month)
+                ),
+                "dd/MM/yyyy"
+              )}{" "}
+              <br />
+              Votre abonnement est actif et vous donne accès à toutes les
+              fonctionnalités incluses dans le plan que vous avez choisi. Nous
+              espérons que vous tirerez le meilleur parti de notre service pour
+              atteindre vos objectifs professionnels.
             </Text>
             <Text style={paragraph}>
               Si vous avez des questions, des préoccupations ou besoin d'une
-              assistance quelconque, n'hésitez pas à nous contacter à [Adresse
-              e-mail de l'assistance] ou en répondant à ce e-mail. Nous sommes
+              assistance quelconque, n'hésitez pas à nous contacter à
+              support@paymefinance.com ou en répondant à ce e-mail. Nous sommes
               là pour vous aider.
             </Text>
             <Text style={paragraph}>
@@ -83,13 +102,19 @@ export const Welcome = ({
             </Text>
             <Text style={paragraph}>Cordialement,</Text>
             <Text style={paragraph}>L'équipe Payme</Text>
-          </Section> 
-        
+          </Section>
 
           <Section style={footer}>
-            <Text style={{ textAlign: "center", padding:"10px" ,color: "#00000095" }}>
-              © 2024 Payme, Tous droits réservés <br />
-              350 Bush Street, Bamako Golf, CA, 94104 - Mali
+            <Text
+              style={{
+                textAlign: "center",
+                padding: "10px",
+                color: "#00000095",
+              }}
+            >
+              © 2024 Payme, Sarl. Tout droit réservé <br />
+              Cet email a été envoyé depuis Payme. Pour toute question ou
+              assistance, veuillez nous contacter à support@paymefinance.com.
             </Text>
           </Section>
         </Container>
@@ -98,7 +123,7 @@ export const Welcome = ({
   );
 };
 
-export default Welcome;
+export default SubscribeEmailNew;
 
 const fontFamily = "HelveticaNeue,Helvetica,Arial,sans-serif";
 
@@ -132,7 +157,7 @@ const content = {
 
 const logo = {
   padding: "40px 50px 25px 50px",
-  backgroundColor: "#000000",
+  backgroundColor: "#000000 !important",
 };
 
 const sectionsBorders = {
@@ -147,12 +172,12 @@ const sectionBorder = {
 
 const sectionCenter = {
   /*  borderBottom: '1px solid rgb(145,71,255)',
-    width: '102px', */
+      width: '102px', */
 };
 
 const link = {
-  color: "#000000", 
+  color: "#000000",
   marginTop: "24px",
-  fontSize:"12px",
+  fontSize: "12px",
   textDecoration: "underline-none",
 };

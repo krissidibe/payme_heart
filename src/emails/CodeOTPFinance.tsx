@@ -41,7 +41,7 @@ export const CodeOTPFinance = ({
             <Column>
               <Img
                 width={134}
-                src={`${baseUrl}/files/logo-payme-complet.png`}
+                src={`${baseUrl}/images/logo-payme-complet.png`}
               />
             </Column>
             <Column align="right">
@@ -98,9 +98,16 @@ export const CodeOTPFinance = ({
         
 
           <Section style={footer}>
-            <Text style={{ textAlign: "center", padding:"10px" ,color: "#00000095" }}>
-              © 2024 Payme, Tous droits réservés <br />
-              350 Bush Street, Bamako Golf, CA, 94104 - Mali
+            <Text
+              style={{
+                textAlign: "center",
+                padding: "10px",
+                color: "#00000095",
+              }}
+            >
+              © 2024 Payme, Sarl. Tout droit réservé <br />
+              Cet email a été envoyé depuis Payme. Pour toute question ou
+              assistance, veuillez nous contacter à support@paymefinance.com.
             </Text>
           </Section>
         </Container>
