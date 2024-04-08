@@ -339,11 +339,11 @@ transform: rotate(15deg);
           </FaqItem>
           <FaqItem
             content=" Quelles sont les fonctionnalités principales de Payme pour la
-        gestion financière des PME au Mali ?"
+        gestion financière des PME ?"
           >
 
 <div className="flex flex-col gap-3">
-<p>Payme offre une gamme de fonctionnalités essentielles pour la gestion financière des PME au Mali :</p>
+<p>Payme offre une gamme de fonctionnalités essentielles pour la gestion financière des PME  :</p>
 
 <p className="mt-3">1. Création de Devis et Factures : Avec Payme, vous pouvez créer facilement des devis et des factures professionnelles en quelques clics. Il vous suffit d'entrer les détails pertinents, et l'application générera automatiquement les documents nécessaires.</p>
 
@@ -357,7 +357,7 @@ transform: rotate(15deg);
 </p>
 <p>5. Sécurité des Données : Nous accordons une grande importance à la sécurité de vos données financières. Vos informations sont cryptées et stockées de manière sécurisée, garantissant ainsi la confidentialité et la protection de vos données.
 </p>
-<p>Avec ces fonctionnalités, Payme vous offre une solution complète pour gérer efficacement vos finances et faire prospérer votre entreprise au Mali.</p>
+<p>Avec ces fonctionnalités, Payme vous offre une solution complète pour gérer efficacement vos finances et faire prospérer votre entreprise.</p>
 </div>
 
 
