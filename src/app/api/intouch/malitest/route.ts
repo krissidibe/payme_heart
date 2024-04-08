@@ -416,4 +416,104 @@ export async function POST(request: NextRequest) {
       }
     );
   }
+
+  /* Sénégal */
+
+
+  if (dataPayment.country == "Sénégal") {
+
+
+
+
+
+
+  const bodyOrange =  {
+      idFromClient: new Date().getTime().toString(),
+      additionnalInfos: {
+      recipientEmail:"pathé@hubsocial.org",
+      recipientFirstName: "Moustapha",
+      recipientLastName:"SECK",
+      destinataire:dataPayment.number,
+      otp : dataPayment.otp
+     },
+     amount: 100,
+     callback: callback,
+     recipientNumber: dataPayment.number,
+     serviceCode: "PAIEMENTMARCHANDOMSN2"
+    }
+
+ 
+
+
+  let body = {};
+  switch (dataPayment.operateur) {
+    case "OrangeMoney":
+      body = bodyOrange
+      break;
+    case "Moov":
+      body =  {bodyGNMTN:"PAIEMENTMARCHAND_MTN_GN"}
+      break;
+  
+    
+  }
+
+
+ 
+ 
+    const client = new DigestClient(
+      "1bbd12343b8438f93214d7b6b504f6ee2373ccf34edff031014a705df6ad5b94",
+      "b3a50651897fb27437e5077bf55a3ca1e1bdf96ce8b1c0375354e15d2a5e997f"
+    );
+    const dataRequest = await client.fetch(
+      "https://apidist.gutouch.net/apidist/sec/touchpayapi/PYFSN24092/transaction?loginAgent=073382636&passwordAgent=2LdvjLrjn4",
+      {
+        method: "PUT",
+        body: JSON.stringify(body),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+  
+    
+    const result = await dataRequest.json();
+
+  
+    if (dataRequest.status != 200) {
+      return new Response(
+        JSON.stringify({
+           status:dataRequest.status,
+          message: `GN ->   ${JSON.stringify(result)} -    `,
+        }),
+        {
+          status: 200,
+        }
+      );
+    }
+
+    if (dataRequest.status == 200) {
+
+      return new Response(
+        JSON.stringify({
+           status:dataRequest.status,
+          message: `GN ->  ${JSON.stringify(result)}  -    `,
+        }),
+        {
+          status: 200,
+        }
+      );
+    }
+
+    return new Response(
+      JSON.stringify({
+        status:401,
+        message: `Error`,
+      }),
+      {
+        status: 401,
+      }
+    );
+  }
+  
 }
