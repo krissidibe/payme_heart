@@ -1,0 +1,158 @@
+import {
+  Body,
+  Container,
+  Column,
+  Head,
+  Html,
+  Img,
+  Link,
+  Preview,
+  Row,
+  Section,
+  Text,
+} from "@react-email/components";
+import * as React from "react";
+
+interface TwitchResetPasswordEmailProps {
+  username: string;
+  code: string;
+  updatedDate?: Date;
+}
+
+const baseUrl = `https://paymefinance.com`;
+
+export const DeleteUserCopy = ({
+  username = "zenorocha",
+  code ="1234",
+  updatedDate = new Date("June 23, 2022 4:06:00 pm UTC"),
+}: TwitchResetPasswordEmailProps) => {
+/*   const formattedDate = new Intl.DateTimeFormat("en", {
+    dateStyle: "medium",
+    timeStyle: "medium",
+  }).format(updatedDate); */
+
+  return (
+    <Html>
+      <Head> <Preview>Cher(e) {username}</Preview> </Head>
+     
+      <Body style={main}>
+        <Container style={container}>
+          <Row style={logo}>
+            <Column>
+            <Img
+                  width={134}
+                  src={`${baseUrl}/images/logo-payme-complet.png`}
+                />
+            </Column>
+            <Column align="right">
+              <Link style={link}>
+                www.payamefinance.com
+              </Link>
+            </Column>
+          </Row>
+
+          <Section style={content}>
+            <br />
+            <Text style={paragraph}>Cher(e) {username},</Text>
+            <Text style={paragraph}>
+            Vous avez récemment demandé à réinitialiser votre mot de passe pour votre compte Payme. Pour compléter cette procédure, veuillez utiliser le code de validation suivant :
+            </Text>
+            <Text style={paragraph}>
+            Code OTP : {code}
+            </Text>
+            <Text style={paragraph}>
+            Ce code est valide pour une durée limitée. Veuillez l'utiliser dans les  15 minutes pour réinitialiser votre mot de passe.
+            </Text>
+            <Text style={paragraph}>
+              Si vous n'avez pas demandé à réinitialiser votre mot de passe, veuillez ignorer cet e-mail ou nous contacter immédiatement pour sécuriser votre compte
+              <br />
+              Pour des raisons de sécurité, ne partagez ce code avec personne
+            </Text>
+            <Text style={paragraph}>
+            Si vous rencontrez des difficultés ou avez besoin d'assistance supplémentaire, n'hésitez pas à contacter notre support à  support@paymefinance.com.
+            </Text>
+            <Text style={paragraph}>
+            Merci d'utiliser Payme.
+            </Text>
+            <Text style={paragraph}>Cordialement,</Text>
+            <Text style={paragraph}>L'équipe Payme</Text>
+          </Section> 
+        
+
+          <Section style={footer}>
+            <Text
+              style={{
+                textAlign: "center",
+                padding: "10px",
+                color: "#00000095",
+              }}
+            >
+              © 2024 Payme, Sarl. Tout droit réservé <br />
+              Cet email a été envoyé depuis Payme. Pour toute question ou
+              assistance, veuillez nous contacter à support@paymefinance.com.
+            </Text>
+          </Section>
+        </Container>
+      </Body>
+    </Html>
+  );
+};
+
+export default DeleteUserCopy;
+
+const fontFamily = "HelveticaNeue,Helvetica,Arial,sans-serif";
+
+const main = {
+  backgroundColor: "#FFFFFF",
+  fontFamily,
+};
+
+const paragraph = {
+  lineHeight: 1.5,
+  fontSize: 14,
+};
+
+const container = {
+  border: "0.5px solid black",
+  width: "730px",
+  maxWidth: "730px",
+  margin: "30px auto",
+  backgroundColor: "#ffffff",
+};
+
+const footer = {
+  borderTop: "0.5px solid black",
+  width: "84%",
+  margin: "20px auto",
+};
+
+const content = {
+  padding: "5px 50px 10px 60px",
+};
+
+const logo = {
+  padding: "40px 50px 25px 50px",
+  backgroundColor: "#000000",
+};
+
+const sectionsBorders = {
+  width: "100%",
+  display: "flex",
+};
+
+const sectionBorder = {
+  borderBottom: "1px solid rgb(238,238,238)",
+  width: "249px",
+};
+
+const sectionCenter = {
+  /*  borderBottom: '1px solid rgb(145,71,255)',
+    width: '102px', */
+};
+
+const link = {
+  color: "#000000", 
+  marginTop: "24px",
+  fontSize:"12px",
+  textDecoration: "underline-none",
+};

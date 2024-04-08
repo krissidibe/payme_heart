@@ -15,15 +15,13 @@ import {
 interface TwitchResetPasswordEmailProps {
   user?: any;
   enterprise?: any;
-  type?: any;
 }
 
 const baseUrl = `https://paymefinance.com`;
 
-export const DeleteUser = ({
+export const DeleteUserUser = ({
   user = "",
   enterprise = "",
-  type = "",
 }: TwitchResetPasswordEmailProps) => {
   return (
     <Html>
@@ -50,20 +48,16 @@ export const DeleteUser = ({
             <br />
             <Text style={paragraph}>Cher(e) {user.name},</Text>
             <Text style={paragraph}>
-              Cette notification est générée automatiquement pour vous informer
-              de la suppression d'un compte utilisateur dans notre application.
-              Veuillez trouver ci-dessous les détails pertinents pour la
-              documentation, l'analyse et le suivi conformément à nos procédures
-              internes.
+            Nous vous informons que votre compte associé à Payme a été supprimé avec succès.
             </Text>
             <Text style={paragraph}>
               <span style={{ fontWeight: "bold" }}>
-                Détails de l'Utilisateur :
+              Détails du compte :
               </span>
             </Text>
             <Text style={paragraph}>
               <span style={{ fontWeight: "bold", marginRight: "3px" }}>
-                Nom et Prénom de l'Utilisateur :
+                Nom et Prénom  :
               </span>
               {user.name} <br />
               <span style={{ fontWeight: "bold", marginRight: "3px" }}>
@@ -86,37 +80,28 @@ export const DeleteUser = ({
               </span>
               {user.email}<br />
              
-              <span style={{ fontWeight: "bold", marginRight: "3px" }}>
-                Raison du Départ :
-              </span>
-             {type}{" "}
-              <br /> <br />
-              <span style={{ fontWeight: "bold" }}>Actions Requises :</span>
+              
+             
               <li style={paragraph}>
-                Vérifiez et confirmez l'effacement complet des données de
-                l'utilisateur conformément aux politiques de confidentialité et
-                de conformité de l'entreprise.
+              La suppression de votre compte est définitive. Toutes vos données et préférences personnelles ont
+été retirées de notre système conformément à nos politiques de confidentialité et de sécurité des
+données.
               </li>
               <li style={paragraph}>
-                Effectuez une analyse des raisons du départ de l'utilisateur
-                pour contribuer à l'amélioration continue de l'application.
+              Si cette action n&#39;a pas été initiée par vous, ou si vous avez des préoccupations, veuillez nous
+contacter immédiatement à support@paymefinance.com.
               </li>
               <li style={paragraph}>
-                Mettez à jour les enregistrements internes et les rapports
-                d'utilisateurs pour refléter cette suppression.
+              Nous sommes désolés de vous voir partir et tenons à vous remercier pour le temps passé avec nous.
+Si vous souhaitez nous faire part de vos retours ou si vous envisagez de revenir à l&#39;avenir, notre
+porte reste toujours ouverte.
               </li>
             </Text>
 
             <Text style={paragraph}>
-              <span style={{ fontWeight: "bold" }}>Remarque</span> : Cette
-              notification est générée automatiquement. En cas de questions ou
-              de besoin d'informations supplémentaires, veuillez contacter le
-              gestionnaire de compte ou le service client.
+            Nous vous souhaitons le meilleur pour vos projets futurs.
             </Text>
-            <Text style={paragraph}>
-              Merci pour votre attention rapide et votre action conforme à cette
-              notification.
-            </Text>
+             
             <Text style={paragraph}>Cordialement,</Text>
             <Text style={paragraph}>L'équipe Payme</Text>
           </Section>
@@ -140,7 +125,7 @@ export const DeleteUser = ({
   );
 };
 
-export default DeleteUser;
+export default DeleteUserUser;
 
 const fontFamily = "HelveticaNeue,Helvetica,Arial,sans-serif";
 

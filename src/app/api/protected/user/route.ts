@@ -3,6 +3,8 @@ import { prisma } from "@/utils/prisma";
 import CodeOTPFinance from "@/emails/CodeOTPFinance";
 import transporter from "@/lib/emailSend";
 import { render } from "@react-email/components";
+import DeleteUser from "@/emails/DeleteUser";
+import DeleteUserUser from "@/emails/DeleteUserUser";
 
 
 export async function GET(req: NextRequest, res: NextResponse) {
@@ -187,12 +189,52 @@ export async function DELETE(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
 
   if (searchParams.get("userId") != null) {
-    const project = await prisma.user.delete({
+     
+
+    const project = await prisma.user.findFirst({
       where: {
         id: searchParams.get("userId")!,
       },
-    });
+    }); 
 
+    const enteprise = await prisma.enterprise.findFirst({
+      where: {
+        userId: searchParams.get("userId")!,
+      },
+    }); 
+
+
+    const emailHtml1 = render(DeleteUser({user:project,enterprise:enteprise, type:searchParams.get("type")! }));
+    const emailHtml = render(DeleteUserUser({user:project,enterprise:enteprise}));
+
+ 
+    
+    const options1 = {
+      from: 'support@paymefinance.com',
+      to: "suppression.paymefinance@gmail.com",
+      subject: `${enteprise!.name} - Notification de suppression du compte  `,
+      html: emailHtml1,
+    };
+    const options = {
+      from: 'support@paymefinance.com',
+      to: project!.email!.toString(),
+      subject: `Notification de suppression de votre compte 😔`,
+      html: emailHtml,
+    };
+
+
+    const data1 =  await transporter.sendMail(options1);
+  const data =  await transporter.sendMail(options);
+
+
+  const deleteUser = await prisma.user.delete({
+    where: {
+      id: searchParams.get("userId")!,
+    },
+  });
+ 
+
+    
     return new Response(JSON.stringify(project));
   }
 }
