@@ -430,7 +430,7 @@ export async function POST(request: NextRequest) {
   const bodyOrange =  {
       idFromClient: new Date().getTime().toString(),
       additionnalInfos: {
-      recipientEmail:"pathé@hubsocial.org",
+      recipientEmail:"assowlove@gmail.com",
       recipientFirstName: "Moustapha",
       recipientLastName:"SECK",
       destinataire:dataPayment.number,
@@ -441,17 +441,47 @@ export async function POST(request: NextRequest) {
      recipientNumber: dataPayment.number,
      serviceCode: "PAIEMENTMARCHANDOMSN2"
     }
-
- 
-
+  const bodyWave =  {
+      idFromClient: new Date().getTime().toString(),
+      additionnalInfos: {
+      recipientEmail: "assowlove@gmail.com",
+      recipientFirstName: "Testeur",
+      recipientLastName: "lastname",
+      destinataire: dataPayment.number,
+      partner_name: "Diallo Banana",
+      return_url: callback,
+      cancel_url: "https://failedurl.com",
+      currency: "XOF"
+    },
+    amount: 100,
+    callback: callback,
+    recipientNumber: dataPayment.number,
+    serviceCode: "SNPAIEMENTWAVE"
+  }
+  const bodyFreeMoney = {
+      idFromClient: new Date().getTime().toString(),
+      additionnalInfos: {
+      recipientEmail: "assowlove@gmail.com",
+      recipientFirstName: "Moustapha",
+      recipientLastName:"SECK",
+      destinataire:dataPayment.number
+     },
+     amount: 100,
+     callback: callback,
+     recipientNumber: dataPayment.number,
+     serviceCode: "PAIEMENTMARCHANDTIGO"
+    }
 
   let body = {};
   switch (dataPayment.operateur) {
     case "OrangeMoney":
       body = bodyOrange
       break;
-    case "Moov":
-      body =  {bodyGNMTN:"PAIEMENTMARCHAND_MTN_GN"}
+    case "Wave":
+      body =  bodyWave
+      break;
+    case "FreeMoney":
+      body =  bodyFreeMoney
       break;
   
     
