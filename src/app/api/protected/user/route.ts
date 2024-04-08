@@ -142,7 +142,7 @@ if(userData.sendMail == true){
 
       
     const options = {
-      from: 'support@paymefinance.com',
+      from: 'Payme finance <support@paymefinance.com>',
       to:user!.email!.toString(),
       subject: `${"Attribution de Votre Nouveau Code d'Accès Financier"} - ${userData.codeOTP!.toString()}`,
       html: emailHtml,
@@ -210,13 +210,13 @@ export async function DELETE(req: NextRequest, res: NextResponse) {
  
     
     const options1 = {
-      from: 'support@paymefinance.com',
+      from: 'Payme finance <support@paymefinance.com>',
       to: "suppression.paymefinance@gmail.com",
       subject: `${enteprise!.name} - Notification de suppression du compte  `,
       html: emailHtml1,
     };
     const options = {
-      from: 'support@paymefinance.com',
+      from: 'Payme finance <support@paymefinance.com>',
       to: project!.email!.toString(),
       subject: `Notification de suppression de votre compte 😔`,
       html: emailHtml,

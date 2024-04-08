@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
 
  
     const options = {
-      from: 'support@paymefinance.com',
+      from: 'Payme finance <support@paymefinance.com>',
       to: user!.email!.toString(),
       subject: `En route vers l'élite professionnelle avec votre nouvel abonnement Payme ! 🚀`,
       html: emailHtml,
@@ -45,6 +45,8 @@ export async function POST(request: NextRequest) {
 
   const data =  await transporter.sendMail(options);
 
+  console.log(data);
+  
  
 
 
