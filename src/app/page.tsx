@@ -335,17 +335,17 @@ transform: rotate(15deg);
 
         <div className="flex flex-col gap-7">
           <FaqItem content="Est-ce que Payme est facile à utiliser, même pour ceux qui ne sont pas experts en finance ?" >
-            <p>Absolument ! Payme a été conçu avec une interface conviviale, pensée spécifiquement pour rendre la facturation et la comptabilité accessibles à tous, même pour ceux qui ne sont pas des experts en finance. Notre application simplifiée offre une expérience intuitive, avec des fonctionnalités faciles à comprendre et à utiliser. Vous n'avez pas besoin d'avoir des connaissances approfondies en comptabilité pour créer des devis, des factures, suivre les paiements ou générer des rapports financiers. Que vous soyez un entrepreneur débutant ou un professionnel expérimenté, vous trouverez que Payme vous offre une solution simple et efficace pour gérer vos finances.</p>
+            <p>Absolument ! Payme a été conçu avec une interface conviviale, pensée spécifiquement pour rendre la facturation et la comptabilité accessibles à tous, même pour ceux qui ne sont pas des experts en finance. Notre application simplifiée offre une expérience intuitive, avec des fonctionnalités faciles à comprendre et à utiliser. Vous n'avez pas besoin d'avoir des connaissances approfondies en comptabilité pour créer des devis, des factures, suivre les paiements ou générer des rapports financiers. <br />  Que vous soyez un entrepreneur débutant ou un professionnel expérimenté, vous trouverez que Payme vous offre une solution simple et efficace pour gérer vos finances.</p>
           </FaqItem>
           <FaqItem
             content=" Quelles sont les fonctionnalités principales de Payme pour la
         gestion financière des PME au Mali ?"
           >
 
-<div className="flex flex-col">
+<div className="flex flex-col gap-3">
 <p>Payme offre une gamme de fonctionnalités essentielles pour la gestion financière des PME au Mali :</p>
 
-<p>1. Création de Devis et Factures : Avec Payme, vous pouvez créer facilement des devis et des factures professionnelles en quelques clics. Il vous suffit d'entrer les détails pertinents, et l'application générera automatiquement les documents nécessaires.</p>
+<p className="mt-3">1. Création de Devis et Factures : Avec Payme, vous pouvez créer facilement des devis et des factures professionnelles en quelques clics. Il vous suffit d'entrer les détails pertinents, et l'application générera automatiquement les documents nécessaires.</p>
 
 <p>2. Suivi des Paiements : Payme vous permet de suivre automatiquement les paiements en attente, vous offrant ainsi une visibilité sur votre trésorerie et vous permettant de gérer efficacement vos finances.
 </p>
@@ -372,10 +372,10 @@ transform: rotate(15deg);
           Oui, absolument ! Payme offre des fonctionnalités complètes de génération de rapports financiers. Notre application génère des rapports détaillés sur divers aspects de vos finances, vous permettant de suivre et d'analyser la santé financière de votre entreprise en toute simplicité. Ces rapports peuvent inclure des informations telles que les revenus générés, les dépenses engagées, les paiements en attente, etc. Grâce à ces rapports, vous pouvez prendre des décisions éclairées pour la croissance et la gestion efficace de votre entreprise.
           </FaqItem>
           <FaqItem content="Comment Payme sécurise-t-il mes données financières et celles de mon entreprise ?" >
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-3">
       <p>  Payme prend la sécurité de vos données financières et de celles de votre entreprise très au sérieux. Nous avons mis en place plusieurs mesures de sécurité pour garantir la protection de vos informations sensibles :</p>
 
-<p>1. Chiffrement des données : Toutes les données, y compris les informations financières, sont cryptées en transit et au repos. Cela signifie que même en cas de violation, les données restent inaccessibles aux tiers non autorisés.</p>
+<p className="mt-3"> 1. Chiffrement des données : Toutes les données, y compris les informations financières, sont cryptées en transit et au repos. Cela signifie que même en cas de violation, les données restent inaccessibles aux tiers non autorisés.</p>
 <p>2. Authentification multi-facteurs (AMF) : Nous offrons une authentification multi-facteurs pour renforcer la sécurité de l'accès à votre compte. Cela garantit que seules les personnes autorisées peuvent accéder à vos données, même si un mot de passe est compromis.</p>
 <p>3. Sauvegardes régulières : Vos données sont sauvegardées régulièrement, minimisant ainsi le risque de perte en cas de sinistre ou de défaillance technique.</p>
 <p>4. Conformité aux normes de sécurité : Notre application est conçue en respectant les normes de sécurité les plus strictes, telles que le RGPD, pour assurer la protection de la vie privée de vos clients et de vos données.
@@ -515,7 +515,7 @@ transform: rotate(15deg);
   function FaqItem({ content = "" ,children}: { content: string ,children?:any}) {
     const [isOpen, setIsOpen] = useState(false)
     return (
-  <div onClick={()=>setIsOpen(!isOpen)}  className="flex flex-col cursor-pointer md:text-[24px] text-[15px]  w-full">
+  <div onClick={()=>setIsOpen(!isOpen)}  className="flex flex-col cursor-pointer md:text-[24px] text-[16px]  w-full">
         <div className="flex items-center justify-between pt-6 border-t cursor-pointer hover:text-white border-white/20">
         <p className="w-full ">{content}</p>
         <div className="pl-2 md:pl-[100px]">
@@ -535,7 +535,7 @@ transform: rotate(15deg);
           </svg>
         </div>
       </div>
-       <div className={`mt-4 transition-all text-[15px] duration-700 ease-in-out ${isOpen ? 'flex' : 'hidden'} `}>{children}</div>
+       <div className={`mt-4 transition-all    text-[20px] duration-700 ease-in-out ${isOpen ? 'flex' : 'hidden'} `}>{children}</div>
   </div>
     );
   }
