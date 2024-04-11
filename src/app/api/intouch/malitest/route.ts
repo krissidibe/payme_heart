@@ -561,9 +561,8 @@ export async function POST(request: NextRequest) {
   
 
 
-
-
-
+ 
+ 
 
   if (dataPayment.country == "Burkina Fasso") {
 
@@ -577,7 +576,7 @@ export async function POST(request: NextRequest) {
         recipientFirstName: "Junior",
         recipientLastName: "seck",
         currency: "952",
-        trxcode: dataPayment.number
+        trxcode: "47428580"
       },
       amount: 100,
       callback: callback,
@@ -592,7 +591,7 @@ export async function POST(request: NextRequest) {
         recipientFirstName: "Junior",
         recipientLastName: "seck",
         currency: "952",
-        trxcode: dataPayment.number
+        trxcode: "47428580"
       },
       amount: 100,
       callback: callback,
@@ -852,6 +851,117 @@ export async function POST(request: NextRequest) {
           );
           const dataRequest = await client.fetch(
             "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGA0070/transaction?loginAgent=373382636&passwordAgent=mTQYp9GQJf",
+            {
+              method: "PUT",
+              body: JSON.stringify(body),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+      
+        
+          
+          const result = await dataRequest.json();
+      
+        
+        
+          if (dataRequest.status != 200) {
+            return new Response(
+              JSON.stringify({
+                 status:dataRequest.status,
+                message: `GN ->   ${JSON.stringify(result)} -    `,
+              }),
+              {
+                status: 200,
+              }
+            );
+          }
+      
+          if (dataRequest.status == 200) {
+      
+            return new Response(
+              JSON.stringify({
+                 status:dataRequest.status,
+                message: `GN ->  ${JSON.stringify(result)}  -    `,
+              }),
+              {
+                status: 200,
+              }
+            );
+          }
+      
+          return new Response(
+            JSON.stringify({
+              status:401,
+              message: `Error`,
+            }),
+            {
+              status: 401,
+            }
+          );
+        }
+  
+      if (dataPayment.country == "Benin") {
+
+
+
+
+        const bodyMoov= {
+          idFromClient: new Date().getTime().toString(),
+            additionnalInfos: {
+            recipientEmail: "tapha.seck@hubsocial.org",
+            recipientFirstName: "Moustapha",
+            recipientLastName: "SECK",
+            destinataire:  dataPayment.number
+          },
+          amount: 100,
+          callback: callback,
+          recipientNumber:  dataPayment.number,
+          serviceCode: "BN_PAIEMENTMARCHAND_MOOV"
+        }
+      
+        const bodyMtn = {
+          idFromClient: new Date().getTime().toString(),
+            additionnalInfos: {
+            recipientEmail: "tapha.seck@hubsocial.org",
+            recipientFirstName: "Moustapha",
+            recipientLastName: "SECK",
+            destinataire:  dataPayment.number
+          },
+          amount: 100,
+          callback: callback,
+          recipientNumber:  dataPayment.number,
+          serviceCode: "BN_PAIEMENTMARCHAND_MTN"
+        }
+          
+          
+          
+      
+      
+      
+        let body = {};
+        switch (dataPayment.operateur) {
+          case "Moov":
+            body = bodyMoov
+            break;
+          case "MTN":
+            body =  bodyMtn
+            break;
+        
+          
+        }
+      
+          /* https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+      
+       /* https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+      
+          const client = new DigestClient(
+            "0fa913d7501130ed66ae0685559b705ecac0fa1517c98860f6907170109d9725",
+            "2f0fb2d4dc45d29ad51741dbeef2b4904af006fb7ab4b03fc0d7db1084b2cc4"
+          );
+          const dataRequest = await client.fetch(
+            "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEBN0031/transaction?loginAgent=72451915&passwordAgent=qRjfuWQw",
             {
               method: "PUT",
               body: JSON.stringify(body),
