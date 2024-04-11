@@ -318,6 +318,10 @@ export async function POST(request: NextRequest) {
 
 
 
+  if (dataPayment.country == "Guinée conakry") {
+
+
+
 
   const bodyGNOR = {
     idFromClient: new Date().getTime().toString(),
@@ -325,7 +329,8 @@ export async function POST(request: NextRequest) {
 		recipientEmail: "JUNIOR@hubsocial.org",
 		recipientFirstName: "Moustapha",
 		recipientLastName: "SECK",
-		destinataire:  dataPayment.number
+		destinataire:  dataPayment.number,
+    otp:""
 		
 	},
 	amount: 100,
@@ -351,20 +356,19 @@ export async function POST(request: NextRequest) {
 
 
 
+
   let bodyGN = {};
   switch (dataPayment.operateur) {
     case "OrangeMoney":
       bodyGN = bodyGNOR
       break;
-    case "Moov":
+    case "MTN":
       bodyGN =  bodyGNMTN
       break;
   
     
   }
 
-
-  if (dataPayment.country == "Guinée conakry") {
     /* https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
 
  /* https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
@@ -555,4 +559,351 @@ export async function POST(request: NextRequest) {
     );
   }
   
+
+
+
+
+
+
+  if (dataPayment.country == "Burkina Fasso") {
+
+
+
+
+    const bodyOrange = {
+        idFromClient: new Date().getTime().toString(),
+        additionnalInfos: {
+        recipientEmail: "issa.ndiaye@hubsocial.org",
+        recipientFirstName: "Junior",
+        recipientLastName: "seck",
+        currency: "952",
+        trxcode: dataPayment.number
+      },
+      amount: 100,
+      callback: callback,
+      recipientNumber: dataPayment.number,
+      serviceCode: "BF_PAIEMENTMARCHAND_OM_TP"
+    }
+  
+    const bodyMoov = {
+        idFromClient: new Date().getTime().toString(),
+        additionnalInfos: {
+        recipientEmail: "issa.ndiaye@hubsocial.org",
+        recipientFirstName: "Junior",
+        recipientLastName: "seck",
+        currency: "952",
+        trxcode: dataPayment.number
+      },
+      amount: 100,
+      callback: callback,
+      recipientNumber: dataPayment.number,
+      serviceCode: "BF_PAIEMENTMARCHAND_MOBICASH_TP"
+    }
+  
+  
+  
+  
+    let body = {};
+    switch (dataPayment.operateur) {
+      case "OrangeMoney":
+        body = bodyOrange
+        break;
+      case "Moov":
+        body =  bodyMoov
+        break;
+    
+      
+    }
+  
+      /* https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+  
+   /* https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+  
+      const client = new DigestClient(
+        "92a628b875ee46c12691dfdf54980846fc4c5929fb5accae6b8975e07e227de3",
+        "1bee06860f757dd6568d5a0eef75cd39993281f561b673b95c54fe226e8de2e8"
+      );
+      const dataRequest = await client.fetch(
+        "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEBF2961/transaction?loginAgent=76325632&passwordAgent=gsTCpNcPa2",
+        {
+          method: "PUT",
+          body: JSON.stringify(body),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+    
+      
+      const result = await dataRequest.json();
+  
+    
+    
+      if (dataRequest.status != 200) {
+        return new Response(
+          JSON.stringify({
+             status:dataRequest.status,
+            message: `GN ->   ${JSON.stringify(result)} -    `,
+          }),
+          {
+            status: 200,
+          }
+        );
+      }
+  
+      if (dataRequest.status == 200) {
+  
+        return new Response(
+          JSON.stringify({
+             status:dataRequest.status,
+            message: `GN ->  ${JSON.stringify(result)}  -    `,
+          }),
+          {
+            status: 200,
+          }
+        );
+      }
+  
+      return new Response(
+        JSON.stringify({
+          status:401,
+          message: `Error`,
+        }),
+        {
+          status: 401,
+        }
+      );
+    }
+
+
+
+    if (dataPayment.country == "Cameroun") {
+
+
+
+
+      const bodyOrange = {
+          idFromClient: new Date().getTime().toString(),
+          additionnalInfos: {
+          recipientEmail:"karl.ngassa@intouchgroup.net",
+          recipientFirstName: "Karl",
+          recipientLastName:"NGASSA",
+          destinataire:dataPayment.number
+         },
+         amount: 100,
+         callback: callback,
+         recipientNumber: dataPayment.number,
+         serviceCode: "CM_PAIEMENTMARCHAND_OM_TP"
+        }
+    
+      const bodyMtn = {
+          idFromClient: new Date().getTime().toString(),
+          additionnalInfos: {
+          recipientEmail:"karl.ngassa@intouchgroup.net",
+          recipientFirstName: "Karl",
+          recipientLastName:"NGASSA",
+          destinataire:dataPayment.number
+         },
+         amount: 100,
+         callback: callback,
+         recipientNumber: dataPayment.number,
+         serviceCode: "PAIEMENTMARCHAND_MTN_CM"
+        }
+        
+        
+        
+    
+    
+    
+      let body = {};
+      switch (dataPayment.operateur) {
+        case "OrangeMoney":
+          body = bodyOrange
+          break;
+        case "MTN":
+          body =  bodyMtn
+          break;
+      
+        
+      }
+    
+        /* https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+    
+     /* https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+    
+        const client = new DigestClient(
+          "3CED9BA7E7675952241701C97F015D6DEAC4FA197C6732DA5BF2BE46C536F74B",
+          "F41A61A12B955715C2E48E7BAE91A9C28DE8CFFD7E3E881B0EBA5AF0345F0A00"
+        );
+        const dataRequest = await client.fetch(
+          "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEECM9059/transaction?loginAgent=673382636&passwordAgent=4NpPA3HNXZ",
+          {
+            method: "PUT",
+            body: JSON.stringify(body),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+    
+      
+        
+        const result = await dataRequest.json();
+    
+      
+      
+        if (dataRequest.status != 200) {
+          return new Response(
+            JSON.stringify({
+               status:dataRequest.status,
+              message: `GN ->   ${JSON.stringify(result)} -    `,
+            }),
+            {
+              status: 200,
+            }
+          );
+        }
+    
+        if (dataRequest.status == 200) {
+    
+          return new Response(
+            JSON.stringify({
+               status:dataRequest.status,
+              message: `GN ->  ${JSON.stringify(result)}  -    `,
+            }),
+            {
+              status: 200,
+            }
+          );
+        }
+    
+        return new Response(
+          JSON.stringify({
+            status:401,
+            message: `Error`,
+          }),
+          {
+            status: 401,
+          }
+        );
+      }
+
+
+
+
+      if (dataPayment.country == "Gabon") {
+
+
+
+
+        const bodyMoov= {
+            idFromClient: new Date().getTime().toString(),
+            additionnalInfos: {
+            recipientEmail:"gwenael.nzedesouza@intouchgroup.net",
+            recipientFirstName: "Gwenael",
+            recipientLastName:"DE SOUZA",
+            destinataire:dataPayment.number
+           },
+           amount: 100,
+           callback: callback,
+           recipientNumber: dataPayment.number,
+           serviceCode: "GAPAIEMENTMARCHANDMOOV"
+          }
+      
+        const bodyMtn = {
+            idFromClient: new Date().getTime().toString(),
+            "additionnalInfos": {
+            recipientEmail:"karl.ngassa@intouchgroup.net",
+            recipientFirstName: "Karl",
+            recipientLastName:"NGASSA",
+            destinataire:dataPayment.number
+           },
+           amount: 100,
+           callback: callback,
+           recipientNumber: dataPayment.number,
+           serviceCode: "PAIEMENTMARCHAND_MTN_CM"
+          }
+          
+          
+          
+      
+      
+      
+        let body = {};
+        switch (dataPayment.operateur) {
+          case "Moov":
+            body = bodyMoov
+            break;
+          case "MTN":
+            body =  bodyMtn
+            break;
+        
+          
+        }
+      
+          /* https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+      
+       /* https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+      
+          const client = new DigestClient(
+            "3CED9BA7E7675952241701C97F015D6DEAC4FA197C6732DA5BF2BE46C536F74B",
+            "F41A61A12B955715C2E48E7BAE91A9C28DE8CFFD7E3E881B0EBA5AF0345F0A00"
+          );
+          const dataRequest = await client.fetch(
+            "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGA0070/transaction?loginAgent=373382636&passwordAgent=mTQYp9GQJf",
+            {
+              method: "PUT",
+              body: JSON.stringify(body),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+      
+        
+          
+          const result = await dataRequest.json();
+      
+        
+        
+          if (dataRequest.status != 200) {
+            return new Response(
+              JSON.stringify({
+                 status:dataRequest.status,
+                message: `GN ->   ${JSON.stringify(result)} -    `,
+              }),
+              {
+                status: 200,
+              }
+            );
+          }
+      
+          if (dataRequest.status == 200) {
+      
+            return new Response(
+              JSON.stringify({
+                 status:dataRequest.status,
+                message: `GN ->  ${JSON.stringify(result)}  -    `,
+              }),
+              {
+                status: 200,
+              }
+            );
+          }
+      
+          return new Response(
+            JSON.stringify({
+              status:401,
+              message: `Error`,
+            }),
+            {
+              status: 401,
+            }
+          );
+        }
+  
+
+
+
 }
