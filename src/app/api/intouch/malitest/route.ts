@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
  
 
 
-  const  typePayment = `${dataPayment.country}-${dataPayment.operateur}`
+  const  typePayment = `${dataPayment.country}-${dataPayment.operateur}`.replaceAll(" ", "")
 
 
    const callback = `https://paymefinance.com/api/paymentpush?userId=${searchParams.get("userId")!}&month=${
@@ -318,7 +318,7 @@ export async function POST(request: NextRequest) {
 
 
 
-  if (dataPayment.country == "Guinée conakry") {
+  if (dataPayment.country == "Guinée Conakry") {
 
 
 
