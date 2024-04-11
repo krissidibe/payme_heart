@@ -111,7 +111,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -125,7 +126,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -246,7 +248,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -258,7 +261,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -342,7 +346,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -354,7 +359,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -455,7 +461,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -467,7 +474,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -552,7 +560,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -564,7 +573,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -647,7 +657,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -659,7 +670,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -742,7 +754,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -754,7 +767,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -837,7 +851,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
@@ -849,7 +864,8 @@ export async function POST(request: NextRequest) {
       return new Response(
         JSON.stringify({
           status: dataRequest.status,
-          message: JSON.stringify(result),
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
         }),
         {
           status: 200,
