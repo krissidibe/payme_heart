@@ -221,12 +221,28 @@ export async function POST(request: NextRequest) {
 		destinataire: dataPayment.number
 		
 	},
-	"amount": 100,
-	"callback": callback,
-	"recipientNumber": dataPayment.number,
-	"serviceCode": "PAIEMENTMARCHAND_MTN_CI"
+	amount: 100,
+	callback: callback,
+	recipientNumber: dataPayment.number,
+	serviceCode: "PAIEMENTMARCHAND_MTN_CI"
 }
 
+const bodyCiWave = {
+	  idFromClient: "1651089293",
+	  additionnalInfos: {
+		recipientEmail: "tester@gmail.com",
+		recipientFirstName: "Testeur",
+		recipientLastName: "lastname",
+		destinataire:  dataPayment.number,
+		partner_name: "Le nom de votre structure",
+		return_url: "https://successurl.com",
+		cancel_url: "https://failedurl.com"
+	},
+	amount: 100,
+	callback: callback,
+	recipientNumber:  dataPayment.number,
+	serviceCode: "CI_PAIEMENTWAVE_TP"
+}
 
   let bodyCi = {};
   switch (dataPayment.operateur) {
@@ -238,6 +254,9 @@ export async function POST(request: NextRequest) {
       break;
     case "MTN":
       bodyCi =  bodyCiMTN
+      break;
+      case "Wave":
+        bodyCi =  bodyCiWave
       break;
   
     
