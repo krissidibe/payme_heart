@@ -48,7 +48,7 @@ export const DeleteUser = ({
 
           <Section style={content}>
             <br />
-            <Text style={paragraph}>Cher(e) {user.name},</Text>
+            <Text style={paragraph}>Cher(e) équipe,</Text>
             <Text style={paragraph}>
               Cette notification est générée automatiquement pour vous informer
               de la suppression d'un compte utilisateur dans notre application.
