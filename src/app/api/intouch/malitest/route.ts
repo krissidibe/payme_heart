@@ -291,7 +291,7 @@ export async function POST(request: NextRequest) {
         destinataire: dataPayment.number,
         otp: "",
       },
-      amount: 100,
+      amount: 1500,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "PAIEMENTMARCHANDOMPAYGNDIRECT",
@@ -305,7 +305,7 @@ export async function POST(request: NextRequest) {
         recipientLastName: "SECK",
         destinataire: dataPayment.number,
       },
-      amount: 100,
+      amount: 1500,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "PAIEMENTMARCHAND_MTN_GN",
@@ -321,6 +321,8 @@ export async function POST(request: NextRequest) {
         break;
     }
 
+    
+
     /* https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
 
     /* https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
@@ -330,7 +332,7 @@ export async function POST(request: NextRequest) {
       "b76105a42a5ac51a5fe1b11f52b09b9abaca33b83c86c10224852234b28e7226"
     );
     const dataRequest = await client.fetch(
-      "https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F",
+      "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F",
       {
         method: "PUT",
         body: JSON.stringify(bodyGN),
@@ -348,6 +350,7 @@ export async function POST(request: NextRequest) {
           status: dataRequest.status,
           message: result,
           paymentUrl: result?.payment_url ?? "",
+          body:bodyGN
         }),
         {
           status: 200,
@@ -361,6 +364,7 @@ export async function POST(request: NextRequest) {
           status: dataRequest.status,
           message: result,
           paymentUrl: result?.payment_url ?? "",
+          body:bodyGN
         }),
         {
           status: 200,
@@ -503,6 +507,7 @@ export async function POST(request: NextRequest) {
         recipientLastName: "seck",
         currency: "952",
         trxcode: "47428580",
+        otp:dataPayment.otp
       },
       amount: 100,
       callback: callback,
@@ -535,9 +540,7 @@ export async function POST(request: NextRequest) {
         break;
     }
 
-    /* https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
-
-    /* https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+    
 
     const client = new DigestClient(
       "92a628b875ee46c12691dfdf54980846fc4c5929fb5accae6b8975e07e227de3",
@@ -632,9 +635,7 @@ export async function POST(request: NextRequest) {
         break;
     }
 
-    /* https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
-
-    /* https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+ 
 
     const client = new DigestClient(
       "3CED9BA7E7675952241701C97F015D6DEAC4FA197C6732DA5BF2BE46C536F74B",
@@ -729,9 +730,7 @@ export async function POST(request: NextRequest) {
         break;
     }
 
-    /* https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
-
-    /* https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+     
 
     const client = new DigestClient(
       "3CED9BA7E7675952241701C97F015D6DEAC4FA197C6732DA5BF2BE46C536F74B",
@@ -826,16 +825,14 @@ export async function POST(request: NextRequest) {
         break;
     }
 
-    /* https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
-
-    /* https://api.gutouch.com/dist/api/touchpayapi/v1/MEEGN4700/transaction?loginAgent=223733826&passwordAgent=PHRaYfeA6F */
+    
 
     const client = new DigestClient(
       "0fa913d7501130ed66ae0685559b705ecac0fa1517c98860f6907170109d9725",
       "2f0fb2d4dc45d29ad51741dbeef2b4904af006fb7ab4b03fc0d7db1084b2cc4"
     );
     const dataRequest = await client.fetch(
-      "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEBN0031/transaction?loginAgent=72451915&passwordAgent=qRjfuWQw",
+      "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEBN0031/transaction?loginAgent=72451915&passwordAgent=rQPasGHHJu",
       {
         method: "PUT",
         body: JSON.stringify(body),
@@ -853,6 +850,7 @@ export async function POST(request: NextRequest) {
           status: dataRequest.status,
           message: result,
           paymentUrl: result?.payment_url ?? "",
+          body:body
         }),
         {
           status: 200,
