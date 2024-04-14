@@ -1,4 +1,3 @@
-"use client"; 
 import Pdfrenderer from "@/components/pdfrenderer";
 import MyDocumentPDF from "@/components/PdfRend";
 import { FaLinkedinIn, FaWindows } from "react-icons/fa6";
@@ -11,9 +10,10 @@ import localFont from "next/font/local";
 import ToggleButton from "./ToggleButton";
 import MobileMenu from "./MobileMenu";
 import Link from "next/link";
-import { useState } from "react";
+import FaqItem from "./FaqItem";
+import ip3country from "ip3country";
+import DesktopBtn from "./DesktopBtn";
  
-
 const titleFont = localFont({
   src: [
     {
@@ -52,6 +52,36 @@ export default async function Home() {
 
   const data: any[] = [];
 
+  const postInView = async () => {
+
+    const good = "https://api.ipify.org/?format=json"
+    const good2 = "https://geolocation-db.com/json/"
+    const req2 =  await fetch(good2, {
+      method: "GET",
+      cache:"no-cache"
+     
+    })
+   const dataIp =await req2.json()
+ 
+ 
+  const req =  await fetch(`${process.env.BASE_API_URL}/api/view`, {
+      method: "POST",
+      body: JSON.stringify({
+        addressIp:  dataIp?.IPv4 ?? "",
+        country:  `${dataIp?.country_name} - ${dataIp?.state} @${dataIp?.country_code}` ?? ""
+      }),
+      cache:"no-cache"
+    })
+
+    
+    
+  }
+ 
+
+
+ 
+ 
+  postInView()
   return (
     <main id="index"
       className={`flex flex-col items-center no-scrollbar  overflow-x-hidden relative text-[#B9B9B9] w-full   min-h-screen bg-[#0E0E0E] ${myFont.className}`}
@@ -85,11 +115,11 @@ export default async function Home() {
       <div  className="w-[986px]     flex flex-col justify-center items-center px-10 mt-[120px] md:mt-[189px] ">
        
         <p className="leading-9  md:leading-[55px] text-center xl:max-w-[970px] md:max-w-[800px] px-6 max-w-[390px] ">
-          
+       
           <span
             className={`${titleFont.className} text-[35px] md:text-[67px] xl:text-[70.39px]  mr-2 bg-gradient-to-r from-[#999A5B] via-[#999A5B] to-[#FFFFEA] bg-clip-text text-transparent pr-1 `}
           >
-            Simplifier
+            Simplifier {ip3country.lookupStr("123.45.67.8") }
           </span> 
           <span className=" text-[35px] md:text-[60px] xl:text-[64.39px]  md:leading-14  font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#948f8f] bg-clip-text text-transparent">
             votre gestion    financière avec Payme
@@ -115,21 +145,7 @@ export default async function Home() {
         </div>
       </div>
        <div className="absolute hidden -top-1 downloadApp -left-4 md:flex"></div> 
-       <div className="relative hidden md:flex">
-        
-         
-          <div className=" w-[160px]  bg-[#0E0E0E] relative  border-2   h-[45px] hover:brightness-110  cursor-pointer border-[#bbbc8b] hover:text-white flex justify-center  rounded-md items-center  ">
-         <FaWindows className="mr-2" />
-          Windows
-          </div>
-        </div>
-       <div className="relative hidden md:flex">
-         
-          <div className=" w-[160px] bg-[#0E0E0E] relative  border-2   h-[45px] hover:brightness-110  cursor-pointer border-[#bbbc8b] hover:text-white flex justify-center  rounded-md items-center  ">
-         <RiAppleFill className="mb-[2px] mr-2" />
-            Mac
-          </div>
-        </div>
+    <DesktopBtn />
        </div>
       </div>
 
@@ -424,7 +440,7 @@ transform: rotate(15deg);
       <div className="w-full  max-w-6xl xl:px-14 md:px-[50px] px-[40px] flex-col  p-8 py-4 rounded-3xl flex   relative ">
   <div className="gestion opacity-40"></div> 
         <div className="flex flex-col items-end justify-between mt-20 md:flex-row">
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col items-center w-full md:items-start">
           <img src={"/images/logo-payme-complet.png"} width={110} height={50} />
             <p className="text-[14px] mt-[13px]">
               © 2024 Payme, Sarl. Tout droit réservé.
@@ -437,7 +453,7 @@ transform: rotate(15deg);
 
           <div className="w-full flex flex-col items-end leading-4  md:w-[700px]">
         
-          <div className="flex flex-row items-center justify-center ">
+          <div className="flex flex-row items-center justify-center w-full md:w-auto ">
               <svg
                 width="41"
                 height="41"
@@ -495,7 +511,9 @@ transform: rotate(15deg);
           <div className="z-50 flex gap-2">
           <p className="text-[16px] mt-[7px] text-[#727072]">
              <Link href="/conditions-generales"  
-          className="cursor-pointer hover:text-white/70 " > Conditions d'utilisation </Link> et  
+          className="cursor-pointer hover:text-white/70 " > Conditions d'utilisation </Link>
+          
+           et  
           
           <Link  href="/politique"   
           className="cursor-pointer hover:text-white/70 " > Politique de confidentialité    </Link> 
@@ -512,33 +530,7 @@ transform: rotate(15deg);
     </main>
   );
 
-  function FaqItem({ content = "" ,children}: { content: string ,children?:any}) {
-    const [isOpen, setIsOpen] = useState(false)
-    return (
-  <div onClick={()=>setIsOpen(!isOpen)}  className="flex flex-col cursor-pointer md:text-[24px] text-[16px]  w-full">
-        <div className="flex items-center justify-between pt-6 border-t cursor-pointer hover:text-white border-white/20">
-        <p className="w-full ">{content}</p>
-        <div className="pl-2 md:pl-[100px]">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className={`w-6 h-6 transition-all ease-in-out duration-200  ${isOpen ? "rotate-45" : ""}`}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 4.5v15m7.5-7.5h-15"
-            />
-          </svg>
-        </div>
-      </div>
-       <div className={`mt-4 transition-all    text-[20px] duration-700 ease-in-out ${isOpen ? 'flex' : 'hidden'} `}>{children}</div>
-  </div>
-    );
-  }
+
 
   function Characteristique({
     icon,

@@ -1,5 +1,6 @@
       <div class="headline">
         <p>
-          <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
-        </p>
+          <%= dataEnterpriseInfo %> 
+       <!--    <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+        --> </p>
       </div>

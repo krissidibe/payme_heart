@@ -403,7 +403,7 @@
     </div>
     <div class="text-center text-[11px] px-[10px] line-clamp-3 pt-5">
       <div class="w-full text-[11px] line-clamp-3 flex flex-col px-14 ">
-        <p>      <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %></p>
+        <p>    <%= dataEnterpriseInfo %> </p>
       </div>
     </div>
     

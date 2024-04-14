@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 80px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -91,7 +91,7 @@
   }
     .headline-wrapper {
     width: auto;
-    margin: 0 55px;
+    margin: 0 80px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -134,12 +134,12 @@
     width: auto;
     margin-left: 56px;
     margin-right: 56px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .tabs-header p {
-    padding-top: 10px; /* /!\ */
-    padding-bottom: 10px; /* /!\ */
+    padding-top: 9px !important; /* /!\ */
+    padding-bottom: 12px !important; /* /!\ */
   }
   
   .facture-content .tabs-header .description {
@@ -192,12 +192,14 @@
 
   .right, .right > div {
     min-width: 260px;
-    gap: 10px;
+    gap: -4px !important;
+    line-height: .50rem;
   }
 
   .right p {
     padding-left: 6px;
     padding-right: 14px;
+   
   }
   
   .right p span {
@@ -212,6 +214,7 @@
   .right .total-amount {
     background: pink;
     padding: 10px 12px 10px 9px;
+    line-height: 1.1rem !important;
   }
 
   .total-separator {
@@ -223,8 +226,8 @@
     .sign {
     margin-top: 8px;
     padding-top: 40px;
-    padding-left: 110px;
-    padding-right: 110px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 
   .sign > div p {
@@ -390,6 +393,7 @@
   .header .facture-number {
     display: none;
   }
+  
 
   .headline-wrapper {
     padding-top: 30px;
@@ -425,6 +429,7 @@
     border-radius: 50px;
     color: var(--secondary-text-color, white);
     background: var(--secondary-color, #E6332A);
+    height: 40px !important;
   }
   
   .tabs-header .quantity {
@@ -451,6 +456,7 @@
   .left {
     padding-left: 14px;
     padding-right: 64px;
+    
     color: #000;
   }
 
@@ -458,25 +464,43 @@
     border: none;
     padding: 6px 12px;
     color: var(--primary-color, #3AAA35);
+    
+   
   }
 
   .right .remise {
     font-weight: 600 !important;
     padding-bottom: 22px;
     color: #000;
+    
+  }
+
+  .remise {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  .right p {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  .left  {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
   }
 
   .right .total-amount {
     margin-left: 56px;
     margin-right: 56px;
-    padding-left: 12px !important;
-    padding-right: 0;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
     color: var(--primary-text-color, white);
     background: var(--primary-color, #3AAA35) !important;
     position: relative;
     border-radius: 50px;
-    justify-content: flex-start;
+    justify-content: space-between;
+     
   }
+ 
 
   .right .total-amount .empty-total-amount {
     display: block !important;
@@ -487,6 +511,7 @@
     background: var(--secondary-color, #E6332A);
   }
 
+
   .sign {
     padding-top: 12px;
   }
@@ -495,7 +520,7 @@
   }
 
   .page-footer {
-    height: 70px;
+    height: 80px;
     bottom: 0px;
     text-align: center;
     color: #000;
@@ -504,6 +529,25 @@
     align-items: center;
     
   }
+
+  .facture-number {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .headline-wrapper .facture-number {
+    justify-content: flex-start !important;
+  }
+
+  .facture-content .headline-wrapper .facture-number p {
+    font-size: 21px !important;
+    font-weight: 400;
+    line-height: 24px;
+  }
+.logo{
+  margin-left: 25px !important;
+}
+  
   /* custom end styling */
 </style>
 
@@ -517,7 +561,7 @@
       <tr>
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
-            
+            <div class="h-4"></div>
             <!-- Header + Facture -->
 <%- include('../subtemplates2b/header/header1') %>
             

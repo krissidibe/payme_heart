@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 80px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -148,12 +148,14 @@
 
   .tabs-item {
     padding: 0 56px;
+    
   }
   
   .tabs-item p {
     padding-top: 14px; /* /!\ */
     padding-bottom: 14px; /* /!\ */
     padding-left: 5px;
+ 
   }
 
   .tabs-item.empty-item {
@@ -187,7 +189,7 @@
   }
 
   .left {
-    max-width: 300px;
+    max-width: 350px;
   }
 
   .right, .right > div {
@@ -225,6 +227,7 @@
     padding-top: 40px;
     padding-left: 110px;
     padding-right: 110px;
+   
   }
 
   .sign > div p {
@@ -279,13 +282,13 @@
 
   .tabs .quantity.first {
     display: block;
-    width: 80px;
+    width: 65px;
   }
       .sign {
     margin-top: 8px;
     padding-top: 40px;
-    padding-left: 56px;
-    padding-right: 56px;
+    padding-left: 0px;
+    padding-right: 0px;
     gap: 10px;
   }
   .sign > div {
@@ -403,12 +406,24 @@
   }
 
   .page-footer {
-    height: 90px;
+    height: 80px;
     bottom: 0px;
-    padding-top: 30px;
+    padding-top: 10px;
     background: var(--secondary-color, #86CFEB);
     text-align: center;
     color: var(--secondary-text-color, #000);
+  }
+
+
+  .logo {
+    width: 380px !important;
+    max-width: 380px !important;
+ 
+    padding-left: 0 !important;
+  }
+
+  .logo img {
+    object-position: left;
   }
 
 
@@ -432,7 +447,7 @@
             <!-- table -->
 <%- include('../subtemplates2b/tabs/tab1') %>
             
-            
+ 
                         <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
 

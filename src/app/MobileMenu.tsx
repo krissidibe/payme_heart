@@ -9,7 +9,7 @@ function MobileMenu() {
   return (
 
 
-<div className={`fixed z-50  ${isOpen ?" h-[220px]" : "h-[60px]" }  md:items-center  xl:h-[92px] flex  justify-center  w-screen bg-zinc-950/30 backdrop-blur-lg`}>
+<div className={`fixed z-50  ${isOpen ?" h-full" : "h-[60px]" }  md:items-center  xl:h-[92px] flex  justify-center  w-screen bg-zinc-950/30 backdrop-blur-lg`}>
 <div className="h-[52px] px-10 flex md:hidden relative    md:text-[14px]  xl:text-[16px] font-semibold max-w-7xl w-full    mt-0 items-center xl:px-0 md:px-14 justify-between ">
   <div className='flex flex-row justify-between flex-1 w-full'>
 
@@ -25,11 +25,11 @@ function MobileMenu() {
 
 
         <div className={`${isOpen ? "scale-100 right-0 transition-all duration-300" :"scale-0 rotate-0 transition-all duration-300"} absolute z-50 flex flex-col h-[200px] w-full gap-2 px-10 py-4 rounded-md right-0   top-10`}>
-          <p onClick={()=> setIsOpen(x=>!x)}  className="cursor-pointer hover:text-white">Acceuil</p>
-          <p onClick={()=> setIsOpen(x=>!x)}  className="cursor-pointer hover:text-white">Caractéristiques</p>
-          <p onClick={()=> setIsOpen(x=>!x)}  className="cursor-pointer hover:text-white">Cible</p>
-          <p onClick={()=> setIsOpen(x=>!x)}  className="cursor-pointer hover:text-white">FAQ</p>
-          <p onClick={()=> setIsOpen(x=>!x)}  className="cursor-pointer hover:text-white">Télécharger</p>
+        <a href="#index"  onClick={()=> setIsOpen(x=>!x)} className="text-white">Acceuil</a>
+     <a href="#caracteristique"  onClick={()=> setIsOpen(x=>!x)} className="cursor-pointer hover:text-white">Caractéristiques</a>
+     <a href="#cible"  onClick={()=> setIsOpen(x=>!x)} className="cursor-pointer hover:text-white">Cible</a>
+     <a href="#faq" onClick={()=> setIsOpen(x=>!x)} className="cursor-pointer hover:text-white">FAQ</a>
+          <a  href="#index"  onClick={()=> setIsOpen(x=>!x)}  className="cursor-pointer hover:text-white">Télécharger</a>
           <a  href={`mailto:contact@paymefinance.com?subject=${"object"}&body=${"message"}`}  className="cursor-pointer hover:text-white">Contactez-nous</a>
         </div>
 

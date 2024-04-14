@@ -203,6 +203,13 @@ export async function DELETE(req: NextRequest, res: NextResponse) {
       },
     }); 
 
+    await prisma.userDeleted.create({
+      data:{
+        email:project?.email!.toString(),
+        information:JSON.stringify(enteprise)
+      }
+      
+    })
 
     const emailHtml1 = render(DeleteUser({user:project,enterprise:enteprise, type:searchParams.get("type")! }));
     const emailHtml = render(DeleteUserUser({user:project,enterprise:enteprise}));

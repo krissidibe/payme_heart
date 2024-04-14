@@ -13,7 +13,7 @@ export async function GET() {
   return new Response(JSON.stringify("LOGIN GET"));
 }
 
-/* 
+/*  
  ba612227c93cb1e42a25b91243a8b185266f6dc8b179c71ad3e87a851a095f29
  b96aa59aaa01731bf197e4c09e42b1680bfc10057fd5397007a44e6e9f7f529e
  */
@@ -22,34 +22,36 @@ export async function POST(request: NextRequest) {
   const { searchParams } = new URL(request.url);
 
   const typePayment =
-    `${dataPayment.country}-${dataPayment.operateur}`.replaceAll(" ", "");
+    `${dataPayment.country}-${dataPayment.operateur}`.replaceAll(" ", "_");
+
+
+
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const numbers = '0123456789';
+  const date = new Date(Date.now()).getTime();
+  let lettersPart = '';
+  let numbersPart = '';
+    for (let i = 0; i < 4; i++) {
+      lettersPart += letters.charAt(Math.floor(Math.random() * letters.length));
+    }
+    for (let i = 0; i < 4; i++) {
+      numbersPart += numbers.charAt(Math.floor(Math.random() * numbers.length));
+    }
+
+  const reference = `${lettersPart}-${numbersPart}-${date}`
+
+
 
   const callback = `https://paymefinance.com/api/paymentpush?userId=${searchParams.get(
     "userId"
   )!}&month=${dataPayment.month}&amount=${
     dataPayment.amount
-  }&type=${typePayment}`;
+  }&type=${typePayment}&reference=${reference}`;
 
-  /*   const callbackOld = `https://paymefinance.com/api/paytest?userId=${searchParams.get("userId")!}&month=${
-    dataPayment.month
-  }&amount=${dataPayment.amount}&type=${typePayment}`
- */
-
-  /*   return new Response(
-    JSON.stringify({
-      message: `Payment en cours  ....   ${callback} `,
-    }),
-    {
-      status: 200,
-    }
-  );
-  */
-
-  //dataPayment.amount
 
   /* Mali */
   const bodyMaliOR = {
-    idFromClient: new Date().getTime().toString(),
+    idFromClient: reference,
     additionnalInfos: {
       recipientEmail: "assowlovesss@gmail.com",
       recipientFirstName: "Aboubacar Sidikiss",
@@ -62,7 +64,7 @@ export async function POST(request: NextRequest) {
     serviceCode: "ML_PAIEMENTMARCHAND_OM_TP",
   };
   const bodyMaliMoov = {
-    idFromClient: new Date().getTime().toString(),
+    idFromClient: reference,
     additionnalInfos: {
       recipientEmail: "tapha.seck@hubsocial.org",
       recipientFirstName: "Moustapha",
@@ -150,7 +152,7 @@ export async function POST(request: NextRequest) {
 
   if (dataPayment.country == "Côte d'Ivoire") {
     const bodyCiOR = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "JUNIOR@hubsocial.org",
         recipientFirstName: "Moustapha",
@@ -165,7 +167,7 @@ export async function POST(request: NextRequest) {
     };
 
     const bodyCiMoov = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "JUNIOR@hubsocial.org",
         recipientFirstName: "Moustapha",
@@ -179,7 +181,7 @@ export async function POST(request: NextRequest) {
     };
 
     const bodyCiMTN = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "JUNIOR@hubsocial.org",
         recipientFirstName: "Moustapha",
@@ -193,7 +195,7 @@ export async function POST(request: NextRequest) {
     };
 
     const bodyCiWave = {
-      idFromClient: "1651089293",
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "tester@gmail.com",
         recipientFirstName: "Testeur",
@@ -283,7 +285,7 @@ export async function POST(request: NextRequest) {
 
   if (dataPayment.country == "Guinée Conakry") {
     const bodyGNOR = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "JUNIOR@hubsocial.org",
         recipientFirstName: "Moustapha",
@@ -298,7 +300,7 @@ export async function POST(request: NextRequest) {
     };
 
     const bodyGNMTN = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "JUNIOR@hubsocial.org",
         recipientFirstName: "Moustapha",
@@ -387,7 +389,7 @@ export async function POST(request: NextRequest) {
 
   if (dataPayment.country == "Sénégal") {
     const bodyOrange = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "assowlove@gmail.com",
         recipientFirstName: "Moustapha",
@@ -401,7 +403,7 @@ export async function POST(request: NextRequest) {
       serviceCode: "PAIEMENTMARCHANDOMSN2",
     };
     const bodyWave = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "assowlove@gmail.com",
         recipientFirstName: "Testeur",
@@ -418,7 +420,7 @@ export async function POST(request: NextRequest) {
       serviceCode: "SNPAIEMENTWAVE",
     };
     const bodyFreeMoney = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "assowlove@gmail.com",
         recipientFirstName: "Moustapha",
@@ -500,7 +502,7 @@ export async function POST(request: NextRequest) {
 
   if (dataPayment.country == "Burkina Fasso") {
     const bodyOrange = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "issa.ndiaye@hubsocial.org",
         recipientFirstName: "Junior",
@@ -516,7 +518,7 @@ export async function POST(request: NextRequest) {
     };
 
     const bodyMoov = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "issa.ndiaye@hubsocial.org",
         recipientFirstName: "Junior",
@@ -598,7 +600,7 @@ export async function POST(request: NextRequest) {
 
   if (dataPayment.country == "Cameroun") {
     const bodyOrange = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "karl.ngassa@intouchgroup.net",
         recipientFirstName: "Karl",
@@ -612,7 +614,7 @@ export async function POST(request: NextRequest) {
     };
 
     const bodyMtn = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "karl.ngassa@intouchgroup.net",
         recipientFirstName: "Karl",
@@ -693,7 +695,7 @@ export async function POST(request: NextRequest) {
 
   if (dataPayment.country == "Gabon") {
     const bodyMoov = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "gwenael.nzedesouza@intouchgroup.net",
         recipientFirstName: "Gwenael",
@@ -707,7 +709,7 @@ export async function POST(request: NextRequest) {
     };
 
     const bodyMtn = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "karl.ngassa@intouchgroup.net",
         recipientFirstName: "Karl",
@@ -788,7 +790,7 @@ export async function POST(request: NextRequest) {
 
   if (dataPayment.country == "Benin") {
     const bodyMoov = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "tapha.seck@hubsocial.org",
         recipientFirstName: "Moustapha",
@@ -802,7 +804,7 @@ export async function POST(request: NextRequest) {
     };
 
     const bodyMtn = {
-      idFromClient: new Date().getTime().toString(),
+      idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "tapha.seck@hubsocial.org",
         recipientFirstName: "Moustapha",

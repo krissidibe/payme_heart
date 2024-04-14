@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
     process.env.BASE_API_URL
   }/api/payment?userId=${searchParams.get("userId")!}&month=${searchParams.get(
     "month"
-  )}&amount=${searchParams.get("amount")}&type=${searchParams.get("type")}`;
+  )}&amount=${searchParams.get("amount")}&type=${searchParams.get("type")}&reference=${searchParams.get("reference")}`;
 
   if (data.status == "SUCCESSFUL") {
     const dataRequest = await fetch(callbackOld, {

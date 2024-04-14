@@ -169,16 +169,7 @@
 
     /* End Facture Custom styling */
   </style>
-<!-- enterprise.name,
-enterprise.address,
-enterprise.rccm,
-enterprise.email,
-enterprise.bankNumber,
-enterprise.numbers,
-enterprise.numbers,
-enterprise.numbers,
-enterprise.numbers,
-enterprise.nif, -->
+ 
   <body>
     <!-- footer -->
 
@@ -187,9 +178,7 @@ enterprise.nif, -->
     <div class="h-1 border-b w-[59%] border-black/70 mx-auto"></div>
   <p class="text-[11px] px-[57px]  pt-2 text-center line-clamp-4">
   
-
-      <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
-  
+    <%= dataEnterpriseInfo %> 
   </p>
 </div>
 

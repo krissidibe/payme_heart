@@ -257,8 +257,8 @@ model Payment {
   deletedAt   DateTime?    @db.Timestamp(0)
   subscribe    Subscribe?
   
-  userId      String
-  user        User         @relation(fields: [userId], references: [id] ,onDelete: Cascade )
+  userId      String?
+  user        User?         @relation(fields: [userId], references: [id] ,onDelete: SetNull )
 }
 
 model Subscribe {
@@ -269,8 +269,8 @@ model Subscribe {
   updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
   deletedAt   DateTime?    @db.Timestamp(0)
   users        User[]
-   paymentId      String @unique
-  payment        Payment         @relation(fields: [paymentId], references: [id] ,onDelete: Cascade )
+   paymentId      String? @unique
+  payment        Payment?         @relation(fields: [paymentId], references: [id] ,onDelete: SetNull )
 }
 
 model Invoice {
@@ -308,8 +308,8 @@ model InvoiceList {
   updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
   deletedAt   DateTime?    @db.Timestamp(0)
 
-  categoryId      String      
-  category        Category         @relation(fields: [categoryId], references: [id] ,onDelete: Cascade )
+  categoryId      String?      
+  category        Category?         @relation(fields: [categoryId], references: [id] ,onDelete: SetNull )
    
  }
 model Category {
@@ -335,6 +335,47 @@ model Category {
 
 
 
+model webView {
+  id          String       @id @default(cuid())
+  byLink   String?     @default("")
+  addressIp   String?     @default("")
+  country   String?     @default("")
+  isDownload   Boolean     @default(false)
+  createdAt   DateTime     @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+  deletedAt   DateTime?    @db.Timestamp(0)
+ }
+
+ 
+model userDeleted {
+  id          String       @id @default(cuid())
+  email   String     @default("")
+  information   String     @db.LongText
+  createdAt   DateTime     @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+  deletedAt   DateTime?    @db.Timestamp(0)
+ }
+
+
+  model appVersion {
+  id          String       @id @default(cuid())
+  code        String?
+  name        String
+  macLink        String?
+  windowsLink        String?
+  iosLink        String?
+  androidLink        String?
+  required    Boolean      @default(false)
+  createdAt   DateTime?    @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+    
+}
+
+
+ 
+
+
+ 
 
 
 enum CustomerType {

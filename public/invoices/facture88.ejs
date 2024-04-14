@@ -247,16 +247,7 @@ padding-right: 100px !important;
 
     /* End Facture Custom styling */
   </style>
-<!-- enterprise.name,
-enterprise.address,
-enterprise.rccm,
-enterprise.email,
-enterprise.bankNumber,
-enterprise.numbers,
-enterprise.numbers,
-enterprise.numbers,
-enterprise.numbers,
-enterprise.nif, -->
+ 
   <body>
     <!-- footer -->
     <div class="bottom-0 flex items-center justify-center py-2 pt-0 footer page-footer inter">
@@ -269,9 +260,7 @@ enterprise.nif, -->
       <p class="text-[11px] px-[27px] mx-[80px] pt-3  border-t border-primary-footer w-auto    text-center   line-clamp-3">
       
     
-       
-          <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
-      
+        <%= dataEnterpriseInfo %> 
        
       </p>
      </div>

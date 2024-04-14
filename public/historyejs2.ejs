@@ -204,10 +204,20 @@
     </div>
 
     <div class="flex justify-end mt-10 px-14">
-      <p class="mt-4 text-[13px] font-bold bg-black text-white p-2 px-3 flex">
+      <p class="text-[13px] font-bold w-auto bg-black text-white p-2 px-3 flex">
         TOTAL : <%=parseInt(data.totalTTC).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")%> <%= data.currency %>
       </p>
     </div>
+
+    <% if(data.totalTva != 0){ %>
+      
+      <div class="flex justify-end mt-4 px-14">
+        <p class=" text-[13px] font-bold bg-black text-white p-2 px-3 flex">
+          TOTAL TVA : <%=parseInt(data.totalTva).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")%> <%= data.currency %>
+        </p>
+      </div>
+   <% } %>
+   
 
   
 

@@ -1,10 +1,11 @@
-            <header class="header flex">
+            <header class="flex header">
               <div class="logo">
                 <p>LOGO</p>
               </div>
-              <div class="heading-info flex flex-col justify-center">
+              <div class="flex flex-col justify-center heading-info">
                 <p>
-                  <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+                  <%= dataEnterpriseInfo %> 
+                 <!--  <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %> -->
                 </p>
               </div>
             </header>

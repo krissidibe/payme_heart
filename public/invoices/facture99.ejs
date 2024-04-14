@@ -265,8 +265,7 @@ background-color: white;
       <p class="text-[11px] px-[57px]  pt-2 text-center line-clamp-4">
       
     
-          <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
-      
+        <%= dataEnterpriseInfo %> 
       </p>
       <div class="h-4 absolute bottom-0 right-0 left-0  w-[70%] mx-auto bg-black"></div>
     </div>

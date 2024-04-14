@@ -7,6 +7,7 @@ import {
   HomeIcon,
   ImageIcon,
   InstagramIcon,
+  LogOut,
   LucideIcon,
   LucideProps,
   MapIcon,
@@ -52,8 +53,7 @@ function Sidebar() {
       <div className="flex flex-col flex-1 mt-4 space-y-1 overflow-y-scroll no-scrollbar ">
         <ItemSidebar href="/admin" Icon={HomeIcon} key={1} name="Accueil" />
         <ItemSidebar href="/admin/invoice" Icon={FileTextIcon} key={2} name="Facture" />
-        <ItemSidebar href="/admin/transaction" Icon={MapIcon} key={3} name="Découvrir" />
-        <ItemSidebar href="/admin" Icon={ClapperboardIcon} key={4} name="Reels" />
+       
         
 
        {/*  <AlertDialog>
@@ -79,7 +79,7 @@ function Sidebar() {
          
       </div>
      
-      <ItemSidebar href="/admin" Icon={AlignJustifyIcon} key={5} name="Plus" />  
+      <ItemSidebar href="/admin" Icon={LogOut} key={5} name="Deconnexion" />  
       {/* End MenuItem */}
     </div>
   );
@@ -99,7 +99,7 @@ function ItemSidebar({ Icon, name,href }: { Icon: LucideIcon; name: string ,href
           : "text-[#9e9e9e] bg-gray-400 bg-opacity-10"
       } flex items-center font-semibold    hover:bg-opacity-10 cursor-pointer bg-opacity-5  text-[19px] px-10 `}
     >
-     <Icon className="absolute   left-[30px] w-10 h-10 mr-6 xl:static" />
+     <Icon className="absolute   left-[30px] w-8 h-8 mr-6 xl:static" />
      
       <p className={`${false ? "hidden" : "hidden xl:block"} `}>{name}</p>
     </Link>

@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 80px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -376,15 +376,15 @@
   }
 
   .page-footer {
-    height: 90px;
+    height: 80px;
     bottom: 0px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     border-bottom: 24px solid var(--primary-color, #000);
     text-align: center;
     color: #000;
   }
 
-  .page-footer > div:first-child {
+  .bg-primary{
     background: var(--primary-color, #000);
   }
 
@@ -527,6 +527,7 @@
       <tr>
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
+         <div class="h-8 bg-primary"></div>
             <!-- Header + Facture -->
 <%- include('../subtemplates2b/headerheadline/headerheadline2') %>
             

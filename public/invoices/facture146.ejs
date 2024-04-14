@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 80px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -467,7 +467,7 @@
 <body>
   <!-- footer -->
   <div class="page-footer footer">
-    <div class="absolute left-0 -bottom-[70px]">
+    <div class="absolute left-0 bottom-[10px]">
       <svg xmlns="http://www.w3.org/2000/svg" width="115" height="42" viewBox="0 0 115 42" fill="none">
         <path d="M94.6115 41.03H-4.10365C-15.3564 41.03 -24.481 31.9054 -24.481 20.6526C-24.481 9.39992 -15.3564 0.275391 -4.10365 0.275391H94.6115C105.864 0.275391 114.989 9.39992 114.989 20.6526C114.989 31.9054 105.864 41.03 94.6115 41.03Z" fill="#D7A4AE"/>
       </svg>
@@ -487,7 +487,7 @@
               
               <div class="heading-info flex items-center px-[45px] flex-1 min-h-[120px] ml-4">
                 <p class="text-[12px]">
-                  <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+                  <%= dataEnterpriseInfo %> 
                 </p>
               </div>
             </header>

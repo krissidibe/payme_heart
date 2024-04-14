@@ -102,6 +102,7 @@ enum ProjectTypeEnum{
     projectName  :string
     taxe?  :string
     type  :string
+    amountTva?  :string
     amountTotal  :string
  
     

@@ -124,6 +124,13 @@ export async function POST(req:NextRequest,res:NextResponse) {
 
   const dataTextFinal = dataText == "Invalid Date" ? dayjs(`${dataNew.project.createdAt}`).format("DD/MM/YYYY") : dataText
    
+  
+
+ const dataEnterprise = dataNew.enterprise
+  const enterpriseInfo = `${dataEnterprise?.name} - notre adresse ${dataEnterprise?.address} ${dataEnterprise?.rccm.length > 0 ? `- Rccm : ${dataEnterprise?.rccm}` : "" } - Email : ${dataEnterprise?.email} ${dataEnterprise?.bankNumber.length > 0 ? `- Compte Bank : ${dataEnterprise?.bankNumber}` : "" } Tél : + ${ JSON.parse(dataEnterprise?.numbers)[0].indicatif } ${ JSON.parse(dataEnterprise?.numbers)[0].number}  ${ JSON.parse(dataEnterprise?.numbers)[1]?.indicatif.length > 0 ? `/ + ${ JSON.parse(dataEnterprise?.numbers)[1]?.indicatif } ${ JSON.parse(dataEnterprise?.numbers)[1]?.number}` : "" } ${JSON.parse(dataEnterprise?.nif)[0]?.content.length > 0 ? `- ${JSON.parse(dataEnterprise?.nif)[0]?.content}` : ""} ${JSON.parse(dataEnterprise?.nif)[1]?.content.length > 0 ? `${JSON.parse(dataEnterprise?.nif)[1]?.content}` : ""} 
+  
+  ${dataEnterprise?.website.length > 0 ? `- Site Web : ${dataEnterprise?.website}` : "" }
+  `
       return ejs.renderFile(filePath,{
         primaryColor:dataNew.primaryColor,
         secondaryColor:dataNew.secondaryColor,
@@ -137,6 +144,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
         totalAccount:totalAccount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "."),
         totalReliquat:totalReliquat.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "."),
         totalLetter:totalLetter,
+        dataEnterpriseInfo:enterpriseInfo,
         total:total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "."),totalTva:totalTva.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "."),totalHT:totalHT.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "."),totalDiscount:totalDiscount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "."), enterprise:dataNew.enterprise,project:dataNew.project,customer:dataNew.project.customer,table:JSON.parse(dataNew.project.table)},);
         //return Handlebars.compile(html)({"data":value});
     }

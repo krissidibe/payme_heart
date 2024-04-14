@@ -73,6 +73,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       projectName: transactionData.projectName,
       client: transactionData.client,
       amountTotal: transactionData.amountTotal,
+      amountTva: transactionData.amountTva ?? "0",
       type:transactionData.type,
       createdAt: new Date(Date.now()),
       taxe:transactionData.taxe,

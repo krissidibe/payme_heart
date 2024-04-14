@@ -48,10 +48,11 @@ let amount = "";
       numbersPart += numbers.charAt(Math.floor(Math.random() * numbers.length));
     }
 
+   const reference = `${lettersPart}-${numbersPart}-${date}`
   const payment = await prisma.payment.create({
     data: {
-      reference:`${lettersPart}-${numbersPart}-${date}`,
-      type: searchParams.get("type") ?? "",
+      reference:searchParams.get("reference") == "null" ? reference : searchParams.get("reference")! ,
+      type: searchParams.get("type")?.toString().replaceAll("_"," ") ?? "",
       month: parseInt(searchParams.get("month")!),
       amount: parseInt(searchParams.get("amount")!),
       currency: "FCFA",

@@ -7,6 +7,8 @@ const nextConfig = {
      
   },
 
+  reactStrictMode:true,
+
 /*   experimental: { 
     serverComponentsExternalPackages: [
       '@react-email/components',

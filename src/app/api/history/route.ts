@@ -73,7 +73,9 @@ export async function POST(req:NextRequest) {
 
     const initialValue = 0;
     const dataTable = [dataNew.dataTable]
-const sumWithInitial = dataNew.dataTable.reduce((accumulator:any, currentValue:any) => parseInt(accumulator) + parseInt(currentValue.amountTotal), initialValue);
+
+    const sumWithInitial = dataNew.dataTable.reduce((accumulator:any, currentValue:any) => parseInt(accumulator) + parseInt(currentValue.amountTotal), initialValue);
+    const sumWithInitialTva = dataNew.dataTable.reduce((accumulator:any, currentValue:any) => parseInt(accumulator) + parseInt(currentValue.amountTva == null ? "0" : currentValue.amountTva), initialValue);
 //console.log(JSON.stringify(dataTable));
  
 const logo =`https://paymefinance.com/images/logo-payme-complet.png`
@@ -86,7 +88,7 @@ const datasFilter = country.filter((item) => item.Phone.toString().toLowerCase()
    dataTable.forEach(i => i.type =  i.type == 0 ? "Virement bancaire" : i.type == 1 ? "Paiement en espèce" :"Paiement par chèque")
     const content =await compile({
       logo:logo,
-      startAt: daysFr(startAt) ,endAt:daysFr(endAt),enterprise:dataNew.enterprise,dataTable: JSON.parse(JSON.stringify(dataTable[0])),totalTTC : sumWithInitial,currency:datasFilter[0].Currency})
+      startAt: daysFr(startAt) ,endAt:daysFr(endAt),enterprise:dataNew.enterprise,dataTable: JSON.parse(JSON.stringify(dataTable[0])),totalTTC : sumWithInitial,totalTva:sumWithInitialTva,currency:datasFilter[0].Currency})
    
     // Navigate the page to a URL
    

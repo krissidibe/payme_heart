@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 80px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -433,8 +433,7 @@
     border: none;
   }
 
-  .page-footer {
-    height: 90px;
+  .page-footer { 
     bottom: 0px;
   }
 
@@ -476,7 +475,7 @@
               
               <div class="heading-info flex items-center px-[45px] flex-1 min-h-[120px] ml-4">
                 <p class="text-[12px]">
-                  <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+                  <%= dataEnterpriseInfo %> 
                 </p>
               </div>
             </header>
