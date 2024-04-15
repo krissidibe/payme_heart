@@ -1,7 +1,7 @@
 import { signJwtAccessToken } from "@/utils/jwt";
 import {prisma} from "@/utils/prisma";
-import * as bcrypt from "bcrypt";
-
+/* import * as bcrypt from "bcrypt";
+ */
 interface RequestBody {
   email: string;
   password: string;

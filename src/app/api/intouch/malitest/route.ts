@@ -291,7 +291,7 @@ export async function POST(request: NextRequest) {
         recipientFirstName: "Moustapha",
         recipientLastName: "SECK",
         destinataire: dataPayment.number,
-        otp: "",
+        otp: dataPayment.otp,
       },
       amount: 1500,
       callback: callback,
