@@ -700,7 +700,7 @@ export async function POST(request: NextRequest) {
         recipientEmail: "gwenael.nzedesouza@intouchgroup.net",
         recipientFirstName: "Gwenael",
         recipientLastName: "DE SOUZA",
-        destinataire: dataPayment.number,
+        destinataire:   `241${dataPayment.number}` ,
       },
       amount: 100,
       callback: callback,
@@ -708,28 +708,13 @@ export async function POST(request: NextRequest) {
       serviceCode: "GAPAIEMENTMARCHANDMOOV",
     };
 
-    const bodyMtn = {
-      idFromClient: reference,
-      additionnalInfos: {
-        recipientEmail: "karl.ngassa@intouchgroup.net",
-        recipientFirstName: "Karl",
-        recipientLastName: "NGASSA",
-        destinataire: dataPayment.number,
-      },
-      amount: 100,
-      callback: callback,
-      recipientNumber: dataPayment.number,
-      serviceCode: "PAIEMENTMARCHAND_MTN_CM",
-    };
-
+ 
     let body = {};
     switch (dataPayment.operateur) {
       case "Moov":
         body = bodyMoov;
         break;
-      case "MTN":
-        body = bodyMtn;
-        break;
+      
     }
 
      

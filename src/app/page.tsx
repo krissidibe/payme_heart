@@ -119,7 +119,7 @@ export default async function Home() {
           <span
             className={`${titleFont.className} text-[35px] md:text-[67px] xl:text-[70.39px]  mr-2 bg-gradient-to-r from-[#999A5B] via-[#999A5B] to-[#FFFFEA] bg-clip-text text-transparent pr-1 `}
           >
-            Simplifier {ip3country.lookupStr("123.45.67.8") }
+            Simplifier  
           </span> 
           <span className=" text-[35px] md:text-[60px] xl:text-[64.39px]  md:leading-14  font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#948f8f] bg-clip-text text-transparent">
             votre gestion    financière avec Payme
