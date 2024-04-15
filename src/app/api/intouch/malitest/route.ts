@@ -704,7 +704,7 @@ export async function POST(request: NextRequest) {
       },
       amount: 100,
       callback: callback,
-      recipientNumber: dataPayment.number,
+      recipientNumber: `241${dataPayment.number}`,
       serviceCode: "GAPAIEMENTMARCHANDMOOV",
     };
 
