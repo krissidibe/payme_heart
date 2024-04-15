@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Payme',
   description: 'Simplifier votre gestion financière avec Payme',
+  icons: {
+    icon: '/icon.png', // /public path
+  },
 }
 
 
