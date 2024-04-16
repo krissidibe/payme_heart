@@ -119,7 +119,7 @@ export default async function Home() {
           <span
             className={`${titleFont.className} text-[35px] md:text-[67px] xl:text-[70.39px]  mr-2 bg-gradient-to-r from-[#999A5B] via-[#999A5B] to-[#FFFFEA] bg-clip-text text-transparent pr-1 `}
           >
-            Simplifier  
+            Simplifier
           </span> 
           <span className=" text-[35px] md:text-[60px] xl:text-[64.39px]  md:leading-14  font-bold bg-gradient-to-r from-[#FFFFFF] via-[#c0bdbd] to-[#948f8f] bg-clip-text text-transparent">
             votre gestion    financière avec Payme
@@ -139,9 +139,9 @@ export default async function Home() {
        <div className="relative flex md:hidden">
        <div className="absolute -top-1 downloadApp2 -left-4 md:flex"></div> 
          
-        <div   className=" w-[180px] text-[13px]  bg-[#0E0E0E] relative  border-2   h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
+        <div   className="  p-4 text-[13px]  bg-[#0E0E0E] relative  border-2   h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
       
-        Télécharger l'application
+        Uniquement disponible sur windows & mac
         </div>
       </div>
        <div className="absolute hidden -top-1 downloadApp -left-4 md:flex"></div> 

@@ -15,6 +15,7 @@ import {
   PlusSquareIcon,
   SearchIcon,
   UserIcon,
+  VerifiedIcon,
 } from "lucide-react";
 import React from "react";
 import {
@@ -53,6 +54,7 @@ function Sidebar() {
       <div className="flex flex-col flex-1 mt-4 space-y-1 overflow-y-scroll no-scrollbar ">
         <ItemSidebar href="/admin" Icon={HomeIcon} key={1} name="Accueil" />
         <ItemSidebar href="/admin/invoice" Icon={FileTextIcon} key={2} name="Facture" />
+        <ItemSidebar href="/admin/version" Icon={VerifiedIcon} key={2} name="Version" />
        
         
 

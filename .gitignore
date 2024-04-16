@@ -3,7 +3,9 @@ public/files
 /public/files
 /.next/
 /.react-email/
+
 .env
+.env*.local
 
 /public/images/invoices/
 public/images/invoices/
