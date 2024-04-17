@@ -5,7 +5,7 @@ import transporter from "@/lib/emailSend";
 import { render } from "@react-email/components";
 import DeleteUser from "@/emails/DeleteUser";
 import DeleteUserUser from "@/emails/DeleteUserUser";
-
+import bcrypt from "bcryptjs";
 
 export async function GET(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
@@ -41,7 +41,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
   .getFullYear()
   .toString()
   .substring(2, 4);
-
+  const passwordCryp = await bcrypt.hash(userData.password , 10);
      const user = await prisma.user.create({
         data: {
             email : userData.email ,
@@ -53,7 +53,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
             lockCode : userData.lockCode ,
             code : userData.code ,
             number : userData.number ,
-            password : userData.password ,
+            password : passwordCryp ,
             normalSignUp:userData.normalSignUp,
             emailVerified: userData.emailVerified,
             createdAt: new Date(Date.now())
@@ -77,13 +77,17 @@ export async function PATCH(req:NextRequest,res:NextResponse) {
   const { searchParams } = new URL(req.url);
 
   if (searchParams.get("newPassword") != null) {
+    
     const  userData:any = await req.json();
+
+    const passwordCryp = await bcrypt.hash(userData.newPassword!, 10);
+ 
     const enterprise = await prisma.user.update({
       where: {
         id: searchParams.get("userId")!,
       },
        data: {
-           password : userData.newPassword!.toString()  , 
+           password : passwordCryp, 
          },
     })
 

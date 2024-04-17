@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input'
 import React from 'react'
 import {signIn, useSession} from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 function Login() {
   const router = useRouter()
   return (
@@ -23,14 +24,27 @@ function Login() {
   
       console.log(formData.get("email") as string);
 
-      return
+       
       const result = await   signIn("credentials",{
         email: formData.get("email") as string,
         password: formData.get("password") as string,
         redirect: false
       })
       
+
   
+      
+      if(result?.error){
+        toast.error(result.error);
+        return;
+      }
+      console.log(result);
+      
+
+      window.localStorage.setItem("accessToken","yoPMFApxOC1V9Vr4456cGkSb7AUeKckOF4xGgBed0ks");
+     
+       
+      router.push("/admin")
       //router.push("/home")
   
       return;

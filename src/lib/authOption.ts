@@ -3,14 +3,15 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
 import { randomBytes, randomUUID } from "crypto"
- 
+import { signJwtAccessToken } from "@/utils/jwt"
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient()
 export const authOptions:AuthOptions = NextAuth({
-  secret:process.env.NEXT_AUTH_SECRET,
-pages:{
-  signIn:"/login"
-},
+  secret:process.env.SECRET_KEY,
+  pages:{
+    signIn:"/login"
+  },
 session:{
   strategy:"jwt",
   maxAge: 3 * 24 * 60 * 60 * 1000 * 10000,
@@ -33,11 +34,18 @@ session:{
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials, req) {
+
+        
        
       if(!credentials?.email || !credentials.password ){
         return null
 
       }
+
+      if(credentials!.email != "alyboubacargatta@gmail.com" ){
+return null
+      }
+
       const existingUser = await prisma.user.findUnique({
         where: {
           email: credentials?.email,
@@ -45,21 +53,60 @@ session:{
       })
 
      
+
+
+      const isPasswordValid = await bcrypt.compare(
+        credentials.password,
+        existingUser!.password
+      );
+
+      if (!isPasswordValid) throw new Error("Mot de passe incorrect");
+
       
       if (!existingUser) {
         return null;
       }
+
+
+      const finalUser = await prisma.user.findUnique({
+        where: {
+          email: existingUser!.email,
+        
+        },
+      })
+
+     
+     if (finalUser) {
+       
+      const accessToken = signJwtAccessToken(finalUser);
+
+      const result = {
+        ...finalUser,
+        accessToken,
+      };
+      
+   
+      
+      return {
+        id: `${finalUser.id}`,
+        name: finalUser.name,
+        email: finalUser.email,
+      } 
+     }
+      
+      return null;
         // Return null if user data could not be retrieved
-        return {
+       /*  return {
           id: `${existingUser.id}`,
           name: existingUser.name,
           email: existingUser.email,
-        }
+        } */
       }
     })
    
   ],
   adapter: PrismaAdapter(prisma),
+
   callbacks:{
     async jwt({ token, user, account, profile, isNewUser }) {
        if(user) {

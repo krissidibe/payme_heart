@@ -31,59 +31,72 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { revalidatePath } from "next/cache";
-function Sidebar() {
+import { revalidatePath } from "next/cache"; 
+import Deconnexion from "./Deconnexion";
+import Provider from "@/lib/AuthContext";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/authOption";
+async function  Sidebar() {
+
+  const session = await getServerSession(authOptions);
+
+   
   return (
-    <div className="xl:min-w-[285px] min-w-[100px] border-r-[1px] pb-10 flex flex-col px-0 border-white/5 h-full">
+   <Provider session={session}>
+     <div className="xl:min-w-[285px] min-w-[100px] border-r-[1px] pb-10 flex flex-col px-0 border-white/5 h-full">
      
 
-        <div className="min-h-[100px] flex items-center justify-start space-x-4 border-b-[1px]  text-xl font-bold  border-white border-opacity-20" >
-        <div className={`${false ? "hidden" : "block"}`}  >
-          <img
-            className="h-[30px] ml-[37px]  mt-2    "
-            src="/images/logo-payme-complet.png"
-          />
-        </div>
-       
-      </div>
+     <div className="min-h-[100px] flex items-center justify-start space-x-4 border-b-[1px]  text-xl font-bold  border-white border-opacity-20" >
+     <div className={`${false ? "hidden" : "block"}`}  >
+       <img
+         className="h-[30px] ml-[37px]  mt-2    "
+         src="/images/logo-payme-complet.png"
+       />
+     </div>
+    
+   </div>
 
-        
      
+  
+   
+   {/* MenuItem */}
+   <div className="flex flex-col flex-1 mt-4 space-y-1 overflow-y-scroll no-scrollbar ">
+     <ItemSidebar href="/admin" Icon={HomeIcon} key={1} name="Accueil" />
+     <ItemSidebar href="/admin/invoice" Icon={FileTextIcon} key={2} name="Facture" />
+     <ItemSidebar href="/admin/version" Icon={VerifiedIcon} key={2} name="Version" />
+    
+     
+
+    {/*  <AlertDialog>
+       <AlertDialogTrigger asChild>
+         <ItemSidebar href="/admin" Icon={PlusSquareIcon} key={1} name="Créer" />
+       </AlertDialogTrigger>
+       <AlertDialogContent className="w-full h-full p-0" asChild>
+         <div className="bg-[#262626] xl:h-[calc(100%-100px)] flex flex-col     h-[calc(70%)] transition-all duration-200 ease-in-out  min-w-[calc(60%)]">
+           <div className="flex flex-col items-center justify-center ">
+             <div className="w-full p-2 text-center border-b border-white/10">
+               <p>Créer une nouvelle publication</p>
+             </div>
+             <div className="flex flex-col items-center justify-center flex-1 w-full gap-2 ">
+               <ImageIcon className="w-[100px] h-[100px]" />
+               <p>Faites glisser les photos et les vidéos ici</p>
+               <Button>Selectionner sur ordinateur</Button>
+             </div>
+           </div>
+         </div>
+       </AlertDialogContent>
+     </AlertDialog>
+*/}
       
-      {/* MenuItem */}
-      <div className="flex flex-col flex-1 mt-4 space-y-1 overflow-y-scroll no-scrollbar ">
-        <ItemSidebar href="/admin" Icon={HomeIcon} key={1} name="Accueil" />
-        <ItemSidebar href="/admin/invoice" Icon={FileTextIcon} key={2} name="Facture" />
-        <ItemSidebar href="/admin/version" Icon={VerifiedIcon} key={2} name="Version" />
-       
-        
+   </div>
+  
+ <Deconnexion>
 
-       {/*  <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <ItemSidebar href="/admin" Icon={PlusSquareIcon} key={1} name="Créer" />
-          </AlertDialogTrigger>
-          <AlertDialogContent className="w-full h-full p-0" asChild>
-            <div className="bg-[#262626] xl:h-[calc(100%-100px)] flex flex-col     h-[calc(70%)] transition-all duration-200 ease-in-out  min-w-[calc(60%)]">
-              <div className="flex flex-col items-center justify-center ">
-                <div className="w-full p-2 text-center border-b border-white/10">
-                  <p>Créer une nouvelle publication</p>
-                </div>
-                <div className="flex flex-col items-center justify-center flex-1 w-full gap-2 ">
-                  <ImageIcon className="w-[100px] h-[100px]" />
-                  <p>Faites glisser les photos et les vidéos ici</p>
-                  <Button>Selectionner sur ordinateur</Button>
-                </div>
-              </div>
-            </div>
-          </AlertDialogContent>
-        </AlertDialog>
- */}
-         
-      </div>
-     
-      <ItemSidebar href="/admin" Icon={LogOut} key={5} name="Deconnexion" />  
-      {/* End MenuItem */}
-    </div>
+ <ItemSidebar   href="/admin" Icon={LogOut} key={15} name="Deconnexion" />  
+ </Deconnexion>
+   {/* End MenuItem */}
+ </div>
+   </Provider>
   );
 }
 

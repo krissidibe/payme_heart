@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
 import { signJwtAccessToken } from "@/utils/jwt";
+import bcrypt from "bcryptjs";
 
 
 
@@ -56,6 +57,9 @@ export async function POST(req:NextRequest,res:NextResponse) {
   .toString()
   .substring(2, 4);
 
+  
+
+  const passwordCryp = await bcrypt.hash(userData.password, 10);
 
      const user = await prisma.user.create({
         data: {

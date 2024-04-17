@@ -6,7 +6,7 @@ import CodeOTP from "@/emails/CodeOTP";
 import transporter from "@/lib/emailSend";
 import { render } from "@react-email/components";
 import CodeOTPFinance from "@/emails/CodeOTPFinance";
-
+import bcrypt from "bcryptjs";
 
 export async function GET(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
@@ -38,14 +38,16 @@ export async function PATCH(req:NextRequest,res:NextResponse) {
   const { searchParams } = new URL(req.url);
   const dataInfo:any = await req.json();
  
+
+  const passwordCryp = await bcrypt.hash(dataInfo.newPassword, 10);
  const user = await prisma.user.update({
   where: {
     email: dataInfo.email!.toString(),
   },
    data: {
-       password : dataInfo.newPassword!.toString()  , 
+       password : passwordCryp  , 
      },
-})
+}) 
 
 return new Response(JSON.stringify(user));
 

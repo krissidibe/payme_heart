@@ -1,7 +1,6 @@
 import { signJwtAccessToken } from "@/utils/jwt";
 import {prisma} from "@/utils/prisma";
-/* import * as bcrypt from "bcrypt";
- */
+import bcrypt from "bcryptjs";
 interface RequestBody {
   email: string;
   password: string;
@@ -23,8 +22,26 @@ export async function POST(request: Request) {
     },
   });
 
+  if(!user){
+    return new Response(
+      JSON.stringify({
+        message: "Votre compte n'est pas enregistré",
+      }),
+      {
+        status: 401,
+      }
+    );
+  }
+
+
+   const isPasswordValid = await bcrypt.compare(
+    body.password,
+    user!.password
+  );
+  console.log(isPasswordValid); 
+  
   /* if (user && (await bcrypt.compare(body.password, user.password))) { */
-  if (user && ( body.password == user.password)) {
+  if (user && ( isPasswordValid) ){
     const { password, ...userWithoutPass } = user;
     const accessToken = signJwtAccessToken(userWithoutPass);
 
