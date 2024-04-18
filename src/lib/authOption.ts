@@ -7,7 +7,8 @@ import { signJwtAccessToken } from "@/utils/jwt"
 import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient()
-export const authOptions:AuthOptions = NextAuth({
+export const authOptions:AuthOptions = 
+NextAuth({
   secret:process.env.SECRET_KEY,
   pages:{
     signIn:"/login"

@@ -21,6 +21,30 @@ export async function POST(request: NextRequest) {
   const dataPayment: Payment = await request.json();
   const { searchParams } = new URL(request.url);
 
+
+
+const monthValue = parseInt(dataPayment.amount.toString()!)
+
+  if(monthValue != 3 && monthValue != 6 && monthValue != 12){
+    return new Response(JSON.stringify("Error"));
+  }
+   
+  let amount = "";
+  switch (monthValue) {
+    case 3:
+      amount = "9890"
+      break;
+    case 6:
+      amount = "18950"
+      break;
+    case 12:
+      amount = "34950"
+      break;
+  
+    default:
+      break;
+  }
+
   const typePayment =
     `${dataPayment.country}-${dataPayment.operateur}`.replaceAll(" ", "_");
 
@@ -58,7 +82,7 @@ export async function POST(request: NextRequest) {
       recipientLastName: "Sidibess",
       destinataire: dataPayment.number,
     },
-    amount: 100,
+    amount: amount,
     callback: callback,
     recipientNumber: dataPayment.number,
     serviceCode: "ML_PAIEMENTMARCHAND_OM_TP",
@@ -71,7 +95,7 @@ export async function POST(request: NextRequest) {
       recipientLastName: "SECK",
       destinataire: dataPayment.number,
     },
-    amount: 100,
+    amount: amount,
     callback: callback,
     recipientNumber: dataPayment.number,
     serviceCode: "ML_PAIEMENTMARCHAND_MOOV_TP",
@@ -160,7 +184,7 @@ export async function POST(request: NextRequest) {
         destinataire: dataPayment.number,
         otp: dataPayment.otp,
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "PAIEMENTMARCHANDOMPAYCIDIRECT",
@@ -174,7 +198,7 @@ export async function POST(request: NextRequest) {
         recipientLastName: "SECK",
         destinataire: dataPayment.number,
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "PAIEMENTMARCHAND_MOOV_CI",
@@ -188,7 +212,7 @@ export async function POST(request: NextRequest) {
         recipientLastName: "SECK",
         destinataire: dataPayment.number,
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "PAIEMENTMARCHAND_MTN_CI",
@@ -205,7 +229,7 @@ export async function POST(request: NextRequest) {
         return_url: "https://successurl.com",
         cancel_url: "https://failedurl.com",
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "CI_PAIEMENTWAVE_TP",
@@ -293,7 +317,7 @@ export async function POST(request: NextRequest) {
         destinataire: dataPayment.number,
         otp: dataPayment.otp,
       },
-      amount: 1500,
+      amount: (parseInt(amount.toString()) * 14).toString(),
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "PAIEMENTMARCHANDOMPAYGNDIRECT",
@@ -307,7 +331,7 @@ export async function POST(request: NextRequest) {
         recipientLastName: "SECK",
         destinataire: dataPayment.number,
       },
-      amount: 1500,
+      amount:  (parseInt(amount.toString()) * 14).toString(),
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "PAIEMENTMARCHAND_MTN_GN",
@@ -397,7 +421,7 @@ export async function POST(request: NextRequest) {
         destinataire: dataPayment.number,
         otp: dataPayment.otp,
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "PAIEMENTMARCHANDOMSN2",
@@ -414,7 +438,7 @@ export async function POST(request: NextRequest) {
         cancel_url: "https://failedurl.com",
         currency: "XOF",
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "SNPAIEMENTWAVE",
@@ -427,7 +451,7 @@ export async function POST(request: NextRequest) {
         recipientLastName: "SECK",
         destinataire: dataPayment.number,
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "PAIEMENTMARCHANDTIGO",
@@ -511,7 +535,7 @@ export async function POST(request: NextRequest) {
         trxcode: "47428580",
         otp:dataPayment.otp
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "BF_PAIEMENTMARCHAND_OM_TP",
@@ -526,7 +550,7 @@ export async function POST(request: NextRequest) {
         currency: "952",
         trxcode: "47428580",
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "BF_PAIEMENTMARCHAND_MOBICASH_TP",
@@ -607,7 +631,7 @@ export async function POST(request: NextRequest) {
         recipientLastName: "NGASSA",
         destinataire: dataPayment.number,
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "CM_PAIEMENTMARCHAND_OM_TP",
@@ -621,7 +645,7 @@ export async function POST(request: NextRequest) {
         recipientLastName: "NGASSA",
         destinataire: dataPayment.number,
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "PAIEMENTMARCHAND_MTN_CM",
@@ -702,7 +726,7 @@ export async function POST(request: NextRequest) {
         recipientLastName: "DE SOUZA",
         destinataire:   `241${dataPayment.number}` ,
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: `241${dataPayment.number}`,
       serviceCode: "GAPAIEMENTMARCHANDMOOV",
@@ -782,7 +806,7 @@ export async function POST(request: NextRequest) {
         recipientLastName: "SECK",
         destinataire: dataPayment.number,
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "BN_PAIEMENTMARCHAND_MOOV",
@@ -796,7 +820,7 @@ export async function POST(request: NextRequest) {
         recipientLastName: "SECK",
         destinataire: dataPayment.number,
       },
-      amount: 100,
+      amount: amount,
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "BN_PAIEMENTMARCHAND_MTN",
