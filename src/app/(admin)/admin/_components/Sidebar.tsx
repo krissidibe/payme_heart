@@ -32,17 +32,12 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { revalidatePath } from "next/cache"; 
-import Deconnexion from "./Deconnexion";
-import Provider from "@/lib/AuthContext";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/lib/authOption";
+import Deconnexion from "./Deconnexion";  
 async function  Sidebar() {
 
-  const session = await getServerSession(authOptions);
-
-   
+ 
   return (
-   <Provider session={session}>
+    
      <div className="xl:min-w-[285px] min-w-[100px] border-r-[1px] pb-10 flex flex-col px-0 border-white/5 h-full">
      
 
@@ -96,7 +91,7 @@ async function  Sidebar() {
  </Deconnexion>
    {/* End MenuItem */}
  </div>
-   </Provider>
+   
   );
 }
 
