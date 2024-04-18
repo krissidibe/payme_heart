@@ -11,7 +11,7 @@ export default function Provider ({
   session: any
 }): React.ReactNode {
 
-  if ( window.localStorage.getItem("accessToken") != "yoPMFApxOC1V9Vr4456cGkSb7AUeKckOF4xGgBed0ks") {
+  if (localStorage.getItem("accessToken") != "yoPMFApxOC1V9Vr4456cGkSb7AUeKckOF4xGgBed0ks") {
     redirect("/");
  }  
 
