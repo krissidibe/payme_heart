@@ -29,13 +29,14 @@
 
     .page-footer,
     .page-footer-space {
-      height: 80px;
+      height: 100px;
     }
 
     .page-footer {
       position: fixed;
-      bottom: 80px;
+      bottom: 0px;
 
+      height: 100px;
       width: 100%;
       /* for demo */
       /* for demo */
@@ -237,7 +238,10 @@
       flex-direction: column;
       justify-content: center;
     }
-
+    .left{
+      min-width: 360px !important ;
+      max-width: 360px !important ;
+    }
     /* End Facture Custom styling */
   </style>
 
@@ -269,7 +273,7 @@
               <!-- headline (object, address, client) -->
               <div class="flex justify-between bg-black/5">
                 <div class="headline-wrapper text-[#4D4C4C] mt-[0px] pl-[76px] flex justify-between items-end">
-                  <div class="headline flex-1 mt-[50.91px] pb-[37.12px]  flex flex-col gap-4  text-[16.4px]     leading-5 font-light inter">
+                  <div class="headline flex-1 mt-[50.91px] pb-[37.12px]  flex flex-col gap-4  text-[15px]     leading-5 font-light inter">
                     <p>Objet: <br> <%= project.name %></p>
                     <p>Client: <br> <%=  customer.name %></p>
                     <p>Adresse: <br> <%=  customer.address %></p>
@@ -284,7 +288,7 @@
                     
                                   </div>
   
-                                  <div class="w-[144px] self-end h-[130px] my-auto  facture-number-primary relative flex justify-center items-center">
+                                  <div class="w-[144px] self-end mt-3 h-[120px] my-auto  facture-number-primary relative flex justify-center items-center">
                                   
                                     <div class="text-[23.5px]  flex flex-col">
                                       <div class="mb-1 leading-6 ">

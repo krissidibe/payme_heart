@@ -36,7 +36,7 @@
 
     .page-footer {
       position: fixed;
-      bottom: 80px;
+      bottom: 0px;
 
       width: 100%;
       /* for demo */
@@ -145,7 +145,7 @@
       color: black;
       border-right: 4px solid var(--primary-color,#D24635);
       border-left: 4px solid var(--primary-color,#D24635);
-      background-color: color-mix(in srgb, var(--primary-color,#D24635) 10%, transparent);;
+      background-color: color-mix(in srgb, var(--primary-color,#D24635) 10%, transparent);
       height: 30px !important;
       display: flex; 
       align-items: center;
@@ -156,7 +156,7 @@
     }
 
     .footer {
-      
+      border-top:4px solid color-mix(in srgb, var(--primary-color,#D24635) 10%, transparent);
       bottom: 0;
     }
 
@@ -165,7 +165,9 @@
       
     }
 
-  
+    .left{
+      min-width: 400px;
+    }
 
     /* End Facture Custom styling */
   </style>
@@ -175,7 +177,7 @@
 
    <div class="bottom-0 items-center justify-center py-2 pt-0 footer page-footer inter">
   
-    <div class="h-1 border-b w-[59%] border-black/70 mx-auto"></div>
+    
   <p class="text-[11px] px-[57px]  pt-2 text-center line-clamp-4">
   
     <%= dataEnterpriseInfo %> 
@@ -195,7 +197,7 @@
 
             <div class="flex flex-col w-full page-content">
              
-              <header class="heading flex justify-between mt-[88.95px] px-14">
+              <header class="heading flex justify-between mt-[58.95px] px-14">
  
                 <div class="max-h-[120px] flex object-left object-contain h-[120px] max-w-[400px] w-[400px]  ">
                   <img class=" max-h-[120px] object-left object-contain h-[120px] max-w-[400px] w-[400px] " src="<%=logo%>" alt="" srcset="">
@@ -240,7 +242,7 @@
                
           
               <!-- headline (object, address, client) -->
-              <div class="headline inter leading-5 font-light mt-[14.53px] mb-7 text-[16.4px] px-14">
+              <div class="headline inter leading-5 font-light mt-[24.53px] mb-4 text-[16.4px] px-14">
                 <p>Objet: <%= project.name %></p>
                 <p>Client: <%=  customer.name %></p>
                 <p>Adresse: <%=  customer.address %></p>

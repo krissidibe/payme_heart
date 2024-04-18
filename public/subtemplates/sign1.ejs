@@ -16,10 +16,10 @@
  
 
     <% if( invoiceType != 1){ %>
-    <p class="pb-2 border-b border-black/30"> <%=   invoiceType === 2 ? "Le réceptionnaire": "Pour accord" %> </p>
+    <p class="pb-2 "> <%=   invoiceType === 2 ? "Le réceptionnaire": "Pour accord" %> </p>
     <% } %>
     <% if( invoiceType == 1){ %>
-    <p class="pb-2 border-b border-black/30"> Pour acquit </p>
+    <p class="pb-2 "> Pour acquit </p>
     <% } %>
   
   </div>
@@ -37,13 +37,13 @@
 
 
       <% if(signed){ %>
-        <div class="absolute  border-b border-black/30 top-[30px] w-[130px]"></div>
+        <div class="absolute  top-[30px] w-[130px]"></div>
     <p class="pb-2  max-w-[130px]  "> <%=   invoiceType === 2 ? "Le fournisseur": "Le prestataire" %> </p>
     <img src="<%=signature%>" class="pt-3   object-top w-[200px] object-contain h-[140px] " alt="" srcset="">
   </div>
     <% } %>
     <% if(!signed){ %>
-      <div class="absolute  border-b border-black/30 top-[30px] w-[130px]"></div>
+      <div class="absolute  top-[30px] w-[130px]"></div>
       <p class="pt-2  max-w-[130px] "> <%=   invoiceType === 2 ? "Le fournisseur": "Le prestataire" %> </p>
       <div   class="pt-3  object-top w-[200px] object-contain h-[140px] " alt="" srcset=""></div>
     </div>

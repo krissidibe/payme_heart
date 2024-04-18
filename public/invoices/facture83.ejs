@@ -34,7 +34,7 @@
 
     .page-footer {
       position: fixed;
-      bottom: 30px;
+      bottom: 0px;
 
       width: 100%;
       /* for demo */
@@ -84,7 +84,7 @@
     }
 
     .heading {
-      margin-top: 55.6px;
+      margin-top: 35.6px !important;
       flex-direction: column;
       justify-content: space-between;
   
@@ -307,11 +307,15 @@ text-align: center;
     }
     
     .footer {
-      background: var(--primary-color,#D45431);
+      border-bottom:4px solid var(--primary-color,#D45431);
       color:  var(--primary-color,#D45431);
-      bottom: 0;
+      bottom: 0 !important;
+      margin-top: 20px !important;
+      height: 0px !important;
     }
 
+
+  
     .footer div {
        
       display: flex;
@@ -319,12 +323,20 @@ text-align: center;
       justify-content: center;
     }
 
+    .headline > div{
+      font-size: 16px !important;
+    }
+
     /* End Facture Custom styling */
   </style>
 
   <body>
-    <!-- footer -->
-    <!-- <%- include('../subtemplates/footer1') %> -->
+    <div class="bottom-0 items-center justify-center py-2 pt-2 footer page-footer inter">
+  
+ 
+    </div>
+    
+    
     <table>
       <tbody>
         <tr>

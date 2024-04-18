@@ -84,7 +84,7 @@
     }
 
     .heading {
-      margin-top: 55.6px;
+      margin-top: 35.6px !important;
       flex-direction: column;
       
       
@@ -236,7 +236,9 @@
       flex-direction: column;
       justify-content: center;
     }
-
+    .headline {
+      font-size: 14px !important;
+    }
     /* End Facture Custom styling */
   </style>
 
@@ -284,12 +286,12 @@
           
               <!-- headline (object, address, client) -->
               <div class="headline-wrapper text-[#4D4C4C] mt-[0px] pl-[56px] flex justify-between items-end">
-                <div class="headline flex-1 mt-[50.91px] pb-[37.12px] border-b-[1px] text-[16.4px] border-primary   leading-5 font-light inter">
+                <div class="headline flex-1 mt-[50.91px] pb-[37.12px] border-b-[1px] text-[16.4px] border-primary pr-4   leading-5 font-light inter">
                   <p>Objet: <%= project.name %></p>
                   <p>Client: <%=  customer.name %></p>
                   <p>Adresse: <%=  customer.address %></p>
                 </div>
-                <div class="facture-number w-[175.5px] h-[120px] my-[4px] facture-number-secondary inter mb-0">
+                <div class="facture-number w-[175.5px] h-[150px] my-[4px] facture-number-secondary inter mb-0">
                   <div class="w-[144px] h-full my-auto facture-number-primary relative flex justify-center items-center">
                     <div class="text-[23.5px]  flex flex-col">
                       <div class="mb-1 leading-6 ">

@@ -20,7 +20,7 @@ async function page() {
   });
 
   return (
-    <div className="flex flex-col h-full overflow-y-scroll ">
+    <div className="flex flex-col h-full overflow-y-scroll no-scrollbar ">
       {/* Button Add */}
       <div className="flex items-center justify-between w-full gap-4 mt-8">
         <p className="text-5xl font-bold">
@@ -44,7 +44,7 @@ async function page() {
    ))}
         
     </div>
-    <div className="flex flex-wrap gap-2 pt-5 mt-0 overflow-y-scroll ">
+    <div className="flex flex-wrap gap-2 pt-5 mt-0 overflow-y-scroll no-scrollbar ">
     
    {datasInvoice.map((category) => (
      <InvoiceItem key={category.id}  item={category} />

@@ -36,7 +36,7 @@
 
     .page-footer {
       position: fixed;
-      bottom: 80px;
+      bottom: 0px;
 
       width: 100%;
       /* for demo */
@@ -157,8 +157,13 @@
       
     }
 
-  
+  img{
+    padding-bottom: 10px !important;
+  }
 
+  .left{
+    min-width: 400px;
+  }
     /* End Facture Custom styling */
   </style>
  
@@ -206,7 +211,7 @@
           
               <!-- headline (object, address, client) -->
             <div class="w-[93%] bg-black/10 flex  h-[128px]">
-              <div class="headline flex-1 inter leading-5 py-6 bg-primary ml-[60px] rounded-tl-full rounded-bl-full flex flex-col  justify-center  font-light   text-[16.4px] px-14">
+              <div class="headline flex-1 inter leading-5 py-6 bg-primary ml-[60px] rounded-tl-full rounded-bl-full flex flex-col  justify-center  font-light   text-[15.4px] px-14">
                 <p>Objet: <%= project.name %></p>
                 <p>Client: <%=  customer.name %></p>
                 <p>Adresse: <%=  customer.address %></p>

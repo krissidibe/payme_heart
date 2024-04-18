@@ -34,7 +34,7 @@
 
     .page-footer {
       position: fixed;
-      bottom: 80px;
+      bottom: 0px;
 
       width: 100%;
       /* for demo */
@@ -246,6 +246,7 @@ background-color: white;
       
       color: black;
       bottom: 0;
+      
     }
 
     .footer div {
@@ -253,6 +254,7 @@ background-color: white;
       display: flex;
       flex-direction: column;
       justify-content: center;
+     
     }
 
     /* End Facture Custom styling */
@@ -267,7 +269,7 @@ background-color: white;
     
         <%= dataEnterpriseInfo %> 
       </p>
-      <div class="h-4 absolute bottom-0 right-0 left-0  w-[70%] mx-auto bg-black"></div>
+      <div class="h-3 absolute bottom-0 right-0 left-0  w-[70%] mx-auto bg-black"></div>
     </div>
     
     
@@ -323,7 +325,7 @@ background-color: white;
                  
           
                 <!-- headline (object, address, client) -->
-                <div class="headline inter leading-5 font-light py-6 bg-black/5 text-[16.4px] px-14">
+                <div class="headline inter leading-5 font-light py-6 bg-black/5 text-[15px] px-14">
                   <p>Objet: <%= project.name %></p>
                   <p>Client: <%=  customer.name %></p>
                   <p>Adresse: <%=  customer.address %></p>
