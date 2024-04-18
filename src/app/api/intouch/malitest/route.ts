@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
 
 
 
-const monthValue = parseInt(dataPayment.amount.toString()!)
+const monthValue = parseInt(dataPayment.month.toString()!)
 
   if(monthValue != 3 && monthValue != 6 && monthValue != 12){
     return new Response(JSON.stringify("Error"));
