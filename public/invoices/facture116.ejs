@@ -29,13 +29,13 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
-    
+    bottom: 0px;
+    height: 80px;
     width: 100%;
   }
   
@@ -371,7 +371,8 @@
   }
 
   .headline {
-    width: 480px;
+     
+    min-width: 480px !important;
     border: 1px solid #000;
     padding: 12px 35px;
     border-radius: 50px;
@@ -415,6 +416,10 @@
     padding-top: 6px;
     padding-bottom: 6px;
   }
+  .left{
+    min-width:350px;
+    max-width:350px;
+  }
   /* End validation */
 </style>
 
@@ -438,7 +443,7 @@
             
                         <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
-
+            <div class="hidden total-separator" ></div>
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
           </main>

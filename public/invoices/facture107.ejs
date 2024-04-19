@@ -29,12 +29,13 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    height: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -230,7 +231,7 @@
     width: 130px;
     padding-top: 0;
     padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    
   }
 
   .sign > div:last-child {
@@ -239,7 +240,7 @@
   }
   /* <!-- addons styling --> */
   .facture-number {
-    border: 2px solid #4570B4;
+    border: 2px solid var(--primary-color, #4570B4);
     padding: 20px 24px 16px 24px;
   }
   .facture-number > div p {
@@ -314,7 +315,7 @@
 
   .facture-number {
     margin-top: 20px;
-    border-color: var(--secondary-color, #4570B4);
+    border-color: var(--primary-color, #4570B4);
   }
 
   .headline {
@@ -392,8 +393,8 @@
     height: 80px;
     color: #000;
     bottom: 0px;
-    padding-right: 85px;
-    padding-left: 24px;
+    padding-right: 105px !important;
+    padding-left: 24px; 
   }
   /* custom end styling */
 </style>

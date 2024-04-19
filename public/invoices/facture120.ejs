@@ -29,13 +29,13 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
     bottom: 0px;
-    
+    height: 80px;
     width: 100%;
     /* for demo */
     /* for demo */
@@ -75,7 +75,7 @@
     }
   }
   /* Facture Custom styling */
-
+  
   /* End Facture Custom styling */
 </style>
 
@@ -230,8 +230,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -301,7 +300,7 @@
   }
 
   .facture-number p:first-child {
-    color: black;
+    color: var(--primary-color, #B0D7EE);
   }
 
   .facture-number .date{
@@ -319,7 +318,7 @@
   .tabs-header {
     color: var(--primary-text-color,white);
     border-radius: 50px;
-    background: var(--primary-color, #000000);
+    background: #000;
   }
 
   .tabs-header + .tabs-item p {
@@ -333,7 +332,7 @@
   .left {
     padding-left: 22px;
     padding-bottom: 14px;
-    border-bottom: 1px solid #4E4D4D;
+    border-bottom: 1px solid #000;
   }
 
   .right {
@@ -348,7 +347,7 @@
     border-radius: 50px;
     padding-left: 22px;
     padding-right: 22px;
-    background: color-mix(in srgb, var(--primary-color, #ECF1F7) 40%, transparent) !important;
+    background: color-mix(in srgb, var(--secondary-color, #ECF1F7) 40%, transparent) !important;
   }
   
   .right p:nth-child(even) {
@@ -366,7 +365,7 @@
     padding-left: 22px;
     padding-right: 22px;
     color: var(--primary-text-color,white);
-    background: var(--primary-color, #000000) !important;
+    background: #000 !important;
   }
 
   .sign {
@@ -379,19 +378,17 @@
   }
 
   .page-footer {
-  bottom: 0;
-   
-  height: 80px;
-  color: var(--primary-text-color,white);
-  background: var(--primary-color, #000000);
-}
-.page-footer div {
-  align-items: center;
-}
-.page-footer div p {
-  text-align: center;
-}
-
+    bottom: 0;
+    height: 80px;
+    color: var(--primary-text-color,white);
+    background: #000;
+  }
+  .page-footer div {
+    align-items: center;
+  }
+  .page-footer div p {
+    text-align: center;
+  }
   /* custom end styling */
 </style>
 
@@ -437,8 +434,8 @@
   }
 
   .tabs-header {
-    gap: 0;
     border-radius: 50px;
+    gap: 0;
   }
 
   .tabs-header p {
@@ -474,7 +471,7 @@
   }
   .page-footer {
     bottom: 0;
-    height: 80px;
+    height: 70px;
   }
   .page-footer div {
     align-items: center;
@@ -492,7 +489,6 @@
 <body>
   <!-- footer -->
   <div class="pt-4 page-footer footer">
-    
     <%- include('../subtemplates2b/footer1') %>
   </div>
   <table>

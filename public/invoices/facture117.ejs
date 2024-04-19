@@ -34,8 +34,8 @@
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
-    
+    bottom: 0px;
+    height: 30px;
     width: 100%;
     /* for demo */
   }
@@ -228,8 +228,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -358,17 +357,21 @@
     background-color: var(--primary-color, #B3BA97);
   }
 
-  .page-footer,
-  .page-footer-space {
-    height: 20px;
-  }
-  
+ 
   .page-footer {
     position: fixed;
     bottom: 0px;
     background-color: var(--primary-color, #B3BA97);
     width: 100%;
     /* for demo */
+  }
+
+  .left{
+    min-width: 350px;
+    max-width: 350px;
+  }
+  .headline{
+    max-width: 550px !important;
   }
 
   /* custom end styling */
