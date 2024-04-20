@@ -41,7 +41,7 @@ function DesktopBtn() {
    
    className="relative hidden md:flex">
      
-      <a   href='/PaymeSetupMac-1.0.0.dmg'   className=" w-[160px] bg-[#0E0E0E] relative  border-2   h-[45px] hover:brightness-110  cursor-pointer border-[#bbbc8b] hover:text-white flex justify-center  rounded-md items-center  ">
+      <a   href='/PaymeSetupMac-1.0.0.zip'   className=" w-[160px] bg-[#0E0E0E] relative  border-2   h-[45px] hover:brightness-110  cursor-pointer border-[#bbbc8b] hover:text-white flex justify-center  rounded-md items-center  ">
      
      <RiAppleFill className="mr-2" />
       Mac
