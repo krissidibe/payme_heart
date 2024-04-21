@@ -37,6 +37,8 @@ export async function POST(req:NextRequest,res:NextResponse) {
             addressIp:dataGet.addressIp ?? "",
             country:dataGet?.country ?? "",
             isDownload:dataGet?.isDownload ? true : false,
+            isWindows:dataGet?.isWindows ? true : false,
+            isMac:dataGet?.isMac ? true : false,
             
            },
       })
