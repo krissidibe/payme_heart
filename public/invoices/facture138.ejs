@@ -29,11 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
+    height: 80px;
     bottom: 0px;
     
     width: 100%;
@@ -255,8 +256,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -290,12 +290,13 @@
   }
   
   .tabs-header {
-    background: #E8D6B5;
+    background: var(--primary-color,#E8D6B5);
     border: 1px solid #000;
     border-bottom: none;
     padding-left: 22px;
     padding-right: 22px;
     margin-bottom: 0;
+    color: var(--primary-text-color,black);
   }
 
   .tabs-header + .tabs-item p {
@@ -327,8 +328,8 @@
   }
 
   .right .total-amount {
-    color: var(--primary-text-color, #000);
-    background: #E8D6B5; 
+    color: var(--primary-text-color,black);
+    background: var(--primary-color,#E8D6B5); 
   }
 
   .sign {
@@ -398,6 +399,10 @@
     max-width: 350px !important;
   }
   
+  .headline{
+    
+    max-width: 350px !important;
+  }
 </style>
 
 <body>
@@ -406,7 +411,7 @@
     <%- include('../subtemplates2b/footer1') %>
     <div class="absolute right-0 bottom-[-5px]">
       <svg xmlns="http://www.w3.org/2000/svg" width="158" height="55" viewBox="0 0 198 60" fill="none">
-        <path d="M198 0.363281H0.527832V59.0194H198V0.363281Z" fill="#E8D6B5"/>
+        <path d="M198 0.363281H0.527832V59.0194H198V0.363281Z" fill="var(--primary-color,var(--primary-color,#E8D6B5))"/>
       </svg>
     </div>
   </div>

@@ -29,11 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
+    height: 80px;
     bottom: 0px;
     
     width: 100%;
@@ -187,7 +188,8 @@
   }
 
   .left {
-    max-width: 300px;
+    max-width: 350px;
+    max-width: 350px;
   }
 
   .right, .right > div {
@@ -250,6 +252,7 @@
   .tabs .quantity.first {
     display: block;
     width: 80px;
+    
   }
       .sign {
     margin-top: 8px;
@@ -291,7 +294,7 @@
   }
 
   .headline {
-    color: var(--secondary-color, #29235C);
+    color: black;
   }
 
   .facture-number > div p {
@@ -333,6 +336,7 @@
 
   .tabs-header .quantity {
     background: #010202;
+    color: white;
   }
 
   .tabs-header + .tabs-item p {
@@ -342,11 +346,16 @@
   .tabs .tabs-item .quantity {
     background: #F8F7F7 !important;
     border-bottom: none;
+    
   }
 
   .total .total-amount,
   .tabs-header {
     color: var(--primary-text-color, white);
+    background: var(--primary-color, #79B8CA);
+  }
+  .tabs-header:first-child {
+    color: white;
     background: var(--primary-color, #79B8CA);
   }
 
@@ -384,7 +393,7 @@
     bottom: 0px;
     text-align: left;
     color: #000;
-    background: #79B8CA;
+    background: var(--primary-color,#79B8CA);
 
   }
 

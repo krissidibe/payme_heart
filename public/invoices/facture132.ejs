@@ -92,7 +92,7 @@
   }
     .headline-wrapper {
     width: auto;
-    margin: 0 55px;
+    margin: 0 45px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -419,6 +419,9 @@
   }
   .facture-number {
     padding-top: 20px;
+   
+    padding-right: 20px;
+ 
   }
 
   .facture-number p {
@@ -439,11 +442,12 @@
   }
 
   .headline {
-    width: 480px;
+    width: 440px;
     border: 1px solid #000;
     padding: 12px 35px;
     border-radius: 50px;
     margin-left: 14px;
+    
   }
 
   .tabs {
@@ -572,7 +576,10 @@
             
                         <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
-
+            <% if( invoiceType != 2){ %>
+            
+              <div class="hidden total-separator" ></div>
+              <% } %>
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
            

@@ -29,13 +29,14 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
     bottom: 0px;
-    
+    height: 80px;
     width: 100%;
     /* for demo */
     /* for demo */
@@ -243,6 +244,7 @@
     background: black;
     left: 0;
     right: 0;
+    margin: 0 96px !important;
   }
     .sign {
     margin-top: 8px;
@@ -379,13 +381,13 @@
     height: 80px;
     bottom: 0px;
     padding-bottom: 10px;
-    border-bottom: 24px solid var(--primary-color, #000);
+    border-bottom: 24px solid #000;
     text-align: center;
     color: #000;
   }
 
   .bg-primary{
-    background: var(--primary-color, #000);
+    background: #000;
   }
 
   /* custom end styling */
@@ -394,7 +396,7 @@
 <style>
   /* Validation */
   .header {
-    padding-top: 60px;
+    padding-top: 30px;
     padding-bottom: 17px;
     margin-left: 14px;
     margin-right: 14px;
@@ -513,6 +515,10 @@
     padding-top: 0;
   }
 
+  .left{
+    min-width: 340px;
+    max-width: 340px;
+  }
 
 </style>
 
@@ -527,7 +533,7 @@
       <tr>
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
-         <div class="h-8 bg-primary"></div>
+         <div class="h-7 bg-primary"></div>
             <!-- Header + Facture -->
 <%- include('../subtemplates2b/headerheadline/headerheadline2') %>
             
@@ -537,7 +543,12 @@
             
                         <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
+           
 
+            <% if( invoiceType != 2){ %>
+            
+              <div class="hidden total-separator" ></div>
+              <% } %>
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
             

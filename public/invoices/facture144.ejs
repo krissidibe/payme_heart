@@ -29,11 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height:100px;
   }
   
   .page-footer {
     position: fixed;
+    height: 80px;
     bottom: 0px;
     
     width: 100%;
@@ -228,8 +229,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sub-headline-wrapper{
@@ -347,7 +347,7 @@
 
   
   .tabs .tab-dummy:first-child {
-    background: linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#878787) 100%, transparent) 51%,color-mix(in srgb, var(--primary-color,#BE1622) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--primary-color,#BE1622) 100%, transparent)) !important;
+    background: linear-gradient(90deg, color-mix(in srgb, #878787 100%, transparent) 51%,color-mix(in srgb, var(--primary-color,#BE1622) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--primary-color,#BE1622) 100%, transparent)) !important;
   }
 
   .tabs-header {
@@ -390,7 +390,7 @@
   }
   .right .total-amount {
     color: var(--primary-text-color, white) !important;
-    background: linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#878787) 100%, transparent) 51%,color-mix(in srgb, var(--primary-color,#BE1622) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--primary-color,#BE1622) 100%, transparent)) !important;
+    background: linear-gradient(90deg, color-mix(in srgb, #878787 100%, transparent) 51%,color-mix(in srgb, var(--primary-color,#BE1622) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--primary-color,#BE1622) 100%, transparent)) !important;
   }
 
   .sign {
@@ -410,6 +410,18 @@
     align-items: center;
   }
 
+  .gridView{
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .gridView div:first-child {
+    grid-column: span 2; 
+    padding-right: 0px !important;
+  }
+  .headline-object p {
+    min-width: 100%; 
+  }
   /* custom end styling */
 </style>
 
@@ -481,7 +493,7 @@
                         
                         
                         
-            
+            <div class="h-4"></div>
             <%- include('../subtemplates2b/headline/subheadline1') %>
                     
             <!-- table -->

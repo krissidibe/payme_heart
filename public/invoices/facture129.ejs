@@ -29,11 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
+    height: 80px;
     bottom: 0px;
     
     width: 100%;
@@ -229,8 +230,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -255,6 +255,7 @@
   .facture-number .date {
     padding-bottom: 12px;
     border-bottom: 1px solid #4D4B4C;
+    max-width: 390px;
   }
 
   .headline-wrapper {
@@ -269,6 +270,7 @@
   
   .headline p:last-child {
     padding-left: 0 !important;
+    
   }
   .facture-content .facture-number p,
   .facture-content .facture-number > div p:last-child {
@@ -524,6 +526,9 @@
     border-top: 1px solid #4D4B4C;
     text-align: center;
     color: #000;
+  }
+  .headline p{
+    max-width: 390px;
   }
   /* custom end styling */
 </style>

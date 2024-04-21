@@ -29,11 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
+    height: 80px;
     bottom: 0px;
     
     width: 100%;
@@ -185,7 +186,7 @@
   }
     .total {
     color: #4D4B4C;
-    margin-top: 23.63px;
+    margin-top: 0.63px;
     padding-left: 56px;
     padding-right: 56px;
     align-items: flex-start;
@@ -236,8 +237,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -465,7 +465,7 @@
 
   .tab-dummy:first-child {
     z-index: -1;
-    background: linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#662483) 100%, transparent) 51%,color-mix(in srgb, var(--primary-color,#000) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--primary-color,#000) 100%, transparent)) !important;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#662483) 100%, transparent) 51%,color-mix(in srgb, #000 100%, transparent) 51.1% ,  color-mix(in srgb, #000 100%, transparent)) !important;
   }
 
   .tabs-header {
@@ -506,6 +506,10 @@
     border-top: 1px solid #4D4B4C;
     text-align: center;
     color: #000;
+  }
+  .headline{
+    min-width: 300px;
+    max-width: 300px;
   }
   /* custom end styling */
 </style>

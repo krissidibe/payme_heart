@@ -470,7 +470,10 @@
             
            <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
-            <div class="hidden total-separator" ></div>
+            <% if( invoiceType != 2){ %>
+            
+              <div class="hidden total-separator" ></div>
+              <% } %>
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
             

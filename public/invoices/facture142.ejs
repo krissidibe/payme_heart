@@ -29,11 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
+    height: 80px;
     bottom: 0px;
     
     width: 100%;
@@ -134,7 +135,7 @@
     width: auto;
     margin-left: 56px;
     margin-right: 56px;
-    margin-bottom: 8px;
+    margin-bottom: 18px;
   }
 
   .tabs-header p {
@@ -486,13 +487,17 @@
 
   .page-footer { 
     bottom: 0px;
-    background: #00A8B9;
+    background: var(--primary-color,#00A8B9);
     text-align: center;
-    color: white;
+    color: var(--primary-text-color,white);
     display: flex;
     justify-content: center;
     align-items: center;
     
+  }
+  .headline p{ 
+    max-width: 400px ;
+    min-width: 400px ;
   }
   /* custom end styling */
 </style>
@@ -573,6 +578,7 @@
   .tabs-header p {
     padding-top: 6px;
     padding-bottom: 6px;
+   
   }
 
   .total {

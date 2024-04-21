@@ -29,7 +29,7 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 50px;
   }
   
   .page-footer {
@@ -187,7 +187,8 @@
   }
 
   .left {
-    max-width: 300px;
+    max-width: 400px;
+    min-width: 400px;
   }
 
   .right, .right > div {
@@ -282,8 +283,9 @@
   .sub-headline-wrapper .facture-number {
     display: flex;
     justify-content: flex-end;
-    align-items: end;
+    align-items: flex-end;
     min-width: 240px; 
+    
   }
       .header .heading-info {
     padding: 0;
@@ -298,6 +300,7 @@
     border-top: 1px solid #4D4B4C;
     border-bottom: 1px solid #4D4B4C;
     gap: 0;
+    margin-top: 20px;
   }
 
   .tabs-header .description {
@@ -379,8 +382,9 @@
     display: flex !important;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: flex-end !important;
     padding-left: 78px;
-    padding-bottom: 14px;
+    padding-bottom: 0px;
     border-left: 1px solid #4D4B4C;
   }
 
@@ -407,7 +411,11 @@
 
   .tabs-header .description {
     background: var(--primary-color, #000);
-    color: var(--secondary-color, #DEDC00);
+    color: var(--primary-text-color, #fff);
+  }
+  .tabs-header .price, .tabs-header .amount, .tabs-header .quantity {
+    
+    color: var(--secondary-text-color, #000);;
   }
 
   .left, .right {
@@ -433,6 +441,11 @@
   .facture-text{
     font-size: 22px !important;
     margin-bottom: 5px !important;
+  }
+  .headline-object p:nth-child(2) {
+ 
+min-width: 100%;
+max-width: 100%;
   }
   /* custom end styling */
 </style>
@@ -472,15 +485,15 @@
             <div class="flex justify-between sub-headline-wrapper">
               <div class="flex sub-headline row">
                 <div class="flex flex-1">
-                  <div class="headline-object inter leading-5 font-light text-[16.4px]">
+                  <div class="headline-object   w-[400px] inter leading-5 font-light text-[15.4px]">
                     <p>Objet:</p>
-                    <p><%= project.name %></p>
+                    <p class="w-full"><%= project.name %></p>
                   </div>
-                  <div class="headline-client inter leading-5 font-light text-[16.4px]">
+                  <div class="headline-client inter leading-5 font-light text-[15.4px]">
                     <p>Client:</p>
                     <p><%=  customer.name %></p>
                   </div>
-                  <div class="headline-address inter leading-5 font-light text-[16.4px]">
+                  <div class="headline-address inter leading-5 font-light text-[15.4px]">
                     <p>Adresse:</p>
                     <p><%=  customer.address %></p>
                   </div>
@@ -489,11 +502,11 @@
 
                 <div class="flex   w-[470px]">
                   
-                  <div class=" flex flex-col  w-auto  leading-5 font-light text-[16.4px]">
+                  <div class=" flex flex-col  w-auto  leading-5 font-light text-[15.4px]">
                     <p>Client:</p>
                     <p class=""><%=  customer.name %></p>
                   </div>
-                  <div class="     w-full   leading-5 font-light text-[16.4px]">
+                  <div class="     w-full   leading-5 font-light text-[15.4px]">
                     <p>Adresse:</p>
                     <p class=""><%=  customer.address %> </p>
                   </div>

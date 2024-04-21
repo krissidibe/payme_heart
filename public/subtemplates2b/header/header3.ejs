@@ -1,10 +1,10 @@
-<header class="header flex justify-between">
+<header class="flex justify-between header">
   
   <div class="logo max-h-[120px] flex object-left object-contain h-[120px] w-[400px] pl-[45px]">
     <img class="object-left object-contain h-[120px] w-[400px]" src="<%=logo%>" alt="" srcset="">
-    <div class="heading-info hidden items-center flex-1">
+    <div class="items-center flex-1 hidden heading-info">
       <p class="text-[12px]">
-        <%= enterprise.name %> - notre adresse <%= enterprise.address %> - Rccm :  <%= enterprise.rccm %> - Email :  <%= enterprise.email %> - Compte Bank :  <%= enterprise.bankNumber %> - Tél : +<%= JSON.parse(enterprise.numbers)[0].indicatif %><%= JSON.parse(enterprise.numbers)[0].number %> / +<%= JSON.parse(enterprise.numbers)[1]?.indicatif %><%= JSON.parse(enterprise.numbers)[1]?.number %> - <%= JSON.parse(enterprise.nif)[0].content %> <%= JSON.parse(enterprise.nif)[1]?.content %>
+        <%= dataEnterpriseInfo %> 
       </p>
     </div>
   </div>

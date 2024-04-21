@@ -33,6 +33,7 @@
   }
   
   .page-footer {
+    height: 80px;
     position: fixed;
     bottom: 0px;
     
@@ -382,7 +383,7 @@
     flex-direction: column;
     justify-content: flex-end;
     padding-left: 78px;
-    padding-bottom: 14px;
+    padding-bottom: 0px;
     color: var(--secondary-color, #926E96);
     border-left: 1px solid #4D4B4C;
   }
@@ -461,6 +462,11 @@
     font-size: 22px !important;
     margin-bottom: 5px !important;
   }
+  .headline-object p:nth-child(2) {
+ 
+    min-width: 100%;
+    max-width: 100%;
+      }
   /* custom end styling */
 </style>
 
@@ -469,14 +475,14 @@
   <div class="page-footer footer">
     <div class="absolute left-0 bottom-[10px]">
       <svg xmlns="http://www.w3.org/2000/svg" width="115" height="42" viewBox="0 0 115 42" fill="none">
-        <path d="M94.6115 41.03H-4.10365C-15.3564 41.03 -24.481 31.9054 -24.481 20.6526C-24.481 9.39992 -15.3564 0.275391 -4.10365 0.275391H94.6115C105.864 0.275391 114.989 9.39992 114.989 20.6526C114.989 31.9054 105.864 41.03 94.6115 41.03Z" fill="#D7A4AE"/>
+        <path d="M94.6115 41.03H-4.10365C-15.3564 41.03 -24.481 31.9054 -24.481 20.6526C-24.481 9.39992 -15.3564 0.275391 -4.10365 0.275391H94.6115C105.864 0.275391 114.989 9.39992 114.989 20.6526C114.989 31.9054 105.864 41.03 94.6115 41.03Z" fill="var(--primary-color, #D7A4AE)"/>
       </svg>
     </div>
   </div>
   <table>
     <tbody>
       <tr>
-        <td class="pages w-[827px]">
+        <td class="pages w-[827px]  ">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
             <!-- Header + Facture -->
             <header class="flex justify-between header">
@@ -492,14 +498,14 @@
               </div>
             </header>
 
-                        
+                       <div class="h-5"></div> 
             <!-- Subheadline -->
             <div class="flex justify-between sub-headline-wrapper">
               <div class="flex sub-headline row">
                 <div class="flex flex-1">
-                  <div class="headline-object inter leading-5 font-light text-[16.4px]">
+                  <div class="headline-object w-full  inter leading-5 font-light text-[16.4px]">
                     <p>Objet:</p>
-                    <p><%= project.name %></p>
+                    <p><%= project.name %>  </p>
                   </div>
                   <div class="headline-client inter leading-5 font-light text-[16.4px]">
                     <p>Client:</p>

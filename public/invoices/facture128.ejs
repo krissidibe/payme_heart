@@ -29,7 +29,7 @@
   
   .page-footer,
   .page-footer-space {
-    height: 20px;
+    height: 30px;
   }
   
   .page-footer {
@@ -74,6 +74,7 @@
       margin: 0;
     }
   }
+ 
   /* Facture Custom styling */
   /* End Facture Custom styling */
 </style>
@@ -229,8 +230,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -265,7 +265,7 @@
   .facture-content .facture-number p,
   .facture-content .facture-number > div p:last-child {
     padding-top: 0;
-    font-size: 14px;
+    font-size: 16px;
   }
     .tabs-item p {
     border-bottom: 1px solid #A6A5A3 /*rgba(29, 29, 29, 0.2)*/;
@@ -336,6 +336,7 @@
     justify-content: flex-end;
     padding: 22px 70px 22px 70px;
     min-height: unset !important;
+    margin-top: 20px !important;
   }
   
   .header .heading-info p {
@@ -349,6 +350,7 @@
     background: var(--primary-color, #926E96);
     padding: 0 70px;
     margin: 0;
+    padding-top: 30px;
   }
 
   .headline-wrapper .facture-number {
@@ -369,6 +371,11 @@
     border-top: 1px solid var(--primary-text-color, white);
   }
 
+    
+  .headline-wrapper .headline p {
+   max-width: 400px !important;
+   line-height: 20px !important;
+  }
   .tabs {
     padding-left: 14px;
     padding-right: 14px;
@@ -427,6 +434,9 @@
     background-color: var(--primary-color, #926E96) !important;
   }
 
+  .headline p{
+    max-width: 550px !important;
+  }
   /* custom end styling */
 </style>
 
@@ -450,7 +460,25 @@
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
             <!-- Header + Facture -->
-            <%- include('../subtemplates2b/header/header2') %>
+            <header class="flex justify-between mt-10 mb-6 headerx">
+  
+              <div class="logo max-h-[120px] flex object-left object-contain h-[120px] w-[400px] pl-[45px]">
+                <img class="object-left object-contain h-[120px] w-[400px]" src="<%=logo%>" alt="" srcset="">
+              </div>
+              
+              <div class="heading-info flex items-center px-[45px] flex-1 min-h-[120px]">
+                <p class="text-[12px] pr-4">
+                  
+                  <%= dataEnterpriseInfo %> 
+                </p>
+              </div>
+            </header>
+                        
+                        
+                        
+                        
+                        
+                        
             <!-- Headline -->
             <%- include('../subtemplates2b/headline/headline1') %>
             

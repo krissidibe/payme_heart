@@ -29,11 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
+    height: 80px;
     bottom: 0px;
     
     width: 100%;
@@ -230,7 +231,7 @@
 
   .sign > div p {
     width: 130px;
-    padding-top: 0;
+    padding-top: 15px;
     padding-bottom: 8px;
     border-bottom: 1px solid #4E4D4D;
   }
@@ -330,8 +331,8 @@
     padding: 0 26px;
     font-weight: 600;
     margin: 0;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     color: var(--primary-text-color, white);
     background: var(--primary-color, #634E42);
   }
@@ -346,16 +347,16 @@
 
   .tabs .tabs-item.last p {
     border-bottom: none;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 
   .total {
     padding: 30px 20px;
     background: #F8F7F7;
     border: none;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
   }
 
   .right .remise {
@@ -380,8 +381,8 @@
     background: #F8F7F7;
     padding: 8px 20px;
     border: none;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
 
   .sign p {
@@ -552,7 +553,10 @@
             
                         <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
-
+            <% if( invoiceType != 2){ %>
+            
+              <div class="hidden total-separator" ></div>
+              <% } %>
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
             

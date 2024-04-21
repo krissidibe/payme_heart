@@ -194,7 +194,8 @@
   }
 
   .left {
-    max-width: 300px;
+    max-width: 400px;
+    min-width: 400px;
   }
 
   .right, .right > div {
@@ -230,15 +231,14 @@
     .sign {
     margin-top: 8px;
     padding-top: 40px;
-    padding-left: 110px;
-    padding-right: 110px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -345,7 +345,7 @@
   .header {
     padding-top: 25px;
     padding-bottom: 25px;
-    background: color-mix(in srgb, var(--primary-color, #29235C) 10%, transparent);
+    background: color-mix(in srgb, #29235C  10%, transparent);
   }
 
   .header .heading-info {
@@ -363,11 +363,11 @@
     padding-left: 56px;
     padding-right: 56px;
     border-top: 1px solid #4D4B4C;
-    background: color-mix(in srgb, var(--primary-color, #29235C) 10%, transparent);
+    background: color-mix(in srgb, #29235C  10%, transparent);
   }
 
   .headline-wrapper + div {
-    background: #662483;
+    background: var(--primary-color,#662483);
   }
   
   .headline-wrapper .facture-number {
@@ -377,7 +377,7 @@
   }
 
   .headline {
-    color: #29235C;
+    color: var(--primary-color, #29235C);
     padding-left: 36px;
     border-right: none;
     border-left: 1px solid #4D4B4C;
@@ -389,7 +389,7 @@
   }
 
   .tabs-header {
-    color: var(--secondary-color, #662483);
+    color: var(--primary-color, #662483);
   }
 
   .tabs-header .description {
@@ -410,7 +410,7 @@
   }
 
   .right p span:first-child {
-    color: var(--secondary-color, #662483);
+    color: var(--primary-color, #662483);
   }
 
   .right .remise {
@@ -426,7 +426,7 @@
 
   .right .total-amount {
     background: transparent !important;
-    color: var(--secondary-color, #662483);
+    color: var(--primary-color, #662483);
   }
 
   .sign > div, .sign > p {
@@ -456,7 +456,7 @@
   <div class="pt-4 page-footer footer">
     <div class="absolute bottom-[10px]">
       <svg xmlns="http://www.w3.org/2000/svg" width="828" height="9" viewBox="0 0 828 9" fill="none">
-        <path d="M-4.38135 4.6123H833.564" stroke="#29235C" stroke-width="8.34565" stroke-miterlimit="10"/>
+        <path d="M-4.38135 4.6123H833.564" stroke="var(--primary-color, #29235C)" stroke-width="8.34565" stroke-miterlimit="10"/>
       </svg>
     </div>
   </div>
