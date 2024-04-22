@@ -3,6 +3,7 @@ import Sidebar from "./_components/Sidebar";
 import { prisma } from "@/utils/prisma";
 import { EyeIcon, RefreshCwIcon } from "lucide-react";
 import { revalidatePath } from "next/cache";
+import ModalDetailView from "./_components/ModalDetailView";
 async function page() {
   const userDatas = await prisma.user.findMany({
     orderBy: {
@@ -59,15 +60,15 @@ async function page() {
       {/* SidebarAdmin */}
       <div className="flex flex-col flex-1 w-full h-full gap-4 p-10 mt-10 bg-zinc-900/80 rounded-2xl">
         <div className="flex w-full gap-6">
-          <ItemInfo
+          <ModalDetailView
             name=" Nbre de visite"
             value={numberOfViews.length.toString().padStart(5, "0")}
           />
-          <ItemInfo
+          <ModalDetailView
             name="Téléchargement"
             value={numberOfViewsDownload.length.toString().padStart(5, "0")}
           />
-          <ItemInfo
+          <ModalDetailView
             name="Compte supprimé"
             value={userDatasDeleted.length.toString().padStart(5, "0")}
           />
@@ -78,14 +79,4 @@ async function page() {
 }
 
 export default page;
-function ItemInfo({ name, value }: { name: string; value: string }) {
-  return (
-    <div className="flex flex-col w-full gap-2 p-5 bg-zinc-800 rounded-2xl">
-      <div className="flex items-center gap-2 text-2xl">
-        <EyeIcon />
-        <p>{name}</p>
-      </div>
-      <p className="pl-8 text-4xl font-bold">{value}</p>
-    </div>
-  );
-}
+ 

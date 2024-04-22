@@ -64,8 +64,8 @@
     
         <p class="relative flex justify-between total-amount">
           <span class="absolute empty-total-amount"></span>
-          <span> MONTANT TOTAL <%= (project.tva != 0 || project.tva != '') ? "TTC": "HT" %>: </span>
-          <span class="pl-[4px]"> <%= total %>  <%=currency %></span>
+          <span class="amount-left"> MONTANT TOTAL <%= (project.tva != 0 || project.tva != '') ? "TTC": "HT" %>: </span>
+          <span class="pl-[4px] amount-right"> <%= total %>  <%=currency %></span>
         </p>
       </div>
     </div>
