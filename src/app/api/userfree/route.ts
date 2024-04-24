@@ -75,7 +75,63 @@ export async function POST(req:NextRequest,res:NextResponse) {
           },
      })
     
+
+
+
+     const userIdeleted = await prisma.userDeleted.findFirst({
+      where:{
+        email:user.email
+      }
+     })
+
+
+
+if(!userIdeleted){
+  let dateEdit = new Date();
+  dateEdit.setHours(168,0,0)
+
+
+  const payment = await prisma.payment.create({
+    data: {
+      reference:"Periode d'essai",
+      type: "Gratuit (7 jours)",
+      month: 0,
+      amount: 0,
+      currency: "FCFA",
+     
+      userId: user.id,
+    },
+  });
+
+
+
  
+
+  const subscribe = await prisma.subscribe.create({
+    data: {
+      startAt: new Date(Date.now()).toISOString(),
+      endAt: new Date(dateEdit),
+
+      paymentId: payment.id,
+     
+    },
+  });
+
+  const userUpdate = await prisma.user.update({
+    where: {
+      id: user.id!,
+    },
+     data: {
+         subscribeId : subscribe.id ,
+         
+       },
+  })
+
+
+
+
+
+}
   return new Response(JSON.stringify({ 
     data: user,
     statut:200,
