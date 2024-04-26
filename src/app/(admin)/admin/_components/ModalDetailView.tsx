@@ -25,17 +25,20 @@ function ModalDetailView({ name, value }: { name: string; value: string }) {
     </DialogTrigger>
     <DialogContent className=' h-[calc(100%-100px)] min-w-[calc(60%)]'  >
     <div className="  h-[calc(100%-100px)] flex flex-col       transition-all duration-200 ease-in-out  min-w-[calc(60%)]">
-           <div className="flex flex-col items-center justify-center ">
+           <div className="flex flex-col items-center justify-center w-full h-full ">
              <div className="w-full p-2 text-center border-b border-white/10">
                <p>{name}</p>
              </div>
              <div className="flex flex-col items-center justify-center flex-1 w-full gap-2 ">
              <div className="flex self-end gap-4 p-6">
                 <div className="flex-1"></div>
-             <Input type='date' />
-             <Input type='date' />
+             <Input type='date' name="startAt"  />
+             <Input type='date' name="endAt"  />
              <Button>Appliquer</Button>
              </div>
+             </div>
+             <div className="w-full h-full bg-white/30">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum maiores reiciendis adipisci! Nam culpa sint iure reiciendis et a voluptate temporibus expedita placeat aut, alias at dolor hic voluptates animi.</p>
              </div>
            </div>
          </div>

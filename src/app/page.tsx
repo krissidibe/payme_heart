@@ -13,6 +13,7 @@ import Link from "next/link";
 import FaqItem from "./FaqItem";
 import ip3country from "ip3country";
 import DesktopBtn from "./DesktopBtn";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
  
 const titleFont = localFont({
   src: [
@@ -149,11 +150,32 @@ export default async function Home() {
        </div>
       </div>
 
-      <div className=" px-6 mt-[40px] md:mt-[52px] xl:mt-[72px]   xl:w-[1308px] z-10 md:px-[70px] xl:px-[80px] ">
+
+
+      <div className="md:mt-[52px] xl:mt-[72px] aspect-video  z-10 md:px-[70px] xl:px-[80px]    xl:w-[1408px]  w-full   mt-[40px] px-6   flex justify-center items-center mx-auto"    >
+        <div className="p-[6px] w-full   xl:p-3 aspect-video bg-[#ffffff09] border-t border-opacity-30 border-white rounded-md">
+
+        <iframe width="560" height="315"  className="w-full h-full" src="https://www.youtube.com/embed/IxyLDLbIoII?si=YNijzVr2Mz76hW1a&rel=0" frameBorder="0" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"  ></iframe>
+</div>
+
+        </div>
+     
+
+
+
+ 
+{/*       <div className=" px-6 mt-[40px] md:mt-[52px] xl:mt-[72px]   xl:w-[1308px] z-10 md:px-[70px] xl:px-[80px] ">
+        <AspectRatio  ratio={16 / 9} >
+        <div className="p-[6px] w-full h-full xl:p-3 bg-[#ffffff09] border-t border-opacity-30 border-white rounded-md">
+
+<iframe width="560" height="315"  className="w-full h-full" src="https://www.youtube.com/embed/IxyLDLbIoII?si=YNijzVr2Mz76hW1a" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"  ></iframe>
+</div>
+
+        </AspectRatio>
         <div className="p-[6px] xl:p-3 bg-[#ffffff09] border-t border-opacity-30 border-white rounded-md">
           <img src="/images/Rectangle.png" alt="" />
-        </div>
-      </div>
+        </div>  
+      </div> */}
       {/* 
     
     
