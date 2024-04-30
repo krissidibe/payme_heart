@@ -29,13 +29,13 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
     bottom: 0px;
-    
+    height: 80px;
     width: 100%;
     /* for demo */
     /* for demo */
@@ -351,8 +351,9 @@
     background: white;
   }
 
+ 
   .tabs-header .quantity {
-    color: var(--primary-text-color, white);
+    color: var(--secondary-text-color, white);
     background: var(--secondary-color, #86CFEB);
   }
 
@@ -368,7 +369,7 @@
   }
 
   .tabs-header {
-    color: var(--secondary-text-color, #1791B7);
+    color: var(--secondary-text-color, white);
     font-weight: 600;
   }
 
@@ -377,10 +378,10 @@
   }
 
   .total {
-    margin: 22px 56px 0 56px;
+    margin: 42px 56px 0 56px;
     padding: 16px 19px;
     border-radius: 20px;
-    background: color-mix(in srgb, var(--primary-color, #E585A5) 10%, transparent);;
+    background: color-mix(in srgb, var(--primary-color, #E585A5) 10%, transparent);
   }
   .right .remise {
     border: none;
@@ -426,7 +427,10 @@
     object-position: left;
   }
 
-
+  .headline{
+    
+    max-width: 350px !important;
+  }
   /* custom end styling */
 </style>
 

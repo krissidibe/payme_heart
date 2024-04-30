@@ -29,12 +29,13 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    height: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -84,10 +85,8 @@
     .header {
     padding: 0px 55px;
   }
-  .date {
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid #000100;
+  .date { 
+    font-size: 22px !important;
   }
     .headline-wrapper {
     width: auto;
@@ -132,8 +131,8 @@
     .tabs-header {
     gap: 5px;
     width: auto;
-    margin-left: 56px;
-    margin-right: 56px;
+    margin-left: 76px;
+    margin-right: 76px;
     margin-bottom: 8px;
   }
 
@@ -147,7 +146,7 @@
   }
 
   .tabs-item {
-    padding: 0 56px;
+    padding: 0 76px;
   }
   
   .tabs-item p {
@@ -180,8 +179,8 @@
     .total {
     color: #4D4B4C;
     margin-top: 23.63px;
-    padding-left: 56px;
-    padding-right: 56px;
+    padding-left: 76px;
+    padding-right: 76px;
     align-items: flex-start;
     gap: 10px;
   }
@@ -230,8 +229,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -260,8 +258,8 @@
     background: rgb(199, 163, 163);
     position: absolute;
     bottom: 0;
-    left: 56px;
-    right: 56px;
+    left: 76px;
+    right: 76px;
     width: auto;
   }
     </style>
@@ -269,22 +267,41 @@
 <style>
   /* custom styling */
   .header {
-    padding: 26px 56px;
+    padding: 26px 76px;
     background: var(--primary-color, #99191F);
   }
 
   .facture-number {
     color: var(--primary-text-color, white);
+   align-items: flex-end;
+   justify-content: flex-end;
+ margin-top: 60px !important;
   }
   
   .facture-number .date {
     border-color: var(--primary-text-color, white);
   }
 
+
+.facture-number {
+display: flex;
+flex-direction: column;
+}
+
+.facture-number > div {
+display: flex;
+font-size: 22px;
+}
+
+.facture-number > div p:last-child {
+padding-left: 6px;
+padding-top: 0;
+}
+
   .sub-headline-wrapper {
     color: var(--primary-text-color, white);
     border-color: var(--primary-text-color, white);
-    padding: 22px 56px;
+    padding: 22px 76px;
     background: var(--secondary-color, #BE1622);
     margin: 0;
   }
@@ -326,17 +343,33 @@
     border-bottom: 1px solid #4D4B4C;
     color: var(--primary-color, #99191F);
     font-weight: 600;
-    background: transparent !important;
-    justify-content: flex-end !important;
+    background: transparent !important; 
   }
 
   .page-footer {
-    height: 70px;
+     
     bottom: 0px;
-    padding-top: 10px;
-    padding-left: 79px;
+    padding-top: 10px; 
     color: #000;
   }
+  .left{
+    min-width: 370px;
+  }
+
+  .gridView{
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .gridView div:first-child {
+    grid-column: span 2; 
+    padding-right: 0px !important; 
+  }
+  
+  .headline-object p {
+    min-width: 100%; 
+  }
+ 
   /* custom end styling */
 </style>
 
@@ -356,15 +389,57 @@
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
             <!-- Header + Facture -->
-            <%- include('../subtemplates2b/header/header1') %>
+            <header class="flex justify-between header">
+  
+              <div class="logo max-h-[120px] flex object-left object-contain h-[120px] w-[400px] bg-gray">
+                <img class="object-left object-contain h-[120px] w-[400px]" src="<%=logo%>" alt="" srcset="">
+              </div>
+              
+              <div class="facture-number my-auto font-light items-end text-[23px] inter">
+                
+                <div class="leading-[24px] items-end  text-right ">
+                  <% if(invoiceType == 0) { %>
+                    <p>PROFORMA</p>
+                  <% } %>
+                  <% if(invoiceType == 1) { %>
+                    <p>FACTURE</p>
+                  <% } %>
+                  <% if(invoiceType == 2) { %>
+                    <p >BORDEREAU</p>
+                  <% } %> 
+                  <p>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
+                </div>
+            
+             
+                      
+                <% if(invoiceType == 0) { %>
+                  <p class="date font-light text-[14px] text-right ">Date: <%=date%></p>
+                <% } %> 
+                <% if(invoiceType == 1) { %>
+                  <p class="date font-light text-[14px] text-right ">Date: <%=date%></p>
+                <% } %> 
+                <% if(invoiceType == 2) { %>
+                  <p class="date font-light text-[14px] text-right ">Date: <%=date%></p>
+                <% } %>
+            
+              </div>
+            </header>
+                        
+                        
+                        
+                        
+                        
+                        
             
 <%- include('../subtemplates2b/headline/subheadline1') %>
             
-            <!-- table -->
+<div class="flex flex-col px-4">
+              <!-- table -->
 <%- include('../subtemplates2b/tabs/tab1') %>
             
-                        <!-- facture totals informations -->
-            <%- include('../subtemplates2b/total/total1') %>
+<!-- facture totals informations -->
+<%- include('../subtemplates2b/total/total1') %>
+</div>
 
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>

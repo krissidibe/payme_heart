@@ -29,12 +29,13 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 120px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
+    height: 100px;
     
     width: 100%;
     /* for demo */
@@ -179,15 +180,15 @@
   }
     .total {
     color: #4D4B4C;
-    margin-top: 23.63px;
-    padding-left: 56px;
-    padding-right: 56px;
+    margin-top: 3.63px;
+    padding-left: 76px;
+    padding-right: 76px;
     align-items: flex-start;
     gap: 10px;
   }
 
   .left {
-    max-width: 300px;
+    max-width: 350px;
   }
 
   .right, .right > div {
@@ -230,8 +231,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -321,7 +321,21 @@
   .facture-content .facture-number p,
   .facture-content .facture-number > div p:last-child {
     padding-top: 0;
-    font-size: 14px;
+    font-size: 15px;
+  }
+  .facture-number p{
+    
+    font-size: 18px !important;
+  }
+  .headline p{
+    
+    font-size: 15px !important; 
+      
+  }
+  .headline{
+     
+    max-width: 400px !important; 
+      
   }
     .tabs-item p {
     border-bottom: 1px solid #A6A5A3 /*rgba(29, 29, 29, 0.2)*/;
@@ -333,7 +347,8 @@
 
   .tabs .quantity.first {
     display: block;
-    width: 80px;
+    width: 65px;
+ ;
   }
       .total {
     position: relative;
@@ -344,8 +359,8 @@
     background: rgb(199, 163, 163);
     position: absolute;
     bottom: 0;
-    left: 56px;
-    right: 56px;
+    left: 76px;
+    right: 76px;
     width: auto;
   }
     </style>
@@ -407,8 +422,8 @@
   }
 
   .tabs-header .quantity {
-    width: 100px !important;
-    padding-left: 30px;
+    width: 80px !important;
+    padding-left: 10px;
     border-top-left-radius: 20px;
     color: var(--secondary-text-color, white);
     background: var(--secondary-color, #2FAC66);
@@ -416,7 +431,7 @@
 
   .tabs .tabs-item .quantity {
     text-align: start;
-    padding-left: 16px;
+    padding-left: 0px;
   }
 
   .total {
@@ -435,8 +450,7 @@
   .right .total-amount {
     border-top: 1px solid #004F79;
     border-bottom: 1px solid #004F79;
-    background: transparent !important;
-    justify-content: flex-end;
+    background: transparent !important; 
   }
 
   .right .total-amount span:last-child {
@@ -462,9 +476,9 @@
   <!-- footer -->
   <div class="page-footer footer">
     <div>
-      <svg width="828" height="16" viewBox="0 0 828 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M-30.0859 8.32031H866.529" stroke="#004F79" stroke-width="15.3004" stroke-miterlimit="10" stroke-linecap="round"/>
-        <path d="M-30.0859 8.32031H304.658" stroke="#2FAC66" stroke-width="15.3004" stroke-miterlimit="10" stroke-linecap="round"/>
+      <svg width="828" height="16" viewBox="0 0 828 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-30.0859 8.32031H866.529" stroke="var(--primary-color, #004F79)" stroke-width="15.3004" stroke-miterlimit="10" stroke-linecap="round"/>
+        <path d="M-30.0859 8.32031H304.658" stroke="var(--secondary-color, #2FAC66)" stroke-width="15.3004" stroke-miterlimit="10" stroke-linecap="round"/>
       </svg>
     </div>
     <%- include('../subtemplates2b/footer1') %>
@@ -474,7 +488,7 @@
       <tr>
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
-            
+            <div class="h-4"></div>
             <!-- Header + Facture -->
             <%- include('../subtemplates2b/headerheadline/headerheadline1') %>
             

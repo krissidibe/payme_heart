@@ -138,7 +138,7 @@
 
   .tabs-header p {
     padding-top: 10px; /* /!\ */
-    padding-bottom: 10px; /* /!\ */
+    padding-bottom: 0px; /* /!\ */
   }
   
   .facture-content .tabs-header .description {
@@ -150,8 +150,8 @@
   }
   
   .tabs-item p {
-    padding-top: 14px; /* /!\ */
-    padding-bottom: 14px; /* /!\ */
+    padding-top: 10px; /* /!\ */
+    padding-bottom: 4px; /* /!\ */
     padding-left: 5px;
   }
 
@@ -222,15 +222,14 @@
     .sign {
     margin-top: 8px;
     padding-top: 40px;
-    padding-left: 110px;
-    padding-right: 110px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -238,10 +237,7 @@
      margin-top: 0;
   }
   /* <!-- addons styling --> */
-    .header .heading-info {
-    padding: 0;
-    flex: 1;
-  }
+    
     .tabs-header {
     gap: 0;
     margin-bottom: 0;
@@ -289,15 +285,27 @@
     display: none;
   }
 
+  .headline-wrapper .facture-number p:first-child  {
+    display: block;
+  }
+
   .sub-headline-wrapper {
     background-color: var(--primary-color, #87865F);
-    padding: 18px 68px;
+    padding: 4px 56px;
+    padding-bottom: 14px;
     margin: 0;
+    font-size: 16px;
     color: var(--primary-text-color, white);
     justify-content: space-between;
   }
 
   .sub-headline-wrapper .headline-object {
+    display: none !important;
+  }
+  .sub-headline-wrapper .headline-client {
+    display: none !important;
+  }
+  .sub-headline-wrapper .headline-address {
     display: none !important;
   }
 
@@ -315,6 +323,7 @@
     display: block !important;
     border: none;
     padding-right: 36px;
+    font-size: 18px !important;
   }
 
   .tabs {
@@ -383,7 +392,20 @@
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
   }
-
+.logo{
+  max-width: 380px;
+  min-width: 380px;
+}
+ 
+.header .heading-info{
+  padding: 0;
+  flex: 1;
+  max-width: 310px !important;
+}
+.headline{
+  max-width: 380px;
+  font-size: 14px !important;
+}
   /* custom end styling */
 </style>
 
@@ -405,7 +427,103 @@
             <%- include('../subtemplates2b/headline/subheadline1') %>
             
             <!-- table -->
-<%- include('../subtemplates2b/tabs/tab1') %>
+            <main class="flex flex-col font-light tabs">
+              <div class="absolute tab-dummy"></div>
+              <div class="absolute tab-dummy"></div>
+              <div class="absolute tab-dummy"></div>
+              <div class="absolute tab-dummy"></div>
+             
+              <!-- table heading -->
+              <div class="tabs-header inter flex text-[14.8px]">
+                <p class="w-[80px] text-center tab-indexs hidden">No</p>
+                <% if(invoiceType !== 2) { %>
+                <p class="w-[80px] text-center quantity first">Qté.</p>
+                <p class="flex-1 description">Description</p>
+                <p class="w-[115px] text-center quantity second">Qté.</p>
+                <p class="w-[115px] text-center price"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+                <p class="w-[115px] text-center quantity third">Qté.</p>
+                <p class="hidden"></p>
+                <p class="w-[115px] text-center amount"><%=   invoiceType === 2 ? "": "Montant" %> </p>
+                <% } %>
+                <% if(invoiceType === 2) { %>
+                  <p class="w-[115px] text-center quantity first">Qté.</p>
+                  <p class="flex-1 description">Description</p> <!-- min-w-[355px] w-[275px]  -->
+                  <p class="w-[115px] text-center quantity second">Qté.</p>
+                  <p class="w-[115px] text-center quantity third">Qté.</p>
+                  <p class="flex-1 mr-0 text-center max-w-auto price"> <%=   invoiceType === 2 ? "Observation": " Prix.U" %></p>
+                <% } %> 
+              </div>
+            
+            
+              <% table.forEach(function(item,index) { %>
+                <% if(invoiceType != 2) { %>
+                <div class="tabs-item  <%= index == table.length-1 ? "last": "" %> ">
+                  <!-- table item -->
+                  <div class="text-[12px] flex w-full min-h-[50px]">
+                    <p class="w-[80px] text-center tab-indexs hidden text-[14.8px]"><%= index +1 %></p>
+                    <p class="w-[100px] text-center quantity first"> <%=item.quantity%> </p>
+                    <p class="flex-1 description"> <%=item.designation%> </p>
+                    <p class="w-[115px] text-center quantity second"> <%=item.quantity%> </p>
+                    <p class="w-[115px] text-center price"> 
+                      <% if(item.rate != 0 && item.rate != null) { %>
+                        <%= invoiceType === 2 ? "": item.rate %>
+                        <span class="ml-1"> <%=   invoiceType === 2 ? "": currency %></span> 
+                      <% } %>
+                    </p>
+                    <p class="w-[115px] text-center quantity third"> <%=item.quantity%> </p>
+                    <p class="w-[115px] text-center amount">  
+                      <% if(item.amount != 0 && item.amount != null) { %>
+                        <%=   invoiceType === 2 ? "": item.amount %>
+                        <span class="pl-1"> <%=   invoiceType === 2 ? "": currency %></span>
+                      <% } %> 
+                    </p>
+                  </div>
+                </div>
+                <% } %> 
+                <% if(invoiceType == 2) { %>
+                <div class="tabs-item  <%= index == table.length-1 ? "last": "" %> ">
+                  <!-- table item -->
+                  <div class="text-[12px] flex w-full min-h-[50px]">
+                    <p class="w-[80px] text-center tab-indexs hidden text-[14.8px]"><%= index +1 %></p>
+                    <p class="w-[120px] min-w-[130px]  text-center quantity first"> <%=item.quantity%> </p>
+                    <p class="w-[264px] description"> <%=item.designation%> </p>
+                    <p class="w-[110px] min-w-[115px]     text-center quantity second "> <%=item.quantity%> </p>
+                    <p class="w-[110px] min-w-[115px]     text-center quantity third "> <%=item.quantity%> </p>
+                    <p class="flex-1"></p>
+                  </div>
+                </div>
+                <% } %> 
+            
+                <% }) %>
+            
+                  <% if(invoiceType != 2) { %>
+                    <div class="flex w-auto align-bottom empty-item">
+                      <!-- table item -->
+                      <div class="text-[12px] flex w-full">
+                        <p class="w-[80px] text-center tab-indexs hidden"></p>
+                        <p class="w-[100px] text-center quantity first"> </p>
+                        <p class="flex-1 description"> </p>
+                        <p class="w-[115px] text-center quantity second"> </p>
+                        <p class="w-[115px] text-center price"></p>
+                        <p class="w-[115px] text-center quantity third"></p>
+                        <p class="w-[115px] text-center amount"></p>
+                      </div>
+                    </div>
+                    <% } %> 
+                    <% if(invoiceType == 2) { %>
+                    <div class="flex w-auto align-bottom empty-item">
+                      <!-- table item -->
+                      <div class="text-[12px] flex w-full">
+                        <p class="w-[80px] text-center tab-indexs hidden"></p>
+                        <p class="flex-1 description"> </p>
+                        <p class="w-[120px] text-center quantity block"></p>
+                        <p class="flex-1 max-w-[290px]"></p>
+                      </div>
+                    </div>
+                    <% } %>
+            
+            </main>
+            
             
                         <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>

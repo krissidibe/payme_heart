@@ -34,7 +34,7 @@
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -99,6 +99,7 @@
     flex: 1;
     text-align: center;
     border-color: #4D4B4C;
+    font-size: 18px !important;
   }
 
   .headline-wrapper {
@@ -162,8 +163,8 @@
   }
 
   .tabs-header p {
-    padding-top: 10px; /* /!\ */
-    padding-bottom: 10px; /* /!\ */
+    padding-top: 20px; /* /!\ */
+    padding-bottom: 20px; /* /!\ */
   }
   
   .facture-content .tabs-header .description {
@@ -254,8 +255,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -385,7 +385,7 @@
   }
 
   .left {
-    padding: 24px 54px;
+    padding: 24px 4px;
   }
 
   .right p,
@@ -417,14 +417,14 @@
   }
 
   .header .facture-number > div:first-child p:first-child {
-    display: none;
+    display: block;
   }
 
   .tabs {
     border: 1px solid #000;
     border-bottom: none;
     margin: 0 56px;
-    padding: 0 14px;
+    padding: 0 25px;
   }
 
   .tabs-header {
@@ -452,7 +452,7 @@
   .total {
     border-left: 1px solid #000;
     border-right: 1px solid #000;
-    padding: 19px 16px;
+    padding: 19px 26px;
     margin: 0 56px;
   }
 
@@ -464,9 +464,10 @@
   }
 
   .right .total-amount {
-    background: var(--primary-color, #000) !important;
-    color: var(--primary-text-color, white);
+    background: 000 !important;
+    color: white;
     border-radius: 50px !important;
+   
   }
 
   .sign {
@@ -482,6 +483,17 @@
     background: #000;
   }
 
+  .headline{
+    
+    max-width: 450px !important;
+  }
+
+  .headline p {
+    text-align: center;
+  }
+
+  .logo { 
+  }
   /* custom end styling */
 </style>
 
@@ -494,6 +506,7 @@
       <tr>
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
+           <div class="h-6"></div>
             <!-- Header + Facture -->
 <%- include('../subtemplates2b/headerheadline/headerheadline2') %>
             
@@ -501,7 +514,7 @@
 <%- include('../subtemplates2b/tabs/tab1') %>
             
                         <!-- facture totals informations -->
-            <%- include('../subtemplates2b/total/total1') %>
+            <%- include('../subtemplates2b/total/total1ac') %>
 
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>

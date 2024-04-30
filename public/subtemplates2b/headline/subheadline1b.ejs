@@ -1,0 +1,51 @@
+<div class="flex justify-between sub-headline-wrapper">
+  
+  <div class="flex w-full sub-headlines row">
+    <div class="flex flex-col flex-1 w-full gap-4 border-show ">
+      <div class="headline-object2  inter leading-5 font-light text-[15.4px]">
+        <p>Objet:</p>
+        <p class=""><%= project.name %></p>
+      </div>
+     <div class="flex justify-between w-full">
+      <div class="headline-client inter  w-[50%] leading-5 font-light text-[15.4px]">
+        <p>Client:</p>
+        <p><%=  customer.name %></p>
+      </div>
+      <div class="headline-address w-[50%] inter leading-5 font-light text-[15.4px]">
+        <p>Adresse:</p>
+        <p><%=  customer.address %></p>
+      </div>
+     </div>
+    </div>
+    
+  </div>
+
+  <div class="facture-number font-light text-[23px] text-right inter">
+    
+    <div class="leading-[24px] text-right">
+      <% if(invoiceType == 0) { %>
+        <p>PROFORMA</p>
+      <% } %>
+      <% if(invoiceType == 1) { %>
+        <p>FACTURE</p>
+      <% } %>
+      <% if(invoiceType == 2) { %>
+        <p class=" bordereau" >BORDEREAU</p>
+      <% } %> 
+      <p class="facture-count">N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
+    </div>
+
+    <div class="hidden hidden-date-border"></div>
+          
+    <% if(invoiceType == 0) { %>
+      <p class="date font-light text-[14px]">Date: <%=date%></p>
+    <% } %> 
+    <% if(invoiceType == 1) { %>
+      <p class="date font-light text-[14px]">Date: <%=date%></p>
+    <% } %> 
+    <% if(invoiceType == 2) { %>
+      <p class="date font-light text-[14px]">Date: <%=date%></p>
+    <% } %>
+
+  </div>
+</div>

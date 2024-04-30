@@ -34,7 +34,7 @@
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -220,7 +220,7 @@
   }
     .sign {
     margin-top: 8px;
-    padding-top: 40px;
+    padding-top: 20px;
     padding-left: 110px;
     padding-right: 110px;
   }
@@ -228,8 +228,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -398,7 +397,8 @@
   }
 
   .left {
-    padding: 24px 54px;
+    padding: 24px 0px;
+    
   }
 
   .right p,
@@ -476,7 +476,8 @@
   }
 
   .left {
-    padding: 24px 54px;
+    padding: 24px 10px;
+    padding-top: 0px;
   }
 
   .right p,
@@ -514,7 +515,7 @@
 
   .headline-wrapper .facture-number {
     display: block !important;
-    color: var(--primary-text-color, white);
+    color: var(--secondary-text-color, white);
     background: var(--secondary-color, #E94E1B);
     padding-top: 26px;
     padding-left: 44px;
@@ -525,7 +526,7 @@
 
   .headline {
     flex: 1;
-    padding: 26px 0 26px 96px;
+    padding: 26px 0 26px 76px;
     color: var(--primary-text-color, white);
     background: var(--primary-color, #00697B);
   }
@@ -551,7 +552,7 @@
   .right .total-amount {
     bottom: -16px !important;
     color: var(--primary-text-color, white);
-    background: #00697B !important;
+    background: var(--primary-color,#00697B) !important;
   }
 
   .left {
@@ -559,6 +560,15 @@
     color: black;
   }
 
+  .logo{ 
+    max-width: 340px !important;
+    margin-right: 20px;
+  }
+  .headline p{
+    
+    max-width: 420px !important; 
+    font-size: 14px !important;
+  }
 
   /* custom end styling */
 </style>

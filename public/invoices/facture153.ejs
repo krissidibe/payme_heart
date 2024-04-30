@@ -29,13 +29,14 @@
   
   .page-footer,
   .page-footer-space {
-    height: 80px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
     bottom: 0px;
     
+    height: 80px;
     width: 100%;
     /* for demo */
     /* for demo */
@@ -241,8 +242,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -321,7 +321,7 @@
   }
 
   .header .facture-number p:first-child{
-    font-size: 20px !important;
+    font-size: 23px !important;
     margin-bottom: 4px;
   }
 
@@ -409,6 +409,34 @@
 .gridView div:first-child {
   grid-column: span 2;
 }
+.facture-number div{
+  display: flex;
+   flex-direction: row;
+   gap: 10px;
+  align-items: center;
+}
+
+.facture-number p:last-child  { 
+ padding-top: 0px !important;
+  
+}
+
+.facture-number div p  {
+  font-size: 23px !important;
+  margin-bottom: 0px !important;
+  
+}
+
+.facture-number div p:first-child  {
+  font-size: 26px !important; 
+  
+  
+}
+
+.left{
+  min-width: 400px;
+}
+
   /* custom end styling */
 </style>
 

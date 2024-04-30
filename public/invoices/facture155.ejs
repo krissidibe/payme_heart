@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 40px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -88,7 +88,12 @@
     margin-top: 8px;
     padding-top: 8px;
     border-top: 1px solid #000100;
+    font-size: 19px !important;
   }
+
+
+ 
+
     .headline-wrapper {
     width: auto;
     margin: 0 55px;
@@ -124,7 +129,7 @@
   }
 
   .sub-headline p {
-    max-width: 150px;
+    background-color: red;
   }
   .facture-content .sub-headline-wrapper .facture-number {
     display: none;
@@ -385,17 +390,23 @@
     color: var(--secondary-text-color, #000);
   }
   
+  
   .sub-headline-wrapper .facture-number > div p {
-    font-size: 34px;
+    font-size: 32px;
     line-height: 34px;
-    font-weight: 500;
+    font-weight: 500; 
+      
     color: var(--secondary-text-color, #000);
   }
-
+ 
   .sub-headline-wrapper .facture-number .date {
     font-size: 20px;
     border-color: var(--secondary-text-color, #000);
     color: var(--secondary-text-color, #000);
+  }
+  .sub-headline-wrapper .facture-number .facture-count {
+    font-size: 33px;
+   
   }
 
   .tabs {
@@ -404,13 +415,13 @@
 
   .tabs-header {
     border: none;
-    color: var(--secondary-color, #69C6DE);
+    color: var(--primary-text-color, #69C6DE);
     background: var(--primary-color, #000);
   }
 
   .tabs-header .description {
     background: var(--primary-color, #000);
-    color: var(--secondary-color, #69C6DE);
+    color: var(--primary-text-color, #69C6DE);
   }
 
   .left, .right {
@@ -420,6 +431,9 @@
   .right .total-amount {
     color: var(--secondary-color, #69C6DE);
     background: linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#000) 100%, transparent) 51%,color-mix(in srgb, var(--secondary-color,#69C6DE) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--secondary-color,#69C6DE) 100%, transparent)) !important;;
+  }
+  .right .total-amount .amount-left {
+    color: var(--primary-text-color, #69C6DE);
   }
 
   .right .total-amount span:last-child {
@@ -433,6 +447,18 @@
   .sign > div, .sign > div > p {
     border: none;
   }
+  .logo   {
+    max-width: 350px !important;
+  }
+  .heading-info {
+    max-width: 350px !important;
+  }
+  .left{
+    max-width: 400px !important;
+    min-width: 400px !important;
+  }
+
+  
   /* custom end styling */
 </style>
 
@@ -449,7 +475,7 @@
             <%- include('../subtemplates2b/header/header2') %>
             
             <!-- Subheadline -->
-            <%- include('../subtemplates2b/headline/subheadline1') %>
+            <%- include('../subtemplates2b/headline/subheadline1b') %>
             
             <!-- table -->
             <%- include('../subtemplates2b/tabs/tab1') %>

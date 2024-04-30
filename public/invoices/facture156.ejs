@@ -34,7 +34,7 @@
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -98,7 +98,7 @@
   .facture-content .headline-wrapper .facture-number {
     display: none;
   }
-    .sub-headline-wrapper {
+  .sub-headline-wrapper {
     width: auto;
     margin: 0 55px;
   }
@@ -123,7 +123,7 @@
   }
 
   .sub-headline p {
-    max-width: 150px;
+    max-width: 250px;
   }
   .facture-content .sub-headline-wrapper .facture-number {
     display: none;
@@ -229,8 +229,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -315,6 +314,9 @@
   .sub-headline-wrapper .facture-number {
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
+    min-width: 240px; 
+    
   }
     .header .heading-info {
     padding: 0;
@@ -373,7 +375,8 @@
   }
 
   .logo img {
-    object-position: right;
+    object-position: left;
+    padding-left: 40px;
   }
   
   .header .heading-info {
@@ -393,10 +396,13 @@
     flex-direction: column;
     justify-content: flex-end;
     padding-left: 78px;
-    padding-bottom: 14px;
+    padding-bottom: 0px !important;
     color: var(--secondary-color, #E94E1B);
     border-left: 1px solid #4D4B4C;
+    align-items: flex-end !important; 
   }
+
+  
 
   .sub-headline-wrapper .facture-number > div p:first-child  {
     display: none;
@@ -410,7 +416,7 @@
   .sub-headline-wrapper .facture-number .date {
     text-align: center;
     font-size: 18px;
-    border-color: var(--secondary-color, #E94E1B);
+    border-color: black;
   }
 
   .tabs-header {
@@ -454,12 +460,18 @@
   .right .total-amount {
     color: var(--primary-text-color, white);
     background: var(--primary-color, #F39200) !important;
-    justify-content: flex-start;
+    
     border-radius: 50px;
     margin-top: 8px;
     padding-left: 56px;
     padding-right: 56px;
     position: relative;
+  }
+
+
+  .right .total-amount .amount-right {
+    color: var(--secondary-text-color, white);
+     
   }
 
   .empty-total-amount {
@@ -474,6 +486,16 @@
 
   .sign {
     padding-top: 12px;
+  }
+
+  .facture-text{
+    font-size: 22px !important;
+    margin-bottom: 5px !important;
+  }
+  .headline-object p:nth-child(2) {
+ 
+min-width: 100%;
+max-width: 100%;
   }
 
   /* custom end styling */
@@ -499,7 +521,73 @@
             <%- include('../subtemplates2b/header/header2') %>
 
             <!-- Subheadline -->
-            <%- include('../subtemplates2b/headline/subheadline1') %>
+             
+            <div class="flex justify-between my-6 sub-headline-wrapper">
+              <div class="flex sub-headline row">
+                <div class="flex flex-1">
+                  <div class="headline-object   w-[400px] inter leading-5 font-light text-[15.4px]">
+                    <p>Objet:</p>
+                    <p class="w-full"><%= project.name %></p>
+                  </div>
+                  <div class="headline-client inter leading-5 font-light text-[15.4px]">
+                    <p>Client:</p>
+                    <p><%=  customer.name %></p>
+                  </div>
+                  <div class="headline-address inter leading-5 font-light text-[15.4px]">
+                    <p>Adresse:</p>
+                    <p><%=  customer.address %></p>
+                  </div>
+                </div>
+                
+
+                <div class="flex   w-[470px]">
+                  
+                  <div class=" flex flex-col  w-auto  leading-5 font-light text-[15.4px]">
+                    <p>Client:</p>
+                    <p class=""><%=  customer.name %></p>
+                  </div>
+                  <div class="     w-full   leading-5 font-light text-[15.4px]">
+                    <p>Adresse:</p>
+                    <p class=""><%=  customer.address %> </p>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="facture-number font-light text-[23px]   ">
+                
+                <div class="leading-[24px]">
+                  <p></p>
+                  <% if(invoiceType == 0) { %>
+                    <p class="facture-text" >PROFORMA</p>
+                  <% } %>
+                  <% if(invoiceType == 1) { %>
+                    <p class="facture-text" >FACTURE</p>
+                    <% } %>
+                    <% if(invoiceType == 2) { %>
+                    <p  class="facture-text" >BORDEREAU</p>
+                  <% } %> 
+
+                  
+                  
+                  <p>N°: <span><%=project.invoiceNumber.toString().padStart(5, '0')%></span> </p>
+                </div>
+            
+                <div class="hidden hidden-date-border"></div>
+                      
+                <% if(invoiceType == 0) { %>
+                  <p class="date font-light text-[17px]">Date: <%=date%></p>
+                <% } %> 
+                <% if(invoiceType == 1) { %>
+                  <p class="date font-light text-[14px]">Date: <%=date%></p>
+                <% } %> 
+                <% if(invoiceType == 2) { %>
+                  <p class="date font-light text-[19px]">Date: <%=date%></p>
+                <% } %>
+            
+              </div>
+            </div>
+                        
+                        
             <div class="headline-separator w-auto mx-[56px]">
               <svg width="721" height="8" viewBox="0 0 721 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.18408 3.85156H717.362" stroke="var(--primary-color, #F39200)" stroke-width="6.95471" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>

@@ -29,12 +29,13 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    height: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -144,6 +145,10 @@
   
   .facture-content .tabs-header .description {
     padding-left: 10px;
+  }
+
+  .tabs-header .description {
+   color: var(--secondary-text-color, white);
   }
 
   .tabs-item {
@@ -260,6 +265,10 @@
   .tabs-item:nth-child(even) p {
     background: transparent;
   }
+  .tabs-item p {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
       .sign {
     margin-top: 8px;
     padding-top: 40px;
@@ -328,7 +337,7 @@
   }
 
   .total .total-amount {
-    color: var(--primary-text-color, white);
+    
     background: linear-gradient(90deg, color-mix(in srgb, var(--secondary-color,#98D1CD) 100%, transparent) 51%,color-mix(in srgb, var(--primary-color,#66C3CF) 100%, transparent) 51.1% ,  color-mix(in srgb, var(--primary-color,#66C3CF) 100%, transparent)) !important;
   }
 
@@ -362,11 +371,11 @@
   }
 
   .page-footer {
-    height: 60px;
+    
     bottom: 0px;
     left: 0;
     right: 0;
-    padding: 0 64px;
+    padding: 0px;
     border-top: 1px solid #4D4B4C;
     width: auto;
     text-align: center;
@@ -375,6 +384,31 @@
     align-items: center;
   }
 
+
+.left{
+  min-width: 400px;
+}
+
+.gridView{
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.gridView div:first-child {
+  grid-column: span 2; 
+  padding-right: 0px !important; 
+}
+
+.headline-object p {
+  min-width: 100%; 
+}
+
+.total .total-amount .amount-left {
+  color: var(--secondary-text-color, white);
+ }
+.total .total-amount .amount-right {
+  color: var(--primary-text-color, white);
+ }
   /* custom end styling */
 </style>
 
@@ -391,7 +425,7 @@
             <!-- Header + Facture -->
             <%- include('../subtemplates2b/header/header1') %>
             
-<%- include('../subtemplates2b/headline/headline1') %>
+            <%- include('../subtemplates2b/headline/subheadline1') %>
             
             <!-- table -->
 <%- include('../subtemplates2b/tabs/tab1') %>

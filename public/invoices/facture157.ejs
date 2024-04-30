@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 40px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
     
     width: 100%;
     /* for demo */
@@ -296,13 +296,13 @@
     position: relative;
   }
   .tabs .tab-dummy:first-child {
-    height: 40px;
+    height: 50px;
     width: 100%;
     /* background: rgb(80, 194, 209); */
-    background: linear-gradient(90deg, 
-    #1f5a4a 51%, #0d0a7f 51.1% ,  color-mix(in srgb, var(--primary-color,#0d0a7f) 100%, transparent));
+    background:var(--primary-color,#222428) ;
     z-index: -2;
     top: 0;
+   
   }
     .tabs-item p {
     border-bottom: 1px solid #A6A5A3 /*rgba(29, 29, 29, 0.2)*/;
@@ -329,12 +329,18 @@
     padding-top: 30px;
     padding-right: 0;
     padding-left: 0;
+    max-width: 340px !important;
     flex: 1;
     color: var(--primary-text-color, white);
   }
 
+  .header .logo  {
+    max-width: 350px;
+   
+  }
   .header .logo img {
     object-position: right;
+   
   }
 
   .headline-wrapper {
@@ -350,10 +356,11 @@
   .tabs-header {
     color: var(--primary-text-color, white);
     font-weight: 600;
+    margin-bottom: 20px !important;
   }
 
   .total {
-    margin-top: 70px;
+    margin-top: 50px;
     padding-bottom: 35px;
   }
 
@@ -374,14 +381,21 @@
 
   .empty-bg {
     background: color-mix(in srgb, var(--primary-color, #222428) 100%, transparent);
-    position: absolute;
+    
     top: 0;
     left: 0;
-    right: 0;
-    height: 370px;
+    right: 0; 
     z-index: -1;
   }
 
+
+  .left {
+    max-width: 400px !important;
+  }
+  .headline {
+    max-width: 400px !important;
+  }
+ 
   /* custom end styling */
 </style>
 
@@ -394,12 +408,14 @@
       <tr>
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
-            <div class="empty-bg"></div>
+            <div class="empty-bg">
             <!-- Header + Facture -->
             <%- include('../subtemplates2b/header/header2') %>
+        
+            <%- include('../subtemplates2b/headline/headline1') %>
+          </div>
             
             <!-- Headline -->
-            <%- include('../subtemplates2b/headline/headline1') %>
             
             <!-- table -->
             <%- include('../subtemplates2b/tabs/tab1') %>
