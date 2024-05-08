@@ -27,8 +27,10 @@ import {
 import { fetchUser } from "../queries-actions/user.action";
  
 import { countryFr } from "@/utils/countryFr";
+import { useRouter } from "next/navigation";
 
 function ModalUserDetailView({ name, value }: { name: string; value: string }) {
+  const router = useRouter()
   const [dataUser, setDataUser] = useState<any>([]);
   const [dataPayment, setDataPayment] = useState<any>([]);
 
@@ -199,19 +201,17 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
           </Dialog>
         </p>
 
-        {/*  <form
-            action={async () => {
-              "use server";
-
-              revalidatePath("/admin");
-            }}
+       <form
+            
 
             className="absolute right-0 z-50"
           >
-            <button className='z-50'>
+            <button onClick={()=>{
+              router.refresh()
+            }} className='z-50'>
               <RefreshCwIcon className="cursor-pointer" />
             </button>
-          </form>  */}
+          </form>   
       </div>
     </div>
   );
