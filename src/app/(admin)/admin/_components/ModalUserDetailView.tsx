@@ -117,7 +117,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                       </div>
                     </div>
                   </form>
-                  <div className="w-full h-auto overflow-scroll ">
+                  <div className="w-full h-full overflow-scroll ">
                     <div className="flex items-center gap-10 px-6">
                       <p>Résultat trouvé : {dataUser != null ? dataUser?.length ?? 0 : dataPayment?.length ?? 0} </p>
 
