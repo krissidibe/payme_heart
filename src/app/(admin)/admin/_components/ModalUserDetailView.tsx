@@ -64,8 +64,8 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
             <DialogTrigger asChild>
               <div className="cursor-pointer">{value}</div>
             </DialogTrigger>
-            <DialogContent className=" h-[calc(100%-100px)] min-w-[calc(90%)]">
-              <div className="  h-[calc(100%-30px)] flex flex-col       transition-all duration-200 ease-in-out  min-w-[calc(60%)]">
+            <DialogContent className=" h-[calc(100%-100px)] min-w-[calc(90%)] overflow-hidden">
+              <div className="  h-[calc(100%-30px)] flex flex-col       transition-all duration-200 ease-in-out  min-w-[calc(60%)] overflow-scroll">
                 <div className="flex flex-col items-center justify-center w-full h-full overflow-scroll">
                   <div className="w-full p-2 text-center border-b border-white/10">
                     <p>{name}</p>
@@ -117,7 +117,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                       </div>
                     </div>
                   </form>
-                  <div className="w-full h-full overflow-scroll">
+                  <div className="w-full h-auto overflow-scroll ">
                     <div className="flex items-center gap-10 px-6">
                       <p>Résultat trouvé : {dataUser != null ? dataUser?.length ?? 0 : dataPayment?.length ?? 0} </p>
 
