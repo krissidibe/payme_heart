@@ -66,7 +66,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
             </DialogTrigger>
             <DialogContent className=" h-[calc(100%-100px)] min-w-[calc(90%)]">
               <div className="  h-[calc(100%-30px)] flex flex-col       transition-all duration-200 ease-in-out  min-w-[calc(60%)]">
-                <div className="flex flex-col items-center justify-center w-full h-full ">
+                <div className="flex flex-col items-center justify-center w-full h-full overflow-scroll">
                   <div className="w-full p-2 text-center border-b border-white/10">
                     <p>{name}</p>
                   </div>
