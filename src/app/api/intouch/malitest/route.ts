@@ -915,7 +915,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       callback: callback,
       recipientNumber: dataPayment.number,
       serviceCode: "TG_PAIEMENTMARCHAND_TMONEY",
-    };
+    }; 
 
 /*     let body = {};
     switch (dataPayment.operateur) {
@@ -941,7 +941,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      } 
     );
 
     const result = await dataRequest.json();
