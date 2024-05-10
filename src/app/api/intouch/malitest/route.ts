@@ -90,9 +90,9 @@ const monthValue = parseInt(dataPayment.month.toString()!)
   const bodyMaliMoov = {
     idFromClient: reference,
     additionnalInfos: {
-      recipientEmail: "tapha.seck@hubsocial.org",
-      recipientFirstName: "Moustapha",
-      recipientLastName: "SECK",
+      recipientEmail: "assowlove@gmail.com",
+      recipientFirstName: "Aboubacar",
+      recipientLastName: "Sidibé",
       destinataire: dataPayment.number,
     },
     amount: amount,
@@ -179,8 +179,8 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "JUNIOR@hubsocial.org",
-        recipientFirstName: "Moustapha",
-        recipientLastName: "SECK",
+        recipientFirstName: "Aboubacar",
+        recipientLastName: "Sidibé",
         destinataire: dataPayment.number,
         otp: dataPayment.otp,
       },
@@ -194,8 +194,8 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "JUNIOR@hubsocial.org",
-        recipientFirstName: "Moustapha",
-        recipientLastName: "SECK",
+        recipientFirstName: "Aboubacar",
+        recipientLastName: "Sidibé",
         destinataire: dataPayment.number,
       },
       amount: amount,
@@ -208,8 +208,8 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "JUNIOR@hubsocial.org",
-        recipientFirstName: "Moustapha",
-        recipientLastName: "SECK",
+        recipientFirstName: "Aboubacar",
+        recipientLastName: "Sidibé",
         destinataire: dataPayment.number,
       },
       amount: amount,
@@ -312,8 +312,8 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "JUNIOR@hubsocial.org",
-        recipientFirstName: "Moustapha",
-        recipientLastName: "SECK",
+        recipientFirstName: "Aboubacar",
+        recipientLastName: "Sidibé",
         destinataire: dataPayment.number,
         otp: dataPayment.otp,
       },
@@ -327,8 +327,8 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "JUNIOR@hubsocial.org",
-        recipientFirstName: "Moustapha",
-        recipientLastName: "SECK",
+        recipientFirstName: "Aboubacar",
+        recipientLastName: "Sidibé",
         destinataire: dataPayment.number,
       },
       amount:  (parseInt(amount.toString()) * 14).toString(),
@@ -416,8 +416,8 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "assowlove@gmail.com",
-        recipientFirstName: "Moustapha",
-        recipientLastName: "SECK",
+        recipientFirstName: "Aboubacar",
+        recipientLastName: "Sidibé",
         destinataire: dataPayment.number,
         otp: dataPayment.otp,
       },
@@ -447,8 +447,8 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       idFromClient: reference,
       additionnalInfos: {
         recipientEmail: "assowlove@gmail.com",
-        recipientFirstName: "Moustapha",
-        recipientLastName: "SECK",
+        recipientFirstName: "Aboubacar",
+        recipientLastName: "Sidibé",
         destinataire: dataPayment.number,
       },
       amount: amount,
@@ -530,7 +530,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       additionnalInfos: {
         recipientEmail: "issa.ndiaye@hubsocial.org",
         recipientFirstName: "Junior",
-        recipientLastName: "seck",
+        recipientLastName: "Sidibé",
         currency: "952",
         trxcode: "47428580",
         otp:dataPayment.otp
@@ -546,7 +546,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       additionnalInfos: {
         recipientEmail: "issa.ndiaye@hubsocial.org",
         recipientFirstName: "Junior",
-        recipientLastName: "seck",
+        recipientLastName: "Sidibé",
         currency: "952",
         trxcode: "47428580",
       },
@@ -801,9 +801,9 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyMoov = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "tapha.seck@hubsocial.org",
-        recipientFirstName: "Moustapha",
-        recipientLastName: "SECK",
+        recipientEmail: "assowlove@gmail.com",
+        recipientFirstName: "Aboubacar",
+        recipientLastName: "Sidibé",
         destinataire: dataPayment.number,
       },
       amount: amount,
@@ -815,9 +815,9 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyMtn = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "tapha.seck@hubsocial.org",
-        recipientFirstName: "Moustapha",
-        recipientLastName: "SECK",
+        recipientEmail: "assowlove@gmail.com",
+        recipientFirstName: "Aboubacar",
+        recipientLastName: "Sidibé",
         destinataire: dataPayment.number,
       },
       amount: amount,
@@ -843,10 +843,95 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       "2f0fb2d4dc45d29ad51741dbeef2b4904af006fb7ab4b03fc0d7db1084b2cc4"
     );
     const dataRequest = await client.fetch(
-      "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEBN0031/transaction?loginAgent=72451915&passwordAgent=rQPasGHHJu",
+      "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEEBN0031/transaction?loginAgent=72451915&passwordAgent=pZZtUkF9sj",
       {
         method: "PUT",
         body: JSON.stringify(body),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const result = await dataRequest.json();
+
+    if (dataRequest.status != 200) {
+      return new Response(
+        JSON.stringify({
+          status: dataRequest.status,
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
+          body:body
+        }),
+        {
+          status: 200,
+        }
+      );
+    }
+
+    if (dataRequest.status == 200) {
+      return new Response(
+        JSON.stringify({
+          status: dataRequest.status,
+          message: result,
+          paymentUrl: result?.payment_url ?? "",
+        }),
+        {
+          status: 200,
+        }
+      );
+    }
+
+    return new Response(
+      JSON.stringify({
+        status: 401,
+        message: `Error`,
+      }),
+      {
+        status: 401,
+      }
+    );
+  }
+
+
+  if (dataPayment.country == "Togo") {
+ 
+    const bodyTMoney = {
+      idFromClient: reference,
+      additionnalInfos: {
+        recipientEmail: "assowlove@gmail.com",
+        recipientFirstName: "Aboubacar",
+        recipientLastName: "Sidibé",
+        destinataire: dataPayment.number,
+      },
+      amount: 100,
+      callback: callback,
+      recipientNumber: dataPayment.number,
+      serviceCode: "TG_PAIEMENTMARCHAND_TMONEY",
+    };
+
+  
+    let body = {};
+    switch (dataPayment.operateur) {
+      case "TMobile":
+       
+        
+        body = bodyTMoney;
+        break;
+     
+    }
+
+    
+
+    const client = new DigestClient(
+      "0fa913d7501130ed66ae0685559b705ecac0fa1517c98860f6907170109d9725",
+      "2f0fb2d4dc45d29ad51741dbeef2b4904af006fb7ab4b03fc0d7db1084b2cc4"
+    );
+    const dataRequest = await client.fetch(
+      "https://apidist.gutouch.net/apidist/sec/touchpayapi/MEETG0010/transaction?loginAgent=72451917&passwordAgent=rQPasGHHJu",
+      {
+        method: "PUT",
+        body: JSON.stringify(bodyTMoney),
         headers: {
           "Content-Type": "application/json",
         },
