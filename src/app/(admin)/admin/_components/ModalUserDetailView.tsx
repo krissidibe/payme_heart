@@ -1,7 +1,7 @@
 "use client";
 import { EyeIcon, RefreshCwIcon } from "lucide-react";
 import dayjs from "dayjs";
-
+import { mkConfig, generateCsv, download } from "export-to-csv";
 import React, { useState } from "react";
 import {
   Dialog,
@@ -55,7 +55,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
     return total;
   }
   
-
+  const csvConfig = mkConfig({ useKeysAsHeaders: true });
   return (
     <div className="flex flex-col w-full gap-4 p-10 mt-10 bg-zinc-900/80 rounded-2xl">
       <div className="relative flex flex-col items-start justify-between w-full text-2xl le">
@@ -132,12 +132,75 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                         <Input className=" w-[150px]"  type="date" name="endAt" />
                        <div className="hidden gap-4 md:flex">
                        <Button variant={"secondary"}>Appliquer</Button>
-                        <Button onClick={()=>{}} variant={"default"}>Exporter</Button>
+                      {(dataUser != null  && dataUser?.length != 0) &&  <div className="items-center cursor-pointer justify-center bg-white text-black text-sm font-semibold flex rounded-md w-[100px]" onClick={()=>{
+                         
+                        const arrayCsv = dataUser.map((user:any) => {
+                          return {
+                            "Nom et prénom": user.name + " - " +  dayjs(`${user.createdAt}`).format("DD/MM/YYYYTHH:mm").replace("T"," "),
+                            "Pays": getCurrency(user.enterprise.currency),
+                            "Structure": user.enterprise.name,
+                            "Secteur": user.enterprise.activity,
+                            "Adresse e-mail": user.email,
+                            "Contact": `${
+                              JSON.parse(user.enterprise?.numbers)[0].indicatif
+                            } ${
+                              JSON.parse(user.enterprise?.numbers)[0].number
+                            } ${
+                              JSON.parse(user.enterprise?.numbers)[1]?.indicatif
+                                .length > 0
+                                ? `/ + ${
+                                    JSON.parse(user.enterprise?.numbers)[1]
+                                      ?.indicatif
+                                  } ${
+                                    JSON.parse(user.enterprise?.numbers)[1]
+                                      ?.number
+                                  }`
+                                : ""
+                            }`,
+                          };
+                        });
+                    
+                        const csv = generateCsv(csvConfig)(arrayCsv);
+                        download(csvConfig)(csv)
+                        }} >Exporter</div>}
                        </div>
                       </div>
                       <div className="flex gap-4 md:hidden">
                        <Button  className="flex-1" variant={"secondary"}>Appliquer</Button>
-                        <Button className="flex-1"  variant={"default"}>Exporter</Button>
+                      
+
+
+{(dataUser != null  && dataUser?.length != 0) &&  <div className="items-center justify-center cursor-pointer bg-white text-black text-sm font-semibold flex flex-1 rounded-md w-[100px]" onClick={()=>{
+                         
+                         const arrayCsv = dataUser.map((user:any) => {
+                           return {
+                             "Nom et prénom": user.name + " - " +  dayjs(`${user.createdAt}`).format("DD/MM/YYYYTHH:mm").replace("T"," "),
+                             "Pays": getCurrency(user.enterprise.currency),
+                             "Structure": user.enterprise.name,
+                             "Secteur": user.enterprise.activity,
+                             "Adresse e-mail": user.email,
+                             "Contact": `${
+                               JSON.parse(user.enterprise?.numbers)[0].indicatif
+                             } ${
+                               JSON.parse(user.enterprise?.numbers)[0].number
+                             } ${
+                               JSON.parse(user.enterprise?.numbers)[1]?.indicatif
+                                 .length > 0
+                                 ? `/ + ${
+                                     JSON.parse(user.enterprise?.numbers)[1]
+                                       ?.indicatif
+                                   } ${
+                                     JSON.parse(user.enterprise?.numbers)[1]
+                                       ?.number
+                                   }`
+                                 : ""
+                             }`,
+                           };
+                         });
+                     
+                         const csv = generateCsv(csvConfig)(arrayCsv);
+                         download(csvConfig)(csv)
+                         }} >Exporter</div>}
                        </div>
                     </div>
                   </form>
