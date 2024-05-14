@@ -3,7 +3,7 @@
 import { prisma } from "@/utils/prisma";
 export const fetchUser = async (form: FormData) => {
   if (form.get("type") == "user") {
-    if (form.get("currency") == "") {
+    if (form.get("currency")?.toString().trim() == "") {
       const datas = await prisma.user.findMany({
         where: {
           createdAt: {
@@ -23,7 +23,7 @@ export const fetchUser = async (form: FormData) => {
       return datas;
     }
 
-    if (form.get("currency") != "") {
+    if (form.get("currency")?.toString().trim() != "") {
       const datas = await prisma.user.findMany({
         where: {
           createdAt: {
@@ -38,7 +38,7 @@ export const fetchUser = async (form: FormData) => {
           },
           AND: {
             enterprise: {
-              currency: form.get("currency") as string,
+              currency: form.get("currency")?.toString().trim() as string,
             },
           },
         },
@@ -49,7 +49,7 @@ export const fetchUser = async (form: FormData) => {
     }
   }
   if (form.get("type") == "subscribe") {
-    if (form.get("currency") == "") {
+    if (form.get("currency")?.toString().trim() == "") {
       const datas = await prisma.payment.findMany({
         where: {
           createdAt: {
@@ -85,7 +85,7 @@ export const fetchUser = async (form: FormData) => {
       return dataNew;
     }
 
-    if (form.get("currency") != "") {
+    if (form.get("currency")?.toString().trim() != "") {
   
 
 
@@ -106,7 +106,7 @@ export const fetchUser = async (form: FormData) => {
           AND: {
             user:{
                 enterprise: {
-                    currency: form.get("currency") as string,
+                    currency: form.get("currency")?.toString().trim() as string,
                   },
             },
             NOT: {

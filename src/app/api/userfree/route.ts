@@ -67,14 +67,17 @@ export async function POST(req:NextRequest,res:NextResponse) {
             countryPhoneCode: userData.countryPhoneCode ,
             lockCode : false ,
             code : userData.code ,
-            number : userData.number ,
+            number : userData?.number ?? "" ,
             password : passwordCryp ,
-            normalSignUp:userData.normalSignUp.toString()  == "true" ? true : false,
-            emailVerified: userData.emailVerified.toString()  == "true" ? true : false,
+            normalSignUp:userData.normalSignUp?.toString()  == "true" ? true : false,
+            emailVerified: userData.emailVerified?.toString()  == "true" ? true : false,
             createdAt: new Date(Date.now())
           },
      })
     
+
+     console.log(user);
+     
 
 
 
@@ -127,7 +130,8 @@ if(!userIdeleted){
        },
   })
 
-
+  console.log(userUpdate);
+     
 
 
 

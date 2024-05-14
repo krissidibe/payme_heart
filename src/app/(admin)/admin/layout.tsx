@@ -20,7 +20,7 @@ export default async function RootLayout({
 
    
 <div  className="w-screen min-w-full  h-screen flex min-h-screen bg-[#060606] text-white">
-     <Sidebar/> 
+    {/*  <Sidebar/>  */}
         <main className='w-full p-10 '>
 
         {children}

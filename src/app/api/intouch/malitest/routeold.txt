@@ -77,7 +77,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
   const bodyMaliOR = {
     idFromClient: reference,
     additionnalInfos: {
-      recipientEmail: "assowlove@gmail.com",
+      recipientEmail: "assowlovesss@gmail.com",
       recipientFirstName: "Aboubacar Sidikiss",
       recipientLastName: "Sidibess",
       destinataire: dataPayment.number,
@@ -178,7 +178,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyCiOR = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "assowlove@gmail.com",
+        recipientEmail: "JUNIOR@hubsocial.org",
         recipientFirstName: "Aboubacar",
         recipientLastName: "Sidibe",
         destinataire: dataPayment.number,
@@ -193,7 +193,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyCiMoov = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "assowlove@gmail.com",
+        recipientEmail: "JUNIOR@hubsocial.org",
         recipientFirstName: "Aboubacar",
         recipientLastName: "Sidibe",
         destinataire: dataPayment.number,
@@ -207,7 +207,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyCiMTN = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "assowlove@gmail.com",
+        recipientEmail: "JUNIOR@hubsocial.org",
         recipientFirstName: "Aboubacar",
         recipientLastName: "Sidibe",
         destinataire: dataPayment.number,
@@ -221,7 +221,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyCiWave = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "assowlove@gmail.com",
+        recipientEmail: "tester@gmail.com",
         recipientFirstName: "Testeur",
         recipientLastName: "lastname",
         destinataire: dataPayment.number,
@@ -311,7 +311,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyGNOR = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "assowlove@gmail.com",
+        recipientEmail: "JUNIOR@hubsocial.org",
         recipientFirstName: "Aboubacar",
         recipientLastName: "Sidibe",
         destinataire: dataPayment.number,
@@ -326,7 +326,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyGNMTN = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "assowlove@gmail.com",
+        recipientEmail: "JUNIOR@hubsocial.org",
         recipientFirstName: "Aboubacar",
         recipientLastName: "Sidibe",
         destinataire: dataPayment.number,
@@ -528,7 +528,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyOrange = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "assowlove@gmail.com",
+        recipientEmail: "issa.ndiaye@hubsocial.org",
         recipientFirstName: "Junior",
         recipientLastName: "sidibe",
         currency: "952",
@@ -544,7 +544,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyMoov = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "assowlove@gmail.com",
+        recipientEmail: "issa.ndiaye@hubsocial.org",
         recipientFirstName: "Junior",
         recipientLastName: "sidibe",
         currency: "952",
@@ -626,7 +626,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyOrange = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "assowlove@gmail.com",
+        recipientEmail: "karl.ngassa@intouchgroup.net",
         recipientFirstName: "Karl",
         recipientLastName: "NGASSA",
         destinataire: dataPayment.number,
@@ -640,7 +640,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyMtn = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "assowlove@gmail.com",
+        recipientEmail: "karl.ngassa@intouchgroup.net",
         recipientFirstName: "Karl",
         recipientLastName: "NGASSA",
         destinataire: dataPayment.number,
@@ -721,7 +721,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     const bodyMoov = {
       idFromClient: reference,
       additionnalInfos: {
-        recipientEmail: "assowlove@gmail.com",
+        recipientEmail: "gwenael.nzedesouza@intouchgroup.net",
         recipientFirstName: "Gwenael",
         recipientLastName: "DE SOUZA",
         destinataire:   `241${dataPayment.number}` ,

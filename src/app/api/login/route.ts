@@ -38,6 +38,7 @@ export async function POST(request: Request) {
     body.password,
     user!.password
   );
+  
   console.log(isPasswordValid); 
   
   /* if (user && (await bcrypt.compare(body.password, user.password))) { */

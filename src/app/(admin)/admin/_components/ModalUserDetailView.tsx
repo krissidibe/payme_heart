@@ -28,6 +28,8 @@ import { fetchUser } from "../queries-actions/user.action";
  
 import { countryFr } from "@/utils/countryFr";
 import { useRouter } from "next/navigation";
+import { country } from "@/utils/countrySignIn";
+import clsx from "clsx";
 
 function ModalUserDetailView({ name, value }: { name: string; value: string }) {
   const router = useRouter()
@@ -68,7 +70,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
               <div className="  h-[calc(100%-30px)] flex flex-col       transition-all duration-200 ease-in-out  min-w-[calc(60%)] overflow-scroll">
                 <div className="flex flex-col items-center justify-center w-full h-full overflow-scroll">
                   <div className="w-full p-2 text-center border-b border-white/10">
-                    <p>{name}</p>
+                  <p>Résultat trouvé : {dataUser != null ? dataUser?.length ?? 0 : dataPayment?.length ?? 0} </p>
                   </div>
                   <form
                     onSubmit={async (e) => {
@@ -87,7 +89,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                     }}
                     className="flex flex-col items-center justify-center flex-1 w-full gap-2 "
                   >
-                    <div className="flex self-end w-full gap-4 p-6">
+                    <div className="flex flex-col self-end w-full gap-4 p-6 md:flex-row">
                       <div className="flex gap-4">
                         <Select name="type">
                           <SelectTrigger className="w-[180px]">
@@ -103,29 +105,91 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                             </SelectGroup>
                           </SelectContent>
                         </Select>
-                        <Input
+                        <Select name="currency">
+                          <SelectTrigger className="w-[180px]">
+                            <SelectValue placeholder="Pays" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectGroup>
+                              <SelectLabel>Type</SelectLabel>
+                              <SelectItem value={" "}>Tous</SelectItem>
+                            {country.map((item) => (
+                                <SelectItem value={item.Phone.toString()}>{item.Name}</SelectItem>
+                            ))}
+                              
+                            </SelectGroup>
+                          </SelectContent>
+                        </Select>
+                        {/* <Input
                           type="text"
                           name="currency"
                           placeholder="indicatif"
-                        />
+                        /> */}
                       </div>
-                      <div className="flex-1"></div>
+                  <div className=" md:flex-1"></div>
                       <div className="flex gap-4">
-                        <Input type="date" name="startAt" />
-                        <Input type="date" name="endAt" />
-                        <Button>Appliquer</Button>
+                        <Input className=" w-[150px]"  type="date" name="startAt" />
+                        <Input className=" w-[150px]"  type="date" name="endAt" />
+                       <div className="hidden gap-4 md:flex">
+                       <Button variant={"secondary"}>Appliquer</Button>
+                        <Button onClick={()=>{}} variant={"default"}>Exporter</Button>
+                       </div>
                       </div>
+                      <div className="flex gap-4 md:hidden">
+                       <Button  className="flex-1" variant={"secondary"}>Appliquer</Button>
+                        <Button className="flex-1"  variant={"default"}>Exporter</Button>
+                       </div>
                     </div>
                   </form>
                   <div className="w-full h-full overflow-scroll ">
-                    <div className="flex items-center gap-10 px-6">
-                      <p>Résultat trouvé : {dataUser != null ? dataUser?.length ?? 0 : dataPayment?.length ?? 0} </p>
+                    <div className="flex flex-col w-full gap-2 px-6 pb-4">
+                    
 
                       { dataPayment != null && <p> Total : {calculeTotal(dataPayment)}</p> }
-                     
+                     {/* ItemRow */}
+
+                     { dataUser != null &&    <div className="justify-between hidden w-full gap-4 mt-5 text-sm md:flex">
+                      <p className="flex-1 min-w-[220px]" >Nom et prénom</p>
+                      <p className="flex-1 min-w-[220px]" >Pays</p>
+                      <p className="flex-1 min-w-[220px]" >Structure</p>
+                      <p className="flex-1 min-w-[220px]" >Secteur</p>
+                      <p className="flex-1 min-w-[220px]" >Adresse e-mail</p>
+                      <p className="flex-1 min-w-[220px]" >Contact</p>
+                     </div> }
+                   
                     </div>
-                    {dataUser?.map((user: any) => (
-                      <div className="flex w-full p-6 border-b shadow-sm">
+               <div className="flex-1 h-full overflow-scroll ">
+               {dataUser?.map((user: any,index:number) => (
+ <div className={clsx("flex flex-col justify-between w-full text-sm gap-4 p-6 border-b shadow-sm md:flex-row",index %2 != 0 ? "bg-[#131313]" : "bg-[#1e1e1ea2]")}>
+ <div className="flex flex-col flex-1 min-w-[220px]">
+                          <p>{user.name}  </p>
+                          
+                          <span className="opacity-50">{ dayjs(`${user.createdAt}`).format("DD/MM/YYYYTHH:mm").replace("T"," ")}</span>
+                          
+                        </div>
+ <p className="flex-1 min-w-[220px]" >{getCurrency(user.enterprise.currency) } </p>
+ <p className="flex-1 min-w-[220px]" >{user.enterprise.name}</p>
+ <p className="flex-1 min-w-[220px]" >{user.enterprise.activity}</p>
+ <p className="flex-1 min-w-[220px]" >{user.email}</p>
+ <p className="flex-1 min-w-[220px]" >{`${
+                            JSON.parse(user.enterprise?.numbers)[0].indicatif
+                          } ${
+                            JSON.parse(user.enterprise?.numbers)[0].number
+                          } ${
+                            JSON.parse(user.enterprise?.numbers)[1]?.indicatif
+                              .length > 0
+                              ? `/ + ${
+                                  JSON.parse(user.enterprise?.numbers)[1]
+                                    ?.indicatif
+                                } ${
+                                  JSON.parse(user.enterprise?.numbers)[1]
+                                    ?.number
+                                }`
+                              : ""
+                          }`}</p>
+</div>
+                
+                     /*  <div className="flex w-full p-6 border-b shadow-sm">
                         <div className="flex flex-col flex-1">
                           <p>{user.name}  </p>
                           <p>{user.email}</p>
@@ -152,7 +216,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                           }`}</p>
                            <p>Secteur : {user.enterprise.activity}</p>
                         </div>
-                      </div>
+                      </div> */
                     ))}
                    
                   {dataPayment?.map((payment: any) => (
@@ -194,6 +258,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                       
                       </div>
                     ))} 
+               </div>
                   </div>
                 </div>
               </div>
