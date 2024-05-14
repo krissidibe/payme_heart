@@ -67,8 +67,8 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
               <div className="cursor-pointer">{value}</div>
             </DialogTrigger>
             <DialogContent className=" h-[calc(100%-100px)] min-w-[calc(90%)] overflow-hidden">
-              <div className="  h-[calc(100%-30px)] flex flex-col       transition-all duration-200 ease-in-out  min-w-[calc(60%)] overflow-scroll">
-                <div className="flex flex-col items-center justify-center w-full h-full overflow-scroll">
+              <div className="  h-[calc(100%-30px)] flex flex-col       transition-all duration-200 ease-in-out  min-w-[calc(60%)] overflow-scroll no-scrollbar">
+                <div className="flex flex-col items-center justify-center w-full h-full overflow-scroll no-scrollbar">
                   <div className="w-full p-2 text-center border-b border-white/10">
                   <p>Résultat trouvé : {dataUser != null ? dataUser?.length ?? 0 : dataPayment?.length ?? 0} </p>
                   </div>
@@ -204,7 +204,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                        </div>
                     </div>
                   </form>
-                  <div className="w-full h-full overflow-scroll ">
+                  <div className="w-full h-full overflow-scroll no-scrollbar ">
                     <div className="flex flex-col w-full gap-2 px-6 pb-4">
                     
 
@@ -221,9 +221,9 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                      </div> }
                    
                     </div>
-               <div className="flex-1 h-full overflow-scroll ">
+               <div className="flex-1 h-full overflow-scroll no-scrollbar ">
                {dataUser?.map((user: any,index:number) => (
- <div className={clsx("flex flex-col justify-between w-full text-sm gap-4 p-6 border-b shadow-sm md:flex-row",index %2 != 0 ? "bg-[#131313]" : "bg-[#1e1e1ea2]")}>
+ <div className={clsx("flex flex-col justify-between w-full text-sm gap-1 md:gap-4 p-6 py-4 border-b shadow-sm md:flex-row",index %2 != 0 ? "bg-[#131313]" : "bg-[#1e1e1ea2]")}>
  <div className="flex flex-col flex-1 min-w-[220px]">
                           <p>{user.name}  </p>
                           
@@ -232,9 +232,9 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                         </div>
  <p className="flex-1 min-w-[220px]" >{getCurrency(user.enterprise.currency) } </p>
  <p className="flex-1 min-w-[220px]" >{user.enterprise.name}</p>
- <p className="flex-1 min-w-[220px]" >{user.enterprise.activity}</p>
- <p className="flex-1 min-w-[220px]" >{user.email}</p>
- <p className="flex-1 min-w-[220px]" >{`${
+ <p className="flex-1 md:flex hidden min-w-[220px]" >{user.enterprise.activity}</p>
+ <p className="flex-1 md:flex   min-w-[220px]" >{user.email}</p>
+ <p className="flex-1 md:flex hidden min-w-[220px]" >{`${
                             JSON.parse(user.enterprise?.numbers)[0].indicatif
                           } ${
                             JSON.parse(user.enterprise?.numbers)[0].number
