@@ -1,12 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
 import { FolderType, PlanningItem } from "@prisma/client";
+import { checkPayment } from "@/lib/queries/paymentCheck";
 
 export async function GET(req: NextRequest, res: NextResponse) {
  
   const { searchParams } = new URL(req.url);
 
-
+  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+  if(!checkPaymentValue){
+     return new Response(JSON.stringify([]));
+    }
+  
   if (searchParams.get("userId") != null && searchParams.get("startAt") != null && searchParams.get("endAt") &&  searchParams.get("dashboard") != null) {
 
 
