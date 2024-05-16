@@ -8,7 +8,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
   const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
  
   if(!checkPaymentValue){
-     return null;
+    return new Response(JSON.stringify("Payment is not valid"));
     }
   
   if (searchParams.get("userId") != null && searchParams.get("startAt") && searchParams.get("endAt")  ) {
