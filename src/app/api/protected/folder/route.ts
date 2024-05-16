@@ -37,6 +37,12 @@ export async function GET(req: NextRequest, res: NextResponse) {
 export async function POST(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
 
+  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+  if(!checkPaymentValue){
+     return new Response(JSON.stringify([]));
+    }
+  
   const dataNew: Folder = await req.json();
 
   const enterprise = await prisma.folder.create({
@@ -56,7 +62,12 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
 export async function PATCH(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
-
+  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+  if(!checkPaymentValue){
+     return new Response(JSON.stringify([]));
+    }
+  
   if (
     searchParams.get("folderId") != null &&
     searchParams.get("name") != null
@@ -76,7 +87,12 @@ export async function PATCH(req: NextRequest, res: NextResponse) {
 
 export async function DELETE(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
-
+  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+  if(!checkPaymentValue){
+     return new Response(JSON.stringify([]));
+    }
+  
   if (searchParams.get("folderId") != null) {
     const project = await prisma.folder.delete({
       where: {

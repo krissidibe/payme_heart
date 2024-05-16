@@ -107,7 +107,12 @@ export async function PATCH(req:NextRequest,res:NextResponse) {
 
    const { searchParams } = new URL(req.url);
  
-
+   const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+   if(!checkPaymentValue){
+      return new Response(JSON.stringify([]));
+     }
+   
 
 
 
@@ -189,9 +194,16 @@ const  customerData:Customer = await req.json();
 
 
 export async function DELETE(req:NextRequest,res:NextResponse) {
+
+   
    
    const { searchParams } = new URL(req.url);
   // const id = searchParams.get("id") 
+  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+ if(!checkPaymentValue){
+    return new Response(JSON.stringify([]));
+   }
  
 
   if (searchParams.get("deleteall") != null) {
