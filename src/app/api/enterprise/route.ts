@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
+import { checkPayment } from "@/lib/queries/paymentCheck";
 
 
 
@@ -36,6 +37,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
    const { searchParams } = new URL(req.url);
    const id = searchParams.get("id") 
    const email = searchParams.get("email") 
+
 
    
    const user = await prisma.user.findFirst({where:{id:id!.toString(), email:email!.toString() }})

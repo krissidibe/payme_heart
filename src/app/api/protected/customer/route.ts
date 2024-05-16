@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
 import { CustomerType } from "@prisma/client";
+import { checkPayment } from "@/lib/queries/paymentCheck";
  
  
 
@@ -9,6 +10,13 @@ export async function GET(req:NextRequest,res:NextResponse) {
    const { searchParams } = new URL(req.url);
 
 
+   
+ const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+ if(!checkPaymentValue){
+    return null;
+   }
+ 
    if(searchParams.get("trash") !=null){
       const customer = await prisma.customers.findMany({
          where:{
@@ -62,6 +70,12 @@ export async function POST(req:NextRequest,res:NextResponse) {
   // const id = searchParams.get("id") 
  
  
+  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+  if(!checkPaymentValue){
+     return null;
+    }
+  
  
   const  customerData:Customer = await req.json();
     
