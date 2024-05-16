@@ -10,13 +10,15 @@ export const checkPayment = async (id: string) => {
     },
   });
 
+  if (data!.subscribe == null || data!.subscribe!.endAt == null) {
+    return false;
+}
+
   const compareDateIsGreat =
-    new Date(data?.subscribe?.endAt ?? "") > new Date(Date.now());
+    new Date(data!.subscribe!.endAt ?? "") > new Date(Date.now());
 
 
-    if (data?.subscribe?.endAt == null) {
-        return false;
-    }
+  
  
   if (compareDateIsGreat) {
     return true;
