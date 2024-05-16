@@ -1,10 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
 import { CustomerType, ProjectType } from "@prisma/client";
+import { checkPayment } from "@/lib/queries/paymentCheck";
 
 export async function GET(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
-  
+
+
+     
+
 
   if (searchParams.get("trash") != null) {
     const project = await prisma.project.findMany({
@@ -226,6 +230,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
   // const id = searchParams.get("id")
 
+  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+  if(!checkPaymentValue){
+     return new Response(JSON.stringify([]));
+    }
+  
+
   const projectData: Project = await req.json();
 
   const project = await prisma.project.create({
@@ -245,6 +256,13 @@ export async function PATCH(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
   // const id = searchParams.get("id")
 
+
+  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+  if(!checkPaymentValue){
+     return new Response(JSON.stringify([]));
+    }
+  
 
 
   if (searchParams.get("projectId") !=null && searchParams.get("proformaDate") !=null) {
@@ -505,9 +523,17 @@ console.log(projetFind);
 
 export async function DELETE(req:NextRequest,res:NextResponse) {
 
+  
    
   const { searchParams } = new URL(req.url);
  // const id = searchParams.get("id") 
+
+ const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+ if(!checkPaymentValue){
+    return new Response(JSON.stringify([]));
+   }
+ 
 
 
  if (searchParams.get("deleteall") != null) {
