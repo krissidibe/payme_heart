@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    height: 80px;
     
     width: 100%;
   }
@@ -228,8 +228,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -334,7 +333,7 @@
     margin-right: 0;
     padding-right: 56px;
     color: var(--primary-text-color, white);
-    background: linear-gradient(90deg, #E30613, #EE7311) !important;
+    background: linear-gradient(90deg, var(--primary-color,#2B466B), var(--secondary-color,#DF0A14)) !important;
   }
 
   .sign {
@@ -350,8 +349,8 @@
   }
   
   .footer p {
-    padding-left: 112px;
-    padding-right: 112px;
+    padding-left: 56px;
+    padding-right: 56px;
   }
 
   .page-footer > div:last-child {
@@ -369,6 +368,10 @@
 
   .tabs-header {
     margin-bottom: 32px;
+  }
+
+  .left{
+    min-width: 400px;
   }
 
   /* custom end styling */
@@ -390,12 +393,13 @@
             <!-- Header + Facture -->
             <%- include('../subtemplates2b/header/header1') %>
             <div class="absolute top-[0] right-0 overflow-hidden">
-              <svg width="510" height="552" viewBox="0 0 510 552" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="510" height="552" viewBox="0 0 130 552" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10 -129H0V552H10V-129Z" fill="var(--secondary-color, #DF0A14)"/>
                 <path d="M29 -129H19V552H29V-129Z" fill="var(--secondary-color, #DF0A14)"/>
                 <path d="M510 -129H41V552H510V-129Z" fill="var(--secondary-color, #DF0A14)"/>
               </svg>
             </div>
+            
             
             <!-- Headline -->
             <%- include('../subtemplates2b/headline/headline1') %>
@@ -407,6 +411,7 @@
             <%- include('../subtemplates2b/total/total1') %>
 
             <!-- signature -->
+            <div class="h-2"></div>
             <%- include('../subtemplates2b/sign/sign1') %>
 
           </main>

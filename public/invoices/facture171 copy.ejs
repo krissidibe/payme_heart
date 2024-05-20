@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 100px;
+    height: 50px;
   }
   
   .page-footer {
     position: fixed;
-    height: 80px;
+    bottom: 80px;
     
     width: 100%;
   }
@@ -73,7 +73,7 @@
     }
   }
   /* Facture Custom styling */
-  
+
   /* End Facture Custom styling */
 </style>
 
@@ -228,7 +228,8 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px; 
+    padding-bottom: 8px;
+    border-bottom: 1px solid #4E4D4D;
   }
 
   .sign > div:last-child {
@@ -236,51 +237,40 @@
      margin-top: 0;
   }
   /* <!-- addons styling --> */
-      /* Pour ajouter du background au tabs items full-width*/
-  .tabs-item:nth-child(even) {
-    background: transparent;
-  }
-  
-  /* Pour ajouter du background au tabs items not full-widht*/
-  .tabs-item:nth-child(even) p {
-    background: transparent;
+      .tabs-item p {
+    border-bottom: 1px solid #A6A5A3 /*rgba(29, 29, 29, 0.2)*/;
   }
     </style>
 <!-- end addons styling -->
 <style>
   /* custom styling */
+
   .header {
     padding: 22px 56px;
-    background: var(--primary-color, #2B466B);
-  }
-
-  .header + div {
-    height: 165px;
-    z-index: 0;
-  }
-
-  .logo {
-    z-index: 2;
-  }
-
-  .facture-number {
-    z-index: 2;
-
   }
 
   .facture-number p {
     font-weight: 600;
-    border-color: var(--primary-text-color, white);
-    color: var(--primary-text-color, white);
+    border: none;
+    color: #2B466B;
+  }
+
+  .header + div {
+    height: 12px;
+    background: var(--primary-color, #383838);
+  }
+
+  .headline-wrapper {
+    justify-content: center !important;
   }
 
   .headline {
-    padding-top: 26px;
+    padding-top: 36px;
+    text-align: center;
   }
 
   .tabs {
-    padding-top: 26px;
-    margin-bottom: 0;
+    padding-top: 70px;
   }
 
   .tabs-header p {
@@ -289,15 +279,11 @@
   
   .tabs-header .description {
     color: var(--primary-text-color, white);
-    background: var(--primary-color, #2B466B);
+    background: var(--primary-color, #383838);
   }
 
   .tabs-item {
     gap: 5px !important;
-  }
-
-  .tabs-item:nth-child(even) {
-    background: #F5F5F5;
   }
 
   .tabs-item p.amount,
@@ -307,33 +293,14 @@
     padding-left: 0 !important;
   }
 
-  .total {
-    margin-top: 0;
-    padding-top: 31px;
-    padding-bottom: 18px;
-    padding-right: 0;
-    background: #F5F5F5;
-  }
-
   .left p,
   .right p {
     color: #000;
   }
 
-  .right p {
-    width: auto;
-    margin-right: 56px;
-  }
-  
-  .right p.remise {
-    margin-right: 56px !important;
-  }
-
   .right .total-amount {
-    margin-right: 0;
-    padding-right: 56px;
-    color: var(--secondary-text-color, white);
-    background: linear-gradient(90deg, var(--secondary-color,#DF0A14), var(--secondary-color,#DF0A14)) !important;
+    color: var(--primary-text-color, white);
+    background: var(--primary-color, #383838) !important;
   }
 
   .sign {
@@ -343,35 +310,15 @@
   .page-footer {
     height: 90px;
     font-size: 12px;
+    padding-left: 112px;
+    padding-right: 112px;
     color: #383838;
     bottom: 0px;
     text-align: center;
   }
-  
-  .footer p {
-    padding-left: 56px;
-    padding-right: 56px;
-  }
-
-  .page-footer > div:last-child {
-    position: absolute;
-    bottom: 0;
-    height: 24px;
-    background: var(--secondary-color, #DF0A14);
-  }
-  
-  .page-footer > div:last-child > div {
-    width: 50%;
-    height: 24px;
-    background: var(--primary-color, #2B466B);
-  }
 
   .tabs-header {
     margin-bottom: 32px;
-  }
-
-  .left{
-    min-width: 400px;
   }
 
   /* custom end styling */
@@ -381,8 +328,10 @@
   <!-- footer -->
   <div class="page-footer footer">
     <%- include('../subtemplates2b/footer3') %>
-    <div class="w-full">
-      <div></div>
+    <div class="absolute left-0 bottom-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="268" height="38" viewBox="0 0 268 38" fill="none">
+        <path d="M267.228 0.631836H-40.1008L-104.877 137.876H202.452L267.228 0.631836Z" fill="#383838"/>
+      </svg>
     </div>
   </div>
   <table>
@@ -392,26 +341,18 @@
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
             <!-- Header + Facture -->
             <%- include('../subtemplates2b/header/header1') %>
-            <div class="absolute top-[0] right-0 hidden overflow-hidden">
-              <svg width="510" height="532" viewBox="0 0 130 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 -129H0V552H10V-129Z" fill="var(--primary-color, #2B466B)"/>
-                <path d="M29 -129H19V552H29V-129Z" fill="var(--primary-color, #2B466B)"/>
-                <path d="M510 -129H41V552H510V-129Z" fill="var(--primary-color, #2B466B)"/>
-              </svg>
-            </div>
-            
+            <div class="w-full"></div>
             
             <!-- Headline -->
             <%- include('../subtemplates2b/headline/headline1') %>
             
             <!-- table -->
-            <%- include('../subtemplates2b/tabs/tab1') %>
+<%- include('../subtemplates2b/tabs/tab1') %>
             
-            <!-- facture totals informations -->
+                        <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
 
             <!-- signature -->
-            <div class="h-2"></div>
             <%- include('../subtemplates2b/sign/sign1') %>
 
           </main>

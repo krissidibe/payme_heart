@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    height: 80px;
     
     width: 100%;
   }
@@ -82,10 +82,21 @@
     .header {
     padding: 0px 55px;
   }
+
+  .facture-number{
+    margin-top: 10px;
+  }
+  .facture-number p {
+
+    font-size: 30px;
+    margin-top: 5px;
+   }
+  
   .date {
     margin-top: 8px;
     padding-top: 8px;
     border-top: 1px solid #000100;
+    font-size: 17px !important;
   }
     .headline-wrapper {
     width: auto;
@@ -219,7 +230,7 @@
     right: 0;
   }
     .sign {
-    margin-top: 8px;
+    margin-top: 12px;
     padding-top: 40px;
     padding-left: 110px;
     padding-right: 110px;
@@ -228,8 +239,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -254,20 +264,30 @@
   .header {
     padding: 22px 56px;
     justify-content: flex-start !important;
+   
   }
 
   .logo img {
     object-position: right;
+    margin-right: 75px !important; 
+    
+    
   }
 
   .facture-number p {
     font-weight: 600;
     border: none;
+    margin-left: -25px;
     color: var(--primary-color, #383838);
   }
 
   .headline {
-    padding-top: 26px;
+    padding-top: 6px; 
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
   }
 
   .tabs {
@@ -346,8 +366,8 @@
   }
   
   .footer p {
-    padding-left: 112px;
-    padding-right: 112px;
+    padding-left: 56px;
+    padding-right: 56px;
   }
 
   .page-footer > div:last-child {
@@ -368,6 +388,9 @@
     margin-bottom: 32px;
   }
 
+  .left{
+    min-width: 400px;
+  }
   /* custom end styling */
 </style>
 
@@ -385,6 +408,7 @@
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
             <!-- Header + Facture -->
+         <div class="h-6"></div>
             <%- include('../subtemplates2b/header/header1') %>
             
             <!-- Headline -->

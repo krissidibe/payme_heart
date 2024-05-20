@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 90px;
     
     width: 100%;
   }
@@ -82,6 +82,9 @@
     .header {
     padding: 0px 55px;
   }
+
+
+  
   .date {
     margin-top: 8px;
     padding-top: 8px;
@@ -228,8 +231,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -277,7 +279,7 @@
   }
 
   .tabs {
-    padding-top: 70px;
+    padding-top: 50px;
   }
 
   .tabs-header p {
@@ -330,6 +332,15 @@
     margin-bottom: 32px;
   }
 
+  .headline p{
+    
+    max-width: 420px !important; 
+    
+  }
+
+  .left{
+    min-width: 400px;
+  }
   /* custom end styling */
 </style>
 
@@ -337,9 +348,9 @@
   <!-- footer -->
   <div class="page-footer footer">
     <%- include('../subtemplates2b/footer3') %>
-    <div class="absolute left-0 bottom-0">
-      <svg xmlns="http://www.w3.org/2000/svg" width="268" height="38" viewBox="0 0 268 38" fill="none">
-        <path d="M267.228 0.631836H-40.1008L-104.877 137.876H202.452L267.228 0.631836Z" fill="#5CB885"/>
+    <div class="absolute bottom-0 left-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="268" height="30" viewBox="0 0 268 38" fill="none">
+        <path d="M267.228 0.631836H-40.1008L-104.877 137.876H202.452L267.228 0.631836Z" fill="var(--primary-color, #5CB885)"/>
       </svg>
     </div>
   </div>
@@ -360,7 +371,7 @@
             
                         <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
-
+<div class="h-4"></div>
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
 

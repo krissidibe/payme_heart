@@ -61,7 +61,8 @@ const headerTemplate = `
 const footerTemplate = `<div style="margin: 0 2cm; width: 75%; font-size: 7px; text-align: center;">Disclaimer</div>`;
 
     // Launch the browser and open a new blank page
-    const browser = await puppeteer.launch({headless:true});
+    const browser = await puppeteer.launch({headless:true,  args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors', '--ignore-certificate-errors-spki-list', '--disable-dev-shm-usage'],
+    timeout:0});
     const page = await browser.newPage();
 
     const test = dataNew.dataTable.forEach(i => i.createdAt =  daysFr(i.createdAt))

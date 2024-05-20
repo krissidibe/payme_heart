@@ -1,6 +1,6 @@
 import { prisma } from "@/utils/prisma";
 export const checkPayment = async (id: string) => {
-  console.log("checkPayment");
+
   const data = await prisma.user.findFirst({
     where: {
       id: id,

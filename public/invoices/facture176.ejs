@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    height: 80px;
     
     width: 100%;
   }
@@ -228,8 +228,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -250,12 +249,15 @@
 <!-- end addons styling -->
 <style>
   /* custom styling */
-
   .header {
     padding: 22px 56px;
     background: var(--primary-color, #5CB885);
   }
 
+  .header + div {
+    height: 165px;
+    z-index: 0;
+  }
 
   .logo {
     z-index: 2;
@@ -274,11 +276,9 @@
 
   .headline {
     padding-top: 26px;
-
   }
 
   .tabs {
-    margin-top: 0;
     padding-top: 26px;
     margin-bottom: 0;
   }
@@ -333,7 +333,7 @@
     margin-right: 0;
     padding-right: 56px;
     color: var(--primary-text-color, white);
-    background: var(--primary-color, #5CB885) !important;
+    background: linear-gradient(90deg, var(--primary-color,#5CB885), var(--primary-color,#5CB885)) !important;
   }
 
   .sign {
@@ -349,8 +349,8 @@
   }
   
   .footer p {
-    padding-left: 112px;
-    padding-right: 112px;
+    padding-left: 56px;
+    padding-right: 56px;
   }
 
   .page-footer > div:last-child {
@@ -363,12 +363,15 @@
   .page-footer > div:last-child > div {
     width: 50%;
     height: 24px;
-    background: var(--seconary-color, #DF0A14);
+    background: var(--secondary-color, #DF0A14);
   }
-
 
   .tabs-header {
     margin-bottom: 32px;
+  }
+
+  .left{
+    min-width: 400px;
   }
 
   /* custom end styling */
@@ -389,6 +392,14 @@
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
             <!-- Header + Facture -->
             <%- include('../subtemplates2b/header/header1') %>
+            <div class="absolute top-[0] right-0 hidden overflow-hidden">
+              <svg width="510" height="532" viewBox="0 0 130 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 -129H0V552H10V-129Z" fill="var(--primary-color, #2B466B)"/>
+                <path d="M29 -129H19V552H29V-129Z" fill="var(--primary-color, #2B466B)"/>
+                <path d="M510 -129H41V552H510V-129Z" fill="var(--primary-color, #2B466B)"/>
+              </svg>
+            </div>
+            
             
             <!-- Headline -->
             <%- include('../subtemplates2b/headline/headline1') %>
@@ -400,6 +411,7 @@
             <%- include('../subtemplates2b/total/total1') %>
 
             <!-- signature -->
+            <div class="h-2"></div>
             <%- include('../subtemplates2b/sign/sign1') %>
 
           </main>

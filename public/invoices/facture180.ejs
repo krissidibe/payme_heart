@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    height: 80px;
     
     width: 100%;
     /* for demo */
@@ -76,7 +76,7 @@
   }
   /* Facture Custom styling */
   
-  /* End Facture Custom styling */
+    /* End Facture Custom styling */
 </style>
 
     <!-- Templates styling -->
@@ -221,7 +221,7 @@
     right: 0;
   }
     .sign {
-    margin-top: 8px;
+    margin-top: 18px;
     padding-top: 40px;
     padding-left: 110px;
     padding-right: 110px;
@@ -230,8 +230,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -243,11 +242,16 @@
 <!-- end addons styling -->
 <style>
   /* custom styling */
+
   .header {
     padding: 22px 56px;
     padding-bottom: 22px;
     justify-content: center !important;
-    background: linear-gradient(45deg, var(--primary-color, #A69537), var(--secondary-color, #B6C0DE));
+    background: linear-gradient(45deg, var(--primary-color, #A69537), var(--secondary-color, #e3e3e3 ));
+  }
+
+  .linearFooter{
+    background: linear-gradient(45deg, var(--primary-color, #A69537), var(--secondary-color, #e3e3e3 ));
   }
 
   .logo img {
@@ -272,7 +276,7 @@
   }
 
   .tabs {
-    padding-top: 46px;
+    padding-top: 26px;
   }
 
   .tabs-header {
@@ -315,7 +319,7 @@
   }
 
   .page-footer {
-    height: 90px;
+    height: 80px;
     font-size: 12px;
     color: #383838;
     bottom: 0px;
@@ -327,6 +331,22 @@
     padding-right: 72px;
   }
 
+
+  .headline p{
+    
+    max-width: 420px !important; 
+    
+  }
+  .headline > p:first-child{ 
+  margin-top: 20px !important;
+    
+  }
+
+  .left{
+    min-width: 400px;
+  }
+
+
   /* custom end styling */
 </style>
 
@@ -334,17 +354,9 @@
   <!-- footer -->
   <div class="page-footer footer">
     <%- include('../subtemplates2b/footer3') %>
-    <div class="absolute left-0 right-0 bottom-0">
-      <svg width="828" height="13" viewBox="0 0 828 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M828 0H-1V14H828V0Z" fill="url(#paint0_linear_2598_272)"/>
-        <defs>
-          <linearGradient id="paint0_linear_2598_272" x1="470.034" y1="-6.74536" x2="469.275" y2="21.0836" gradientUnits="userSpaceOnUse">
-            <stop stop-color="var(--primary-color, #A69537)"/>
-            <stop offset="1" stop-color="var(--secondary-color, #2581C4)" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-      </svg>
-      
+    
+    <div class="absolute bottom-0 left-0 right-0">
+      <div class="h-4 linearFooter"></div>     
     </div>
   </div>
   <table>
@@ -352,11 +364,11 @@
       <tr>
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
-            <div class="absolute top-0 right-0 z-[-1]">
-              <svg width="828" height="138" viewBox="0 0 828 138" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M857.265 -54.5381H-68.3096V137.412H857.265V-54.5381Z" fill="url(#paint0_linear_2598_271)"/>
+            <div class="absolute top-0 right-0 z-[-1] hidden">
+              <svg width="828" height="137" viewBox="0 0 828 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M828 0H0V137H828V0Z" fill="url(#paint0_linear_2598_8)"/>
                 <defs>
-                  <linearGradient id="paint0_linear_2598_271" x1="136.117" y1="117.215" x2="1306.19" y2="-225.958" gradientUnits="userSpaceOnUse">
+                  <linearGradient id="paint0_linear_2598_8" x1="182.876" y1="122.585" x2="1184.31" y2="-245.551" gradientUnits="userSpaceOnUse">
                     <stop stop-color="var(--primary-color, #A69537)"/>
                     <stop offset="1" stop-color="var(--secondary-color, #2581C4)" stop-opacity="0"/>
                   </linearGradient>
@@ -366,14 +378,14 @@
             </div>
             
             <!-- Header + Facture -->
-            <%- include('../subtemplates2b/header/header1') %>
+<%- include('../subtemplates2b/header/header1') %>
             
             <!-- Headline -->
             <%- include('../subtemplates2b/headline/headline1') %>
             
             <!-- table -->
 <%- include('../subtemplates2b/tabs/tab1') %>
-            
+            <div class="h-4"></div>
                         <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
 
@@ -396,3 +408,5 @@
   </table>
 </body>
 </html>
+
+ 

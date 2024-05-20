@@ -29,14 +29,16 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 90px;
     
     width: 100%;
+    /* for demo */
+    /* for demo */
   }
   
   .page-header {
@@ -82,10 +84,19 @@
     .header {
     padding: 0px 55px;
   }
+  
+
+  .facture-number p {
+    font-size: 27px;
+    margin-bottom:4px;
+   }
+ 
+
   .date {
     margin-top: 8px;
     padding-top: 8px;
     border-top: 1px solid #000100;
+    font-size: 17px !important;
   }
     .headline-wrapper {
     width: auto;
@@ -228,8 +239,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -244,14 +254,16 @@
 <!-- end addons styling -->
 <style>
   /* custom styling */
+
   .header {
     padding: 22px 56px;
   }
 
   .facture-number p {
+    margin-top: 5px;
     font-weight: 600;
-    border: none;
-    color: #2B466B;
+    border-color: var(--primary-color, #2B466B);
+    color: var(--primary-color, #2B466B);
   }
 
   .header + div {
@@ -269,16 +281,17 @@
   }
 
   .tabs {
-    padding-top: 70px;
+    padding-top:40px;
   }
 
   .tabs-header p {
-    background: #E8E7E7;
+    color: black;
+    background: var(--primary-color, #E8E7E7);
   }
-  
+
   .tabs-header .description {
+    background: linear-gradient(90deg, var(--primary-color, #2B466B), var(--primary-color, #2B466B));
     color: var(--primary-text-color, white);
-    background: var(--primary-color, #2B466B);
   }
 
   .tabs-item {
@@ -299,7 +312,7 @@
 
   .right .total-amount {
     color: var(--primary-text-color, white);
-    background: linear-gradient(90deg, var(--primary-color, #E30613), var(--primary-color, #EE7311)) !important;
+    background: var(--primary-color, #2B466B) !important;
   }
 
   .sign {
@@ -309,18 +322,21 @@
   .page-footer {
     height: 90px;
     font-size: 12px;
-    padding-left: 112px;
-    padding-right: 112px;
-    color: #383838;
+    padding-left: 56px;
+    padding-right: 56px;
+    color: #2B466B;
     bottom: 0px;
     text-align: center;
   }
-
 
   .tabs-header {
     margin-bottom: 32px;
   }
 
+
+  .left{
+    min-width: 400px;
+  }
   /* custom end styling */
 </style>
 
@@ -328,9 +344,9 @@
   <!-- footer -->
   <div class="page-footer footer">
     <%- include('../subtemplates2b/footer3') %>
-    <div class="absolute left-0 bottom-0">
-      <svg xmlns="http://www.w3.org/2000/svg" width="268" height="38" viewBox="0 0 268 38" fill="none">
-        <path d="M267.228 0.631836H-40.1008L-104.877 137.876H202.452L267.228 0.631836Z" fill="#2B466B"/>
+    <div class="absolute bottom-0 left-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="268" height="30" viewBox="0 0 268 38" fill="none">
+        <path d="M267.228 0.631836H-40.1008L-104.877 137.876H202.452L267.228 0.631836Z" fill="var(--primary-color,#2B466B)"/>
       </svg>
     </div>
   </div>
@@ -351,7 +367,7 @@
             
                         <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
-
+<div class="h-4"></div>
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
 

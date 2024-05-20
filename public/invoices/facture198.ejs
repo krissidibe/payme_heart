@@ -28,15 +28,17 @@
   }
   
   .page-footer,
-  .page-footer-space {
-    height: 50px;
+  .page-footer-space { 
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    bottom: 0px;
     
     width: 100%;
+    /* for demo */
+    /* for demo */
   }
   
   .page-header {
@@ -73,7 +75,8 @@
     }
   }
   /* Facture Custom styling */
- 
+
+
   /* End Facture Custom styling */
 </style>
 
@@ -229,7 +232,7 @@
     width: 130px;
     padding-top: 0;
     padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    
   }
 
   .sign > div:last-child {
@@ -243,22 +246,23 @@
     </style>
 <!-- end addons styling -->
 <style>
-  /* custom styling */    
-.header {
+  /* custom styling */
+  .header {
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
   }
   .facture-content .header .logo img {
     object-position: center;
-    color: var(--primary-color, #383838);
+    color: var(--primary-color, #7D4E24);
   }
   .facture-content .header .facture-number {
+    margin-top: 8px;
     font-weight: 600;
-    color: var(--primary-color, #383838);
+    color: var(--secondary-color, #7D4E24);
   }
   .facture-number .date {
-    font-weight: 500;
+    font-weight: 600;
     border: none;
   }
 
@@ -280,24 +284,67 @@
   }
 
   .right .total-amount {
-    background: var(--primary-color, #383838);
+    background: var(--primary-color, #383838) !important;
     color: var(--primary-text-color, white);
   }
+
   .page-footer {
-    height: 70px;
+    height: 80px;
     bottom: 0;
     text-align: center;
-    padding-left: 72px;
-    padding-right: 72px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
+  .tabs-item .amount,
+  .tabs-item .quantity.second,
+  .tabs-item .price {
+    width: 120px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .tabs-item {
+    align-items: center;
+  }
+
+  .tabs-header .description {
+    text-transform: uppercase;
+  }
+
+  .facture-number > div:first-child p:last-child {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .left{
+    min-width: 400px;
+  }
+  .headline > p{
+   font-size: 15px !important;
+   
+  }
+  .date{
+    text-align: center;
+    color: var(--primary-color, #383838) !important;
+  }
+  .facture-number{
+    
+    color: var(--primary-color, #383838) !important;
+  }
+
+  .headline {
+    width: 200px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
   /* custom end styling */
 </style>
 
 <body>
   <!-- footer -->
-  <div class="page-footer footer">
+  <div class="pt-4 page-footer footer">
     <%- include('../subtemplates2b/footer1') %>
   </div>
   <table>
@@ -318,7 +365,7 @@
 
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
-                  
+                      
           </main>
         </td>
       </tr>

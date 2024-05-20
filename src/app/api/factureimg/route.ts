@@ -156,10 +156,8 @@ export async function POST(req:NextRequest,res:NextResponse) {
  
     // Launch the browser and open a new blank page
     const browser = await puppeteer.launch({ headless: true,
-    args: [
-    '--no-sandbox',
-    '--disable-setuid-sandbox',
-    ],
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors', '--ignore-certificate-errors-spki-list', '--disable-dev-shm-usage'],
+      timeout:0
     });
     const page = await browser.newPage();
 

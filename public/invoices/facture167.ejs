@@ -29,13 +29,13 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
-    
+    bottom: 90px;
+  
     width: 100%;
     /* for demo */
     /* for demo */
@@ -84,10 +84,15 @@
     .header {
     padding: 0px 55px;
   }
+  .facture-number p {
+   font-size: 30px;
+   margin-bottom: 5px;
+  }
   .date {
     margin-top: 8px;
     padding-top: 8px;
     border-top: 1px solid #000100;
+    font-size: 17px !important;
   }
     .headline-wrapper {
     width: auto;
@@ -230,8 +235,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -263,22 +267,22 @@
   }
 
   .facture-number p {
-    font-weight: 600;
+    font-weight:500;
     border-color: #2B466B;
     color: #2B466B;
   }
 
   .header + div {
     height: 12px;
-    background: linear-gradient(90deg, var(--primary-color, #E30613), var(--primary-color, #EE7311));
+    background: linear-gradient(90deg, var(--primary-color, #E30613), var(--secondary-color, #EE7311));
   }
 
   .headline-wrapper {
-    padding-top: 58px;
+    padding-top: 38px;
   }
 
   .tabs {
-    padding-top: 47px;
+    padding-top: 7px;
   }
 
   .tabs-header p {
@@ -286,7 +290,7 @@
   }
   
   .tabs-header .description {
-    background: linear-gradient(90deg, var(--primary-color, #E30613), var(--primary-color, #EE7311));
+    background: linear-gradient(90deg, var(--primary-color, #E30613), var(--secondary-color, #EE7311));
     color: var(--primary-text-color, white);
   }
 
@@ -308,7 +312,7 @@
 
   .right .total-amount {
     color: var(--primary-text-color, white);
-    background: linear-gradient(90deg, var(--primary-color, #E30613), var(--primary-color, #EE7311)) !important;
+    background: linear-gradient(90deg, var(--primary-color, #E30613), var(--secondary-color, #EE7311)) !important;
   }
 
   .sign {
@@ -322,14 +326,30 @@
     padding-right: 56px;
     color: #383838;
     bottom: 0px;
-    text-align: center;
+    text-align: center; 
   }
 
 
   .tabs-header {
-    margin-bottom: 32px;
+    margin-bottom: 22px;
   }
 
+  .logo{ 
+    max-width: 340px !important;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .headline p{
+    
+    max-width: 420px !important; 
+    
+  }
+
+  
+
+  .left{
+    min-width: 400px;
+  }
   /* custom end styling */
 </style>
 
@@ -337,16 +357,13 @@
   <!-- footer -->
   <div class="page-footer footer">
     <%- include('../subtemplates2b/footer3') %>
-    <div class="absolute left-0 bottom-0">
-      <svg xmlns="http://www.w3.org/2000/svg" width="268" height="38" viewBox="0 0 268 38" fill="none">
+    <div class="absolute bottom-0 left-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="268" height="30" viewBox="0 0 268 38" fill="none">
         <path d="M267.228 0.631836H-40.1008L-104.877 137.876H202.452L267.228 0.631836Z" fill="url(#paint0_linear_2596_932)"/>
         <defs>
           <linearGradient id="paint0_linear_2596_932" x1="-104.877" y1="69.2609" x2="267.228" y2="69.2609" gradientUnits="userSpaceOnUse">
-            <stop offset="0.08" stop-color="#E63120"/>
-            <stop offset="0.14" stop-color="#E7391E"/>
-            <stop offset="0.41" stop-color="#EB5917"/>
-            <stop offset="0.64" stop-color="#ED6C13"/>
-            <stop offset="0.8" stop-color="#EE7311"/>
+            <stop offset="0.08" stop-color="var(--primary-color, #E63120)"/> 
+            <stop offset="0.8" stop-color="var(--secondary-color, #EE7311)"/>
           </linearGradient>
         </defs>
       </svg>
@@ -369,7 +386,7 @@
             
                         <!-- facture totals informations -->
             <%- include('../subtemplates2b/total/total1') %>
-
+<div class="h-4"></div>
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
           </main>
