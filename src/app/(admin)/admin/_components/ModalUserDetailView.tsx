@@ -39,7 +39,7 @@ const ExportAsExcelBtn = ({data}:{data:any}) => {
   return (
     <ExportAsExcel
     data={data}
-    headers={["Nom et prénom", "Pays","Structure", "Secteur","Adresse e-mail","Contact","Abonnée"]}
+    headers={["Date d'inscription","Nom et prénom", "Pays","Structure", "Secteur","Adresse e-mail","Contact","Abonnée"]}
 >
     {(props)=> (
       <button className="items-center cursor-pointer justify-center bg-white text-black text-sm font-semibold flex rounded-md w-[100px]" {...props}>
@@ -177,12 +177,13 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                           
                               <ExportAsExcelBtn data={dataUser.map((user: any) => {
                                 return {
-                                  "Nom et prénom":
-                                    user.name +
-                                    " - " +
+                                  "Date d'inscription":
+                                   
                                     dayjs(`${user.createdAt}`)
-                                      .format("DD/MM/YYYYTHH:mm")
+                                      .format("DD/MM/YYYY")
                                       .replace("T", " "),
+                                  "Nom et prénom":
+                                    user.name ,
                                   Pays: getCurrency(user.enterprise.currency),
                                   Structure: user.enterprise.name,
                                   Secteur: user.enterprise.activity,
