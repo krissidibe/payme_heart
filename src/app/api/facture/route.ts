@@ -25,13 +25,57 @@ export async function POST(req: NextRequest, res: NextResponse) {
     );
     const html = await fs.readFile(filePath, "utf-8");
 
+
+    const tableArray = JSON.parse(dataNew.project.table).map((item:any)=> {
+      item.quantity =( item.quantity == null || item.quantity == "") ? 0 :  parseFloat(item.quantity
+        .toString())
+        .toFixed(2)
+        .replace(".", ",").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "#").replace(".", ",").replaceAll("#", ".").replace(",00", "")
+        item.rate = (item.rate == null || item.rate == "" ) ? 0 : parseFloat(item.rate
+          .toString())
+          .toFixed(2)
+          .replace(".", ",").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "#").replace(".", ",").replaceAll("#", ".").replace(",00", "")
+          item.amount = (item.amount == null || item.amount == ""   ) ? 0 : parseFloat(item.amount
+            .toString())
+            .toFixed(2)
+            .replace(".", ",").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "#").replace(".", ",").replaceAll("#", ".").replace(",00", "")
+    
+      return item
+      
+    })
+   
+
+
+
+    const tableArrayNormal = JSON.parse(dataNew.project.table).map((item:any)=> {
+      item.quantity =( item.quantity == null || item.quantity == "") ? 0 :  parseFloat(item.quantity
+        .toString())
+        .toFixed(2)
+        
+        item.rate = (item.rate == null || item.rate == "" ) ? 0 : parseFloat(item.rate
+          .toString())
+          .toFixed(2)
+          
+          item.amount = (item.amount == null || item.amount == ""   ) ? 0 : parseFloat(item.amount
+            .toString())
+            .toFixed(2)
+            
+    
+      return item
+      
+    })
+   
+
+    console.log(tableArrayNormal);
+    console.log(tableArray);
+    
     //console.log(filePath.replace("#primaryColor","yellow"));
     // console.log(html.replace("#primaryColor","yellow"));
 
     //   console.log(html.replace("#primaryColor;","yellow"));
 
     const initialValue = 0; 
-    const totalHtCalcule = JSON.parse(dataNew.project.table).reduce((accumulator:any, currentValue:any) => accumulator + parseFloat(currentValue.amount), initialValue);
+    const totalHtCalcule = JSON.parse(JSON.stringify(tableArrayNormal)).reduce((accumulator:any, currentValue:any) => accumulator + parseFloat(currentValue.amount), initialValue);
  
 
  
@@ -91,6 +135,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       ).toString()
     );
 
+console.log(totalTva);
 
  
     
@@ -225,24 +270,7 @@ const totalLetterConv = total.toFixed(2).toString().replace(",00", "")
  
 
  
-  const tableArray = JSON.parse(dataNew.project.table).map((item:any)=> {
-    item.quantity =( item.quantity == null || item.quantity == "") ? "" :  parseFloat(item.quantity
-      .toString())
-      .toFixed(2)
-      .replace(".", ",").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "#").replace(".", ",").replaceAll("#", ".").replace(",00", "")
-      item.rate = (item.rate == null || item.rate == "" )? "" : parseFloat(item.rate
-        .toString())
-        .toFixed(2)
-        .replace(".", ",").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "#").replace(".", ",").replaceAll("#", ".").replace(",00", "")
-        item.amount = (item.amount == null || item.amount == ""   ) ? "" : parseFloat(item.amount
-          .toString())
-          .toFixed(2)
-          .replace(".", ",").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "#").replace(".", ",").replaceAll("#", ".").replace(",00", "")
-  
-    return item
-    
-  })
- 
+
 
  
  
