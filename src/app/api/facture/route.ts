@@ -66,8 +66,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
     })
    
 
-    console.log(tableArrayNormal);
-    console.log(tableArray);
+   // console.log(tableArrayNormal);
+   // console.log(tableArray);
     
     //console.log(filePath.replace("#primaryColor","yellow"));
     // console.log(html.replace("#primaryColor","yellow"));
