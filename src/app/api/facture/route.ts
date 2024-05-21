@@ -27,7 +27,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
 
     const tableArray = JSON.parse(dataNew.project.table).map((item:any)=> {
-      item.quantity =( item.quantity == null || item.quantity == "") ? 0 :  parseFloat(item.quantity
+      item.quantity =( item.quantity == null || item.quantity == "") ? "" :  parseFloat(item.quantity
         .toString())
         .toFixed(2)
         .replace(".", ",").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "#").replace(".", ",").replaceAll("#", ".").replace(",00", "")

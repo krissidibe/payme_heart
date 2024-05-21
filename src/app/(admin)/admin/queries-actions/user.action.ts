@@ -17,9 +17,11 @@ export const fetchUser = async (form: FormData) => {
                 .substring(0, 10) + "T23:59:00.026Z",
           },
         },
-        include: { enterprise: true },
+        include: { enterprise: true ,subscribe:{ include: {payment:true}} },
       });
       Object.assign({}, datas, { _count: datas.length });
+      
+      
       return datas;
     }
 
@@ -42,7 +44,7 @@ export const fetchUser = async (form: FormData) => {
             },
           },
         },
-        include: { enterprise: true },
+        include: { enterprise: true ,subscribe:{ include: {payment:true}} },
       });
       Object.assign({}, datas, { _count: datas.length });
       return datas;
