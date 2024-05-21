@@ -223,16 +223,18 @@ const totalLetterConv = total.toFixed(2).toString().replace(",00", "")
   `;
 
  
+
+ 
   const tableArray = JSON.parse(dataNew.project.table).map((item:any)=> {
-    item.quantity = parseFloat(item.quantity
+    item.quantity =( item.quantity == null || item.quantity == "") ? "" :  parseFloat(item.quantity
       .toString())
       .toFixed(2)
       .replace(".", ",").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "#").replace(".", ",").replaceAll("#", ".").replace(",00", "")
-      item.rate = parseFloat(item.rate
+      item.rate = (item.rate == null || item.rate == "" )? "" : parseFloat(item.rate
         .toString())
         .toFixed(2)
         .replace(".", ",").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "#").replace(".", ",").replaceAll("#", ".").replace(",00", "")
-        item.amount = parseFloat(item.amount
+        item.amount = (item.amount == null || item.amount == ""   ) ? "" : parseFloat(item.amount
           .toString())
           .toFixed(2)
           .replace(".", ",").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "#").replace(".", ",").replaceAll("#", ".").replace(",00", "")
@@ -241,6 +243,7 @@ const totalLetterConv = total.toFixed(2).toString().replace(",00", "")
     
   })
  
+
  
  
   
