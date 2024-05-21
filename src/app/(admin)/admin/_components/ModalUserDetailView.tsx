@@ -207,7 +207,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                                         }`
                                       : ""
                                   }`,
-                                  Abonnée:  user.subscribe.payment.month != 0 ? `${user.subscribe.payment.month} mois` : "Non abonnée",
+                                  Abonnée:  user.subscribe?.payment?.month != 0 ? `${user.subscribe?.payment?.month} mois` : "Non abonnée",
                                 };
                               })} />
                           
@@ -292,9 +292,9 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                           className={clsx(
                             "flex flex-col justify-between w-full text-sm gap-1 md:gap-4 p-6 py-4 border-b shadow-sm md:flex-row",
                             index % 2 != 0 ? "bg-[#131313]" : "bg-[#1e1e1ea2]", 
-                            user.subscribe.payment.month == 3 ? "bg-green-300/30" : "",
-                            user.subscribe.payment.month == 6 ? "bg-amber-300/30" : "",
-                            user.subscribe.payment.month == 12 ? "bg-blue-300/30" : "",
+                            user.subscribe?.payment?.month == 3 ? "bg-green-300/30" : "",
+                            user.subscribe?.payment?.month == 6 ? "bg-amber-300/30" : "",
+                            user.subscribe?.payment?.month == 12 ? "bg-blue-300/30" : "",
                           )}
                         >
                           <div className="flex flex-col flex-1 min-w-[220px]">
