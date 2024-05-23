@@ -29,12 +29,12 @@
   
   .page-footer,
   .page-footer-space {
-    height: 50px;
+    height: 100px;
   }
   
   .page-footer {
     position: fixed;
-    bottom: 80px;
+    height: 80px;
     
     width: 100%;
   }
@@ -73,7 +73,7 @@
     }
   }
   /* Facture Custom styling */
-  
+ 
   /* End Facture Custom styling */
 </style>
 
@@ -219,7 +219,7 @@
     right: 0;
   }
     .sign {
-    margin-top: 8px;
+    margin-top: 12px;
     padding-top: 40px;
     padding-left: 110px;
     padding-right: 110px;
@@ -228,8 +228,7 @@
   .sign > div p {
     width: 130px;
     padding-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #4E4D4D;
+    padding-bottom: 8px; 
   }
 
   .sign > div:last-child {
@@ -246,13 +245,13 @@
   /* custom styling */
 
   .header {
-    margin-top: 100px;
+    margin-top: 60px;
   }
 
   .facture-number p {
     font-weight: 600;
     color: var(--primary-color, #DF0A14);
-    border: none;
+    border-color: white;
   }
 
   .headline-wrapper {
@@ -269,7 +268,7 @@
 
   .tabs-header .description {
     background: var(--primary-color, #DF0A14);
-    color: var(--primary-text-color, white);
+    color:var(--primary-text-color, white);
   }
 
   .tabs-item .quantity,
@@ -289,7 +288,7 @@
   .right .total-amount {
     font-weight: 600;
     color: var(--primary-text-color, white);
-    background: var(--primary-color, #DF0A14);
+    background: linear-gradient(90deg, color-mix(in srgb, var(--primary-color,#DF0A14) 100%, transparent) 51%,color-mix(in srgb, var(--primary-color,#DF0A14) 100%, transparent) 100% ,  color-mix(in srgb, transparent 100%, transparent)) !important;
   }
 
   .sign {
@@ -297,7 +296,7 @@
   }
 
   .page-footer {
-    height: 90px;
+    height: 80px;
     font-size: 12px;
     color: #383838;
     bottom: 0px;
@@ -308,7 +307,15 @@
     padding-left: 72px;
     padding-right: 72px;
   }
+  .left{
+    min-width: 400px;
+  }
 
+  .logo img{ 
+    margin-top: 8px;
+    height: 100px !important;
+    max-width: 268px;
+  }
   /* custom end styling */
 </style>
 
@@ -322,7 +329,19 @@
       <tr>
         <td class="pages w-[827px]">
           <main class="<%= 'facture-content flex flex-col w-full page-content ' + (invoiceType == 0 ? 'proforma' : invoiceType == 1 ? 'facture' : invoiceType == 2 ? 'bordereau' : 'facture-content') %>">
-
+            <div class="absolute top-[90px] left-0 right-0 z-[-1] ">
+              <svg width="827" height="129" viewBox="0 0 827 109" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M449.026 0.320312L368.504 139H867.992V0.320312H449.026Z" fill="#FFFFFF"/>
+                <path d="M-26.4539 0.320312V138.981H306.496L387.018 0.320312H-26.4539Z" fill="#FFFFFF"/>
+                <defs>
+                <linearGradient id="paint0_linear_2600_1463" x1="-26.4539" y1="69.6505" x2="387.018" y2="69.6505" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FFFFFF"/>
+                <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+                </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            
             <!-- Header + Facture -->
 <%- include('../subtemplates2b/header/header1') %>
             
@@ -337,6 +356,7 @@
 
             <!-- signature -->
             <%- include('../subtemplates2b/sign/sign1') %>
+
           </main>
         </td>
       </tr>
