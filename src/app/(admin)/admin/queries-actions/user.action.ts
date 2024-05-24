@@ -23,6 +23,9 @@ export const fetchUser = async (form: FormData) => {
          _count: {
           select: { project: true },
         }, },
+        orderBy: {
+          createdAt: 'desc'
+        }
       
       });
       Object.assign({}, datas, { _count: datas.length });
@@ -54,6 +57,9 @@ export const fetchUser = async (form: FormData) => {
         _count: {
          select: { project: true },
        }, },
+       orderBy: {
+        createdAt: 'desc'
+       }
       });
       Object.assign({}, datas, { _count: datas.length });
       return datas;
@@ -90,6 +96,9 @@ export const fetchUser = async (form: FormData) => {
             include: { enterprise: true },
           },
         },
+        orderBy: {
+          createdAt: 'desc'
+        }
       });
      const dataNew =  datas.filter((data) => data.user?.id != null);
       Object.assign({}, datas, { _count: datas.length });
@@ -135,6 +144,9 @@ export const fetchUser = async (form: FormData) => {
             include: { enterprise: true },
           },
         },
+        orderBy: {
+          createdAt: 'desc'
+        }
       });
      const dataNew =  datas.filter((data) => data.user?.id != null);
       Object.assign({}, datas, { _count: datas.length });
