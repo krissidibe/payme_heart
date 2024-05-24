@@ -39,7 +39,7 @@ const ExportAsExcelBtn = ({data}:{data:any}) => {
   return (
     <ExportAsExcel
     data={data}
-    headers={["Date d'inscription","Nom et prénom", "Pays","Structure", "Secteur","Adresse e-mail","Contact","Abonnée"]}
+    headers={["Date d'inscription","Nom et prénom", "Pays","Structure", "Secteur","Adresse e-mail","Contact","Abonnée","Projets"]}
 >
     {(props)=> (
       <button className="items-center cursor-pointer justify-center bg-white text-black text-sm font-semibold flex rounded-md w-[100px]" {...props}>
@@ -56,6 +56,9 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
   const router = useRouter();
   const [dataUser, setDataUser] = useState<any>([]);
   const [dataPayment, setDataPayment] = useState<any>([]);
+  
+  const [startAt, setStartAt] = useState<string>(`${new Date(Date.now()).getFullYear()}-${(parseInt(new Date(Date.now()).getMonth().toString()) + 1 ).toString().padStart(2,"0")}-${new Date(Date.now()).getDate()}`);
+  const [endAt, setEndAt] = useState<string>(`${new Date(Date.now()).getFullYear()}-${(parseInt(new Date(Date.now()).getMonth().toString()) + 1 ).toString().padStart(2,"0")}-${new Date(Date.now()).getDate()}`);
 
   function getCurrency(currency: string): React.ReactNode {
     const datasFilter = countryFr.filter((item) =>
@@ -120,7 +123,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                   >
                     <div className="flex flex-col self-end w-full gap-4 p-6 md:flex-row">
                       <div className="flex gap-4">
-                        <Select name="type">
+                        <Select defaultValue="user" name="type">
                           <SelectTrigger className="w-[180px]">
                             <SelectValue placeholder="Select a fruit" />
                           </SelectTrigger>
@@ -157,16 +160,25 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                         /> */}
                       </div>
                       <div className=" md:flex-1"></div>
+                     
                       <div className="flex gap-4">
                         <Input
                           className=" w-[150px]"
                           type="date"
                           name="startAt"
+                          value={startAt}
+                        onChange={(e)=>{
+                          setStartAt(e.target.value)
+                        }}
                         />
                         <Input
                           className=" w-[150px]"
                           type="date"
                           name="endAt"
+                          value={endAt}
+                          onChange={(e)=>{
+                            setEndAt(e.target.value)
+                          }}
                         />
                         <div className="hidden gap-4 md:flex">
                           <Button variant={"secondary"}>Appliquer</Button>
@@ -209,6 +221,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                                       : ""
                                   }`,
                                   Abonnée:  user.subscribe?.payment?.month != 0 ? `${user.subscribe?.payment?.month} mois` : "Non abonnée",
+                                  projet:user._count.project
                                 };
                               })} />
                           
@@ -312,11 +325,13 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
 
                             
                           </p>
-                          <p className="flex-1 min-w-[220px]">
-                            {user.enterprise.name}
+                          <p className="flex-1 flex flex-col min-w-[220px]">
+                           <span> {user.enterprise.name}</span>
+                           <span> {user._count.project}</span>
                           </p>
                           <p className="flex-1 md:flex hidden min-w-[220px]">
                             {user.enterprise.activity}
+                           
                           </p>
                           <p className="flex-1 md:flex   min-w-[220px]">
                             {user.email}
