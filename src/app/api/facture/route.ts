@@ -234,7 +234,7 @@ const totalLetterConv = total.toFixed(2).toString().replace(",00", "")
         : dataText;
 
     const dataEnterprise = dataNew.enterprise;
-    const enterpriseInfo = `${dataEnterprise?.name} - notre adresse ${
+    const enterpriseInfo = `${dataEnterprise?.name} - ${
       dataEnterprise?.address
     } ${
       dataEnterprise?.rccm.length > 0 ? `- Rccm : ${dataEnterprise?.rccm}` : ""

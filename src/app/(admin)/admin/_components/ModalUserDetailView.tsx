@@ -221,7 +221,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                                       : ""
                                   }`,
                                   Abonnée:  user.subscribe?.payment?.month != 0 ? `${user.subscribe?.payment?.month} mois` : "Non abonnée",
-                                  projet:user._count.project
+                                  projet:user.enterprise?.factureNumber
                                 };
                               })} />
                           
@@ -327,7 +327,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                           </p>
                           <p className="flex-1 flex flex-col min-w-[220px]">
                            <span> {user.enterprise.name}</span>
-                           <span> {user._count.project}</span>
+                           <span> {user.enterprise.factureNumber}</span>
                           </p>
                           <p className="flex-1 md:flex hidden min-w-[220px]">
                             {user.enterprise.activity}
