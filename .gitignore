@@ -6,6 +6,7 @@ public/files
 
 .env
 .env*.local
+.env*
 
 /public/images/invoices/
 public/images/invoices/
