@@ -5,7 +5,7 @@ import { CustomerType, ProjectType } from "@prisma/client";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: "sk-proj-02EQAElc5u0yKiiqRGeRT3BlbkFJlgFIKVlWsuLa1kgxuzyj",
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 
