@@ -16,7 +16,18 @@ export async function GET(req: NextRequest, res: NextResponse) {
     const planning = await prisma.planning.findMany({
       where: {
         userId: searchParams.get("userId")!,
+        
+     
        
+      },
+      include: {
+        _count: {
+          select: { PlanningItems: {
+            where:{
+             isCompleted: false
+            }
+          } },
+        },
       },
       orderBy: {
         name: "asc",
