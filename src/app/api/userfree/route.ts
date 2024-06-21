@@ -91,13 +91,13 @@ export async function POST(req:NextRequest,res:NextResponse) {
 
 if(!userIdeleted){
   let dateEdit = new Date();
-  dateEdit.setHours(168,0,0)
+  dateEdit.setHours(600,0,0)
 
 
   const payment = await prisma.payment.create({
     data: {
       reference:"Periode d'essai",
-      type: "Gratuit (7 jours)",
+      type: "Gratuit (25 jours)",
       month: 0,
       amount: 0,
       currency: "FCFA",

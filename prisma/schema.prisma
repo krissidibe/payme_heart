@@ -71,6 +71,7 @@ model User {
   payments     Payment[]
   subscribeId      String?
   subscribe        Subscribe?         @relation(fields: [subscribeId], references: [id] , onDelete: SetNull)
+  
   invoice    Invoice?
   codeOTP    CodeOTP?
 
@@ -100,6 +101,11 @@ model Enterprise {
   updatedAt       DateTime? @default(now()) @db.Timestamp(0)
   rccm            String?   @default("")
   user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+
+
+  creditIAId      String?
+  creditIA        CreditIA?         @relation(fields: [creditIAId], references: [id] , onDelete: SetNull)
 }
 
 model Customers {
@@ -256,6 +262,7 @@ model Payment {
   updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
   deletedAt   DateTime?    @db.Timestamp(0)
   subscribe    Subscribe?
+  creditIA    CreditIA?
   
   userId      String?
   user        User?         @relation(fields: [userId], references: [id] ,onDelete: SetNull )
@@ -272,6 +279,24 @@ model Subscribe {
    paymentId      String? @unique
   payment        Payment?         @relation(fields: [paymentId], references: [id] ,onDelete: SetNull )
 }
+
+
+
+model CreditIA {
+  id          String       @id @default(cuid())
+  currentAmount      Int?   @default(0)    
+  amount      Int       
+  startAt   DateTime?    @db.Timestamp(0)
+  endAt   DateTime?    @db.Timestamp(0)
+  createdAt   DateTime     @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+  deletedAt   DateTime?    @db.Timestamp(0)
+  enterprise   Enterprise[]
+  paymentId      String? @unique
+  payment        Payment?         @relation(fields: [paymentId], references: [id] ,onDelete: SetNull )
+}
+
+
 
 model Invoice {
   id          String       @id @default(cuid())

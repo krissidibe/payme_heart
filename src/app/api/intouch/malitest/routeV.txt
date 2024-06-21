@@ -25,60 +25,25 @@ export async function POST(request: NextRequest) {
 
 const monthValue = parseInt(dataPayment.month.toString()!)
 
-
-  let amount = "";
-
-  if (dataPayment.service) {
-
-    if(monthValue != 50 && monthValue != 120 && monthValue != 260){
-      return new Response(JSON.stringify("Error"));
-    }
-   
-
-    switch (monthValue) {
-      case 50:
-        amount = "490"
-        break;
-      case 120:
-        amount = "950"
-        break;
-      case 260:
-        amount = "260"
-        break;
-    
-      default:
-        break;
-    }
-    
-  }else{
-
-
-    if(monthValue != 3 && monthValue != 6 && monthValue != 12){
-      return new Response(JSON.stringify("Error"));
-    }
-     
-
-    switch (monthValue) {
-      case 3:
-        amount = "9890"
-        break;
-      case 6:
-        amount = "18950"
-        break;
-      case 12:
-        amount = "34950"
-        break;
-    
-      default:
-        break;
-    }
-
+  if(monthValue != 3 && monthValue != 6 && monthValue != 12){
+    return new Response(JSON.stringify("Error"));
   }
-
-
-
-
-
+   
+  let amount = "";
+  switch (monthValue) {
+    case 3:
+      amount = "9890"
+      break;
+    case 6:
+      amount = "18950"
+      break;
+    case 12:
+      amount = "34950"
+      break;
+  
+    default:
+      break;
+  }
 
   const typePayment =
     `${dataPayment.country}-${dataPayment.operateur}`.replaceAll(" ", "_");
@@ -97,7 +62,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
       numbersPart += numbers.charAt(Math.floor(Math.random() * numbers.length));
     }
 
-  const reference = `${dataPayment.service  == "PaymentIA" ? "IA-" : ""}${lettersPart}-${numbersPart}-${date}`
+  const reference = `${lettersPart}-${numbersPart}-${date}`
 
 
 
@@ -105,32 +70,7 @@ const monthValue = parseInt(dataPayment.month.toString()!)
     "userId"
   )!}&month=${dataPayment.month}&amount=${
     dataPayment.amount
-  }&type=${typePayment}&reference=${reference}&service=${dataPayment.service}`;
-
-  const callbackTest = `${process.env.BASE_URL}/api/paymentpush?userId=${searchParams.get(
-    "userId"
-  )!}&month=${dataPayment.month}&amount=${
-    dataPayment.amount
-  }&type=${typePayment}&reference=${reference}&service=${dataPayment.service}`;
-
-
-
-
-  console.log(callbackTest);
-
-
-
-
-/* return new Response(
-  JSON.stringify({
-    message: "Exemple"
-  }),
-  {
-    status: 200,
-  }
-);
- */
-
+  }&type=${typePayment}&reference=${reference}`;
 
 
   /* Mali */
@@ -784,11 +724,11 @@ const monthValue = parseInt(dataPayment.month.toString()!)
         recipientEmail: "assowlove@gmail.com",
         recipientFirstName: "Gwenael",
         recipientLastName: "DE SOUZA",
-        destinataire:   `${dataPayment.number}` ,
+        destinataire:   `241${dataPayment.number}` ,
       },
       amount: amount,
       callback: callback,
-      recipientNumber: `${dataPayment.number}`,
+      recipientNumber: `241${dataPayment.number}`,
       serviceCode: "GAPAIEMENTMARCHANDMOOV",
     };
 

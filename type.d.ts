@@ -141,6 +141,7 @@ enum FolderType {
      method?  :string
      operateur?  :string
     country?  :string
+    service?  :string
 
 
     reference  :string

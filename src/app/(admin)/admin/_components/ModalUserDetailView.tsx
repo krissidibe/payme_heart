@@ -1,10 +1,13 @@
 "use client";
+
+import { toast } from "sonner"
 import { EyeIcon, RefreshCwIcon } from "lucide-react";
 import dayjs from "dayjs";
 import { mkConfig, generateCsv, download } from "export-to-csv";
 import React, { useState } from "react";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -24,13 +27,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { fetchUser } from "../queries-actions/user.action";
+import { fetchUser, updateSubscribe } from "../queries-actions/user.action";
 import { ExportAsExcel, ExportAsPdf, ExportAsCsv, CopyToClipboard, CopyTextToClipboard, PrintDocument, ExcelToJsonConverter, FileUpload } from "react-export-table";
 
 import { countryFr } from "@/utils/countryFr";
 import { useRouter } from "next/navigation";
 import { country } from "@/utils/countrySignIn";
 import clsx from "clsx";
+import { IoMdInformationCircleOutline } from "react-icons/io";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 
  
 const ExportAsExcelBtn = ({data}:{data:any}) => {
@@ -57,8 +63,8 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
   const [dataUser, setDataUser] = useState<any>([]);
   const [dataPayment, setDataPayment] = useState<any>([]);
   
-  const [startAt, setStartAt] = useState<string>(`${new Date(Date.now()).getFullYear()}-${(parseInt(new Date(Date.now()).getMonth().toString()) + 1 ).toString().padStart(2,"0")}-${new Date(Date.now()).getDate()}`);
-  const [endAt, setEndAt] = useState<string>(`${new Date(Date.now()).getFullYear()}-${(parseInt(new Date(Date.now()).getMonth().toString()) + 1 ).toString().padStart(2,"0")}-${new Date(Date.now()).getDate()}`);
+  const [startAt, setStartAt] = useState<string>(`${new Date(Date.now()).getFullYear()}-${(parseInt(new Date(Date.now()).getMonth().toString()) + 1 ).toString().padStart(2,"0")}-${new Date(Date.now()).getDate().toString().padStart(2,"0")}`);
+  const [endAt, setEndAt] = useState<string>(`${new Date(Date.now()).getFullYear()}-${(parseInt(new Date(Date.now()).getMonth().toString()) + 1 ).toString().padStart(2,"0")}-${new Date(Date.now()).getDate().toString().padStart(2,"0")}`);
 
   function getCurrency(currency: string): React.ReactNode {
     const datasFilter = countryFr.filter((item) =>
@@ -304,13 +310,67 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                       {dataUser?.map((user: any, index: number) => (
                         <div
                           className={clsx(
-                            "flex flex-col justify-between w-full text-sm gap-1 md:gap-4 p-6 py-4 border-b shadow-sm md:flex-row",
+                            "flex flex-col justify-between w-full group cursor-pointer hover:brightness-105  text-sm gap-1 md:gap-4 p-6 py-4 border-b shadow-sm md:flex-row",
                             index % 2 != 0 ? "bg-[#131313]" : "bg-[#1e1e1ea2]", 
                             user.subscribe?.payment?.month == 3 ? "bg-green-300/30" : "",
                             user.subscribe?.payment?.month == 6 ? "bg-amber-300/30" : "",
                             user.subscribe?.payment?.month == 12 ? "bg-blue-300/30" : "",
                           )}
                         >
+
+{ user.subscribe?.payment?.month == 0 && 
+
+ <Dialog>
+  <DialogTrigger>
+  <IoMdInformationCircleOutline
+             
+             className="absolute z-50 hidden w-6 h-6 cursor-pointer right-3 top-5 group-hover:block "
+           />
+  </DialogTrigger>
+
+  <DialogContent className="sm:max-w-[425px]">
+  <form 
+  
+  onSubmit={ async (e)=>{
+    e.preventDefault()
+    const dataNew = await updateSubscribe(user.subscribe.id);
+
+    if (dataNew.id != null) {
+
+      
+      toast("Modification efectuer avec succes ", {
+        description: user.email,
+        
+      })
+    }
+  }}
+  
+  >
+  <p className="flex-1 flex flex-col min-w-[220px] text-sm">
+                           <span className="mt-1" > {user.name}</span>
+                           <span className="mt-1" > {user.email}</span>
+                           <span className="mt-1" >   {getCurrency(user.enterprise.currency)}{" "}</span>
+                           
+                           <Separator className="my-4"/>
+                           <span> {user.enterprise.name}</span>
+                           <span> Fin d'abonnement :  {dayjs(`${user.subscribe?.endAt}`)
+                                .format("DD/MM/YYYY")
+                                .replace("T", " ")} </span>
+                           
+
+                          </p>
+
+                        <div className="flex justify-end w-full mt-2"> 
+                          
+                          <DialogClose>
+
+                            <Button className="self-end"  variant={"secondary"}>Ajouter 25 jours</Button>
+                          </DialogClose>
+                             </div>
+  </form>
+  </DialogContent>
+ </Dialog>
+ }
                           <div className="flex flex-col flex-1 min-w-[220px]">
                             <p>{user.name} </p>
 

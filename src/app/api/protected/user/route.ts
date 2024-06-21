@@ -17,8 +17,23 @@ export async function GET(req: NextRequest, res: NextResponse) {
          
       },
    include:{
-    enterprise:true,
-    customers:true, subscribe:{include:{ payment:true }},payments:{include:{subscribe:true}} ,
+    enterprise:{
+      include:{
+        creditIA:true
+      }
+    },
+    customers:true, 
+    subscribe:{
+      include:{
+         payment:true 
+        }
+      },
+    payments:{
+      include:{
+        subscribe:true,
+        creditIA:true
+      }
+    } ,
     invoice:true
   
   }

@@ -155,3 +155,31 @@ export const fetchUser = async (form: FormData) => {
     }
   }
 };
+
+
+
+
+export const updateSubscribe = async (userId:any) => {
+
+
+  let dateEdit = new Date();
+  dateEdit.setHours(600,0,0)
+
+
+  return  await prisma.subscribe.update({
+    where:{
+       id : userId,
+    },
+      data: {
+      
+       
+        endAt :  new Date(dateEdit),
+         
+        },
+   })
+
+
+
+
+
+};

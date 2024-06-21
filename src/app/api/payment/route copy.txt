@@ -16,10 +16,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
 const monthValue = parseInt(searchParams.get("month")!)
 
 if(monthValue != 3 && monthValue != 6 && monthValue != 12){
-  //return new Response(JSON.stringify("Error"));
+  return new Response(JSON.stringify("Error"));
 }
  
-/* let amount = "";
+let amount = "";
   switch (monthValue) {
     case 3:
       amount = "9850"
@@ -33,9 +33,8 @@ if(monthValue != 3 && monthValue != 6 && monthValue != 12){
   
     default:
       break;
-  } */
+  }
 
-      
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const numbers = '0123456789';
   const date = new Date(Date.now()).getTime();
@@ -49,12 +48,12 @@ if(monthValue != 3 && monthValue != 6 && monthValue != 12){
       numbersPart += numbers.charAt(Math.floor(Math.random() * numbers.length));
     }
 
-   const reference = `${searchParams.get("service") == "PaymentIA" ? "IA-" : ""}${lettersPart}-${numbersPart}-${date}`
+   const reference = `${lettersPart}-${numbersPart}-${date}`
   const payment = await prisma.payment.create({
     data: {
       reference:searchParams.get("reference") == "null" ? reference : searchParams.get("reference")! ,
-      type:  searchParams.get("type")?.toString().replaceAll("_"," ") ?? "",
-      month:searchParams.get("service") == "PaymentIA" ? 1 : parseInt(searchParams.get("month")!),
+      type: searchParams.get("type")?.toString().replaceAll("_"," ") ?? "",
+      month: parseInt(searchParams.get("month")!),
       amount: parseInt(searchParams.get("amount")!),
       currency: "FCFA",
      
@@ -63,123 +62,13 @@ if(monthValue != 3 && monthValue != 6 && monthValue != 12){
   });
 
 
-
-
-//searchParams.get("service") == "PaymentIA" ?    `${parseInt(searchParams.get("month")!)} - Crédit IA`    : 
-  
-
   let currentDate = Date.now();
   new Date(currentDate).toLocaleDateString()
   let dateEdit = new Date();
   dateEdit.setHours(0,0,0)
-
+  dateEdit.setMonth(dateEdit.getMonth() + monthValue)
  
-
-
-  const enterpriseGet = await prisma.enterprise.findFirst({
-    where: {
-      userId: searchParams.get("userId")!,
-    },
-    include:{
-      creditIA:true
-    }
-  
-  })
-
-  let currentAmount = enterpriseGet?.creditIA?.currentAmount ?? 0
-
-
-  if (searchParams.get("service") == "PaymentIA") {
-
-
-/*     const userFind = await prisma.user.findFirst({
-      where: {
-        id: searchParams.get("userId")!,
-      },
-      include:{
-        enterprise:true
-      }
-      
-    })
-    
- */
-
-    const creditIA = await prisma.creditIA.create({
-      data: {
-        currentAmount: parseInt(searchParams.get("month")!) + currentAmount,
-        amount: parseInt(searchParams.get("month")!) + currentAmount,
-        startAt: new Date(Date.now()).toISOString(),
-        endAt: new Date( dateEdit.setMonth(dateEdit.getMonth() + 1) ),
-        paymentId: payment.id,
-
-      },
-    });
-  
-    const user = await prisma.enterprise.update({
-      where: {
-        userId: searchParams.get("userId")!,
-      },
-       data: {
-           creditIAId : creditIA.id ,
-           
-         },
-    })
-    
-
-
-    return new Response(JSON.stringify(payment));
-  }
-  
-
-  dateEdit.setMonth(dateEdit.getMonth() +   monthValue)
-
-
-
-  
-
-
-  let iaAmount = 0;
-
-  switch (parseInt(searchParams.get("month")!)) {
-    case 3:
-      iaAmount = 25 + currentAmount ;
-      break;
-    case 6:
-      iaAmount = 60 + currentAmount;
-      break;
-    case 12:
-      iaAmount = 140 + currentAmount;
-      break;
-  
-    default:
-      break;
-  }
-
-
-
-  const creditIA = await prisma.creditIA.create({
-    data: {
-      currentAmount: iaAmount,
-      amount: iaAmount,
-      startAt: new Date(Date.now()).toISOString(),
-      endAt: new Date( dateEdit.setMonth(dateEdit.getMonth() + 1) ),
-      paymentId: payment.id,
-
-    },
-  });
-
-  const user2 = await prisma.enterprise.update({
-    where: {
-      userId: searchParams.get("userId")!,
-    },
-     data: {
-         creditIAId : creditIA.id ,
-         
-       },
-  })
-
-
-
+ 
 
   const subscribe = await prisma.subscribe.create({
     data: {
@@ -200,19 +89,6 @@ if(monthValue != 3 && monthValue != 6 && monthValue != 12){
          
        },
   })
-
-
-
-
-
-
-  
-
-
-
-
-
-
 
   return new Response(JSON.stringify(payment));
   return new Response(JSON.stringify("Payment GET"));
