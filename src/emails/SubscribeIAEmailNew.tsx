@@ -48,25 +48,30 @@ export const SubscribeIAEmailNew = ({
 
           <Section style={content}>
             <br />
-            <Text style={paragraph}>Cher(e) {username},</Text>
+           {/*  <Text style={paragraph}>Cher(e) {username},</Text> */}
+         <Text style={paragraph}>
+         <span style={{ fontWeight: "bold"  , fontSize:"30px" }}>Félicitations !</span>
+          </Text>   
+         <Text style={paragraph}>Madame, Monsieur,</Text>   
             <Text style={paragraph}>
-              Nous tenons à vous remercier pour votre confiance en notre
-              service. Vous avez souscrit avec succès à notre plan d'abonnement
-              de {subscribe.month} Mois le{" "}
-              {format(
-                new Date(subscribe.createdAt).toString(),
-                "dd/MM/yyyy HH:mm"
-              )}
-              . Votre numéro de référence de facture est :  <span style={{ fontWeight: "bold" }}>{subscribe.reference}</span> 
-              .
+             
+            Nous avons le plaisir de vous informer que votre souscription au pack de crédit IA a été validée avec succès. Vous bénéficiez désormais de notre solution avancée de génération de factures assistée par IA, conçue pour simplifier et optimiser vos processus de facturation.
+
             </Text>
             <Text style={paragraph}>
-              Voici un récapitulatif de votre abonnement :
+            Détails de votre souscription :
             </Text>
             <Text style={paragraph}>
-              <span style={{ fontWeight: "bold" , marginRight:"3px" }}>Plan d'abonnement :</span>
-              {subscribe.month} Mois
+
+            <span style={{ fontWeight: "bold" , marginRight:"3px" }}>Numéro de référence de la facture :</span>
+              {subscribe.reference}
               <br />
+
+
+              <span style={{ fontWeight: "bold" , marginRight:"3px" }}>Type de Plan d'Abonnement :</span>
+              {subscribe.amount == "1490" ? "Pack Hot" : subscribe.amount == "950" ? "Pack Semi" : "Pack Mini"}  
+              <br />
+            
               <span style={{ fontWeight: "bold" , marginRight:"3px" }}>Date de souscription :</span>
               {format(
                 new Date(subscribe.createdAt).toString(),
@@ -79,26 +84,22 @@ export const SubscribeIAEmailNew = ({
               {format(
                 new Date(subscribe.createdAt).setMonth(
                   new Date(subscribe.createdAt).getMonth() +
-                    parseInt(subscribe.month)
+                    1
                 ),
                 "dd/MM/yyyy"
               )}{" "}
               <br />
-              Votre abonnement est actif et vous donne accès à toutes les
-              fonctionnalités incluses dans le plan que vous avez choisi. Nous
-              espérons que vous tirerez le meilleur parti de notre service pour
-              atteindre vos objectifs professionnels.
+              <br />
+              Grâce à ce pack, vous pourrez accéder à des fonctionnalités IA avancées, vous permettant de créer des factures de manière plus rapide et efficace.
             </Text>
             <Text style={paragraph}>
-              Si vous avez des questions, des préoccupations ou besoin d'une
-              assistance quelconque, n'hésitez pas à nous contacter à
-              support@paymefinance.com ou en répondant à ce e-mail. Nous sommes
-              là pour vous aider.
+              
+            Pour toute question ou demande d'assistance, notre équipe est à votre disposition via l'adresse email : support@paymefinance.com.
+             
+             
             </Text>
             <Text style={paragraph}>
-              Encore une fois, merci de faire partie de notre communauté. Nous
-              sommes impatients de vous fournir un excellent service tout au
-              long de votre abonnement.
+            Nous vous remercions de votre confiance en Payme et espérons que cette nouvelle fonctionnalité vous apportera entière satisfaction.
             </Text>
             <Text style={paragraph}>Cordialement,</Text>
             <Text style={paragraph}>L'équipe Payme</Text>

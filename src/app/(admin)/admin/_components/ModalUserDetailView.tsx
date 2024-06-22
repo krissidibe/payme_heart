@@ -27,7 +27,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { fetchUser, updateSubscribe } from "../queries-actions/user.action";
+import { fetchUser, updateCreditIA, updateSubscribe } from "../queries-actions/user.action";
 import { ExportAsExcel, ExportAsPdf, ExportAsCsv, CopyToClipboard, CopyTextToClipboard, PrintDocument, ExcelToJsonConverter, FileUpload } from "react-export-table";
 
 import { countryFr } from "@/utils/countryFr";
@@ -310,7 +310,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                       {dataUser?.map((user: any, index: number) => (
                         <div
                           className={clsx(
-                            "flex flex-col justify-between w-full group cursor-pointer hover:brightness-105  text-sm gap-1 md:gap-4 p-6 py-4 border-b shadow-sm md:flex-row",
+                            "flex flex-col justify-between w-full group cursor-pointer hover:brightness-105 relative  text-sm gap-1 md:gap-4 p-6 py-4 border-b shadow-sm md:flex-row",
                             index % 2 != 0 ? "bg-[#131313]" : "bg-[#1e1e1ea2]", 
                             user.subscribe?.payment?.month == 3 ? "bg-green-300/30" : "",
                             user.subscribe?.payment?.month == 6 ? "bg-amber-300/30" : "",
@@ -320,11 +320,11 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
 
 { user.subscribe?.payment?.month == 0 && 
 
- <Dialog>
-  <DialogTrigger>
+ <Dialog >
+  <DialogTrigger className="absolute z-50 hidden cursor-pointer right-3 top-5 group-hover:block">
   <IoMdInformationCircleOutline
              
-             className="absolute z-50 hidden w-6 h-6 cursor-pointer right-3 top-5 group-hover:block "
+             className="w-6 h-6 "
            />
   </DialogTrigger>
 
@@ -371,6 +371,72 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
   </DialogContent>
  </Dialog>
  }
+
+
+
+
+
+
+
+
+
+{/* IA */}
+{ true && 
+
+<Dialog >
+ <DialogTrigger className="absolute z-50 hidden cursor-pointer -left-0 top-5 group-hover:block">
+ <IoMdInformationCircleOutline
+            
+            className="w-5 h-5 "
+          />
+ </DialogTrigger>
+
+ <DialogContent className="sm:max-w-[425px]">
+ <form 
+ 
+ onSubmit={ async (e)=>{
+   e.preventDefault()
+   const dataNew = await updateCreditIA(user.id);
+
+   if (dataNew.id != null) {
+
+     
+     toast("Modification efectuer avec succes ", {
+       description: user.email,
+       
+     })
+   }
+ }}
+ 
+ >
+ <p className="flex-1 flex flex-col min-w-[220px] text-sm">
+                          <span className="mt-1" > {user.name}</span>
+                          <span className="mt-1" > {user.email}</span>
+                          <span className="mt-1" >   {getCurrency(user.enterprise.currency)}{" "}</span>
+                          
+                         
+
+                         </p>
+
+                       <div className="flex justify-end w-full mt-2"> 
+                         
+                         <DialogClose>
+
+                           <Button className="self-end"  variant="default">Ajouter 25 Crédit IA</Button>
+                         </DialogClose>
+                            </div>
+ </form>
+ </DialogContent>
+</Dialog>
+}
+
+
+
+
+
+
+
+
                           <div className="flex flex-col flex-1 min-w-[220px]">
                             <p>{user.name} </p>
 

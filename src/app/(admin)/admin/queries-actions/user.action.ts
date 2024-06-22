@@ -183,3 +183,37 @@ export const updateSubscribe = async (userId:any) => {
 
 
 };
+
+
+export const updateCreditIA = async (userId:any) => {
+
+
+  let dateEdit = new Date();
+  dateEdit.setHours(600,0,0)
+
+
+ 
+  const creditIA = await prisma.creditIA.create({
+    data: {
+      currentAmount: 25,
+      amount: 25,
+      startAt: new Date(Date.now()).toISOString(),
+      endAt: new Date( dateEdit.setMonth(dateEdit.getMonth() + 1) ),
+      
+
+    },
+  });
+
+  return  await prisma.enterprise.update({
+    where: {
+      userId:  userId,
+    },
+     data: {
+         creditIAId : creditIA.id ,
+         
+       },
+  })
+  
+
+
+};

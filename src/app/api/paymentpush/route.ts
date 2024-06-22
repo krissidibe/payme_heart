@@ -41,13 +41,15 @@ export async function POST(request: NextRequest) {
 
 
 
+      
+
       const emailHtml = render(SubscribeIAEmailNew({username:user!.name.toString(),subscribe:paymentData}));
 
  
       const options = {
         from: 'Payme finance <support@paymefinance.com>',
         to: user!.email!.toString(),
-        subject: `En route vers l'élite professionnelle avec votre nouvel abonnement au credit IA - Payme ! 🤖`,
+        subject: `Confirmation de Votre Souscription au Pack de Crédit IA`,
         html: emailHtml,
       };
   
