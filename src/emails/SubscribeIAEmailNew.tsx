@@ -79,7 +79,7 @@ export const SubscribeIAEmailNew = ({
               )}{" "}
               <br />
               <span style={{ fontWeight: "bold" , marginRight:"3px" }}>
-                Date d'expiration de l'abonnement :
+                Date d'expiration :
               </span>
               {format(
                 new Date(subscribe.createdAt).setMonth(

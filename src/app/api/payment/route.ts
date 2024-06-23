@@ -86,7 +86,8 @@ if(monthValue != 3 && monthValue != 6 && monthValue != 12){
   
   })
 
-  let currentAmount = enterpriseGet?.creditIA?.currentAmount ?? 0
+ // let currentAmount = enterpriseGet?.creditIA?.currentAmount ?? 0
+  let currentAmount =  0
 
 
   if (searchParams.get("service") == "PaymentIA") {
@@ -142,13 +143,13 @@ if(monthValue != 3 && monthValue != 6 && monthValue != 12){
 
   switch (parseInt(searchParams.get("month")!)) {
     case 3:
-      iaAmount = 25 + currentAmount ;
+      iaAmount = 10 + currentAmount ;
       break;
     case 6:
-      iaAmount = 60 + currentAmount;
+      iaAmount = 25 + currentAmount;
       break;
     case 12:
-      iaAmount = 140 + currentAmount;
+      iaAmount = 60 + currentAmount;
       break;
   
     default:

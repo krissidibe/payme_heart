@@ -422,7 +422,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                          
                          <DialogClose>
 
-                           <Button className="self-end"  variant="default">Ajouter 25 Crédit IA</Button>
+                           <Button className="self-end"  variant="default">Ajouter 10 Crédit IA</Button>
                          </DialogClose>
                             </div>
  </form>

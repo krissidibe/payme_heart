@@ -67,6 +67,38 @@ export async function POST(req:NextRequest,res:NextResponse) {
           },
      })
 
+
+  let dateEditIA = new Date();
+  dateEditIA.setHours(720,0,0)
+
+
+ 
+  const creditIA = await prisma.creditIA.create({
+    data: {
+      currentAmount: 10,
+      amount: 10,
+      startAt: new Date(Date.now()).toISOString(),
+      endAt: new Date( dateEditIA.setMonth(dateEditIA.getMonth() + 1) ),
+      
+
+    },
+  });
+
+
+
+
+ const addIANewUser = await prisma.enterprise.update({
+    where: {
+      id:  enterprise.id!,
+    },
+     data: {
+         creditIAId : creditIA.id ,
+         
+       },
+  })
+  
+
+
  
   return new Response(JSON.stringify(enterprise));
  

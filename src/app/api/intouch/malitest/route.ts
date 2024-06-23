@@ -30,20 +30,20 @@ const monthValue = parseInt(dataPayment.month.toString()!)
 
   if (dataPayment.service) {
 
-    if(monthValue != 50 && monthValue != 120 && monthValue != 260){
+    if(monthValue != 25 && monthValue != 55 && monthValue != 120){
       return new Response(JSON.stringify("Error"));
     }
    
 
     switch (monthValue) {
-      case 50:
+      case 25:
         amount = "490"
         break;
-      case 120:
+      case 55:
         amount = "950"
         break;
-      case 260:
-        amount = "260"
+      case 120:
+        amount = "1490"
         break;
     
       default:
@@ -962,6 +962,16 @@ const monthValue = parseInt(dataPayment.month.toString()!)
 
   if (dataPayment.country == "Togo") {
     
+
+        return new Response(
+      JSON.stringify({
+        status: 401,
+        message: `Error`,
+      }),
+      {
+        status: 401,
+      }
+    );
 
     const body = {
       idFromClient: reference,

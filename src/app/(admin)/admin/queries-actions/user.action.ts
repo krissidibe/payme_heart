@@ -189,14 +189,14 @@ export const updateCreditIA = async (userId:any) => {
 
 
   let dateEdit = new Date();
-  dateEdit.setHours(600,0,0)
+  dateEdit.setHours(720,0,0)
 
 
  
   const creditIA = await prisma.creditIA.create({
     data: {
-      currentAmount: 25,
-      amount: 25,
+      currentAmount: 10,
+      amount: 10,
       startAt: new Date(Date.now()).toISOString(),
       endAt: new Date( dateEdit.setMonth(dateEdit.getMonth() + 1) ),
       

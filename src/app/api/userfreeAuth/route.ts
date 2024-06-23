@@ -96,8 +96,8 @@ if(!userIdeleted){
 
   const payment = await prisma.payment.create({
     data: {
-      reference:"Periode d'essai",
-      type: "Gratuit (25 jours)",
+      reference:"Période d'essai (25 jours)",
+      type: "Système",
       month: 0,
       amount: 0,
       currency: "FCFA",
