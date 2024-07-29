@@ -67,14 +67,18 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
   const [endAt, setEndAt] = useState<string>(`${new Date(Date.now()).getFullYear()}-${(parseInt(new Date(Date.now()).getMonth().toString()) + 1 ).toString().padStart(2,"0")}-${new Date(Date.now()).getDate().toString().padStart(2,"0")}`);
 
   function getCurrency(currency: string): React.ReactNode {
+
+    if(currency == undefined){
+      return "";
+    }
     const datasFilter = countryFr.filter((item) =>
-      item.Phone.toString()
+      item.Phone?.toString()
         .toLowerCase()
         .includes(currency.toString().replaceAll('"', ""))
     );
     console.log(currency.toString().replaceAll('"', ""));
 
-    return datasFilter[0].Name;
+    return datasFilter[0].Name ?? "";
   }
 
   function calculeTotal(data: any): number {
@@ -153,7 +157,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                               <SelectItem value={" "}>Tous</SelectItem>
                               {country.map((item) => (
                                 <SelectItem value={item.Phone.toString()}>
-                                  {item.Name}
+                                  {item?.Name ?? ""}
                                 </SelectItem>
                               ))}
                             </SelectGroup>
@@ -194,6 +198,24 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                             
                           
                               <ExportAsExcelBtn data={dataUser.map((user: any) => {
+
+                                if (user?.enterprise == undefined || user?.enterprise.id == undefined) {
+                                  
+                                  return {
+                                    "Date d'inscription":
+                                     
+                                     "",
+                                    "Nom et prénom":
+                                      user?.name ,
+                                    Pays: "",
+                                    Structure: "",
+                                    Secteur: "",
+                                    "Adresse e-mail": user?.email,
+                                    Contact: "",
+                                    Abonnée:  user.subscribe?.payment?.month != 0 ? `${user.subscribe?.payment?.month} mois` : "Non abonnée",
+                                    projet:  ""
+                                  };
+                                }
                                 return {
                                   "Date d'inscription":
                                    
@@ -201,17 +223,17 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                                       .format("DD/MM/YYYY")
                                       .replace("T", " "),
                                   "Nom et prénom":
-                                    user.name ,
-                                  Pays: getCurrency(user.enterprise.currency),
-                                  Structure: user.enterprise.name,
-                                  Secteur: user.enterprise.activity,
-                                  "Adresse e-mail": user.email,
+                                    user?.name ,
+                                  Pays: getCurrency(user.enterprise?.currency),
+                                  Structure: user.enterprise?.name,
+                                  Secteur: user.enterprise?.activity,
+                                  "Adresse e-mail": user?.email,
                                   Contact: `${
                                     JSON.parse(user.enterprise?.numbers)[0]
-                                      .indicatif
+                                      ?.indicatif ?? ""
                                   } ${
                                     JSON.parse(user.enterprise?.numbers)[0]
-                                      .number
+                                      ?.number  ?? ""
                                   } ${
                                     JSON.parse(user.enterprise?.numbers)[1]
                                       ?.indicatif.length > 0
@@ -227,7 +249,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                                       : ""
                                   }`,
                                   Abonnée:  user.subscribe?.payment?.month != 0 ? `${user.subscribe?.payment?.month} mois` : "Non abonnée",
-                                  projet:user.enterprise?.factureNumber
+                                  projet:user.enterprise?.factureNumber ?? ""
                                 };
                               })} />
                           
@@ -246,14 +268,14 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                               const arrayCsv = dataUser.map((user: any) => {
                                 return {
                                   "Nom et prénom":
-                                    user.name +
+                                    user?.name +
                                     " - " +
                                     dayjs(`${user.createdAt}`)
                                       .format("DD/MM/YYYYTHH:mm")
                                       .replace("T", " "),
-                                  Pays: getCurrency(user.enterprise.currency),
-                                  Structure: user.enterprise.name,
-                                  Secteur: user.enterprise.activity,
+                                  Pays: getCurrency(user.enterprise?.currency),
+                                  Structure: user.enterprise?.name,
+                                  Secteur: user.enterprise?.activity,
                                   "Adresse e-mail": user.email,
                                   Contact: `${
                                     JSON.parse(user.enterprise?.numbers)[0]
@@ -347,12 +369,12 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
   
   >
   <p className="flex-1 flex flex-col min-w-[220px] text-sm">
-                           <span className="mt-1" > {user.name}</span>
-                           <span className="mt-1" > {user.email}</span>
-                           <span className="mt-1" >   {getCurrency(user.enterprise.currency)}{" "}</span>
+                           <span className="mt-1" > {user?.name}</span>
+                           <span className="mt-1" > {user?.email}</span>
+                           <span className="mt-1" >   {getCurrency(user.enterprise?.currency)}{" "}</span>
                            
                            <Separator className="my-4"/>
-                           <span> {user.enterprise.name}</span>
+                           <span> {user.enterprise?.name}</span>
                            <span> Fin d'abonnement :  {dayjs(`${user.subscribe?.endAt}`)
                                 .format("DD/MM/YYYY")
                                 .replace("T", " ")} </span>
@@ -410,9 +432,9 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
  
  >
  <p className="flex-1 flex flex-col min-w-[220px] text-sm">
-                          <span className="mt-1" > {user.name}</span>
-                          <span className="mt-1" > {user.email}</span>
-                          <span className="mt-1" >   {getCurrency(user.enterprise.currency)}{" "}</span>
+                          <span className="mt-1" > {user?.name}</span>
+                          <span className="mt-1" > {user?.email}</span>
+                          <span className="mt-1" >   {getCurrency(user.enterprise?.currency)}{" "}</span>
                           
                          
 
@@ -438,7 +460,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
 
 
                           <div className="flex flex-col flex-1 min-w-[220px]">
-                            <p>{user.name} </p>
+                            <p>{user?.name} </p>
 
                             <span className="opacity-50">
                               {dayjs(`${user.createdAt}`)
@@ -447,22 +469,22 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                             </span>
                           </div>
                           <p className="flex-1 min-w-[220px]">
-                            {getCurrency(user.enterprise.currency)}{" "}
+                            {getCurrency(user.enterprise?.currency)}{" "}
 
                             
                           </p>
                           <p className="flex-1 flex flex-col min-w-[220px]">
-                           <span> {user.enterprise.name}</span>
-                           <span> {user.enterprise.factureNumber}</span>
+                           <span> {user.enterprise?.name}</span>
+                           <span> {user.enterprise?.factureNumber}</span>
                           </p>
                           <p className="flex-1 md:flex hidden min-w-[220px]">
-                            {user.enterprise.activity}
+                            {user.enterprise?.activity}
                            
                           </p>
                           <p className="flex-1 md:flex   min-w-[220px]">
                             {user.email}
                           </p>
-                          <p className="flex-1 md:flex hidden min-w-[220px]">{`${
+                       {  user.enterprise?.numbers &&  <p className="flex-1 md:flex hidden min-w-[220px]">{`${
                             JSON.parse(user.enterprise?.numbers)[0].indicatif
                           } ${JSON.parse(user.enterprise?.numbers)[0].number} ${
                             JSON.parse(user.enterprise?.numbers)[1]?.indicatif
@@ -475,7 +497,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                                     ?.number
                                 }`
                               : ""
-                          }`}</p>
+                          }`}</p>}
                         </div>
 
                         /*  <div className="flex w-full p-6 border-b shadow-sm">
@@ -514,7 +536,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                             <p>{payment.user?.name} </p>
                             <p>{payment.user?.email}</p>
                             <p>
-                              {getCurrency(payment.user?.enterprise.currency)}{" "}
+                              {getCurrency(payment.user?.enterprise?.currency)}{" "}
                               <span className="opacity-50">
                                 -{" "}
                                 {dayjs(`${payment.user?.createdAt}`)
@@ -527,7 +549,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                           <div className="flex flex-col w-1/3">
                             <p>{payment.user?.enterprise.name}</p>
 
-                            <p>
+                            { payment.user?.enterprise?.numbers &&   <p>
                               Numeros :{" "}
                               {`${
                                 JSON.parse(payment.user?.enterprise?.numbers)[0]
@@ -549,8 +571,8 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                                     }`
                                   : ""
                               }`}
-                            </p>
-                            <p>Secteur : {payment.user?.enterprise.activity}</p>
+                            </p>}
+                            <p>Secteur : {payment.user?.enterprise?.activity}</p>
                           </div>
                           <div className="flex flex-col w-[300px]   ">
                             <p>{payment.reference}</p>

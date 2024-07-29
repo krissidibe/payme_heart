@@ -78,7 +78,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
       currentAmount: 10,
       amount: 10,
       startAt: new Date(Date.now()).toISOString(),
-      endAt: new Date( dateEditIA.setMonth(dateEditIA.getMonth() + 1) ),
+      endAt: new Date( dateEditIA.setMonth(dateEditIA.getMonth() ) ),
       
 
     },
