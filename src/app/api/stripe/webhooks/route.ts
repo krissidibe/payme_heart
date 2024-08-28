@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     event = stripe.webhooks.constructEvent(
       bodyCome,
       signature,
-      "whsec_a222ce91527517953dfcfe381bdd06e33f60f001a9d0f5d7a650e7228d686d11"
+      ""
     )
   } catch (error) {
     
