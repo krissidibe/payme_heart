@@ -10,6 +10,12 @@ import { useRouter } from 'next/navigation'
 function MobileMenu() {
     const [isOpen, setIsOpen] = useState(false)
     const router = useRouter()
+    
+/*     if (window.localStorage.getItem("appversion") == "true") {
+     router.push(`${process.env.APP_WEP_URL}`)
+
+      
+    } */
   return (
 
 
@@ -50,14 +56,14 @@ function MobileMenu() {
      <a  href={`mailto:contact@paymefinance.com?subject=${"object"}&body=${"message"}`}  className="cursor-pointer hover:text-white">Contactez-nous</a>
    </div>
 
-   <div onClick={()=>{
+ {/*   <div onClick={()=>{
 
     window.localStorage.setItem("appversion","true")
     router.push(`${process.env.APP_WEP_URL}`)
    }}   className="w-[180px] border cursor-pointer hover:border-[#999A5B] hover:text-white flex justify-center   h-[45px] rounded-md items-center border-white/40 ">
    <p className="mr-2"> Se connecter</p> <User className="h-4 w-fit" />
 
-   </div>
+   </div> */}
  </div>
  </div>
    

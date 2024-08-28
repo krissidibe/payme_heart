@@ -30,6 +30,10 @@ async function page() {
   const numberOfViews = await numberOfViewsRequest.json();
   const numberOfViewsDownload = await numberOfViewsDownloadRequest.json();
 
+
+
+  
+
   return (
     <div className="flex flex-col flex-1 h-full pt-10">
       <h1 className="text-5xl">Tableau de bord</h1>

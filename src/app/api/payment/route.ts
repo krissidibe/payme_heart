@@ -55,13 +55,15 @@ if(monthValue != 3 && monthValue != 6 && monthValue != 12){
       reference:searchParams.get("reference") == "null" ? reference : searchParams.get("reference")! ,
       type:  searchParams.get("type")?.toString().replaceAll("_"," ") ?? "",
       month:searchParams.get("service") == "PaymentIA" ? 1 : parseInt(searchParams.get("month")!),
-      amount: parseInt(searchParams.get("amount")!),
-      currency: "FCFA",
+    //  amount:searchParams.get("currency") ? parseFloat(parseFloat(searchParams.get("amount")!).toFixed(2)): parseInt(searchParams.get("amount")!),
+      amount: Number(searchParams.get("amount")),
+      currency: searchParams.get("currency") ?? "FCFA",
      
       userId: searchParams.get("userId")!,
     },
   });
 
+ 
 
 
 
@@ -105,12 +107,23 @@ if(monthValue != 3 && monthValue != 6 && monthValue != 12){
     
  */
 
+
+
+
+  let dateEditIA = new Date();
+  dateEditIA.setHours(0,0,0)
+
+
+  dateEditIA.setMonth(dateEditIA.getMonth() +   1)
+
+
+
     const creditIA = await prisma.creditIA.create({
       data: {
         currentAmount: parseInt(searchParams.get("month")!) + currentAmount,
         amount: parseInt(searchParams.get("month")!) + currentAmount,
         startAt: new Date(Date.now()).toISOString(),
-        endAt: new Date( dateEdit.setMonth(dateEdit.getMonth() + 1) ),
+        endAt: new Date(  dateEditIA ),
         paymentId: payment.id,
 
       },
@@ -158,12 +171,21 @@ if(monthValue != 3 && monthValue != 6 && monthValue != 12){
 
 
 
+  let dateEditIA = new Date();
+  dateEditIA.setHours(0,0,0)
+
+
+  dateEditIA.setMonth(dateEditIA.getMonth() +   1)
+
+
+
+
   const creditIA = await prisma.creditIA.create({
     data: {
       currentAmount: iaAmount,
       amount: iaAmount,
       startAt: new Date(Date.now()).toISOString(),
-      endAt: new Date( dateEdit.setMonth(dateEdit.getMonth() + 1) ),
+      endAt: new Date( dateEditIA ),
       paymentId: payment.id,
 
     },
@@ -181,11 +203,17 @@ if(monthValue != 3 && monthValue != 6 && monthValue != 12){
 
 
 
+  let dateEditMonth = new Date();
+  dateEditMonth.setHours(0,0,0)
+
+
+  dateEditMonth.setMonth(dateEditMonth.getMonth() +   monthValue)
+
 
   const subscribe = await prisma.subscribe.create({
     data: {
       startAt: new Date(Date.now()).toISOString(),
-      endAt: new Date(dateEdit ),
+      endAt: new Date(dateEditMonth ),
 
      
       paymentId: payment.id,

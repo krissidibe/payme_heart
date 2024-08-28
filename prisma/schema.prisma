@@ -59,6 +59,7 @@ model User {
   emailVerified    Boolean       @default(false)
   role             UserRole      @default(USER)
   inTrash          Boolean?      @default(false)
+  stripeCustomerId            String?        
   accounts         Account[]
   customers        Customers[]
   enterprise       Enterprise?
@@ -256,7 +257,7 @@ model Payment {
   reference        String  @default(cuid())
   type        String
   month        Int
-  amount        Int
+  amount        Decimal
   currency        String
   createdAt   DateTime     @default(now()) @db.Timestamp(0)
   updatedAt   DateTime?    @default(now()) @db.Timestamp(0)

@@ -87,7 +87,9 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
     }
     let total = 0;
     data.map((item: any) => {
-      total = total + item.amount;
+      const stripeValue =  item.type == "Stripe" ? 669.60 : 1 
+      let dataItem = item.amount * stripeValue ;
+      total = total + dataItem ;
     });
     return total;
   }
@@ -313,7 +315,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                   <div className="w-full h-full overflow-scroll no-scrollbar ">
                     <div className="flex flex-col w-full gap-2 px-6 pb-4">
                       {dataPayment != null && (
-                        <p> Total : {calculeTotal(dataPayment)}</p>
+                        <p> Total : {parseFloat(calculeTotal(dataPayment).toString()).toFixed(2)}</p>
                       )}
                       {/* ItemRow */}
 
@@ -586,7 +588,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                               </span>
                             </p>
 
-                            <p>{payment.amount} - Fcfa</p>
+                            <p>{payment.amount} -  {payment.type == "Stripe" ? "EURO" : "Fcfa" } </p>
                           </div>
                         </div>
                       ))}

@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
   
     const data =  await transporter.sendMail(options);
   
-    console.log(data);
+
     
    
 

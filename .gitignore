@@ -10,3 +10,6 @@ public/files
 
 /public/images/invoices/
 public/images/invoices/
+
+src/app/api/protected/chatai
+/src/app/api/protected/chatai

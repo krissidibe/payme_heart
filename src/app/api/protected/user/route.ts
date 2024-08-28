@@ -91,6 +91,28 @@ export async function POST(req:NextRequest,res:NextResponse) {
 export async function PATCH(req:NextRequest,res:NextResponse) {
   const { searchParams } = new URL(req.url);
 
+
+
+  if (searchParams.get("stripeCustomerId") != null) {
+    
+    const  userData:any = await req.json();
+ 
+ 
+    const enterprise = await prisma.user.update({
+      where: {
+        id: searchParams.get("userId")!,
+      },
+       data: {
+        stripeCustomerId : userData.stripeCustomerId, 
+         },
+    })
+
+   
+    
+
+ return new Response(JSON.stringify(enterprise));
+   }
+
   if (searchParams.get("newPassword") != null) {
     
     const  userData:any = await req.json();

@@ -95,7 +95,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       (
         (parseFloat(totalHtCalcule) *
           parseFloat(
-            dataNew.project.discount == "" ? 0 : dataNew.project.discount.replace(",",".")
+            dataNew.project.discount == "" ? 0 : dataNew.project.discount
           )) /
         100
       ).toString()
@@ -130,12 +130,12 @@ export async function POST(req: NextRequest, res: NextResponse) {
     const totalTva = parseFloat(
       (
         ((parseFloat(totalHtCalcule) - parseFloat(totalDiscount.toString())) *
-          parseFloat(dataNew.project.tva == "" ? 0 : dataNew.project.tva.replace(",","."))) /
+          parseFloat(dataNew.project.tva == "" ? 0 : dataNew.project.tva)) /
         100
       ).toString()
     );
 
- 
+console.log(totalTva);
 
  
     
@@ -145,14 +145,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
       (
         (total *
           parseFloat(
-            dataNew.project.modalite == "" ? 0 : dataNew.project.modalite.replace(",",".")
+            dataNew.project.modalite == "" ? 0 : dataNew.project.modalite
           )) /
         100
       ).toString()
     );
-
-    
-
     const totalReliquat = parseFloat((total - totalAccount).toString());
 
 /*     const totalLetter = toWords
