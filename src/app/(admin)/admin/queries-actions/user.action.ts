@@ -198,7 +198,7 @@ export const updateCreditIA = async (userId:any) => {
       currentAmount: 10,
       amount: 10,
       startAt: new Date(Date.now()).toISOString(),
-      endAt: new Date( dateEdit.setMonth(dateEdit.getMonth() ) ),
+      endAt: new Date( dateEdit.setMonth(dateEdit.getMonth()) ),
       
 
     },
