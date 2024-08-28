@@ -13,3 +13,8 @@ public/images/invoices/
 
 src/app/api/protected/chatai
 /src/app/api/protected/chatai
+
+
+
+lib/stripe.ts
+/lib/stripe.ts
