@@ -265,6 +265,38 @@ export async function PATCH(req: NextRequest, res: NextResponse) {
   
 
 
+
+
+    if (searchParams.get("table") !=null && searchParams.get("convertMultiplier") !=null) {
+
+      
+      const project = await prisma.project.update({
+         where:{
+            id : searchParams.get("projectId")!,
+         },
+           data: {
+           
+            
+             table : searchParams.get("table")!,
+             amountTotal :  searchParams.get("amountTotalConvert")!,
+             amountTotalConvert :  searchParams.get("amountTotalConvert")!,
+             convertCurrency : Number(searchParams.get("convertMultiplier")!) == -100 ? null : searchParams.get("convertCurrency")!,
+             convertMultiplier : Number(searchParams.get("convertMultiplier")!) ==-100 ? null :  Number(searchParams.get("convertMultiplier")!),
+             
+              
+             },
+        })
+   
+        
+  
+         return new Response(JSON.stringify(project));
+     }
+
+
+
+
+
+
   if (searchParams.get("projectId") !=null && searchParams.get("proformaDate") !=null) {
 
       
@@ -431,11 +463,7 @@ if (searchParams.get("save") != null) {
 
   
 
-  console.log("enterpriseUpdate====");
-console.log(enterpriseUpdate);
-  console.log("projetFind====");
-console.log(projetFind);
-  
+ 
    
 
   const project = await prisma.project.update({

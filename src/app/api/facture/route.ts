@@ -287,7 +287,7 @@ const totalLetterConv = total.toFixed(2).toString().replace(",00", "")
       signature: signature,
       invoiceTypeName: invoiceTypeName,
       invoiceType: dataNew.invoiceType,
-      currency: datasFilter[0].Currency,
+      currency: dataNew.project.convertCurrency ?? datasFilter[0].Currency,
       totalAccount: parseFloat(totalAccount.toString()).toFixed(2).replace(".", ",").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, "#").replace(".", ",").replaceAll("#", ".").replace(",00", "")
          ,
         

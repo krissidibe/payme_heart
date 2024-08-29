@@ -14,6 +14,7 @@ import FaqItem from "./FaqItem";
 import ip3country from "ip3country";
 import DesktopBtn from "./DesktopBtn";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import DesktopBtnOne from "./DesktopBtnOne";
  
 const titleFont = localFont({
   src: [
@@ -146,7 +147,9 @@ export default async function Home() {
         </div>
       </div>
        <div className="absolute hidden -top-1 downloadApp -left-4 md:flex"></div> 
-    <DesktopBtn />
+    <DesktopBtn /> 
+   {/*  <DesktopBtnOne /> */}
+   
        </div>
       </div>
 

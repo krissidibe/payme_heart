@@ -15,6 +15,10 @@ src/app/api/protected/chatai
 /src/app/api/protected/chatai
 
 
+src/app/api/protected/convert
+/src/app/api/protected/convert
+
+
 
 lib/stripe.ts
 /lib/stripe.ts

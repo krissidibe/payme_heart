@@ -143,6 +143,11 @@ model Project {
   discountItemTable String?     @db.LongText
   table             String?     @db.LongText
   amountTotal       String?     @default("0")
+  //Convert
+  amountTotalConvert       String?     
+  convertCurrency       String?     
+  convertMultiplier       Decimal?     
+  //Convert
   tva               String?     @default("")
   inTrash           Boolean?    @default(false)
   createdAt         DateTime?   @db.Timestamp(0)
