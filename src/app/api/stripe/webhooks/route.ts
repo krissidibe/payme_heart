@@ -11,30 +11,12 @@ import SubscribeEmailNew from "@/emails/SubscribeEmailNew";
 import SubscribeIAEmailNew from "@/emails/SubscribeIAEmailNew";
 import { stripe } from "../../../../../lib/stripe";
 export async function POST(req: NextRequest) {
-  //const body = (await req.json()) as Stripe.Event;
+  const body = (await req.json()) as Stripe.Event;
 
-  const bodyCome = await req.text()
-
-  const signature = headers().get("Stripe-Signature") as string;
-
-  let event: Stripe.Event;
-
-  try {
-    
-    event = stripe.webhooks.constructEvent(
-      bodyCome,
-      signature,
-      ""
-    )
-  } catch (error) {
-    
-    return new NextResponse(`Webhook Error: ${error}`);
-  }
-
-
-  switch (event.type) {
+ 
+  switch (body.type) {
     case "checkout.session.completed":
-      const session = event.data.object as Stripe.Checkout.Session;
+      const session = body.data.object as Stripe.Checkout.Session;
       const stripeCustomerId = session.customer;
     //  console.log("Completed => ", session);
       // console.log("stripeCustomerId => " , session.customer);

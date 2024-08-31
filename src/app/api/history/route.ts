@@ -27,6 +27,7 @@ export async function POST(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const startAt = searchParams.get("startAt");
   const endAt = searchParams.get("endAt");
+  const currency = searchParams.get("currency");
   const dataNew = await req.json();
   /*   console.log(dataNew.dataTable);
  console.log(startAt);
@@ -78,11 +79,13 @@ export async function POST(req: NextRequest) {
     const logo = `https://paymefinance.com/images/logo-payme-complet.png`;
     //const logo =`${process.env.BASE_API_URL}/files/logo-payme-complet.png`
 
-    const datasFilter = country.filter(
-      (item) =>
-        item.Phone.toString().toLowerCase() ==
-        dataNew.enterprise.currency.replaceAll('"', "")
-    );
+
+  
+    
+    const datasFilter =  currency
+    console.log("1",datasFilter);
+    console.log("2", dataNew);
+    console.log("2", dataNew.currency);
 
     dataTable.forEach((i) => (i.createdAt = daysFr(i.createdAt)));
     dataTable.forEach(
@@ -102,7 +105,7 @@ export async function POST(req: NextRequest) {
       dataTable: JSON.parse(JSON.stringify(dataTable[0])),
       totalTTC:  sumWithInitial,
       totalTva:  sumWithInitialTva,
-      currency: datasFilter[0].Currency,
+      currency: dataNew.currency,
     });
 
     // Navigate the page to a URL

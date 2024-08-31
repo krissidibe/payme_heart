@@ -46,6 +46,11 @@
   resolved "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.16.4.tgz"
   integrity sha512-a28X1O//aOfxwJVZVs7ZfM8Tyih2Za4nKJrBwW5Wm4yKsnwBy9aiS/xwpxiiTRttw3EaTg4Srerhcm6z0bu9Wg==
 
+"@everapi/currencyapi-js@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/@everapi/currencyapi-js/-/currencyapi-js-1.0.6.tgz"
+  integrity sha512-CJcsHpHepOT/FB8tNqXeryhv2AgDd8DvZUkBkdrTB2SvVJDtFt8b1KFaJpGbOvwK1mp9jgHqcSgwEb9NlrUMxg==
+
 "@floating-ui/core@^1.0.0":
   version "1.6.0"
   resolved "https://registry.npmjs.org/@floating-ui/core/-/core-1.6.0.tgz"
@@ -1524,6 +1529,13 @@
   version "2.4.4"
   resolved "https://registry.npmjs.org/@types/normalize-package-data/-/normalize-package-data-2.4.4.tgz"
   integrity sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==
+
+"@types/npm@^7.19.3":
+  version "7.19.3"
+  resolved "https://registry.npmjs.org/@types/npm/-/npm-7.19.3.tgz"
+  integrity sha512-1fiJlMN0iDs42kFJZJX88SVUppp5zNQik0JVnI3mw28+vssBAz3TAvmhrPpupj1rBESV6bGYjEny30fu4Kst9g==
+  dependencies:
+    "@types/node" "*"
 
 "@types/prop-types@*":
   version "15.7.11"

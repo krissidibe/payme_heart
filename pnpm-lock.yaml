@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@everapi/currencyapi-js':
+    specifier: ^1.0.6
+    version: 1.0.6
   '@hookform/resolvers':
     specifier: ^3.3.3
     version: 3.3.3(react-hook-form@7.49.2)
@@ -513,6 +516,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@everapi/currencyapi-js@1.0.6:
+    resolution: {integrity: sha512-CJcsHpHepOT/FB8tNqXeryhv2AgDd8DvZUkBkdrTB2SvVJDtFt8b1KFaJpGbOvwK1mp9jgHqcSgwEb9NlrUMxg==}
+    dev: false
 
   /@floating-ui/core@1.5.2:
     resolution: {integrity: sha512-Ii3MrfY/GAIN3OhXNzpCKaLxHQfJF9qvwq/kEJYdqDxeIHa01K8sldugal6TmeeXl+WMvhv9cnVzUTaFFJF09A==}

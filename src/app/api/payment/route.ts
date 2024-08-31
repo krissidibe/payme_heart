@@ -2,6 +2,29 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
 import { FolderType } from "@prisma/client";
 
+
+
+
+
+const compareDates = (  d2:any) => {
+
+  let date1 = new Date(Date.now());
+  let date2 = new Date(d2);
+
+  
+ /*  const dateNow = `${date1.getDay()}-${date1.getMonth()}-${date1.getFullYear()}`
+  const dateCurrency = `${date2.getDay()}-${date2.getMonth()}-${date2.getFullYear()}`
+ 
+   */
+  if (date1 >= date2) {
+    return true
+  }  else {
+    return false
+  }
+};
+
+
+
 export async function POST(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
 
@@ -88,8 +111,8 @@ if(monthValue != 3 && monthValue != 6 && monthValue != 12){
   
   })
 
- // let currentAmount = enterpriseGet?.creditIA?.currentAmount ?? 0
-  let currentAmount =  0
+  let currentAmount = enterpriseGet?.creditIA?.currentAmount ?? 0
+ currentAmount = compareDates(enterpriseGet?.creditIA?.endAt) ?  0 : currentAmount
 
 
   if (searchParams.get("service") == "PaymentIA") {

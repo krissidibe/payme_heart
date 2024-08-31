@@ -408,6 +408,18 @@ model userDeleted {
  
 
 
+  model convertCurrency {
+  id          String       @id @default(cuid())
+  from        String
+  to        String
+  value Decimal
+  createdAt   DateTime?    @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+    
+}
+
+
+
  
 
 
