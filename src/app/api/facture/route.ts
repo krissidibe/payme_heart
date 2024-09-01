@@ -219,8 +219,8 @@ const totalLetterConv = total.toFixed(2).toString().replace(",00", "")
 
     const datasFilter = country.filter((item) =>
       item.Phone.toString()
-        .toLowerCase()
-        .includes(dataNew.enterprise.currency.toString().replaceAll('"', ""))
+        .toLowerCase() == dataNew.enterprise.currency.toString().replaceAll('"', "")
+
     );
 
     const dataText = dayjs(

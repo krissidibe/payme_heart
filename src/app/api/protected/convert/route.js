@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
 import { CustomerType, ProjectType } from "@prisma/client";  
-import currencyapi from '@everapi/currencyapi-js'
+import CurrencyAPI from '@everapi/currencyapi-js';
 
 
 
@@ -9,10 +9,10 @@ import currencyapi from '@everapi/currencyapi-js'
 
 
 
-async function GetCurrency( devise:  string | undefined,newDevise: string | undefined) {
-  const apiKey = "cur_live_lFlSWsBucGgCQx1Tfkv79BDSXZ2kq01YYicptjgF";
+async function GetCurrency( devise,newDevise) {
+  const apiKey = "cur_live_4ukjJMm6sfXScOuehoM5CxDSq78jnZICNiM2Xz57";
 
-  const client = new currencyapi(apiKey);
+  const client = new CurrencyAPI(apiKey);
    const valueNew = await client.latest({
     base_currency: devise,
     currencies: newDevise
@@ -25,7 +25,7 @@ async function GetCurrency( devise:  string | undefined,newDevise: string | unde
 }
  
 
-const compareDates = (d1:any, d2:any) => {
+const compareDates = (d1, d2) => {
 
   let date1 = new Date(Date.now());
   let date2 = new Date(d2);
@@ -42,7 +42,7 @@ const compareDates = (d1:any, d2:any) => {
   }
 };
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req, res) {
   const { searchParams } = new URL(req.url);
   const devise = searchParams.get("devise")?.toString()
   const newDevise = searchParams.get("newDevise")?.toString()

@@ -109,9 +109,9 @@ function MobileMenu() {
             Contactez-nous
           </a>
         </div>
-<div className="flex hidden gap-4">
+<div className="flex gap-4">
 
-{/* <div onClick={()=>{
+  <div onClick={()=>{
 
 window.localStorage.setItem("appversion","true")
 router.push(`${process.env.APP_WEP_URL}`)
@@ -119,7 +119,7 @@ router.push(`${process.env.APP_WEP_URL}`)
 <p className="mr-2"> Se connecter</p> 
 <ArrowRight  strokeWidth={4} className="h-4 w-fit" />
 
-</div>  */}
+</div>  
 {/* <a
           href="#index"
           onClick={() => {}}

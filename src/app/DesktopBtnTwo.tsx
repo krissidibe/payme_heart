@@ -22,7 +22,7 @@ function DesktopBtnTwo() {
             
          }}   className="relative hidden md:flex">
       
-      <a ref={windowsLinkRef}  href='/PaymeSetupWin-1.0.0.zip' target="_blank" ></a>
+      <a ref={windowsLinkRef}  href='/PaymeSetupWin-2.0.0.zip' target="_blank" ></a>
       <a   onClick={async (e)=>{
        e.preventDefault()
        windowsLinkRef.current.click()
@@ -70,7 +70,7 @@ function DesktopBtnTwo() {
  }}  
    
    className="relative hidden md:flex">
-     <a ref={macLinkRef} href='/PaymeSetupMac-1.0.0.zip' target="_blank" ></a>
+     <a ref={macLinkRef} href='/PaymeSetupMac-2.0.0.zip' target="_blank" ></a>
       <a    target="_blank" onClick={async (e)=>{
        e.preventDefault()
        macLinkRef.current.click()

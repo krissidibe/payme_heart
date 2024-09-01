@@ -73,10 +73,9 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
     }
     const datasFilter = countryFr.filter((item) =>
       item.Phone?.toString()
-        .toLowerCase()
-        .includes(currency.toString().replaceAll('"', ""))
+        .toLowerCase() == currency.toString().replaceAll('"', "")
     );
-    console.log(currency.toString().replaceAll('"', ""));
+   
 
     return datasFilter[0].Name ?? "";
   }
@@ -341,8 +340,8 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                             user.subscribe?.payment?.month == 12 ? "bg-blue-300/30" : "",
                           )}
                         >
-
-{ user.subscribe?.payment?.month == 0 && 
+{/* user.subscribe?.payment?.month == 0 */}
+{  true && 
 
  <Dialog >
   <DialogTrigger className="absolute z-50 hidden cursor-pointer right-3 top-5 group-hover:block">
