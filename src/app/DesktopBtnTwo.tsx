@@ -27,21 +27,14 @@ function DesktopBtnTwo() {
        e.preventDefault()
        windowsLinkRef.current.click()
        
-       const req2 = await fetch(good2, {
-         method: "GET",
-         cache: "no-cache",
-       });
-       const dataIp = await req2.json();
-     
+  
        const req = await fetch(`${process.env.BASE_API_URL}/api/view`, {
          method: "POST",
          body: JSON.stringify({
-           addressIp: dataIp?.IPv4 ?? "",
+           addressIp:  "",
            isDownload: true,
            isWindows: true,
-           country:
-             `${dataIp?.country_name} - ${dataIp?.state} @${dataIp?.country_code}` ??
-             "",
+           country:  "",
          }),
          cache: "no-cache",
        });
@@ -75,21 +68,15 @@ function DesktopBtnTwo() {
        e.preventDefault()
        macLinkRef.current.click()
        
-       const req2 = await fetch(good2, {
-         method: "GET",
-         cache: "no-cache",
-       });
-       const dataIp = await req2.json();
+       
      
        const req = await fetch(`${process.env.BASE_API_URL}/api/view`, {
          method: "POST",
          body: JSON.stringify({
-           addressIp: dataIp?.IPv4 ?? "",
+           addressIp:  "",
            isDownload: true,
            isMac: true,
-           country:
-             `${dataIp?.country_name} - ${dataIp?.state} @${dataIp?.country_code}` ??
-             "",
+           country: "",
          }),
          cache: "no-cache",
        });

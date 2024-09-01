@@ -1,7 +1,7 @@
 export const  country = [
   {
     "Code": "AD",
-    "Name": "Andorra",
+    "Name": "Andorre",
     "Native": "Andorra",
     "Phone": 376,
     "Continent": "Europe",
@@ -11,7 +11,7 @@ export const  country = [
   },
   {
     "Code": "AE",
-    "Name": "United Arab Emirates",
+    "Name": "Émirats Arabes Unis",
     "Native": "دولة الإمارات العربية المتحدة",
     "Phone": 971,
     "Continent": "Asia",
@@ -31,7 +31,7 @@ export const  country = [
   },
   {
     "Code": "AG",
-    "Name": "Antigua and Barbuda",
+    "Name": "Antigua et Barbuda",
     "Native": "Antigua and Barbuda",
     "Phone": 1268,
     "Continent": "North America",
@@ -51,7 +51,7 @@ export const  country = [
   },
   {
     "Code": "AL",
-    "Name": "Albania",
+    "Name": "Albanie",
     "Native": "Shqipëria",
     "Phone": 355,
     "Continent": "Europe",
@@ -61,7 +61,7 @@ export const  country = [
   },
   {
     "Code": "AM",
-    "Name": "Armenia",
+    "Name": "Arménie",
     "Native": "Հայաստան",
     "Phone": 374,
     "Continent": "Asia",
@@ -81,17 +81,17 @@ export const  country = [
   },
   {
     "Code": "AQ",
-    "Name": "Antarctica",
+    "Name": "Antarctique",
     "Native": "Antarctica",
     "Phone": 672,
     "Continent": "Antarctica",
     "Capital": "",
-    "Currency": "",
+    "Currency": "USD",
     "Languages": ""
   },
   {
     "Code": "AR",
-    "Name": "Argentina",
+    "Name": "Argentine",
     "Native": "Argentina",
     "Phone": 54,
     "Continent": "South America",
@@ -101,7 +101,7 @@ export const  country = [
   },
   {
     "Code": "AS",
-    "Name": "American Samoa",
+    "Name": "Samoa américaines",
     "Native": "American Samoa",
     "Phone": 1684,
     "Continent": "Oceania",
@@ -111,7 +111,7 @@ export const  country = [
   },
   {
     "Code": "AT",
-    "Name": "Austria",
+    "Name": "Autriche",
     "Native": "Österreich",
     "Phone": 43,
     "Continent": "Europe",
@@ -121,7 +121,7 @@ export const  country = [
   },
   {
     "Code": "AU",
-    "Name": "Australia",
+    "Name": "Australie",
     "Native": "Australia",
     "Phone": 61,
     "Continent": "Oceania",
@@ -141,7 +141,7 @@ export const  country = [
   },
   {
     "Code": "AX",
-    "Name": "Aland",
+    "Name": "Åland",
     "Native": "Åland",
     "Phone": 358,
     "Continent": "Europe",
@@ -151,7 +151,7 @@ export const  country = [
   },
   {
     "Code": "AZ",
-    "Name": "Azerbaijan",
+    "Name": "Azerbaïdjan",
     "Native": "Azərbaycan",
     "Phone": 994,
     "Continent": "Asia",
@@ -161,7 +161,7 @@ export const  country = [
   },
   {
     "Code": "BA",
-    "Name": "Bosnia and Herzegovina",
+    "Name": "Bosnie-Herzégovine",
     "Native": "Bosna i Hercegovina",
     "Phone": 387,
     "Continent": "Europe",
@@ -171,7 +171,7 @@ export const  country = [
   },
   {
     "Code": "BB",
-    "Name": "Barbados",
+    "Name": "Barbade",
     "Native": "Barbados",
     "Phone": 1246,
     "Continent": "North America",
@@ -191,7 +191,7 @@ export const  country = [
   },
   {
     "Code": "BE",
-    "Name": "Belgium",
+    "Name": "Belgique",
     "Native": "België",
     "Phone": 32,
     "Continent": "Europe",
@@ -211,7 +211,7 @@ export const  country = [
   },
   {
     "Code": "BG",
-    "Name": "Bulgaria",
+    "Name": "Bulgarie",
     "Native": "България",
     "Phone": 359,
     "Continent": "Europe",
@@ -221,7 +221,7 @@ export const  country = [
   },
   {
     "Code": "BH",
-    "Name": "Bahrain",
+    "Name": "Bahreïn",
     "Native": "‏البحرين",
     "Phone": 973,
     "Continent": "Asia",
@@ -241,8 +241,8 @@ export const  country = [
   },
   {
     "Code": "BJ",
-    "Name": "Benin",
-    "Native": "Bénin",
+    "Name": "Bénin",
+    "Native": "Benin",
     "Phone": 229,
     "Continent": "Africa",
     "Capital": "Porto-Novo",
@@ -251,7 +251,7 @@ export const  country = [
   },
   {
     "Code": "BL",
-    "Name": "Saint Barthelemy",
+    "Name": "Saint Barthélemy",
     "Native": "Saint-Barthélemy",
     "Phone": 590,
     "Continent": "North America",
@@ -261,7 +261,7 @@ export const  country = [
   },
   {
     "Code": "BM",
-    "Name": "Bermuda",
+    "Name": "Bermudes",
     "Native": "Bermuda",
     "Phone": 1441,
     "Continent": "North America",
@@ -271,7 +271,7 @@ export const  country = [
   },
   {
     "Code": "BN",
-    "Name": "Brunei",
+    "Name": "Brunei Darussalam",
     "Native": "Negara Brunei Darussalam",
     "Phone": 673,
     "Continent": "Asia",
@@ -281,17 +281,17 @@ export const  country = [
   },
   {
     "Code": "BO",
-    "Name": "Bolivia",
+    "Name": "Bolivie",
     "Native": "Bolivia",
     "Phone": 591,
     "Continent": "South America",
     "Capital": "Sucre",
-    "Currency": "BOB,BOV",
+    "Currency": "BOB",
     "Languages": "es,ay,qu"
   },
   {
     "Code": "BQ",
-    "Name": "Bonaire",
+    "Name": "Bonaire, Saint Eustache et Saba",
     "Native": "Bonaire",
     "Phone": 5997,
     "Continent": "North America",
@@ -301,7 +301,7 @@ export const  country = [
   },
   {
     "Code": "BR",
-    "Name": "Brazil",
+    "Name": "Brésil",
     "Native": "Brasil",
     "Phone": 55,
     "Continent": "South America",
@@ -321,17 +321,17 @@ export const  country = [
   },
   {
     "Code": "BT",
-    "Name": "Bhutan",
+    "Name": "Bhoutan",
     "Native": "ʼbrug-yul",
     "Phone": 975,
     "Continent": "Asia",
     "Capital": "Thimphu",
-    "Currency": "BTN,INR",
+    "Currency": "BTN",
     "Languages": "dz"
   },
   {
     "Code": "BV",
-    "Name": "Bouvet Island",
+    "Name": "Île Bouvet",
     "Native": "Bouvetøya",
     "Phone": 47,
     "Continent": "Antarctica",
@@ -351,7 +351,7 @@ export const  country = [
   },
   {
     "Code": "BY",
-    "Name": "Belarus",
+    "Name": "Biélorussie",
     "Native": "Белару́сь",
     "Phone": 375,
     "Continent": "Europe",
@@ -381,7 +381,7 @@ export const  country = [
   },
   {
     "Code": "CC",
-    "Name": "Cocos (Keeling) Islands",
+    "Name": "Îles Cocos",
     "Native": "Cocos (Keeling) Islands",
     "Phone": 61,
     "Continent": "Asia",
@@ -391,7 +391,7 @@ export const  country = [
   },
   {
     "Code": "CD",
-    "Name": "Democratic Republic of the Congo",
+    "Name": "République démocratique du Congo",
     "Native": "République démocratique du Congo",
     "Phone": 243,
     "Continent": "Africa",
@@ -401,7 +401,7 @@ export const  country = [
   },
   {
     "Code": "CF",
-    "Name": "Central African Republic",
+    "Name": "République Centrafricaine",
     "Native": "Ködörösêse tî Bêafrîka",
     "Phone": 236,
     "Continent": "Africa",
@@ -411,7 +411,7 @@ export const  country = [
   },
   {
     "Code": "CG",
-    "Name": "Republic of the Congo",
+    "Name": "République du Congo",
     "Native": "République du Congo",
     "Phone": 242,
     "Continent": "Africa",
@@ -421,17 +421,17 @@ export const  country = [
   },
   {
     "Code": "CH",
-    "Name": "Switzerland",
+    "Name": "Suisse",
     "Native": "Schweiz",
     "Phone": 41,
     "Continent": "Europe",
     "Capital": "Bern",
-    "Currency": "CHE,CHF,CHW",
+    "Currency": "CHF",
     "Languages": "de,fr,it"
   },
   {
     "Code": "CI",
-    "Name": "Ivory Coast",
+    "Name": "Côte d'Ivoire",
     "Native": "Côte d'Ivoire",
     "Phone": 225,
     "Continent": "Africa",
@@ -441,7 +441,7 @@ export const  country = [
   },
   {
     "Code": "CK",
-    "Name": "Cook Islands",
+    "Name": "Îles Cook",
     "Native": "Cook Islands",
     "Phone": 682,
     "Continent": "Oceania",
@@ -451,17 +451,17 @@ export const  country = [
   },
   {
     "Code": "CL",
-    "Name": "Chile",
+    "Name": "Chili",
     "Native": "Chile",
     "Phone": 56,
     "Continent": "South America",
     "Capital": "Santiago",
-    "Currency": "CLF,CLP",
+    "Currency": "CLP",
     "Languages": "es"
   },
   {
     "Code": "CM",
-    "Name": "Cameroon",
+    "Name": "Cameroun",
     "Native": "Cameroon",
     "Phone": 237,
     "Continent": "Africa",
@@ -471,7 +471,7 @@ export const  country = [
   },
   {
     "Code": "CN",
-    "Name": "China",
+    "Name": "Chine",
     "Native": "中国",
     "Phone": 86,
     "Continent": "Asia",
@@ -481,7 +481,7 @@ export const  country = [
   },
   {
     "Code": "CO",
-    "Name": "Colombia",
+    "Name": "Colombie",
     "Native": "Colombia",
     "Phone": 57,
     "Continent": "South America",
@@ -506,12 +506,12 @@ export const  country = [
     "Phone": 53,
     "Continent": "North America",
     "Capital": "Havana",
-    "Currency": "CUC,CUP",
+    "Currency": "CUP",
     "Languages": "es"
   },
   {
     "Code": "CV",
-    "Name": "Cape Verde",
+    "Name": "Cap Vert",
     "Native": "Cabo Verde",
     "Phone": 238,
     "Continent": "Africa",
@@ -521,7 +521,7 @@ export const  country = [
   },
   {
     "Code": "CW",
-    "Name": "Curacao",
+    "Name": "Curaçao",
     "Native": "Curaçao",
     "Phone": 5999,
     "Continent": "North America",
@@ -531,7 +531,7 @@ export const  country = [
   },
   {
     "Code": "CX",
-    "Name": "Christmas Island",
+    "Name": "Île Christmas",
     "Native": "Christmas Island",
     "Phone": 61,
     "Continent": "Asia",
@@ -541,7 +541,7 @@ export const  country = [
   },
   {
     "Code": "CY",
-    "Name": "Cyprus",
+    "Name": "Chypre",
     "Native": "Κύπρος",
     "Phone": 357,
     "Continent": "Europe",
@@ -551,7 +551,7 @@ export const  country = [
   },
   {
     "Code": "CZ",
-    "Name": "Czech Republic",
+    "Name": "République Tchèque",
     "Native": "Česká republika",
     "Phone": 420,
     "Continent": "Europe",
@@ -561,7 +561,7 @@ export const  country = [
   },
   {
     "Code": "DE",
-    "Name": "Germany",
+    "Name": "Allemagne",
     "Native": "Deutschland",
     "Phone": 49,
     "Continent": "Europe",
@@ -581,7 +581,7 @@ export const  country = [
   },
   {
     "Code": "DK",
-    "Name": "Denmark",
+    "Name": "Danemark",
     "Native": "Danmark",
     "Phone": 45,
     "Continent": "Europe",
@@ -591,7 +591,7 @@ export const  country = [
   },
   {
     "Code": "DM",
-    "Name": "Dominica",
+    "Name": "République Dominicaine",
     "Native": "Dominica",
     "Phone": 1767,
     "Continent": "North America",
@@ -611,7 +611,7 @@ export const  country = [
   },
   {
     "Code": "DZ",
-    "Name": "Algeria",
+    "Name": "Algérie",
     "Native": "الجزائر",
     "Phone": 213,
     "Continent": "Africa",
@@ -621,7 +621,7 @@ export const  country = [
   },
   {
     "Code": "EC",
-    "Name": "Ecuador",
+    "Name": "Équateur",
     "Native": "Ecuador",
     "Phone": 593,
     "Continent": "South America",
@@ -631,7 +631,7 @@ export const  country = [
   },
   {
     "Code": "EE",
-    "Name": "Estonia",
+    "Name": "Estonie",
     "Native": "Eesti",
     "Phone": 372,
     "Continent": "Europe",
@@ -641,7 +641,7 @@ export const  country = [
   },
   {
     "Code": "EG",
-    "Name": "Egypt",
+    "Name": "Égypte",
     "Native": "مصر‎",
     "Phone": 20,
     "Continent": "Africa",
@@ -649,19 +649,10 @@ export const  country = [
     "Currency": "EGP",
     "Languages": "ar"
   },
-  {
-    "Code": "EH",
-    "Name": "Western Sahara",
-    "Native": "الصحراء الغربية",
-    "Phone": 212,
-    "Continent": "Africa",
-    "Capital": "El Aaiún",
-    "Currency": "MAD,DZD,MRU",
-    "Languages": "es"
-  },
+ 
   {
     "Code": "ER",
-    "Name": "Eritrea",
+    "Name": "Érythrée",
     "Native": "ኤርትራ",
     "Phone": 291,
     "Continent": "Africa",
@@ -671,7 +662,7 @@ export const  country = [
   },
   {
     "Code": "ES",
-    "Name": "Spain",
+    "Name": "Espagne",
     "Native": "España",
     "Phone": 34,
     "Continent": "Europe",
@@ -681,7 +672,7 @@ export const  country = [
   },
   {
     "Code": "ET",
-    "Name": "Ethiopia",
+    "Name": "Éthiopie",
     "Native": "ኢትዮጵያ",
     "Phone": 251,
     "Continent": "Africa",
@@ -691,7 +682,7 @@ export const  country = [
   },
   {
     "Code": "FI",
-    "Name": "Finland",
+    "Name": "Finlande",
     "Native": "Suomi",
     "Phone": 358,
     "Continent": "Europe",
@@ -701,7 +692,7 @@ export const  country = [
   },
   {
     "Code": "FJ",
-    "Name": "Fiji",
+    "Name": "Fidji",
     "Native": "Fiji",
     "Phone": 679,
     "Continent": "Oceania",
@@ -711,7 +702,7 @@ export const  country = [
   },
   {
     "Code": "FK",
-    "Name": "Falkland Islands",
+    "Name": "Îles Malouines",
     "Native": "Falkland Islands",
     "Phone": 500,
     "Continent": "South America",
@@ -721,7 +712,7 @@ export const  country = [
   },
   {
     "Code": "FM",
-    "Name": "Micronesia",
+    "Name": "Micronésie",
     "Native": "Micronesia",
     "Phone": 691,
     "Continent": "Oceania",
@@ -731,7 +722,7 @@ export const  country = [
   },
   {
     "Code": "FO",
-    "Name": "Faroe Islands",
+    "Name": "Îles Féroé",
     "Native": "Føroyar",
     "Phone": 298,
     "Continent": "Europe",
@@ -761,7 +752,7 @@ export const  country = [
   },
   {
     "Code": "GB",
-    "Name": "United Kingdom",
+    "Name": "Royaume-Uni",
     "Native": "United Kingdom",
     "Phone": 44,
     "Continent": "Europe",
@@ -771,7 +762,7 @@ export const  country = [
   },
   {
     "Code": "GD",
-    "Name": "Grenada",
+    "Name": "Grenade",
     "Native": "Grenada",
     "Phone": 1473,
     "Continent": "North America",
@@ -781,7 +772,7 @@ export const  country = [
   },
   {
     "Code": "GE",
-    "Name": "Georgia",
+    "Name": "Géorgie",
     "Native": "საქართველო",
     "Phone": 995,
     "Continent": "Asia",
@@ -791,7 +782,7 @@ export const  country = [
   },
   {
     "Code": "GF",
-    "Name": "French Guiana",
+    "Name": "Guyane française",
     "Native": "Guyane française",
     "Phone": 594,
     "Continent": "South America",
@@ -801,7 +792,7 @@ export const  country = [
   },
   {
     "Code": "GG",
-    "Name": "Guernsey",
+    "Name": "Guernesey",
     "Native": "Guernsey",
     "Phone": 44,
     "Continent": "Europe",
@@ -831,7 +822,7 @@ export const  country = [
   },
   {
     "Code": "GL",
-    "Name": "Greenland",
+    "Name": "Groenland",
     "Native": "Kalaallit Nunaat",
     "Phone": 299,
     "Continent": "North America",
@@ -841,7 +832,7 @@ export const  country = [
   },
   {
     "Code": "GM",
-    "Name": "Gambia",
+    "Name": "Gambie",
     "Native": "Gambia",
     "Phone": 220,
     "Continent": "Africa",
@@ -851,7 +842,7 @@ export const  country = [
   },
   {
     "Code": "GN",
-    "Name": "Guinea",
+    "Name": "Guinée",
     "Native": "Guinée",
     "Phone": 224,
     "Continent": "Africa",
@@ -871,7 +862,7 @@ export const  country = [
   },
   {
     "Code": "GQ",
-    "Name": "Equatorial Guinea",
+    "Name": "Guinée équatoriale",
     "Native": "Guinea Ecuatorial",
     "Phone": 240,
     "Continent": "Africa",
@@ -881,7 +872,7 @@ export const  country = [
   },
   {
     "Code": "GR",
-    "Name": "Greece",
+    "Name": "Grèce",
     "Native": "Ελλάδα",
     "Phone": 30,
     "Continent": "Europe",
@@ -891,7 +882,7 @@ export const  country = [
   },
   {
     "Code": "GS",
-    "Name": "South Georgia and the South Sandwich Islands",
+    "Name": "Géorgie du Sud et les Îles Sandwich du Sud",
     "Native": "South Georgia",
     "Phone": 500,
     "Continent": "Antarctica",
@@ -921,7 +912,7 @@ export const  country = [
   },
   {
     "Code": "GW",
-    "Name": "Guinea-Bissau",
+    "Name": "Guinée Bissau",
     "Native": "Guiné-Bissau",
     "Phone": 245,
     "Continent": "Africa",
@@ -951,7 +942,7 @@ export const  country = [
   },
   {
     "Code": "HM",
-    "Name": "Heard Island and McDonald Islands",
+    "Name": "Îles Heard et MacDonald",
     "Native": "Heard Island and McDonald Islands",
     "Phone": 61,
     "Continent": "Antarctica",
@@ -971,7 +962,7 @@ export const  country = [
   },
   {
     "Code": "HR",
-    "Name": "Croatia",
+    "Name": "Croatie",
     "Native": "Hrvatska",
     "Phone": 385,
     "Continent": "Europe",
@@ -981,17 +972,17 @@ export const  country = [
   },
   {
     "Code": "HT",
-    "Name": "Haiti",
+    "Name": "Haïti",
     "Native": "Haïti",
     "Phone": 509,
     "Continent": "North America",
     "Capital": "Port-au-Prince",
-    "Currency": "HTG,USD",
+    "Currency": "HTG",
     "Languages": "fr,ht"
   },
   {
     "Code": "HU",
-    "Name": "Hungary",
+    "Name": "Hongrie",
     "Native": "Magyarország",
     "Phone": 36,
     "Continent": "Europe",
@@ -1001,7 +992,7 @@ export const  country = [
   },
   {
     "Code": "ID",
-    "Name": "Indonesia",
+    "Name": "Indonésie",
     "Native": "Indonesia",
     "Phone": 62,
     "Continent": "Asia",
@@ -1011,7 +1002,7 @@ export const  country = [
   },
   {
     "Code": "IE",
-    "Name": "Ireland",
+    "Name": "Irlande",
     "Native": "Éire",
     "Phone": 353,
     "Continent": "Europe",
@@ -1021,7 +1012,7 @@ export const  country = [
   },
   {
     "Code": "IL",
-    "Name": "Israel",
+    "Name": "Israël",
     "Native": "יִשְׂרָאֵל",
     "Phone": 972,
     "Continent": "Asia",
@@ -1031,7 +1022,7 @@ export const  country = [
   },
   {
     "Code": "IM",
-    "Name": "Isle of Man",
+    "Name": "Île de Man",
     "Native": "Isle of Man",
     "Phone": 44,
     "Continent": "Europe",
@@ -1041,7 +1032,7 @@ export const  country = [
   },
   {
     "Code": "IN",
-    "Name": "India",
+    "Name": "Inde",
     "Native": "भारत",
     "Phone": 91,
     "Continent": "Asia",
@@ -1051,7 +1042,7 @@ export const  country = [
   },
   {
     "Code": "IO",
-    "Name": "British Indian Ocean Territory",
+    "Name": "Océan Indien Britannique",
     "Native": "British Indian Ocean Territory",
     "Phone": 246,
     "Continent": "Asia",
@@ -1081,7 +1072,7 @@ export const  country = [
   },
   {
     "Code": "IS",
-    "Name": "Iceland",
+    "Name": "Islande",
     "Native": "Ísland",
     "Phone": 354,
     "Continent": "Europe",
@@ -1091,7 +1082,7 @@ export const  country = [
   },
   {
     "Code": "IT",
-    "Name": "Italy",
+    "Name": "Italie",
     "Native": "Italia",
     "Phone": 39,
     "Continent": "Europe",
@@ -1111,7 +1102,7 @@ export const  country = [
   },
   {
     "Code": "JM",
-    "Name": "Jamaica",
+    "Name": "Jamaïque",
     "Native": "Jamaica",
     "Phone": 1876,
     "Continent": "North America",
@@ -1121,7 +1112,7 @@ export const  country = [
   },
   {
     "Code": "JO",
-    "Name": "Jordan",
+    "Name": "Jordanie",
     "Native": "الأردن",
     "Phone": 962,
     "Continent": "Asia",
@@ -1131,7 +1122,7 @@ export const  country = [
   },
   {
     "Code": "JP",
-    "Name": "Japan",
+    "Name": "Japon",
     "Native": "日本",
     "Phone": 81,
     "Continent": "Asia",
@@ -1151,7 +1142,7 @@ export const  country = [
   },
   {
     "Code": "KG",
-    "Name": "Kyrgyzstan",
+    "Name": "Kirghizistan",
     "Native": "Кыргызстан",
     "Phone": 996,
     "Continent": "Asia",
@@ -1161,7 +1152,7 @@ export const  country = [
   },
   {
     "Code": "KH",
-    "Name": "Cambodia",
+    "Name": "Cambodge",
     "Native": "Kâmpŭchéa",
     "Phone": 855,
     "Continent": "Asia",
@@ -1181,7 +1172,7 @@ export const  country = [
   },
   {
     "Code": "KM",
-    "Name": "Comoros",
+    "Name": "Comores",
     "Native": "Komori",
     "Phone": 269,
     "Continent": "Africa",
@@ -1191,7 +1182,7 @@ export const  country = [
   },
   {
     "Code": "KN",
-    "Name": "Saint Kitts and Nevis",
+    "Name": "Saint Christophe et Niévès",
     "Native": "Saint Kitts and Nevis",
     "Phone": 1869,
     "Continent": "North America",
@@ -1201,7 +1192,7 @@ export const  country = [
   },
   {
     "Code": "KP",
-    "Name": "North Korea",
+    "Name": "Corée du Nord",
     "Native": "북한",
     "Phone": 850,
     "Continent": "Asia",
@@ -1211,7 +1202,7 @@ export const  country = [
   },
   {
     "Code": "KR",
-    "Name": "South Korea",
+    "Name": "Corée du Sud",
     "Native": "대한민국",
     "Phone": 82,
     "Continent": "Asia",
@@ -1221,7 +1212,7 @@ export const  country = [
   },
   {
     "Code": "KW",
-    "Name": "Kuwait",
+    "Name": "Koweït",
     "Native": "الكويت",
     "Phone": 965,
     "Continent": "Asia",
@@ -1231,7 +1222,7 @@ export const  country = [
   },
   {
     "Code": "KY",
-    "Name": "Cayman Islands",
+    "Name": "Îles Caïmans",
     "Native": "Cayman Islands",
     "Phone": 1345,
     "Continent": "North America",
@@ -1261,7 +1252,7 @@ export const  country = [
   },
   {
     "Code": "LB",
-    "Name": "Lebanon",
+    "Name": "Liban",
     "Native": "لبنان",
     "Phone": 961,
     "Continent": "Asia",
@@ -1271,7 +1262,7 @@ export const  country = [
   },
   {
     "Code": "LC",
-    "Name": "Saint Lucia",
+    "Name": "Sainte Lucie",
     "Native": "Saint Lucia",
     "Phone": 1758,
     "Continent": "North America",
@@ -1301,7 +1292,7 @@ export const  country = [
   },
   {
     "Code": "LR",
-    "Name": "Liberia",
+    "Name": "Libéria",
     "Native": "Liberia",
     "Phone": 231,
     "Continent": "Africa",
@@ -1316,12 +1307,12 @@ export const  country = [
     "Phone": 266,
     "Continent": "Africa",
     "Capital": "Maseru",
-    "Currency": "LSL,ZAR",
+    "Currency": "LSL",
     "Languages": "en,st"
   },
   {
     "Code": "LT",
-    "Name": "Lithuania",
+    "Name": "Lituanie",
     "Native": "Lietuva",
     "Phone": 370,
     "Continent": "Europe",
@@ -1341,7 +1332,7 @@ export const  country = [
   },
   {
     "Code": "LV",
-    "Name": "Latvia",
+    "Name": "Lettonie",
     "Native": "Latvija",
     "Phone": 371,
     "Continent": "Europe",
@@ -1351,7 +1342,7 @@ export const  country = [
   },
   {
     "Code": "LY",
-    "Name": "Libya",
+    "Name": "Libye",
     "Native": "‏ليبيا",
     "Phone": 218,
     "Continent": "Africa",
@@ -1361,7 +1352,7 @@ export const  country = [
   },
   {
     "Code": "MA",
-    "Name": "Morocco",
+    "Name": "Maroc",
     "Native": "المغرب",
     "Phone": 212,
     "Continent": "Africa",
@@ -1381,7 +1372,7 @@ export const  country = [
   },
   {
     "Code": "MD",
-    "Name": "Moldova",
+    "Name": "Moldavie",
     "Native": "Moldova",
     "Phone": 373,
     "Continent": "Europe",
@@ -1391,7 +1382,7 @@ export const  country = [
   },
   {
     "Code": "ME",
-    "Name": "Montenegro",
+    "Name": "Monténégro",
     "Native": "Црна Гора",
     "Phone": 382,
     "Continent": "Europe",
@@ -1401,7 +1392,7 @@ export const  country = [
   },
   {
     "Code": "MF",
-    "Name": "Saint Martin",
+    "Name": "Saint Martin (partie française)",
     "Native": "Saint-Martin",
     "Phone": 590,
     "Continent": "North America",
@@ -1421,7 +1412,7 @@ export const  country = [
   },
   {
     "Code": "MH",
-    "Name": "Marshall Islands",
+    "Name": "Îles Marshall",
     "Native": "M̧ajeļ",
     "Phone": 692,
     "Continent": "Oceania",
@@ -1431,7 +1422,7 @@ export const  country = [
   },
   {
     "Code": "MK",
-    "Name": "North Macedonia",
+    "Name": "Macédoine du Nord",
     "Native": "Северна Македонија",
     "Phone": 389,
     "Continent": "Europe",
@@ -1461,7 +1452,7 @@ export const  country = [
   },
   {
     "Code": "MN",
-    "Name": "Mongolia",
+    "Name": "Mongolie",
     "Native": "Монгол улс",
     "Phone": 976,
     "Continent": "Asia",
@@ -1481,7 +1472,7 @@ export const  country = [
   },
   {
     "Code": "MP",
-    "Name": "Northern Mariana Islands",
+    "Name": "Îles Mariannes du Nord",
     "Native": "Northern Mariana Islands",
     "Phone": 1670,
     "Continent": "Oceania",
@@ -1501,7 +1492,7 @@ export const  country = [
   },
   {
     "Code": "MR",
-    "Name": "Mauritania",
+    "Name": "Mauritanie",
     "Native": "موريتانيا",
     "Phone": 222,
     "Continent": "Africa",
@@ -1521,7 +1512,7 @@ export const  country = [
   },
   {
     "Code": "MT",
-    "Name": "Malta",
+    "Name": "Malte",
     "Native": "Malta",
     "Phone": 356,
     "Continent": "Europe",
@@ -1561,7 +1552,7 @@ export const  country = [
   },
   {
     "Code": "MX",
-    "Name": "Mexico",
+    "Name": "Mexique",
     "Native": "México",
     "Phone": 52,
     "Continent": "North America",
@@ -1571,7 +1562,7 @@ export const  country = [
   },
   {
     "Code": "MY",
-    "Name": "Malaysia",
+    "Name": "Malaisie",
     "Native": "Malaysia",
     "Phone": 60,
     "Continent": "Asia",
@@ -1591,17 +1582,17 @@ export const  country = [
   },
   {
     "Code": "NA",
-    "Name": "Namibia",
+    "Name": "Namibie",
     "Native": "Namibia",
     "Phone": 264,
     "Continent": "Africa",
     "Capital": "Windhoek",
-    "Currency": "NAD,ZAR",
+    "Currency": "NAD",
     "Languages": "en,af"
   },
   {
     "Code": "NC",
-    "Name": "New Caledonia",
+    "Name": "Nouvelle Calédonie",
     "Native": "Nouvelle-Calédonie",
     "Phone": 687,
     "Continent": "Oceania",
@@ -1621,7 +1612,7 @@ export const  country = [
   },
   {
     "Code": "NF",
-    "Name": "Norfolk Island",
+    "Name": "Île Norfolk",
     "Native": "Norfolk Island",
     "Phone": 672,
     "Continent": "Oceania",
@@ -1631,7 +1622,7 @@ export const  country = [
   },
   {
     "Code": "NG",
-    "Name": "Nigeria",
+    "Name": "Nigéria",
     "Native": "Nigeria",
     "Phone": 234,
     "Continent": "Africa",
@@ -1651,7 +1642,7 @@ export const  country = [
   },
   {
     "Code": "NL",
-    "Name": "Netherlands",
+    "Name": "Pays-Bas",
     "Native": "Nederland",
     "Phone": 31,
     "Continent": "Europe",
@@ -1661,7 +1652,7 @@ export const  country = [
   },
   {
     "Code": "NO",
-    "Name": "Norway",
+    "Name": "Norvège",
     "Native": "Norge",
     "Phone": 47,
     "Continent": "Europe",
@@ -1671,7 +1662,7 @@ export const  country = [
   },
   {
     "Code": "NP",
-    "Name": "Nepal",
+    "Name": "Népal",
     "Native": "नेपाल",
     "Phone": 977,
     "Continent": "Asia",
@@ -1691,7 +1682,7 @@ export const  country = [
   },
   {
     "Code": "NU",
-    "Name": "Niue",
+    "Name": "Niué",
     "Native": "Niuē",
     "Phone": 683,
     "Continent": "Oceania",
@@ -1701,7 +1692,7 @@ export const  country = [
   },
   {
     "Code": "NZ",
-    "Name": "New Zealand",
+    "Name": "Nouvelle-Zélande",
     "Native": "New Zealand",
     "Phone": 64,
     "Continent": "Oceania",
@@ -1726,12 +1717,12 @@ export const  country = [
     "Phone": 507,
     "Continent": "North America",
     "Capital": "Panama City",
-    "Currency": "PAB,USD",
+    "Currency": "USD",
     "Languages": "es"
   },
   {
     "Code": "PE",
-    "Name": "Peru",
+    "Name": "Pérou",
     "Native": "Perú",
     "Phone": 51,
     "Continent": "South America",
@@ -1741,7 +1732,7 @@ export const  country = [
   },
   {
     "Code": "PF",
-    "Name": "French Polynesia",
+    "Name": "Polynésie française",
     "Native": "Polynésie française",
     "Phone": 689,
     "Continent": "Oceania",
@@ -1751,7 +1742,7 @@ export const  country = [
   },
   {
     "Code": "PG",
-    "Name": "Papua New Guinea",
+    "Name": "Papouasie Nouvelle Guinée",
     "Native": "Papua Niugini",
     "Phone": 675,
     "Continent": "Oceania",
@@ -1781,7 +1772,7 @@ export const  country = [
   },
   {
     "Code": "PL",
-    "Name": "Poland",
+    "Name": "Pologne",
     "Native": "Polska",
     "Phone": 48,
     "Continent": "Europe",
@@ -1791,7 +1782,7 @@ export const  country = [
   },
   {
     "Code": "PM",
-    "Name": "Saint Pierre and Miquelon",
+    "Name": "Saint Pierre et Miquelon",
     "Native": "Saint-Pierre-et-Miquelon",
     "Phone": 508,
     "Continent": "North America",
@@ -1801,7 +1792,7 @@ export const  country = [
   },
   {
     "Code": "PN",
-    "Name": "Pitcairn Islands",
+    "Name": "Îles Pitcairn",
     "Native": "Pitcairn Islands",
     "Phone": 64,
     "Continent": "Oceania",
@@ -1811,7 +1802,7 @@ export const  country = [
   },
   {
     "Code": "PR",
-    "Name": "Puerto Rico",
+    "Name": "Porto Rico",
     "Native": "Puerto Rico",
     "Phone": "1787,1939",
     "Continent": "North America",
@@ -1841,7 +1832,7 @@ export const  country = [
   },
   {
     "Code": "PW",
-    "Name": "Palau",
+    "Name": "Palaos",
     "Native": "Palau",
     "Phone": 680,
     "Continent": "Oceania",
@@ -1871,7 +1862,7 @@ export const  country = [
   },
   {
     "Code": "RE",
-    "Name": "Reunion",
+    "Name": "Réunion",
     "Native": "La Réunion",
     "Phone": 262,
     "Continent": "Africa",
@@ -1881,7 +1872,7 @@ export const  country = [
   },
   {
     "Code": "RO",
-    "Name": "Romania",
+    "Name": "Roumanie",
     "Native": "România",
     "Phone": 40,
     "Continent": "Europe",
@@ -1891,7 +1882,7 @@ export const  country = [
   },
   {
     "Code": "RS",
-    "Name": "Serbia",
+    "Name": "Serbie",
     "Native": "Србија",
     "Phone": 381,
     "Continent": "Europe",
@@ -1901,7 +1892,7 @@ export const  country = [
   },
   {
     "Code": "RU",
-    "Name": "Russia",
+    "Name": "Russie",
     "Native": "Россия",
     "Phone": 7,
     "Continent": "Europe",
@@ -1921,7 +1912,7 @@ export const  country = [
   },
   {
     "Code": "SA",
-    "Name": "Saudi Arabia",
+    "Name": "Arabie Saoudite",
     "Native": "العربية السعودية",
     "Phone": 966,
     "Continent": "Asia",
@@ -1931,7 +1922,7 @@ export const  country = [
   },
   {
     "Code": "SB",
-    "Name": "Solomon Islands",
+    "Name": "Îles Salomon",
     "Native": "Solomon Islands",
     "Phone": 677,
     "Continent": "Oceania",
@@ -1951,7 +1942,7 @@ export const  country = [
   },
   {
     "Code": "SD",
-    "Name": "Sudan",
+    "Name": "Soudan",
     "Native": "السودان",
     "Phone": 249,
     "Continent": "Africa",
@@ -1961,7 +1952,7 @@ export const  country = [
   },
   {
     "Code": "SE",
-    "Name": "Sweden",
+    "Name": "Suède",
     "Native": "Sverige",
     "Phone": 46,
     "Continent": "Europe",
@@ -1971,7 +1962,7 @@ export const  country = [
   },
   {
     "Code": "SG",
-    "Name": "Singapore",
+    "Name": "Singapour",
     "Native": "Singapore",
     "Phone": 65,
     "Continent": "Asia",
@@ -1981,7 +1972,7 @@ export const  country = [
   },
   {
     "Code": "SH",
-    "Name": "Saint Helena",
+    "Name": "Sainte Hélène",
     "Native": "Saint Helena",
     "Phone": 290,
     "Continent": "Africa",
@@ -1991,7 +1982,7 @@ export const  country = [
   },
   {
     "Code": "SI",
-    "Name": "Slovenia",
+    "Name": "Slovénie",
     "Native": "Slovenija",
     "Phone": 386,
     "Continent": "Europe",
@@ -2001,7 +1992,7 @@ export const  country = [
   },
   {
     "Code": "SJ",
-    "Name": "Svalbard and Jan Mayen",
+    "Name": "Svalbard et Île Jan Mayen",
     "Native": "Svalbard og Jan Mayen",
     "Phone": 4779,
     "Continent": "Europe",
@@ -2011,7 +2002,7 @@ export const  country = [
   },
   {
     "Code": "SK",
-    "Name": "Slovakia",
+    "Name": "Slovaquie",
     "Native": "Slovensko",
     "Phone": 421,
     "Continent": "Europe",
@@ -2031,7 +2022,7 @@ export const  country = [
   },
   {
     "Code": "SM",
-    "Name": "San Marino",
+    "Name": "Saint Marin",
     "Native": "San Marino",
     "Phone": 378,
     "Continent": "Europe",
@@ -2041,7 +2032,7 @@ export const  country = [
   },
   {
     "Code": "SN",
-    "Name": "Senegal",
+    "Name": "Sénégal",
     "Native": "Sénégal",
     "Phone": 221,
     "Continent": "Africa",
@@ -2051,7 +2042,7 @@ export const  country = [
   },
   {
     "Code": "SO",
-    "Name": "Somalia",
+    "Name": "Somalie",
     "Native": "Soomaaliya",
     "Phone": 252,
     "Continent": "Africa",
@@ -2071,7 +2062,7 @@ export const  country = [
   },
   {
     "Code": "SS",
-    "Name": "South Sudan",
+    "Name": "Soudan du Sud",
     "Native": "South Sudan",
     "Phone": 211,
     "Continent": "Africa",
@@ -2081,7 +2072,7 @@ export const  country = [
   },
   {
     "Code": "ST",
-    "Name": "Sao Tome and Principe",
+    "Name": "São Tomé et Principe",
     "Native": "São Tomé e Príncipe",
     "Phone": 239,
     "Continent": "Africa",
@@ -2096,12 +2087,12 @@ export const  country = [
     "Phone": 503,
     "Continent": "North America",
     "Capital": "San Salvador",
-    "Currency": "SVC,USD",
+    "Currency": "USD",
     "Languages": "es"
   },
   {
     "Code": "SX",
-    "Name": "Sint Maarten",
+    "Name": "Saint Martin (partie néerlandaise)",
     "Native": "Sint Maarten",
     "Phone": 1721,
     "Continent": "North America",
@@ -2111,7 +2102,7 @@ export const  country = [
   },
   {
     "Code": "SY",
-    "Name": "Syria",
+    "Name": "Syrie",
     "Native": "سوريا",
     "Phone": 963,
     "Continent": "Asia",
@@ -2121,7 +2112,7 @@ export const  country = [
   },
   {
     "Code": "SZ",
-    "Name": "Eswatini",
+    "Name": "Royaume d'Eswatini",
     "Native": "Eswatini",
     "Phone": 268,
     "Continent": "Africa",
@@ -2131,7 +2122,7 @@ export const  country = [
   },
   {
     "Code": "TC",
-    "Name": "Turks and Caicos Islands",
+    "Name": "Îles Turques et Caïques",
     "Native": "Turks and Caicos Islands",
     "Phone": 1649,
     "Continent": "North America",
@@ -2151,7 +2142,7 @@ export const  country = [
   },
   {
     "Code": "TF",
-    "Name": "French Southern Territories",
+    "Name": "Terres australes françaises",
     "Native": "Territoire des Terres australes et antarctiques fr",
     "Phone": 262,
     "Continent": "Antarctica",
@@ -2171,7 +2162,7 @@ export const  country = [
   },
   {
     "Code": "TH",
-    "Name": "Thailand",
+    "Name": "Thaïlande",
     "Native": "ประเทศไทย",
     "Phone": 66,
     "Continent": "Asia",
@@ -2181,7 +2172,7 @@ export const  country = [
   },
   {
     "Code": "TJ",
-    "Name": "Tajikistan",
+    "Name": "Tadjikistan",
     "Native": "Тоҷикистон",
     "Phone": 992,
     "Continent": "Asia",
@@ -2201,7 +2192,7 @@ export const  country = [
   },
   {
     "Code": "TL",
-    "Name": "East Timor",
+    "Name": "Timor-Leste",
     "Native": "Timor-Leste",
     "Phone": 670,
     "Continent": "Oceania",
@@ -2211,7 +2202,7 @@ export const  country = [
   },
   {
     "Code": "TM",
-    "Name": "Turkmenistan",
+    "Name": "Turkménistan",
     "Native": "Türkmenistan",
     "Phone": 993,
     "Continent": "Asia",
@@ -2221,7 +2212,7 @@ export const  country = [
   },
   {
     "Code": "TN",
-    "Name": "Tunisia",
+    "Name": "Tunisie",
     "Native": "تونس",
     "Phone": 216,
     "Continent": "Africa",
@@ -2241,7 +2232,7 @@ export const  country = [
   },
   {
     "Code": "TR",
-    "Name": "Turkey",
+    "Name": "Turquie",
     "Native": "Türkiye",
     "Phone": 90,
     "Continent": "Asia",
@@ -2251,7 +2242,7 @@ export const  country = [
   },
   {
     "Code": "TT",
-    "Name": "Trinidad and Tobago",
+    "Name": "Trinité et Tobago",
     "Native": "Trinidad and Tobago",
     "Phone": 1868,
     "Continent": "North America",
@@ -2271,7 +2262,7 @@ export const  country = [
   },
   {
     "Code": "TW",
-    "Name": "Taiwan",
+    "Name": "Taïwan",
     "Native": "臺灣",
     "Phone": 886,
     "Continent": "Asia",
@@ -2281,7 +2272,7 @@ export const  country = [
   },
   {
     "Code": "TZ",
-    "Name": "Tanzania",
+    "Name": "République unie de Tanzanie",
     "Native": "Tanzania",
     "Phone": 255,
     "Continent": "Africa",
@@ -2301,7 +2292,7 @@ export const  country = [
   },
   {
     "Code": "UG",
-    "Name": "Uganda",
+    "Name": "Ouganda",
     "Native": "Uganda",
     "Phone": 256,
     "Continent": "Africa",
@@ -2311,7 +2302,7 @@ export const  country = [
   },
   {
     "Code": "UM",
-    "Name": "U.S. Minor Outlying Islands",
+    "Name": "Îles mineures éloignées des États Unis",
     "Native": "United States Minor Outlying Islands",
     "Phone": 1,
     "Continent": "Oceania",
@@ -2321,12 +2312,12 @@ export const  country = [
   },
   {
     "Code": "US",
-    "Name": "United States",
+    "Name": "États-Unis d'Amérique",
     "Native": "United States",
     "Phone": 1,
     "Continent": "North America",
     "Capital": "Washington D.C.",
-    "Currency": "USD,USN,USS",
+    "Currency": "USD",
     "Languages": "en"
   },
   {
@@ -2336,12 +2327,12 @@ export const  country = [
     "Phone": 598,
     "Continent": "South America",
     "Capital": "Montevideo",
-    "Currency": "UYI,UYU",
+    "Currency": "UYU",
     "Languages": "es"
   },
   {
     "Code": "UZ",
-    "Name": "Uzbekistan",
+    "Name": "Ouzbékistan",
     "Native": "O‘zbekiston",
     "Phone": 998,
     "Continent": "Asia",
@@ -2351,7 +2342,7 @@ export const  country = [
   },
   {
     "Code": "VA",
-    "Name": "Vatican City",
+    "Name": "Saint Siège (Vatican)",
     "Native": "Vaticano",
     "Phone": 379,
     "Continent": "Europe",
@@ -2361,7 +2352,7 @@ export const  country = [
   },
   {
     "Code": "VC",
-    "Name": "Saint Vincent and the Grenadines",
+    "Name": "Saint Vincent et les Grenadines",
     "Native": "Saint Vincent and the Grenadines",
     "Phone": 1784,
     "Continent": "North America",
@@ -2381,7 +2372,7 @@ export const  country = [
   },
   {
     "Code": "VG",
-    "Name": "British Virgin Islands",
+    "Name": "Îles vierges britanniques",
     "Native": "British Virgin Islands",
     "Phone": 1284,
     "Continent": "North America",
@@ -2391,7 +2382,7 @@ export const  country = [
   },
   {
     "Code": "VI",
-    "Name": "U.S. Virgin Islands",
+    "Name": "Îles vierges américaines",
     "Native": "United States Virgin Islands",
     "Phone": 1340,
     "Continent": "North America",
@@ -2421,7 +2412,7 @@ export const  country = [
   },
   {
     "Code": "WF",
-    "Name": "Wallis and Futuna",
+    "Name": "Wallis et Futuna",
     "Native": "Wallis et Futuna",
     "Phone": 681,
     "Continent": "Oceania",
@@ -2451,7 +2442,7 @@ export const  country = [
   },
   {
     "Code": "YE",
-    "Name": "Yemen",
+    "Name": "Yémen",
     "Native": "اليَمَن",
     "Phone": 967,
     "Continent": "Asia",
@@ -2471,7 +2462,7 @@ export const  country = [
   },
   {
     "Code": "ZA",
-    "Name": "South Africa",
+    "Name": "Afrique du Sud",
     "Native": "South Africa",
     "Phone": 27,
     "Continent": "Africa",
@@ -2481,7 +2472,7 @@ export const  country = [
   },
   {
     "Code": "ZM",
-    "Name": "Zambia",
+    "Name": "Zambie",
     "Native": "Zambia",
     "Phone": 260,
     "Continent": "Africa",
@@ -2496,7 +2487,7 @@ export const  country = [
     "Phone": 263,
     "Continent": "Africa",
     "Capital": "Harare",
-    "Currency": "USD,ZAR,BWP,GBP,AUD,CNY,INR,JPY",
+    "Currency": "USD",
     "Languages": "en,sn,nd"
   }
 ]
