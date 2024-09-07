@@ -88,10 +88,9 @@ function DesktopBtnTwo() {
      
      <RiAppleFill className="mr-2" />
       Mac
-    
       </a> 
     </form>
-    </div>
+    </div> 
   )
 } 
 
