@@ -2132,7 +2132,7 @@ export const  country = [
   },
   {
     "Code": "TD",
-    "Name": "Chad",
+    "Name": "Tchad",
     "Native": "Tchad",
     "Phone": 235,
     "Continent": "Africa",
