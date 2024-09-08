@@ -140,7 +140,7 @@ if (e.target.files) {
                
                 <Textarea className='h-[140px]'   defaultValue={item?.description ?? ""}  placeholder='Description' name="description" />
                 <div className="flex items-center justify-center w-full gap-4">
-                <Input placeholder='Lien du bouton' className='flex-1' name="btnLink" />
+                <Input placeholder='Lien du bouton' defaultValue={item?.btnLink ?? ""}   className='flex-1' name="btnLink" />
                 <div className='flex gap-2'>
                     <p>Publier</p>
                     <Switch name='public' defaultChecked={item?.public ?? false} />
