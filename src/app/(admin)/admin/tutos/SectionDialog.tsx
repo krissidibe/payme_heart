@@ -118,7 +118,7 @@ if (e.target.files) {
 
        
 
-             {   <NextVideo   src={`${ video ?  URL.createObjectURL(video as Blob) :  item.videoLink }`}  />}
+             {   <NextVideo   src={`${ video ?  URL.createObjectURL(video as Blob) :  process.env.BASE_URL+"/public/"+item.videoLink }`}  />}
              {        <div
                 onClick={(e)=>{
                     e.stopPropagation()

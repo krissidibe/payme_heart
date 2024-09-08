@@ -129,7 +129,7 @@ export default async function Tutos() {
                     <TableCell className="hidden sm:table-cell">
                 <div className="relative flex">
                     <p className="absolute z-50 -left-[12px] top-3 text-xs">  {item.index}</p>
-                <NextVideo  className="cursor-pointer"   src={`${process.env.BASE_URL}${item.videoLink}`} controls={false}   />
+                <NextVideo  className="cursor-pointer"   src={`${process.env.BASE_URL}/public/${item.videoLink}`} controls={false}   />
                     
                 </div>
                     </TableCell>
