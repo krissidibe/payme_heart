@@ -411,10 +411,10 @@ model userDeleted {
   model Tutos {
   id          String       @id @default(cuid())
   index        Int?
-  section        String
-  title        String
-  description        String
-  videoLink        String
+  section        String @db.LongText
+  title        String @db.LongText
+  description        String @db.LongText
+  videoLink        String @db.LongText
   btnLink        String?
   primarySection        Boolean?
  
