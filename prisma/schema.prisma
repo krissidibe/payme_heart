@@ -405,6 +405,26 @@ model userDeleted {
 }
 
 
+
+
+
+  model Tutos {
+  id          String       @id @default(cuid())
+  index        Int?
+  section        String
+  title        String
+  description        String
+  videoLink        String
+  btnLink        String?
+  primarySection        Boolean?
+ 
+  public    Boolean      @default(false)
+  createdAt   DateTime?    @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+    
+}
+
+
  
 
 

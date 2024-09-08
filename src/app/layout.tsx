@@ -1,3 +1,4 @@
+import { TooltipProvider } from '@/components/ui/tooltip'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -22,7 +23,12 @@ export default function RootLayout({
   
   return (
     <html lang="fr" className='!scroll-smooth no-scrollbar w-full h-full no-scrollbar' >
-      <body className={inter.className}>{children}</body>
+
+      <body className={inter.className}>
+      <TooltipProvider>
+        {children}
+      </TooltipProvider>
+        </body>
     </html>
   )
 }

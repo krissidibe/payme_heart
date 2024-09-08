@@ -72,6 +72,7 @@
     "next": "14.0.4",
     "next-auth": "^4.22.3",
     "next-themes": "^0.2.1",
+    "next-video": "^1.1.4",
     "node-cron": "^3.0.3",
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.7",
