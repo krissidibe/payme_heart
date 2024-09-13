@@ -30,7 +30,13 @@ async function page() {
   const numberOfViews = await numberOfViewsRequest.json();
   const numberOfViewsDownload = await numberOfViewsDownloadRequest.json();
 
-
+  const datasClickTutoNumber = await prisma.tutoVideoView.count({
+      
+    where:{
+initial:true
+    }
+    
+   })
 
   
 
@@ -42,25 +48,34 @@ async function page() {
       <ModalUserDetailView
             name=" Nbre de visite"
             value={userDatas.length.toString().padStart(5, "0")}
+            valueDownload={numberOfViewsDownload.length.toString().padStart(5, "0")}
           />
+          
       
      
       {/* SidebarAdmin */}
       <div className="flex flex-col flex-1 w-full h-full gap-4 p-10 mt-10 bg-zinc-900/80 rounded-2xl">
         <div className="flex w-full gap-6">
           <ModalDetailView
-            name=" Nbre de visite"
+            name="Nbre de visite"
             value={numberOfViews.length.toString().padStart(5, "0")}
           />
-          <ModalDetailView
-            name="Téléchargement"
+       
+         {/*  <ModalDetailView
+            name="WebApp"
             value={numberOfViewsDownload.length.toString().padStart(5, "0")}
+          /> */}
+
+<ModalDetailView
+            name="Tutoriels"
+            value={datasClickTutoNumber.toString().padStart(5, "0")}
           />
           <ModalDetailView
-            name="Compte supprimé"
+            name="Suppression"
             value={userDatasDeleted.length.toString().padStart(5, "0")}
           />
         </div>
+        
       </div>
     </div>
   );

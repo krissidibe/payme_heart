@@ -76,7 +76,15 @@ export default async function Tutos() {
       orderBy:{
         index:"asc"
      },
+     include:{
+      _count: {
+        select: { tutoVideoView: true },
+      },
+     },
+     
     })
+
+
   return (
     <div className="flex flex-col w-full min-h-screen bg-muted/0">
     
@@ -95,10 +103,8 @@ export default async function Tutos() {
             <TabsContent value="all">
               <Card x-chunk="dashboard-06-chunk-0">
                 <CardHeader>
-                  <CardTitle>Tutos</CardTitle>
-                  <CardDescription>
-                    Mes Tutoriels par section
-                  </CardDescription>
+                  <CardTitle className="text-md">Tutos </CardTitle>
+                 
                 </CardHeader>
                 <CardContent>
                   <Table className="overflow-y-scroll no-scrollbar">
@@ -109,6 +115,7 @@ export default async function Tutos() {
                           <span className="sr-only">Image</span>
                         </TableHead>
                         <TableHead>Section</TableHead>
+                        <TableHead  className="max-w-[70px] w-[70px]">Vue</TableHead>
                         <TableHead className="max-w-[200px]" >Titre</TableHead>
                       
                        
@@ -124,7 +131,7 @@ export default async function Tutos() {
                     </TableHeader>
                     <TableBody className="">
                    {datas.map((item,index)=>(
-                    <TableRow>
+                    <TableRow key={item.id}>
                       
                     <TableCell className="hidden sm:table-cell">
                 <div className="relative flex">
@@ -135,6 +142,9 @@ export default async function Tutos() {
                     </TableCell>
                     <TableCell className="font-medium text-xs   max-w-[200px]">
                     {item.section}
+                    </TableCell>
+                    <TableCell className="font-medium text-xs   max-w-[70px] w-[70px] px-4">
+                   {item._count.tutoVideoView}
                     </TableCell>
                     <TableCell className="font-medium text-xs  max-w-[200px]">
                     {item.title}

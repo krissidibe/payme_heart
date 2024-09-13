@@ -70,6 +70,7 @@ model User {
   planningItems PlanningItem[]
   transactions     Transaction[]
   payments     Payment[]
+  tutoVideoView TutoVideoView[]
   subscribeId      String?
   subscribe        Subscribe?         @relation(fields: [subscribeId], references: [id] , onDelete: SetNull)
   
@@ -421,6 +422,22 @@ model userDeleted {
   public    Boolean      @default(false)
   createdAt   DateTime?    @default(now()) @db.Timestamp(0)
   updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+
+  tutoVideoView TutoVideoView[]
+}
+
+
+  model TutoVideoView {
+  id          String       @id @default(cuid())
+ 
+  createdAt   DateTime?    @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+
+  initial     Boolean? @default(false)
+  tutosId     String?      
+  tutos       Tutos?         @relation(fields: [tutosId], references: [id] ,onDelete: SetNull )
+  userId      String?      
+  user        User?        @relation(fields: [userId], references: [id] ,onDelete: SetNull)
     
 }
 

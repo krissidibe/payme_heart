@@ -33,7 +33,7 @@ function Sidebar() {
       <h2 className="hidden pl-4 my-10 text-3xl font-bold transition-all duration-300 ease-in-out opacity-0 xl:flex animate-in xl:opacity-100 ">
         Instagram
       </h2>
-      <div className="flex items-center justify-center my-12 font-bold transition-all duration-300 ease-in-out opacity-100  xl:hidden xl:opacity-0">
+      <div className="flex items-center justify-center my-12 font-bold transition-all duration-300 ease-in-out opacity-100 xl:hidden xl:opacity-0">
         <InstagramIcon className="w-[24px] h-[24px]" />
       </div>
       {/* MenuItem */}

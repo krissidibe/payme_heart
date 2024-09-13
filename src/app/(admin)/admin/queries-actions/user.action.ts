@@ -16,6 +16,10 @@ export const fetchUser = async (form: FormData) => {
                 .toISOString()
                 .substring(0, 10) + "T23:59:00.026Z",
           },
+
+          email:  {
+            contains: form.get("searchValue")?.toString(),
+            }
           
         },
         
@@ -48,6 +52,9 @@ export const fetchUser = async (form: FormData) => {
                 .toISOString()
                 .substring(0, 10) + "T23:59:00.026Z",
           },
+          email:  {
+            contains: form.get("searchValue")?.toString(),
+            },
           AND: {
             enterprise: {
               currency: form.get("currency")?.toString().trim() as string,
@@ -79,6 +86,13 @@ export const fetchUser = async (form: FormData) => {
               new Date(form.get("endAt") as string)
                 .toISOString()
                 .substring(0, 10) + "T23:59:00.026Z",
+          },
+          
+          user:  {
+            email:  {
+              contains: form.get("searchValue")?.toString(),
+              },
+  
           },
 
           AND: {
@@ -123,6 +137,12 @@ export const fetchUser = async (form: FormData) => {
                 .substring(0, 10) + "T23:59:00.026Z",
           },
 
+          user:  {
+            email:  {
+              contains: form.get("searchValue")?.toString(),
+              },
+  
+          },
         
           AND: {
             user:{

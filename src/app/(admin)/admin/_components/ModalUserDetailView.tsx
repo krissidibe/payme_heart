@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "sonner"
-import { EyeIcon, RefreshCwIcon } from "lucide-react";
+import { EyeIcon, RefreshCwIcon, XCircle, XIcon } from "lucide-react";
 import dayjs from "dayjs";
 import { mkConfig, generateCsv, download } from "export-to-csv";
 import React, { useState } from "react";
@@ -30,9 +30,9 @@ import {
 import { fetchUser, updateCreditIA, updateSubscribe } from "../queries-actions/user.action";
 import { ExportAsExcel, ExportAsPdf, ExportAsCsv, CopyToClipboard, CopyTextToClipboard, PrintDocument, ExcelToJsonConverter, FileUpload } from "react-export-table";
 
-import { countryFr } from "@/utils/countryFr";
+import { country } from "@/utils/countryFr";
 import { useRouter } from "next/navigation";
-import { country } from "@/utils/countrySignIn";
+
 import clsx from "clsx";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { Label } from "@/components/ui/label";
@@ -58,20 +58,22 @@ const ExportAsExcelBtn = ({data}:{data:any}) => {
 
  
 
-function ModalUserDetailView({ name, value }: { name: string; value: string }) {
+function ModalUserDetailView({ name, value,valueDownload }: { name: string; value: string,valueDownload:string }) {
   const router = useRouter();
   const [dataUser, setDataUser] = useState<any>([]);
   const [dataPayment, setDataPayment] = useState<any>([]);
+  const [dataPaymentParent, setDataPaymentParent] = useState<any>([]);
   
   const [startAt, setStartAt] = useState<string>(`${new Date(Date.now()).getFullYear()}-${(parseInt(new Date(Date.now()).getMonth().toString()) + 1 ).toString().padStart(2,"0")}-${new Date(Date.now()).getDate().toString().padStart(2,"0")}`);
   const [endAt, setEndAt] = useState<string>(`${new Date(Date.now()).getFullYear()}-${(parseInt(new Date(Date.now()).getMonth().toString()) + 1 ).toString().padStart(2,"0")}-${new Date(Date.now()).getDate().toString().padStart(2,"0")}`);
+  const [searchValue, setSearchValue] = useState<string>("");
 
   function getCurrency(currency: string): React.ReactNode {
 
     if(currency == undefined){
       return "";
     }
-    const datasFilter = countryFr.filter((item) =>
+    const datasFilter = country.filter((item) =>
       item.Phone?.toString()
         .toLowerCase() == currency.toString().replaceAll('"', "")
     );
@@ -95,10 +97,10 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
 
   const csvConfig = mkConfig({ useKeysAsHeaders: true });
   return (
-    <div className="flex flex-col w-full gap-4 p-10 mt-10 bg-zinc-900/80 rounded-2xl">
+    <div className="relative flex flex-col w-full gap-4 p-10 mt-10 bg-zinc-900/80 rounded-2xl">
       <div className="relative flex flex-col items-start justify-between w-full text-2xl le">
         <p> Comptes inscrits</p>
-        <p className="font-bold text-[100px] mt-12 pb-10">
+        <div className="font-bold text-[100px] mt-12 pb-10">
           {" "}
           <Dialog>
             <DialogTrigger asChild>
@@ -129,6 +131,7 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                       }
                       setDataUser(null);
                       setDataPayment(dataNew);
+                      setDataPaymentParent(dataNew);
                     }}
                     className="flex flex-col items-center justify-center flex-1 w-full gap-2 "
                   >
@@ -170,7 +173,28 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                           placeholder="indicatif"
                         /> */}
                       </div>
-                      <div className=" md:flex-1"></div>
+                      <div className="flex gap-4 md:flex-1">
+                     <div className="flex items-center gap-2">
+                     <Input
+                          className="w-full max-w-[200px] "
+                          type="text"
+                          name="searchValue"
+                          placeholder="Rechercher"
+                          value={searchValue}
+                        onChange={(e)=>{
+                          setSearchValue(e.target.value)
+                        }}
+                        />
+                        {
+                          searchValue.length > 0 &&
+                        <XIcon className="opacity-50 cursor-pointer" onClick={()=>{
+                          setSearchValue("")
+                        }} />
+                        }
+                     </div>
+
+                    
+                      </div>
                      
                       <div className="flex gap-4">
                         <Input
@@ -313,9 +337,48 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
                   </form>
                   <div className="w-full h-full overflow-scroll no-scrollbar ">
                     <div className="flex flex-col w-full gap-2 px-6 pb-4">
-                      {dataPayment != null && (
+                     <div className="flex items-center gap-4 mt-2">
+                     {dataPayment != null && (
                         <p> Total : {parseFloat(calculeTotal(dataPayment).toString()).toFixed(2)}</p>
                       )}
+                      {(dataPayment != null  )    && (
+                          <Select defaultValue="all" name="mode" onValueChange={(e)=>{
+                             
+                            if (e == "all") {
+                              
+                              setDataPayment(dataPaymentParent)
+                              return
+                            }
+
+                            if (e == "intouch") {
+                        
+                           
+                              
+                              setDataPayment((x:any)=> x =  dataPaymentParent.filter( (x:any )=> x.type != "Stripe" ))
+                              return
+                            }
+
+                            if (e == "stripe") {
+                              setDataPayment((x:any)=> x =  dataPaymentParent.filter( (x:any )=> x.type == "Stripe" ))
+                              return
+                            } 
+                          }}>
+                          <SelectTrigger className="w-[180px]">
+                            <SelectValue placeholder="Type de paiement" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectGroup>
+                              <SelectLabel>Type de paiement</SelectLabel>
+                              <SelectItem   value="all">Tous</SelectItem>
+                              <SelectItem   value="intouch">Intouch</SelectItem>
+                              <SelectItem   value="stripe">
+                                Stripe
+                              </SelectItem>
+                            </SelectGroup>
+                          </SelectContent>
+                        </Select>
+                      )}
+                     </div>
                       {/* ItemRow */}
 
                       {dataUser != null && (
@@ -597,8 +660,16 @@ function ModalUserDetailView({ name, value }: { name: string; value: string }) {
               </div>
             </DialogContent>
           </Dialog>
-        </p>
+        </div>
 
+
+        <div className="absolute left-[400px] flex flex-col w-[400px] h-[160px] -bottom-2 gap-2 p-5 cursor-pointer bg-zinc-800 rounded-2xl">
+    <div className="flex items-center gap-2 text-2xl">
+      <EyeIcon />
+      <p>Téléchargement</p>
+    </div>
+    <p className="pl-8 font-bold text-7xl">{value}</p>
+  </div> 
         <form className="absolute right-0 z-50">
           <button
             onClick={() => {
