@@ -130,3 +130,57 @@ const newData = await prisma.tutos.delete({
 return newData
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const fetchTutoClick = async (form: FormData) => {
+
+
+  const datas = await prisma.tutoVideoView.findMany({
+    where: {
+      createdAt: {
+        gte:
+          new Date(form.get("startAt") as string)
+            .toISOString()
+            .substring(0, 10) + "T00:00:00.026Z",
+        lte:
+          new Date(form.get("endAt") as string)
+            .toISOString()
+            .substring(0, 10) + "T23:59:00.026Z",
+      },
+      initial:true
+
+     
+    },
+    include:{user:{include:{enterprise:true}}},
+    orderBy: {
+      createdAt: 'desc'
+    },
+   
+  
+    
+   
+  
+  });
+  
+   
+    
+    
+    return datas;
+
+};
