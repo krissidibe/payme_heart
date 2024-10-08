@@ -14,9 +14,12 @@ export async function GET(req: NextRequest, res: NextResponse) {
 
 
 export async function POST(req: NextRequest, res: NextResponse) {
-  const { searchParams } = new URL(req.url);
+  //const { searchParams } = new URL(req.url);
   const formData = await req.formData();
   const file = formData.get("image") as Blob | null;
+console.log("file",  formData);
+
+
 
  const data = await storeImage(file,formData.get("name") as string);
   
