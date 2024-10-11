@@ -10,6 +10,31 @@ export async function GET(req: NextRequest, res: NextResponse) {
   if(!checkPaymentValue){
     return new Response(JSON.stringify([]));
     }
+
+
+
+    if (searchParams.get("userId") != null && searchParams.get("last")   ) {
+    
+      const transaction = await prisma.transaction.findMany({
+        where: {
+         userId: searchParams.get("userId")!,
+         // userId: "clktbv4pl00116wg2uebnn1w6",
+ 
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+        take:30
+      
+      });
+     
+        return new Response(JSON.stringify(transaction));
+      
+    }
+     
+
+
+
   
   if (searchParams.get("userId") != null && searchParams.get("startAt") && searchParams.get("endAt")  ) {
     
