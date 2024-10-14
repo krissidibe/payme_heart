@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "sonner"
-import { EyeIcon, RefreshCwIcon, XCircle, XIcon } from "lucide-react";
+import { AlertCircleIcon, EyeIcon, RefreshCwIcon, XCircle, XIcon } from "lucide-react";
 import dayjs from "dayjs";
 import { mkConfig, generateCsv, download } from "export-to-csv";
 import React, { useState } from "react";
@@ -27,7 +27,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { fetchUser, updateCreditIA, updateSubscribe } from "../queries-actions/user.action";
+import { fetchUser, updateCreditIA, updateSubscribe, updateSubscribeEnd } from "../queries-actions/user.action";
 import { ExportAsExcel, ExportAsPdf, ExportAsCsv, CopyToClipboard, CopyTextToClipboard, PrintDocument, ExcelToJsonConverter, FileUpload } from "react-export-table";
 
 import { country } from "@/utils/countryFr";
@@ -462,6 +462,60 @@ function ModalUserDetailView({ name, value,valueDownload }: { name: string; valu
 
 
 
+
+{  true && 
+
+<Dialog >
+ <DialogTrigger className="absolute z-50 hidden cursor-pointer right-12 top-5 group-hover:block">
+ <AlertCircleIcon
+            
+            className="w-6 h-6 text-red-500 "
+          />
+ </DialogTrigger>
+
+ <DialogContent className="sm:max-w-[425px]">
+ <form 
+ 
+ onSubmit={ async (e)=>{
+   e.preventDefault()
+   const dataNew = await updateSubscribeEnd(user.subscribe.id);
+
+   if (dataNew.id != null) {
+
+     
+     toast("Modification efectuer avec succes ", {
+       description: user.email,
+       
+     })
+   }
+ }}
+ 
+ >
+ <p className="flex-1 flex flex-col min-w-[220px] text-sm">
+                          <span className="mt-1" > {user?.name}</span>
+                          <span className="mt-1" > {user?.email}</span>
+                          <span className="mt-1" >   {getCurrency(user.enterprise?.currency)}{" "}</span>
+                          
+                          <Separator className="my-4"/>
+                          <span> {user.enterprise?.name}</span>
+                          <span> Fin d'abonnement :  {dayjs(`${user.subscribe?.endAt}`)
+                               .format("DD/MM/YYYY")
+                               .replace("T", " ")} </span>
+                          
+
+                         </p>
+
+                       <div className="flex justify-end w-full mt-2"> 
+                         
+                         <DialogClose>
+
+                           <Button className="self-end"  variant={"destructive"}>Bloquer l'utilisateur</Button>
+                         </DialogClose>
+                            </div>
+ </form>
+ </DialogContent>
+</Dialog>
+}
 
 
 

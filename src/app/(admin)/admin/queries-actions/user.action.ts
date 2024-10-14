@@ -205,6 +205,34 @@ export const updateSubscribe = async (userId:any) => {
 };
 
 
+export const updateSubscribeEnd = async (userId:any) => {
+
+
+  let dateEdit = new Date(Date.now());
+  
+
+
+  return  await prisma.subscribe.update({
+    where:{
+       id : userId,
+    },
+      data: {
+      
+       
+        endAt :  new Date(dateEdit),
+         
+        },
+   })
+
+
+
+
+
+};
+
+
+
+
 export const updateCreditIA = async (userId:any) => {
 
 
