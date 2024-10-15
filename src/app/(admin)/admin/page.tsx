@@ -38,6 +38,16 @@ initial:true
     
    })
 
+
+
+  const downloadNumber = await prisma.webView.count({
+      
+    where: { 
+      isDownload:true
+    },
+   })
+
+  
   
 
   return (
@@ -46,7 +56,7 @@ initial:true
       {/* SidebarAdmin */}
 
       <ModalUserDetailView
-            name=" Nbre de visite"
+            name=" Nbre de visite" 
             value={userDatas.length.toString().padStart(5, "0")}
             valueDownload={numberOfViewsDownload.length.toString().padStart(5, "0")}
           />

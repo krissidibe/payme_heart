@@ -722,7 +722,7 @@ function ModalUserDetailView({ name, value,valueDownload }: { name: string; valu
       <EyeIcon />
       <p>Téléchargement</p>
     </div>
-    <p className="pl-8 font-bold text-7xl">{value}</p>
+    <p className="pl-8 font-bold text-7xl">{valueDownload}</p>
   </div> 
         <form className="absolute right-0 z-50">
           <button
