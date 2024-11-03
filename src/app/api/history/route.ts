@@ -21,14 +21,17 @@ const compile = async (value: any) => {
 };
 
 export async function GET() {
-  console.log("yes Post");
+//  console.log("yes Post");
 }
 export async function POST(req: NextRequest) {
+
+  
   const { searchParams } = new URL(req.url);
   const startAt = searchParams.get("startAt");
   const endAt = searchParams.get("endAt");
   const currency = searchParams.get("currency");
   const dataNew = await req.json();
+  console.log("kris",startAt);
   /*   console.log(dataNew.dataTable);
  console.log(startAt);
  console.log(endAt); */
@@ -74,7 +77,7 @@ export async function POST(req: NextRequest) {
     );
     //console.log(JSON.stringify(dataTable));
 
-    console.log(dataNew.dataTable);
+ //   console.log(dataNew.dataTable);
 
     const logo = `https://paymefinance.com/images/logo-payme-complet.png`;
     //const logo =`${process.env.BASE_API_URL}/files/logo-payme-complet.png`
@@ -83,9 +86,9 @@ export async function POST(req: NextRequest) {
   
     
     const datasFilter =  currency
-    console.log("1",datasFilter);
-    console.log("2", dataNew);
-    console.log("2", dataNew.currency);
+   // console.log("1",datasFilter);
+   // console.log("2", dataNew);
+   // console.log("2", dataNew.currency);
 
     dataTable.forEach((i) => (i.createdAt = daysFr(i.createdAt)));
     dataTable.forEach(

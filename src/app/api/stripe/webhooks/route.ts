@@ -35,10 +35,10 @@ export async function POST(req: NextRequest) {
           case 14.77:
             month = 3;
             break;
-          case 28.3:
+          case 28.30:
             month = 6;
             break;
-          case 52.19:
+          case 52.20:
             month = 12;
             break;
 

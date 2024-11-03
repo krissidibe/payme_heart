@@ -16,18 +16,21 @@ export async function POST(req: NextRequest) {
 }
 export async function GET(req: NextRequest) {
   
+  const { searchParams } = new URL(req.url);
+ 
+ 
 
-
-
+  console.log("data =>",searchParams.get("email"));
+  
    const customer = await stripe.customers.create({
-    email:"assowlove@gmail.com"
+email:searchParams.get("email")!.toString()
    });
   const ephemeralKey = await stripe.ephemeralKeys.create(
     {customer: customer.id},
     {apiVersion: '2015-10-16'}
   );
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: 1099,
+    amount: Number(searchParams.get("price")),
     currency: 'eur',
     customer: customer.id,
     // In the latest version of the API, specifying the `automatic_payment_methods` parameter
@@ -41,9 +44,9 @@ export async function GET(req: NextRequest) {
     paymentIntent: paymentIntent.client_secret,
     ephemeralKey: ephemeralKey.secret,
     customer: customer.id,
-    publishableKey: 'pk_test_zc56UcJYQkLSEcqokFvcUUlo'
+    publishableKey: 'pk_live_9jmX1LVODjQ8AnoYoBtRloSI'
   }
-console.log("ret",ret);
+ 
 
   
   return   new Response(JSON.stringify(ret))
