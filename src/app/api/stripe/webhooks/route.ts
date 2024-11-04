@@ -31,14 +31,23 @@ export async function POST(req: NextRequest) {
         let month = 0;
         const priceAmout = parseFloat((parseFloat(session.amount_subtotal + "") / 100).toString());
 
+        console.log(priceAmout);
+        
         switch (priceAmout) {
           case 14.77:
             month = 3;
             break;
-          case 28.30:
+          case 28.3 :
             month = 6;
             break;
-          case 52.20:
+
+            case 28.30 :
+              month = 6;
+              break;
+          case 52.19:
+            month = 12;
+            break;
+            case 52.20:
             month = 12;
             break;
 
