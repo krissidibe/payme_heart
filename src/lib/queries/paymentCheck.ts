@@ -15,7 +15,7 @@ export const checkPayment = async (id: string) => {
 }
 
   const compareDateIsGreat =
-    new Date(data!.subscribe!.endAt ?? "") > new Date(Date.now());
+    new Date(data!.subscribe!.endAt) > new Date(Date.now());
 
 
   
