@@ -7,6 +7,12 @@ export async function GET(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
 
 
+  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+ 
+  if(!checkPaymentValue){
+     return new Response(JSON.stringify([]));
+    }
+
      
 
 

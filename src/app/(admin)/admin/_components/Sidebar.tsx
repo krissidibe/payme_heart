@@ -1,5 +1,6 @@
 import {
   AlignJustifyIcon,
+  AppleIcon,
   ClapperboardIcon,
   FileTextIcon,
   GalleryHorizontalIcon,
@@ -60,6 +61,7 @@ async function  Sidebar() {
      <ItemSidebar href="/admin/invoice" Icon={FileTextIcon} key={2} name="Facture" />
      <ItemSidebar href="/admin/tutos" Icon={VerifiedIcon} key={2} name="Tutoriels" />
      <ItemSidebar href="/admin/version" Icon={VerifiedIcon} key={2} name="Version" />
+     <ItemSidebar href="/admin/versionmobile" Icon={AppleIcon} key={2} name="Version mobile" />
     
      
 

@@ -407,6 +407,23 @@ model userDeleted {
 
 
 
+  model movileVersion {
+  id          String       @id @default(cuid())
+  code        String?
+  iosVersion        String?
+  iosLink        String?
+  iosRequired    Boolean      @default(false)
+  androidVersion        String?
+  androidLink        String?
+  androidRequired    Boolean      @default(false)
+  createdAt   DateTime?    @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime?    @default(now()) @db.Timestamp(0)
+    
+}
+
+
+
+
 
 
   model Tutos {
