@@ -11,8 +11,12 @@ export async function GET(req:NextRequest,res:NextResponse) {
 
 
    
-
+/*  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
  
+ if(!checkPaymentValue){
+    return new Response(JSON.stringify([]));
+   }
+  */
    if(searchParams.get("trash") !=null){
       const customer = await prisma.customers.findMany({
          where:{
