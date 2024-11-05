@@ -14,12 +14,7 @@ import { checkPayment } from "@/lib/queries/paymentCheck";
 export async function POST(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
 
-  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
  
-  if(!checkPaymentValue){
-     return new Response(JSON.stringify([]));
-    }
-
   const dataNew: any = await req.json();
 
   const name = "ISOK";
