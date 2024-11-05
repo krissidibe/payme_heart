@@ -160,7 +160,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
 
   const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
   if(!checkPaymentValue){
-    return null;
+    return new Response(null);
    }
 
   const projects = await prisma.project.findMany({
