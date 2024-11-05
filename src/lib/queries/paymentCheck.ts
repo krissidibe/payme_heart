@@ -18,6 +18,9 @@ export const checkPayment = async (id: string) => {
     new Date(data!.subscribe!.endAt) > new Date(Date.now());
 
 
+   // console.log("compareDateIsGreat",compareDateIsGreat);
+    
+
   
  
   if (compareDateIsGreat) {

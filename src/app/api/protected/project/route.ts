@@ -6,8 +6,9 @@ import { checkPayment } from "@/lib/queries/paymentCheck";
 export async function GET(req: NextRequest, res: NextResponse) {
   const { searchParams } = new URL(req.url);
 
-
  
+ 
+
 
   if (searchParams.get("trash") != null) {
     const project = await prisma.project.findMany({
@@ -26,6 +27,9 @@ export async function GET(req: NextRequest, res: NextResponse) {
     return new Response(JSON.stringify(project));
   }
   if (searchParams.get("projectId") != null) {
+    
+ 
+
     const project = await prisma.project.findFirst({
       where: {
         id: searchParams.get("projectId")!,
@@ -37,10 +41,18 @@ export async function GET(req: NextRequest, res: NextResponse) {
       include: { customer: true },
     });
 
+
+
     return new Response(JSON.stringify(project));
+
   }
 
   if (searchParams.get("userId") != null,searchParams.get("isvalide") != null) {
+
+
+
+
+
     const projects = await prisma.project.findMany({
       where: {
         userId: searchParams.get("userId")!,
@@ -145,6 +157,12 @@ export async function GET(req: NextRequest, res: NextResponse) {
   
     
  if(searchParams.get("sortType") == ""){
+
+  const checkPaymentValue =  await checkPayment(searchParams.get("userId")!)
+  if(!checkPaymentValue){
+    return null;
+   }
+
   const projects = await prisma.project.findMany({
     
     take:parseInt(searchParams.get("take")!),
@@ -178,7 +196,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
  
 
 
- 
+
 
  const projects = await prisma.project.findMany({
   take:parseInt(searchParams.get("take")!),
@@ -209,6 +227,8 @@ return new Response(JSON.stringify({
   totalPages : Math.ceil(projectsSort.length/parseInt(searchParams.get("take")!)),
 }));
   }
+
+
 
   const projects = await prisma.project.findMany({
     where: {
