@@ -733,8 +733,8 @@ Sélectionner un moyen de paiement
               const paymentStripePrice = dataRes.filter((x)=> x.type == dataPayment.pack)[0]
             
           
-            const success_url =  process.env.NODE_ENV === "development"  ?  "https://google.com" :  `${process.env.BASE_URL}/dashboard`
-            const cancel_url =   process.env.NODE_ENV === "development"  ?  "https://google.com" :  `${process.env.BASE_URL}/setting/subscribe`
+            const success_url =  process.env.NODE_ENV === "development"  ?  "https://google.com" :  `${process.env.BASE_URL}/subscribe/${USER_ID}`
+            const cancel_url =   process.env.NODE_ENV === "development"  ?  "https://google.com" :  `${process.env.BASE_URL}/subscribe/${USER_ID}`
                
               if(data?.stripeCustomerId == null || data?.stripeCustomerId == ""){
                
