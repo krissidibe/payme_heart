@@ -1159,7 +1159,7 @@ setCurrentOperateur(null)
        
      //   colors={isActive ? ["#2D2D2D", "#191919"] : ["#FFFFFF00","#FFFFFF00"]}
 
-        className="flex-col items-start justify-center px-3 rounded-xl  flex  h-[55px]" style={{ gap:0 , borderColor: isActive ? "#FFFFFF69" : "", borderWidth: isActive ? 0.2 : 0}}>
+        className="flex-col items-start justify-center px-3 rounded-xl  flex  h-[55px]" style={{ gap:0 , borderColor: isActive ? "#FFFFFF69" : "", borderWidth: isActive ? .5 : 0}}>
 
          { typePackage &&  <p className="text-sm font-semibold opacity-50 ">{ typePackage ? pack : packIA}</p>}
           <div className="flex flex-row items-center gap-2" >
