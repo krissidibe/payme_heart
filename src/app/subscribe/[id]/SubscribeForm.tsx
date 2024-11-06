@@ -188,9 +188,9 @@ export default function SubscribeForm() {
   }
   );
 
- // const BASE_API_URL = "https://paymefinance.com"
-  const BASE_API_URL = "http://localhost:3001"
-  const USER_ID =router.toString().replace("/subscribe/","")
+const BASE_API_URL = "https://paymefinance.com"
+
+  const USER_ID =router?.toString().replace("/subscribe/","")
 
    const addNewPaymentIntouch = async (
     data:Payment
