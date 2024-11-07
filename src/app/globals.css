@@ -1,26 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
-
 
 html,
 body,
 :root {
   @apply w-full h-full text-white bg-black;
-
 }
 
+html,
+body {
+  touch-action: none;
+}
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
-      display: none;
+    display: none;
   }
- /* Hide scrollbar for IE, Edge and Firefox */
+  /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-}
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
 @layer base {
   :root {
@@ -29,166 +30,160 @@ body,
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
- 
+
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
- 
+
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
- 
+
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
- 
+
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
- 
+
     --accent: 0 0% 96.1%;
     --accent-foreground: 0 0% 9%;
- 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
- 
+
     --radius: 0.5rem;
   }
- 
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
- 
+
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
- 
+
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
- 
+
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
- 
+
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
- 
+
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
- 
+
     --accent: 0 0% 14.9%;
     --accent-foreground: 0 0% 98%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
- 
+
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
   }
 }
- 
+
 @layer base {
   * {
-    @apply border-border ;
+    @apply border-border;
   }
   body {
-    
     @apply bg-background text-foreground dark;
   }
 }
 
-
- 
-
-
-
 @layer components {
-.gestion{
-  /* Ellipse_Body */
+  .gestion {
+    /* Ellipse_Body */
 
-position: absolute;
-width: 1300px;
-height: 322px;
-left: calc(50% - 1300px/2 - 12px);
-top: 0px;
+    position: absolute;
+    width: 1300px;
+    height: 322px;
+    left: calc(50% - 1300px / 2 - 12px);
+    top: 0px;
 
-background: linear-gradient(90deg, rgba(251, 252, 225, 0.5) 22%, rgba(154, 154, 92, 0.5) 65.97%);
-opacity: 0.6;
-filter: blur(161px);
+    background: linear-gradient(
+      90deg,
+      rgba(251, 252, 225, 0.5) 22%,
+      rgba(154, 154, 92, 0.5) 65.97%
+    );
+    opacity: 0.6;
+    filter: blur(161px);
+  }
+  .heroEclipse {
+    /* Ellipse_Hero */
 
-}
-.heroEclipse{
-  /* Ellipse_Hero */
+    position: absolute;
+    width: 1300px;
+    height: 322px;
+    left: calc(50% - 1300px / 2 + 20px);
+    top: 577px;
 
-position: absolute;
-width: 1300px;
-height: 322px;
-left: calc(50% - 1300px/2 + 20px);
-top: 577px;
-
-background: linear-gradient(90deg, rgba(251, 252, 225, 0.5) 20.59%, rgba(154, 154, 92, 0.5) 62.69%);
-opacity: 0.6;
-filter: blur(161px);
-
-}
+    background: linear-gradient(
+      90deg,
+      rgba(251, 252, 225, 0.5) 20.59%,
+      rgba(154, 154, 92, 0.5) 62.69%
+    );
+    opacity: 0.6;
+    filter: blur(161px);
+  }
   .downloadApp2 {
-    
- /* Group 225 */
+    /* Group 225 */
 
- 
-top: 388px;
+    top: 388px;
 
-opacity: 0.7;
-filter: blur(55px);
+    opacity: 0.7;
+    filter: blur(55px);
 
+    /* Rectangle 7 */
 
-/* Rectangle 7 */
+    position: absolute;
+    width: 212px;
+    height: 62px;
+    left: 0px;
+    top: 33px;
+    opacity: 0.5;
 
-position: absolute;
-width: 212px;
-height: 62px;
-left: 0px;
-top: 33px;
-opacity: 0.5;
-
-background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(89.94deg, #999A5B -59.84%, #FFFFEA 152.29%);
-border-radius: 8px;
-
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      linear-gradient(89.94deg, #999a5b -59.84%, #ffffea 152.29%);
+    border-radius: 8px;
   }
   .downloadApp {
-    
- /* Group 225 */
+    /* Group 225 */
 
- 
-top: 388px;
+    top: 388px;
 
-opacity: 0.7;
-filter: blur(55px);
+    opacity: 0.7;
+    filter: blur(55px);
 
+    /* Rectangle 7 */
 
-/* Rectangle 7 */
+    position: absolute;
+    width: 362px;
+    height: 62px;
+    left: 0px;
+    top: 33px;
+    opacity: 0.5;
 
-position: absolute;
-width: 362px;
-height: 62px;
-left: 0px;
-top: 33px;
-opacity: 0.5;
-
-background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(89.94deg, #999A5B -59.84%, #FFFFEA 152.29%);
-border-radius: 8px;
-
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      linear-gradient(89.94deg, #999a5b -59.84%, #ffffea 152.29%);
+    border-radius: 8px;
   }
   .eclipse {
-    
-position: absolute;
-width: 1375.39px;
-height: 78.4px;
-left: calc(50% - 1375.39px/2 - 448.12px);
-top: 0px;
- z-index: 1;
-background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(88.8deg, #9A9A5C 29.89%, rgba(251, 252, 225, 0.62) 51.37%);
-filter: blur(161px);
-transform: rotate(15deg);
+    position: absolute;
+    width: 1375.39px;
+    height: 78.4px;
+    left: calc(50% - 1375.39px / 2 - 448.12px);
+    top: 0px;
+    z-index: 1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      linear-gradient(88.8deg, #9a9a5c 29.89%, rgba(251, 252, 225, 0.62) 51.37%);
+    filter: blur(161px);
+    transform: rotate(15deg);
   }
   /* 
     .card {
@@ -204,21 +199,16 @@ transform: rotate(15deg);
   .card:hover {
     background: #9a976870 radial-gradient(circle, transparent 1%, #9a976870 1%) center/15000%;
   } */
-    .primary{
-      @apply bg-[#9a9768]
-    }
-    .text-primary{
-      @apply text-[#9a9768]
-    }
-    .btn-blue {
-      @apply px-4 py-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-500;
-    }
-  
-    
+  .primary {
+    @apply bg-[#9a9768];
   }
-
-
-
+  .text-primary {
+    @apply text-[#9a9768];
+  }
+  .btn-blue {
+    @apply px-4 py-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-500;
+  }
+}
 
 body {
   color: rgb(var(--foreground-rgb));

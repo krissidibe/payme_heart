@@ -2,27 +2,14 @@
 import clsx from "clsx";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/UI/components/ui/label";
 import { usePathname, useRouter } from "next/navigation";
@@ -811,6 +798,7 @@ export default function SubscribeForm() {
                         <Input
                           placeholder="-"
                           value={number}
+                          type="number"
                           onChange={(e: any) => {
                             currentData.number = e.target.value;
                             setNumber(e.target.value);
