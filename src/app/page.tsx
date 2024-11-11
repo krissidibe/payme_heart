@@ -111,7 +111,7 @@ export default async function Home() {
             <div className="absolute -top-1 downloadApp2 -left-4 md:flex"></div>
 
             <div className="flex flex-row w-full gap-3 ml-5 ">
-              <div className="    text-[13px] gap-2   relative  border-none w-[120px] opacity-20   h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
+              <div className="    text-[13px] gap-2   relative  border w-[120px] opacity-20   h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
                 <img className="absolute" src="images/02.png" alt="" />
               </div>
 
@@ -121,7 +121,7 @@ export default async function Home() {
                 }
                 target="_blank"
               >
-                <div className="    text-[13px] gap-2    relative  border-none w-[120px]   h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
+                <div className="    text-[13px] gap-2    relative  border w-[120px]   h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
                   <img className="absolute" src="images/01.png" alt="" />
                 </div>
               </Link>
