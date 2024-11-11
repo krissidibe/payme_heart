@@ -45,7 +45,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     userData!.email.toLowerCase().trim().length < 6 ||
     userData!.name.trim().length < 5
   ) {
-    return null;
+    return new Response(null);
   }
 
   //  const passwordCryp = await bcrypt.hash(userData.password, 10);
