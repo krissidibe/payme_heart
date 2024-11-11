@@ -42,7 +42,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
     .toString()
     .substring(2, 4);
 
-  if (userData!.email.toLowerCase().length < 6 || userData!.name.length < 5) {
+  if (
+    userData!.email.toLowerCase().trim().length < 6 ||
+    userData!.name.trim().length < 5
+  ) {
     return null;
   }
 
