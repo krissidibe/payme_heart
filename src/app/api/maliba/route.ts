@@ -5,8 +5,12 @@ export async function GET(req: NextRequest, res: NextResponse) {
 
   return new Response(
     JSON.stringify({
-      maliba: false,
-      bamako: 100,
+      //Ios
+      maliba: true,
+      bamako: 101,
+      //Android
+      maliba2: false,
+      bamako2: 100,
     })
   );
 
