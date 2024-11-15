@@ -6,7 +6,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
   return new Response(
     JSON.stringify({
       //Ios
-      maliba: true,
+      maliba: false,
       bamako: 101,
       //Android
       maliba2: false,
