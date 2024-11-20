@@ -1,10 +1,10 @@
 import { TooltipProvider } from "@/components/ui/tooltip";
-import "./globals.css";
 import type { Metadata, Viewport } from "next";
+import "./globals.css";
 
-import { Inter } from "next/font/google";
 import clsx from "clsx";
-
+import { Inter } from "next/font/google";
+import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
@@ -32,7 +32,21 @@ export default function RootLayout({
       lang="fr"
       className="!scroll-smooth no-scrollbar w-full h-full no-scrollbar"
     >
-      <head></head>
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-GM9S1HY9Y5"
+        ></Script>
+        <Script id="google-analytics">
+          {`
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GM9S1HY9Y5');
+ `}
+        </Script>
+      </head>
       <body className={clsx(inter.className, "")}>
         <TooltipProvider>{children}</TooltipProvider>
       </body>
