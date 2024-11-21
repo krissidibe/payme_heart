@@ -9,7 +9,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
       maliba: false,
       bamako: 101,
       //Android
-      maliba2: false,
+      maliba2: true,
       bamako2: 100,
     })
   );
