@@ -113,7 +113,7 @@ export default async function Home() {
             <div className="flex flex-row w-full gap-3 ml-5 ">
               <Link
                 href={
-                  "https://play.google.com/store/apps/details?id=com.payme.mobileapp&hl=en-US&ah=i4Nc0bQK0wp6fVu2wAQNJtTSVgQ"
+                  "https://play.google.com/store/apps/details?id=com.payme.mobileapp"
                 }
               >
                 <div className="    text-[13px] gap-2   relative  border w-[120px]     h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
