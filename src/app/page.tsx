@@ -1,9 +1,9 @@
-import { FaLinkedinIn } from "react-icons/fa6";
 import localFont from "next/font/local";
-import MobileMenu from "./MobileMenu";
 import Link from "next/link";
-import FaqItem from "./FaqItem";
+import { FaLinkedinIn } from "react-icons/fa6";
 import DesktopBtnOne from "./DesktopBtnOne";
+import FaqItem from "./FaqItem";
+import MobileMenu from "./MobileMenu";
 export const dynamic = "force-dynamic";
 
 const titleFont = localFont({
@@ -111,9 +111,15 @@ export default async function Home() {
             <div className="absolute -top-1 downloadApp2 -left-4 md:flex"></div>
 
             <div className="flex flex-row w-full gap-3 ml-5 ">
-              <div className="    text-[13px] gap-2   relative  border w-[120px] opacity-20   h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
-                <img className="absolute" src="images/02.png" alt="" />
-              </div>
+              <Link
+                href={
+                  "https://play.google.com/store/apps/details?id=com.payme.mobileapp&hl=en-US&ah=i4Nc0bQK0wp6fVu2wAQNJtTSVgQ"
+                }
+              >
+                <div className="    text-[13px] gap-2   relative  border w-[120px]     h-[40px] cursor-pointer border-[#bbbc8b] text-white flex justify-center  rounded-md items-center border-white/50 ">
+                  <img className="absolute" src="images/02.png" alt="" />
+                </div>
+              </Link>
 
               <Link
                 href={
